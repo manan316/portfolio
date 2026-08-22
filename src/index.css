@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-dark: #0A0E17;
+  --bg-darker: #06090E;
+  --bg-parchment: #F4EFE6;
+  --bg-parchment-card: #FAF7F0;
+  --border-parchment: #E2DBD0;
+  --border-tactical: #253347;
+  --accent-orange: #FF5722;
+  --accent-gold: #E5A93C;
+  --accent-cyan: #00E5FF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0E17;
+}
+::-webkit-scrollbar-thumb {
+  background: #253347;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF5722;
+}
+
+/* Blueprint Parchment Pattern */
+.bg-blueprint-grid {
+  background-color: #F4EFE6;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Left Vertical Gutter Label */
+.vertical-gutter-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+/* Tactical Card Hover */
+.tactical-card {
+  background: #FFFFFF;
+  border: 1px solid #E2DBD0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tactical-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-color: #C8BFB0;
+}
+
+/* Pulsing beacon */
+@keyframes beacon {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.3); }
+}
+
+.beacon-pulse {
+  animation: beacon 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Signature text */
+.handwritten-signature {
+  font-family: 'Caveat', cursive;
+  font-size: 2.75rem;
+  line-height: 1;
+  color: #1E293B;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
