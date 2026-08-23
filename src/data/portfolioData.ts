@@ -132,6 +132,14 @@ export const projects: ProjectItem[] = [
       {
         url: "/images/slipsense_banner.png",
         caption: "SlipSense AI-Powered Landslide Segmentation Interface"
+      },
+      {
+        url: "/images/slipsense_dataupload.png",
+        caption: "Sentinel-2 .h5 Multispectral Imagery Ingestion"
+      },
+      {
+        url: "/images/slipsense_analysis.png",
+        caption: "DeepLabV3+ Semantic Segmentation Mask & Hazard Overlay"
       }
     ]
   },
@@ -149,7 +157,17 @@ export const projects: ProjectItem[] = [
       "Real-time video stream ingestion and bounding box generation with OpenCV."
     ],
     technologies: ["Python", "YOLOv8", "Intel OpenVINO", "NPU Acceleration", "COCO Dataset", "OpenCV"],
-    badge: "Intel NPU Accelerated"
+    badge: "Intel NPU Accelerated",
+    images: [
+      {
+        url: "/images/yolonp1.png",
+        caption: "Real-Time YOLOv8 Object Detection Inference"
+      },
+      {
+        url: "/images/yolonp2.png",
+        caption: "Intel(R) AI Boost NPU Hardware Utilization & Performance"
+      }
+    ]
   },
   {
     id: "openwrt-router",
@@ -187,7 +205,18 @@ export const projects: ProjectItem[] = [
       "Modular inter-process data pipeline linking C computation binaries with Python analytics."
     ],
     technologies: ["Python", "C", "ETS Modeling", "Time Series", "Scientific Computing", "Derivative Analysis"],
-    githubUrl: "https://github.com/manan316"
+    badge: "Multi-Language Pipeline (Python + C)",
+    githubUrl: "https://github.com/manan316",
+    images: [
+      {
+        url: "/images/ets_forecast.png",
+        caption: "ETS Model Training & Temperature Forecast Execution (Python)"
+      },
+      {
+        url: "/images/ets_derivatives.png",
+        caption: "High-Precision Discrete Derivative Calculation Matrix (C Implementation)"
+      }
+    ]
   },
   {
     id: "cnn-lstm-sentiment",
@@ -202,7 +231,14 @@ export const projects: ProjectItem[] = [
       "Pretrained word embeddings with tokenization pipelines handling multi-label classification.",
       "Evaluated across 28 distinct emotion categories from Reddit conversations."
     ],
-    technologies: ["Python", "PyTorch / TensorFlow", "CNN", "LSTM", "NLP", "Word Embeddings", "GoEmotions Dataset"]
+    technologies: ["Python", "PyTorch / TensorFlow", "CNN", "LSTM", "NLP", "Word Embeddings", "GoEmotions Dataset"],
+    badge: "Hybrid Neural Architecture",
+    images: [
+      {
+        url: "/images/CNNLSTM.png",
+        caption: "Hybrid CNN-LSTM Deep Learning Pipeline Architecture"
+      }
+    ]
   }
 ];
 

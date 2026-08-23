@@ -33,22 +33,25 @@ export const ImageModal: React.FC<ImageModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-fadeIn">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn"
+      onClick={onClose}
+    >
       <div 
-        className="relative max-w-4xl w-full bg-[#0D131F] border border-[#253347] rounded-xl overflow-hidden shadow-2xl"
+        className="relative max-w-4xl w-full bg-[#0D131F] border border-[#253347] rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.8)] animate-modal-in"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-3 border-b border-[#253347] bg-[#06090E]">
+        <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#253347] bg-[#06090E]">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#00E5FF]"></span>
-            <span className="font-mono text-xs font-bold text-[#F4EFE6] tracking-wider uppercase truncate">
+            <span className="w-2 h-2 rounded-full bg-[#00E5FF] beacon-pulse"></span>
+            <span className="font-mono text-xs font-bold text-[#F4EFE6] tracking-wider uppercase truncate max-w-md sm:max-w-xl">
               {title}
             </span>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-[#8899A6] hover:text-white hover:bg-white/10 transition-colors"
+            className="p-1.5 rounded-lg text-[#8899A6] hover:text-white hover:bg-white/10 hover:rotate-90 transition-all duration-200"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -56,25 +59,28 @@ export const ImageModal: React.FC<ImageModalProps> = ({
         </div>
 
         {/* Content Image */}
-        <div className="p-4 flex flex-col items-center justify-center bg-[#090D16] max-h-[75vh] overflow-auto">
+        <div className="p-4 sm:p-6 flex flex-col items-center justify-center bg-[#090D16] max-h-[75vh] overflow-auto">
           <img
             src={imageUrl}
             alt={title}
-            className="max-h-[65vh] w-auto max-w-full object-contain rounded border border-[#253347] shadow-lg"
+            className="max-h-[65vh] w-auto max-w-full object-contain rounded-lg border border-[#253347] shadow-2xl transition-transform duration-300 hover:scale-[1.01]"
           />
           {caption && (
-            <p className="mt-3 font-mono text-xs text-[#94A3B8] text-center max-w-xl">
+            <p className="mt-3.5 font-mono text-xs text-[#94A3B8] text-center max-w-xl leading-relaxed bg-[#0D131F]/80 p-2.5 rounded-lg border border-white/5">
               {caption}
             </p>
           )}
         </div>
 
         {/* Footer */}
-        <div className="px-5 py-2.5 border-t border-[#253347] bg-[#06090E] flex items-center justify-between text-[11px] font-mono text-[#64748B]">
-          <span>VERIFIED ASSET // ARTIFACT ARCHIVE</span>
+        <div className="px-5 py-3 border-t border-[#253347] bg-[#06090E] flex items-center justify-between text-[11px] font-mono text-[#64748B]">
+          <span className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+            <span>VERIFIED ASSET // ARTIFACT ARCHIVE</span>
+          </span>
           <button
             onClick={onClose}
-            className="px-3 py-1 rounded bg-[#1E293B] hover:bg-[#334155] text-[#F4EFE6] transition-colors"
+            className="px-3.5 py-1.5 rounded-lg bg-[#1E293B] hover:bg-[#334155] text-[#F4EFE6] transition-all hover:scale-105 font-bold interactive-btn"
           >
             CLOSE
           </button>

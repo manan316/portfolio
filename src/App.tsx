@@ -13,7 +13,7 @@ import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
   return (
-    <div className="relative min-h-screen bg-[#0A0E17] text-[#1E293B] font-sans">
+    <div className="relative min-h-screen bg-[#06090E] text-[#F8FAFC] font-sans selection:bg-[#00E5FF] selection:text-[#06090E]">
       {/* Fixed Tactical Gutter HUD */}
       <VerticalGutterTracker />
 
