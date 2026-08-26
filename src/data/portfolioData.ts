@@ -14,7 +14,7 @@ export const personalInfo: PersonalInfo = {
   pronouns: "He/Him",
   role: "Software Engineer & AI/ML / Embedded Systems Researcher",
   headline: "Engineer, Researcher & Polymath | Exploring Cloud, IoT, AI/ML, Computer Vision, Linux, Networking | Ex-Intern IIT Roorkee, UCT",
-  subHeadline: "B.Tech Information Technology & Mathematics · University of Jammu",
+  subHeadline: "B.Tech Artificial Intelligence & Mathematics · University of Jammu",
   status: "PRTS_LINK ACTIVE // SYS_READY",
   location: "Jammu & Kashmir, India",
   email: "manan31206@gmail.com",
@@ -378,16 +378,16 @@ export const skillCategories: SkillCategory[] = [
 export const educationList: EducationItem[] = [
   {
     institution: "University of Jammu",
-    degree: "Bachelor of Technology — B.Tech, Information Technology & Mathematics",
+    degree: "Bachelor of Technology — B.Tech, Artificial Intelligence & Mathematics",
     duration: "Aug 2024 – Aug 2028",
     location: "Jammu & Kashmir, India",
     highlights: [
-      "Core coursework: Information Technology, Discrete & Applied Mathematics, Data Structures, Algorithms, Linear Algebra, Machine Learning, DBMS, Software Engineering.",
+      "Core coursework: Artificial Intelligence, Discrete & Applied Mathematics, Data Structures, Algorithms, Linear Algebra, Machine Learning, DBMS, Software Engineering.",
       "Performed double role as Arjuna and Guru Kripacharya in 'Rashmirathi' at the 25th Bharat Rang Mahotsav (BRM) 2026 by National School of Drama (NSD).",
       "Organizing Team Member for Innovathon 1.0 — University of Jammu's premier National level Hackathon.",
       "Active researcher in systems programming, high-performance computing, applied mathematics, and edge AI computer vision."
     ],
-    skills: ["Information Technology", "Mathematics", "Artificial Intelligence", "Software Development", "Data Structures", "System Design"]
+    skills: ["Artificial Intelligence", "Mathematics", "Machine Learning", "Software Development", "Data Structures", "System Design"]
   }
 ];
 

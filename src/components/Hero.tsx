@@ -198,7 +198,7 @@ export const Hero: React.FC = () => {
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E1E22]/90 border border-[#2E2E35] font-mono text-xs text-[#E8A838] hover:border-[#E06D3B] transition-colors duration-200 shadow-sm">
                 <Sparkles className="w-3.5 h-3.5 text-[#E8A838] animate-spin" style={{ animationDuration: '8s' }} />
-                <span>B.Tech Information Technology & Mathematics · 2024–2028</span>
+                <span>B.Tech Artificial Intelligence & Mathematics · 2024–2028</span>
               </div>
               <h2 className="font-mono text-xs sm:text-sm tracking-widest text-[#A8A29E] uppercase flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E06D3B]"></span>
