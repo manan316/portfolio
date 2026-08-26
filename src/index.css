@@ -3,53 +3,81 @@
 @tailwind utilities;
 
 :root {
-  --bg-dark: #06090E;
-  --bg-dark-surface: #0A0E17;
-  --bg-card: #0D131F;
-  --bg-card-hover: #131C2E;
-  --border-dark: #1E293B;
-  --border-highlight: #253347;
-  --accent-cyan: #00E5FF;
-  --accent-sky: #38BDF8;
-  --accent-indigo: #6366F1;
-  --accent-orange: #FF5722;
-  --accent-emerald: #10B981;
+  --bg-paper: #F4EDE2;
+  --bg-paper-surface: #FAF7F2;
+  --bg-paper-card: #FFFDF9;
+  --bg-paper-inset: #EFE6D7;
+  --border-paper: #DECFC0;
+  --border-paper-hover: #B85D3B;
+  
+  --bg-dark: #121214;
+  --bg-dark-surface: #18181A;
+  --bg-dark-card: #1E1E22;
+  --border-dark: #2E2E35;
+
+  --retro-red: #B83A3A;
+  --retro-orange: #E06D3B;
+  --retro-amber: #E8A838;
+  --retro-sage: #3D8B7A;
+  --retro-brown: #3B281C;
+  --retro-rust: #A45238;
+  --retro-terracotta: #B85D3B;
+  --retro-coral: #D96B43;
+
+  --text-charcoal-primary: #1C1917;
+  --text-charcoal-secondary: #3D3833;
+  --text-charcoal-muted: #78716C;
 }
 
-/* Custom Dark Scrollbar */
+/* Custom Vintage Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #06090E;
+  background: #F4EDE2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1E293B;
+  background: #DECFC0;
   border-radius: 4px;
+  border: 2px solid #F4EDE2;
   transition: background 0.2s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00E5FF;
+  background: #A45238;
 }
 
-/* Dark Blueprint Grid Pattern */
+/* Dark Hero Starfield Background */
 .bg-dark-grid {
-  background-color: #06090E;
+  background-color: #121214;
   background-image: 
-    radial-gradient(rgba(0, 229, 255, 0.12) 1px, transparent 1px),
+    radial-gradient(rgba(232, 168, 56, 0.12) 1px, transparent 1px),
     linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 32px 32px, 32px 32px, 32px 32px;
 }
 
-/* Secondary Cyber Mesh Grid */
-.bg-cyber-mesh {
-  background-color: #0A0E17;
+/* Warm Parchment Paper Background with Concentric Radar Watermark Rings */
+.bg-parchment-canvas {
+  background-color: #F4EDE2;
   background-image: 
-    radial-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
-    linear-gradient(to right, rgba(0, 229, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
-  background-size: 28px 28px, 28px 28px, 28px 28px;
+    radial-gradient(circle at 85% 20%, rgba(184, 93, 59, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 15% 75%, rgba(232, 168, 56, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, transparent 0, transparent 80px, rgba(164, 82, 56, 0.04) 81px, rgba(164, 82, 56, 0.04) 82px, transparent 83px, transparent 180px, rgba(164, 82, 56, 0.035) 181px, rgba(164, 82, 56, 0.035) 182px, transparent 183px, transparent 290px, rgba(164, 82, 56, 0.03) 291px, rgba(164, 82, 56, 0.03) 292px, transparent 293px, transparent 420px, rgba(164, 82, 56, 0.025) 421px, rgba(164, 82, 56, 0.025) 422px, transparent 423px),
+    radial-gradient(rgba(140, 110, 80, 0.08) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 800px 800px, 28px 28px;
+}
+
+/* Secondary Warm Parchment Grid for Sections */
+.bg-cyber-mesh {
+  background-color: #F4EDE2;
+  background-image: 
+    radial-gradient(circle at 90% 15%, rgba(184, 93, 59, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 10% 85%, rgba(224, 109, 59, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 50% 35%, transparent 0, transparent 90px, rgba(184, 93, 59, 0.04) 91px, rgba(184, 93, 59, 0.04) 92px, transparent 93px, transparent 200px, rgba(184, 93, 59, 0.035) 201px, rgba(184, 93, 59, 0.035) 202px, transparent 203px, transparent 330px, rgba(184, 93, 59, 0.03) 331px, rgba(184, 93, 59, 0.03) 332px, transparent 333px),
+    radial-gradient(rgba(150, 120, 90, 0.07) 1px, transparent 1px),
+    linear-gradient(to right, rgba(160, 130, 100, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(160, 130, 100, 0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 900px 900px, 28px 28px, 28px 28px, 28px 28px;
 }
 
 /* Left Vertical Gutter Label */
@@ -59,13 +87,11 @@
   transform: rotate(180deg);
 }
 
-/* Tactical Dark Glassmorphism Card */
+/* Warm Ivory Card */
 .tactical-glass-card {
-  background: rgba(13, 19, 31, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #1E293B;
-  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.6);
+  background: #FAF7F2;
+  border: 1px solid #DECFC0;
+  box-shadow: 0 4px 20px -4px rgba(60, 45, 30, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
@@ -75,13 +101,13 @@
 }
 
 .tactical-glass-card:hover {
-  transform: translateY(-4px);
-  background: rgba(19, 28, 46, 0.95);
-  border-color: rgba(0, 229, 255, 0.4);
-  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8), 0 0 25px -4px rgba(0, 229, 255, 0.15);
+  transform: translateY(-3px);
+  background: #FFFDF9;
+  border-color: #B85D3B;
+  box-shadow: 0 14px 30px -6px rgba(60, 45, 30, 0.12), 0 0 0 1px rgba(184, 93, 59, 0.15);
 }
 
-/* Cyber Corner Brackets */
+/* Retro Corner Brackets */
 .corner-brackets {
   position: relative;
 }
@@ -99,47 +125,37 @@
 .corner-brackets::before {
   top: -1px;
   left: -1px;
-  border-top: 2px solid #00E5FF;
-  border-left: 2px solid #00E5FF;
+  border-top: 2px solid #A45238;
+  border-left: 2px solid #A45238;
 }
 
 .corner-brackets::after {
   bottom: -1px;
   right: -1px;
-  border-bottom: 2px solid #FF5722;
-  border-right: 2px solid #FF5722;
+  border-bottom: 2px solid #E06D3B;
+  border-right: 2px solid #E06D3B;
 }
 
 .corner-brackets:hover::before {
   width: 12px;
   height: 12px;
-  border-color: #38BDF8;
+  border-color: #B85D3B;
 }
 
 .corner-brackets:hover::after {
   width: 12px;
   height: 12px;
-  border-color: #FF5722;
+  border-color: #E8A838;
 }
 
 /* Pulsing Beacon */
 @keyframes beacon {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.3; transform: scale(1.4); }
+  50% { opacity: 0.35; transform: scale(1.35); }
 }
 
 .beacon-pulse {
   animation: beacon 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Ambient Radar Rings */
-@keyframes radar-ping {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  100% { transform: scale(1.6); opacity: 0; }
-}
-
-.radar-ring {
-  animation: radar-ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 /* Continuous Infinite Marquee */
@@ -162,9 +178,9 @@
 /* Scroll Reveal System */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -185,7 +201,7 @@
 /* Scale Reveal */
 .reveal-scale {
   opacity: 0;
-  transform: scale(0.95) translateY(16px);
+  transform: scale(0.96) translateY(14px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
@@ -196,26 +212,11 @@
   transform: scale(1) translateY(0);
 }
 
-/* Shimmer Text */
-@keyframes shimmer-sweep {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.shimmer-text {
-  background: linear-gradient(90deg, #F8FAFC 0%, #00E5FF 50%, #F8FAFC 100%);
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: shimmer-sweep 6s linear infinite;
-}
-
 /* Modal animation */
 @keyframes modalIn {
   from {
     opacity: 0;
-    transform: scale(0.93) translateY(12px);
+    transform: scale(0.94) translateY(10px);
   }
   to {
     opacity: 1;
@@ -224,7 +225,7 @@
 }
 
 .animate-modal-in {
-  animation: modalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: modalIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Fade In Keyframes */
@@ -234,7 +235,7 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.3s ease-out forwards;
+  animation: fadeIn 0.28s ease-out forwards;
 }
 
 /* Signature text */
@@ -242,14 +243,14 @@
   font-family: 'Caveat', cursive;
   font-size: 2.85rem;
   line-height: 1;
-  color: #F8FAFC;
+  color: #1C1917;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
   display: inline-block;
 }
 
 .handwritten-signature:hover {
   transform: scale(1.06) rotate(-1.5deg);
-  color: #00E5FF;
+  color: #A45238;
 }
 
 /* Interactive button micro-action */
@@ -261,18 +262,20 @@
   transform: scale(0.97);
 }
 
-/* Glow Utilities */
-.glow-cyan {
-  filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.45));
+/* Retro Rainbow Stripes Bar */
+.retro-stripe-bar {
+  display: flex;
+  height: 6px;
+  width: 100%;
+  border-radius: 9999px;
+  overflow: hidden;
 }
 
-.glow-orange {
-  filter: drop-shadow(0 0 15px rgba(255, 87, 34, 0.45));
-}
-
-.glow-indigo {
-  filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.45));
-}
+.retro-stripe-red { background-color: #B83A3A; }
+.retro-stripe-orange { background-color: #E06D3B; }
+.retro-stripe-amber { background-color: #E8A838; }
+.retro-stripe-sage { background-color: #3D8B7A; }
+.retro-stripe-brown { background-color: #3B281C; }
 
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {

@@ -36,25 +36,27 @@ export const VerticalGutterTracker: React.FC = () => {
   }, []);
 
   return (
-    <aside className="hidden xl:flex fixed left-3 top-1/2 -translate-y-1/2 z-40 flex-col items-center gap-5 pointer-events-none select-none transition-all duration-300">
+    <aside className="hidden xl:flex fixed left-0 top-0 bottom-0 z-40 w-12 bg-[#141416] border-r border-[#26262B] flex-col items-center justify-between py-8 pointer-events-none select-none transition-all duration-300 shadow-md">
       {/* Top Sector Indicator */}
-      <div className="w-1.5 h-16 bg-[#1E293B] rounded-full opacity-80 relative overflow-hidden">
+      <div className="w-1.5 h-16 bg-[#26262B] rounded-full overflow-hidden">
         <div 
-          className="w-full bg-[#00E5FF] shadow-[0_0_8px_#00E5FF] transition-all duration-200"
+          className="w-full bg-[#E06D3B] shadow-[0_0_8px_#E06D3B] transition-all duration-200"
           style={{ height: `${scrollPercent}%` }}
         />
       </div>
       
       {/* Vertical Active Text with Smooth Fade */}
-      <div className="vertical-gutter-text font-mono text-[11px] font-bold tracking-[0.25em] text-[#64748B] uppercase transition-all duration-300">
-        <span className="text-[#00E5FF] mr-2 drop-shadow-[0_0_8px_rgba(0,229,255,0.7)]">SYS //</span>
-        <span className="text-[#F8FAFC]">{activeSection}</span>
+      <div className="vertical-gutter-text font-mono text-[11px] font-bold tracking-[0.25em] text-[#52525B] uppercase transition-all duration-300">
+        <span className="text-[#E06D3B] mr-2">SYS //</span>
+        <span className="text-[#FAF5EE]">{activeSection}</span>
       </div>
 
-      {/* Terminal Node */}
+      {/* Terminal Node Indicator */}
       <div className="flex flex-col items-center gap-1.5">
-        <span className="w-2 h-2 rounded-full bg-[#00E5FF] beacon-pulse shadow-[0_0_10px_rgba(0,229,255,0.9)]"></span>
-        <span className="w-1 h-8 bg-gradient-to-b from-[#00E5FF]/40 to-transparent rounded-full"></span>
+        <span className="w-2 h-2 rounded-full bg-[#E06D3B] beacon-pulse shadow-[0_0_8px_rgba(224,109,59,0.8)]"></span>
+        <div className="w-5 h-5 rounded border border-[#2E2E35] flex items-center justify-center text-[8px] font-mono text-[#71717A]">
+          &lt;&gt;
+        </div>
       </div>
     </aside>
   );

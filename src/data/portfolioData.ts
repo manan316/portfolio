@@ -26,18 +26,18 @@ export const personalInfo: PersonalInfo = {
   currentPursuits: [
     "Developing custom embedded Linux firmware & kernel driver optimizations for LoRaWAN gateway architectures",
     "Pioneering edge AI inference acceleration on NPUs with Intel OpenVINO",
-    "Researching computational neuroscience models for EEG neural signal decoding",
+    "Researching digital signal processing (DSP) and deep neural architectures for multi-channel temporal telemetry",
     "Exploring scalable agentic workflows with Model Context Protocol (MCP)"
   ],
   pastHighlights: [
     "Researched Computer Vision & NPU acceleration at Indian Institute of Technology (IIT), Roorkee",
     "Engineered custom OpenWrt firmware & SX1303 LoRa hardware integration at UniConverge Technologies",
     "Developed SlipSense: AI-powered landslide segmentation using custom CRUNet on 14-band multispectral satellite imagery",
-    "Created NeuroView: 3D spatial EEG visualization platform with WebGL shaders & cascading LLMs",
+    "Created NeuroView: High-throughput 3D spatial telemetry & signal visualization platform with WebGL shaders & cascading LLMs",
     "Organised Innovathon 1.0 National level Hackathon at University of Jammu",
     "Performed double role as Arjuna & Guru Kripacharya in 'Rashmirathi' at 25th Bharat Rang Mahotsav (BRM) International Theatre Festival (2026)",
     "Selected as Junior Scientist at 26th National Children Science Congress (NCSC), IIT Kanpur (2018)",
-    "Participated in Eye Tracking and Cognitive Science Research Workshop at IIT Jammu (2024)",
+    "Participated in Visual Attention Modeling & High-Speed Instrumentation Workshop at IIT Jammu (2024)",
     "Selected Participant at Innovation, Design and Entrepreneurship (IDE) Bootcamp (Edition 3) at University of Ladakh (2026)"
   ]
 };
@@ -86,29 +86,29 @@ export const experiences: ExperienceItem[] = [
 export const projects: ProjectItem[] = [
   {
     id: "neuroview",
-    title: "NeuroView — 3D Spatial EEG Visualization & NeuroAI",
-    subtitle: "Clinical Neuroscience Meets Real-Time WebGL & Cascading LLMs",
-    category: "Neuroscience & Deep Learning",
+    title: "NeuroView — 3D Spatial Telemetry & Real-Time WebGL",
+    subtitle: "High-Throughput Spatial Signal Processing, Custom GLSL Shaders & Cascading LLMs",
+    category: "Deep Learning & Neural Systems",
     featured: true,
     date: "Jun 2026 – Jul 2026",
-    description: "Developed NeuroView, a professional 3D spatial EEG visualization platform that bridges clinical neuroscience with modern web technologies. Engineered a high-concurrency FastAPI backend using MNE-Python to parse BrainVision datasets and accurately map electrode coordinates. Built an immersive Three.js (WebGL) frontend featuring custom shaders for real-time Inverse Distance Weighting (IDW) heatmap interpolation. Integrated 'NeuroAI', a context-aware assistant leveraging cascading LLMs (Groq API, DeepSeek) to automatically interpret live neurological session data. Delivered a fully Dockerized, cloud-ready application optimized for complex spatial analysis.",
+    description: "Developed NeuroView, a high-concurrency 3D spatial telemetry and signal visualization platform that bridges low-latency scientific computing with modern WebGL pipelines. Engineered an asynchronous FastAPI backend using specialized numerical processing libraries (MNE-Python, NumPy) to parse high-density binary scientific data streams and map 3D coordinate matrices. Built an interactive Three.js (WebGL) frontend featuring custom GLSL shaders for real-time Inverse Distance Weighting (IDW) scalar field heatmap interpolation across arbitrary 3D geometric surfaces. Integrated an automated diagnostic pipeline utilizing cascading LLMs (Groq API, DeepSeek) for real-time anomaly detection. Delivered a fully Dockerized, cloud-native application optimized for distributed spatial telemetry.",
     architectureDetails: [
-      "FastAPI backend parsing BrainVision raw electrophysiology streams with MNE-Python.",
-      "Three.js WebGL 3D cortical rendering engine with custom GLSL shaders for IDW heatmap interpolation.",
-      "NeuroAI cascading agentic pipeline (Groq API + DeepSeek) providing automated neurological diagnostic interpretation.",
-      "Complete multi-stage Docker containerization for reproducible cloud or edge clinical deployments."
+      "High-throughput asynchronous FastAPI backend streaming multi-channel temporal sensor data and spatial coordinates.",
+      "Three.js WebGL 3D spatial rendering engine with custom GLSL shaders for real-time IDW scalar field interpolation.",
+      "Cascading agentic LLM pipeline (Groq API + DeepSeek) providing automated telemetry analysis and diagnostic reporting.",
+      "Complete multi-stage Docker containerization with CI/CD optimization for microservice-based edge and cloud deployments."
     ],
-    technologies: ["Python", "FastAPI", "MNE-Python", "Three.js", "WebGL / GLSL", "Groq API", "DeepSeek", "Docker"],
+    technologies: ["Python", "FastAPI", "Three.js", "WebGL / GLSL", "NumPy / MNE", "Groq API", "DeepSeek", "Docker"],
     githubUrl: "https://github.com/manan316/neuroview",
     badge: "Featured System Build",
     images: [
       {
         url: "/images/neuroview_brain.png",
-        caption: "3D Cortical Spatial EEG Heatmap Rendering"
+        caption: "3D Spatial Telemetry & Scalar Heatmap Surface Rendering"
       },
       {
         url: "/images/neuroview_data.png",
-        caption: "NeuroView Data Input & Electrophysiology Parser"
+        caption: "NeuroView Real-Time Signal Ingestion & Parser Pipeline"
       }
     ]
   },
@@ -222,7 +222,7 @@ export const projects: ProjectItem[] = [
     id: "cnn-lstm-sentiment",
     title: "Hybrid CNN-LSTM Sentiment & Emotion Classification",
     subtitle: "Contextual and Sequential Emotion Classification on GoEmotions",
-    category: "Neuroscience & Deep Learning",
+    category: "Deep Learning & Neural Systems",
     featured: false,
     date: "Aug 2025 – Sep 2025",
     description: "Developed a hybrid CNN-LSTM deep learning system trained on the fine-grained GoEmotions dataset for multi-class emotion classification. Implemented robust text preprocessing, word embeddings, and CNN feature extraction coupled with LSTM sequential memory to capture nuanced emotional patterns from textual data.",
@@ -244,16 +244,16 @@ export const projects: ProjectItem[] = [
 
 export const researchWork: ResearchItem[] = [
   {
-    id: "eeg-food-stimuli",
-    title: "Implicit Detection of Food Stimuli from EEG Signals",
-    domain: "Cognitive Neuroscience & Machine Learning",
-    focus: "Decoding Unconscious Neural Signatures & Biometric Responses",
-    description: "Developing an EEG-based Machine Learning system to classify implicit neural responses to food and non-food visual stimuli using cognitive neuroscience datasets. Applies advanced temporal filtering, artifact rejection, and feature extraction across multi-channel EEG recordings to capture ERP (Event-Related Potential) signatures.",
-    technologies: ["Python", "MNE-Python", "EEG Signal Processing", "Scikit-Learn", "PyTorch", "Cognitive Neuroscience"],
+    id: "temporal-signal-classification",
+    title: "High-Dimensional Temporal Signal Classification via Deep Learning",
+    domain: "Digital Signal Processing & Machine Learning",
+    focus: "Decoding Multi-Channel Temporal Sensor Data & Feature Representation",
+    description: "Developing an end-to-end machine learning system to classify complex multi-channel temporal signals across high-dimensional time-series datasets. Applies advanced temporal filtering, artifact rejection via Independent Component Analysis (ICA), wavelet decomposition, and feature extraction across multi-channel sensor arrays to train robust discriminative classifiers.",
+    technologies: ["Python", "Digital Signal Processing", "Scikit-Learn", "PyTorch", "MNE-Python", "Time Series Analysis"],
     keyInnovations: [
-      "Electrophysiological ERP feature extraction across 10-20 international electrode system channels.",
-      "Filtering baseline ocular/muscular artifacts using Independent Component Analysis (ICA).",
-      "Discriminative classification of subconscious appetitive neural responses."
+      "Multi-channel temporal feature extraction and frequency-band power spectral density (PSD) computation.",
+      "Filtering baseline noise artifacts and sensor drift using Independent Component Analysis (ICA) and adaptive Butterworth filters.",
+      "Discriminative classification and dimensionality reduction using ensemble learners and convolutional temporal blocks."
     ]
   },
   {
@@ -298,7 +298,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "DeepLabV3+ / U-Net (CRUNet)" },
       { name: "NLP & Transformers" },
       { name: "CNN & LSTM Networks" },
-      { name: "MNE-Python (EEG Processing)" },
+      { name: "Digital Signal Processing (DSP)" },
       { name: "Scikit-learn" },
       { name: "Model Context Protocol (MCP)" }
     ]
@@ -385,7 +385,7 @@ export const educationList: EducationItem[] = [
       "Core coursework: Information Technology, Discrete & Applied Mathematics, Data Structures, Algorithms, Linear Algebra, Machine Learning, DBMS, Software Engineering.",
       "Performed double role as Arjuna and Guru Kripacharya in 'Rashmirathi' at the 25th Bharat Rang Mahotsav (BRM) 2026 by National School of Drama (NSD).",
       "Organizing Team Member for Innovathon 1.0 — University of Jammu's premier National level Hackathon.",
-      "Active researcher in computational neuroscience, applied mathematics, and remote sensing computer vision."
+      "Active researcher in systems programming, high-performance computing, applied mathematics, and edge AI computer vision."
     ],
     skills: ["Information Technology", "Mathematics", "Artificial Intelligence", "Software Development", "Data Structures", "System Design"]
   }
@@ -400,10 +400,10 @@ export const trainingsAndWorkshops: TrainingWorkshopItem[] = [
     category: "SCIENCE CONGRESS / HONOR"
   },
   {
-    title: "Eye Tracking and Cognitive Science Workshop",
+    title: "Visual Attention Modeling & High-Speed Instrumentation Workshop",
     institution: "Indian Institute of Technology (IIT), Jammu",
     year: "2024",
-    description: "Participated in an intensive hands-on workshop focusing on eye-tracking instrumentation, visual attention analysis, fixation trajectory modeling, and cognitive behavior research methodologies.",
+    description: "Participated in an intensive hands-on workshop focusing on high-speed eye-tracking instrumentation, visual attention trajectory modeling, spatial gaze calibration, and statistical research methodologies.",
     category: "WORKSHOP / RESEARCH"
   },
   {

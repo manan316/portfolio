@@ -29,3 +29,12 @@ dist-ssr
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Cloudflare Pages / Workers
+.wrangler
+.cloudflare
+.mf
+
+# Gemini Brain & Agent Artifacts
+.agents
+.gemini

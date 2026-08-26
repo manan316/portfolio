@@ -11,24 +11,24 @@ export const ResearchSection: React.FC = () => {
     <section 
       id="research" 
       ref={containerRef} 
-      className="relative bg-cyber-mesh text-[#F8FAFC] border-t-2 border-[#1E293B] overflow-hidden"
+      className="relative bg-parchment-canvas text-[#1C1917] border-t-2 border-[#DECFC0] overflow-hidden"
     >
       {/* Sector Ribbon */}
-      <SectorRibbon sectorNumber="04" sectorName="SCIENTIFIC RESEARCH & COMPUTATIONAL NEUROSCIENCE" dark={true} />
+      <SectorRibbon sectorNumber="04" sectorName="SCIENTIFIC RESEARCH & APPLIED SIGNAL COMPUTING" dark={false} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16 sm:py-24">
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-14 space-y-3 reveal-on-scroll">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D131F] border border-[#1E293B] font-mono text-xs font-bold text-[#00E5FF] shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] beacon-pulse shadow-[0_0_6px_#00E5FF]"></span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7F2] border border-[#DECFC0] font-mono text-xs font-bold text-[#A45238] shadow-2xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#A45238] beacon-pulse shadow-[0_0_6px_#A45238]"></span>
             <span>// INTERDISCIPLINARY SCIENTIFIC INVESTIGATION</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold font-sans text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold font-sans text-[#1C1917]">
             Research & Publications Pipeline
           </h2>
-          <p className="text-xs sm:text-sm text-[#94A3B8] font-sans">
-            Investigating electrophysiological EEG signal classification, low-power neural processing unit acceleration, and satellite semantic segmentation.
+          <p className="text-xs sm:text-sm text-[#78716C] font-sans">
+            Investigating high-dimensional temporal signal classification, low-power neural processing unit acceleration, and multispectral satellite semantic segmentation.
           </p>
         </div>
 
@@ -37,53 +37,53 @@ export const ResearchSection: React.FC = () => {
           {researchWork.map((item, idx) => (
             <div
               key={item.id}
-              className={`tactical-glass-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-5 reveal-on-scroll reveal-delay-${(idx + 1) * 150} corner-brackets shadow-lg`}
+              className={`tactical-glass-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-5 reveal-on-scroll reveal-delay-${(idx + 1) * 150} corner-brackets shadow-sm`}
             >
               <div className="space-y-4">
                 
                 {/* Domain Pill & Institution */}
-                <div className="flex items-start justify-between gap-2 pb-3 border-b border-[#1E293B]">
-                  <div className="inline-flex items-center gap-1.5 font-mono text-[10px] font-bold px-3 py-1 rounded-lg bg-[#06090E] text-[#00E5FF] uppercase border border-[#00E5FF]/30 shadow-xs">
-                    <Brain className="w-3.5 h-3.5 text-[#00E5FF]" />
+                <div className="flex items-start justify-between gap-2 pb-3 border-b border-[#DECFC0]">
+                  <div className="inline-flex items-center gap-1.5 font-mono text-[10px] font-bold px-3 py-1 rounded-lg bg-[#EFE6D7] text-[#A45238] uppercase border border-[#DECFC0] shadow-2xs">
+                    <Brain className="w-3.5 h-3.5 text-[#A45238]" />
                     <span>{item.domain}</span>
                   </div>
-                  <span className="font-mono text-[10px] text-[#64748B] font-semibold">
+                  <span className="font-mono text-[10px] text-[#8C7D6B] font-semibold">
                     RES_0{idx + 1}
                   </span>
                 </div>
 
                 {/* Title & Focus */}
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold font-sans text-white leading-snug group-hover:text-[#00E5FF] transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold font-sans text-[#1C1917] leading-snug group-hover:text-[#A45238] transition-colors">
                     {item.title}
                   </h3>
-                  <div className="font-mono text-xs font-semibold text-[#00E5FF] mt-2 flex items-center gap-1.5">
-                    <Compass className="w-3.5 h-3.5 text-[#00E5FF]" />
+                  <div className="font-mono text-xs font-semibold text-[#A45238] mt-2 flex items-center gap-1.5">
+                    <Compass className="w-3.5 h-3.5 text-[#A45238]" />
                     <span>{item.focus}</span>
                   </div>
                   {item.institutions && (
-                    <div className="font-mono text-[11px] text-[#38BDF8] mt-1 font-semibold">
+                    <div className="font-mono text-[11px] text-[#B45309] mt-1 font-semibold">
                       Affiliation: {item.institutions}
                     </div>
                   )}
                 </div>
 
                 {/* Summary */}
-                <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed font-sans bg-[#06090E]/60 p-4 rounded-xl border border-[#1E293B]">
+                <p className="text-xs sm:text-sm text-[#44403C] leading-relaxed font-sans bg-[#EFE6D7] p-4 rounded-xl border border-[#DECFC0]">
                   {item.description}
                 </p>
 
                 {/* Key Innovations */}
-                <div className="space-y-2 bg-[#06090E]/80 p-4 rounded-xl border border-[#1E293B]">
-                  <div className="font-mono text-[10px] font-bold text-[#00E5FF] uppercase tracking-wider flex items-center gap-1.5">
-                    <FileText className="w-3 h-3 text-[#00E5FF]" />
+                <div className="space-y-2 bg-[#EFE6D7] p-4 rounded-xl border border-[#DECFC0]">
+                  <div className="font-mono text-[10px] font-bold text-[#A45238] uppercase tracking-wider flex items-center gap-1.5">
+                    <FileText className="w-3 h-3 text-[#A45238]" />
                     <span>KEY METHODOLOGICAL ADVANCES:</span>
                   </div>
-                  <ul className="space-y-2 text-xs text-[#94A3B8]">
+                  <ul className="space-y-2 text-xs text-[#44403C]">
                     {item.keyInnovations.map((innov, iIdx) => (
                       <li key={iIdx} className="flex items-start gap-2.5 group/item">
-                        <CheckCircle className="w-3.5 h-3.5 text-[#00E5FF] shrink-0 mt-0.5 group-hover/item:text-[#38BDF8] transition-colors" />
-                        <span className="leading-relaxed group-hover/item:text-[#F8FAFC] transition-colors">{innov}</span>
+                        <CheckCircle className="w-3.5 h-3.5 text-[#15803D] shrink-0 mt-0.5" />
+                        <span className="leading-relaxed group-hover/item:text-[#1C1917] transition-colors">{innov}</span>
                       </li>
                     ))}
                   </ul>
@@ -92,16 +92,16 @@ export const ResearchSection: React.FC = () => {
               </div>
 
               {/* Applied Frameworks */}
-              <div className="pt-4 border-t border-[#1E293B] space-y-2">
-                <div className="font-mono text-[10px] text-[#64748B] uppercase font-bold flex items-center gap-1.5">
-                  <Cpu className="w-3 h-3 text-[#64748B]" />
+              <div className="pt-4 border-t border-[#DECFC0] space-y-2">
+                <div className="font-mono text-[10px] text-[#78716C] uppercase font-bold flex items-center gap-1.5">
+                  <Cpu className="w-3 h-3 text-[#78716C]" />
                   <span>APPLIED FRAMEWORKS:</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-1.5">
                   {item.technologies.map((tech, tIdx) => (
                     <span
                       key={tIdx}
-                      className="font-mono text-[10px] px-2.5 py-1 rounded-md bg-[#06090E] hover:bg-[#131C2E] border border-[#1E293B] hover:border-[#00E5FF] text-[#CBD5E1] transition-all hover:scale-105 font-medium"
+                      className="font-mono text-[10px] px-2.5 py-1 rounded-md bg-[#EFE6D7] hover:bg-[#E8DDD0] border border-[#DECFC0] hover:border-[#A45238] text-[#574E45] transition-all hover:scale-105 font-medium"
                     >
                       {tech}
                     </span>
