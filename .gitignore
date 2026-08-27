@@ -38,3 +38,4 @@ dist-ssr
 # Gemini Brain & Agent Artifacts
 .agents
 .gemini
+scripts/preview/

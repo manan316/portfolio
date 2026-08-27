@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manan Sharma - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: letter;
+      margin: 0.40in 0.48in 0.40in 0.48in;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'EB Garamond', 'Latin Modern Roman', 'Times New Roman', Times, Garamond, serif;
+      font-size: 9.8pt;
+      line-height: 1.27;
+      color: #000000;
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .page {
+      width: 100%;
+      box-sizing: border-box;
+      page-break-after: always;
+      position: relative;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* HEADER STYLES */
+    header {
+      text-align: center;
+      margin-bottom: 7.5px;
+    }
+
+    h1.name {
+      font-size: 24pt;
+      font-weight: 600;
+      letter-spacing: 0.015em;
+      margin-bottom: 2px;
+      color: #000000;
+      line-height: 1.08;
+    }
+
+    .contact-line {
+      font-size: 9.3pt;
+      color: #111111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 6px;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 3.5px;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .contact-item:hover {
+      text-decoration: underline;
+    }
+
+    .contact-separator {
+      color: #555555;
+      font-size: 8.5pt;
+      margin: 0 1px;
+    }
+
+    .icon-svg {
+      width: 10.5px;
+      height: 10.5px;
+      fill: currentColor;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* SECTION STYLES */
+    section {
+      margin-bottom: 7.5px;
+    }
+
+    .section-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #000000;
+      border-bottom: 0.85pt solid #000000;
+      padding-bottom: 1px;
+      margin-bottom: 4px;
+    }
+
+    /* SKILLS SECTION */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2px;
+      font-size: 9.4pt;
+      line-height: 1.25;
+    }
+
+    .skill-row {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .skill-label {
+      font-weight: 700;
+      color: #000000;
+    }
+
+    /* ENTRY BLOCKS */
+    .entry-block {
+      margin-bottom: 5.5px;
+      break-inside: avoid;
+    }
+
+    .entry-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 9.7pt;
+      line-height: 1.22;
+    }
+
+    .entry-header-left {
+      display: inline-flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+
+    .entry-subheader {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 9.35pt;
+      line-height: 1.2;
+      margin-bottom: 1.5px;
+    }
+
+    .bold-title {
+      font-weight: 700;
+      color: #000000;
+    }
+
+    .italic-subtitle {
+      font-style: italic;
+      color: #111111;
+    }
+
+    .right-meta {
+      font-weight: 400;
+      text-align: right;
+      white-space: nowrap;
+      color: #111111;
+      font-size: 9.4pt;
+      margin-left: 8px;
+    }
+
+    .right-meta-italic {
+      font-style: italic;
+      text-align: right;
+      white-space: nowrap;
+      color: #222222;
+      font-size: 9.35pt;
+      margin-left: 8px;
+    }
+
+    /* BULLET LISTS */
+    ul.bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 1.5px;
+      margin-bottom: 0;
+    }
+
+    ul.bullet-list li {
+      position: relative;
+      padding-left: 11px;
+      margin-bottom: 1.8px;
+      font-size: 9.25pt;
+      line-height: 1.25;
+      text-align: justify;
+      text-justify: inter-word;
+      color: #111111;
+    }
+
+    ul.bullet-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    ul.bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 1px;
+      top: -0.5px;
+      font-size: 9.8pt;
+      color: #000000;
+    }
+
+    strong {
+      font-weight: 700;
+      color: #000000;
+    }
+
+    /* PROJECT ICONS & LINKS */
+    .project-links {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 3px;
+      margin-left: 2px;
+    }
+
+    .project-link-icon {
+      color: #000000;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+    }
+
+    .project-link-icon:hover {
+      color: #555555;
+    }
+
+    .project-tech {
+      font-style: italic;
+      font-weight: 400;
+      color: #222222;
+    }
+
+    /* CERTIFICATIONS LIST */
+    .cert-item {
+      margin-bottom: 3.5px;
+      break-inside: avoid;
+    }
+
+    .cert-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .cert-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 9.5pt;
+    }
+
+    .cert-skills {
+      padding-left: 11px;
+      position: relative;
+      font-size: 9.15pt;
+      line-height: 1.22;
+      margin-top: 0.8px;
+      color: #222222;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .cert-skills::before {
+      content: "•";
+      position: absolute;
+      left: 1px;
+      top: -0.5px;
+      font-size: 9.5pt;
+      color: #000000;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .page {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1 ==================== -->
+  <div class="page" id="page-1">
+    
+    <!-- HEADER -->
+    <header>
+      <h1 class="name">Manan Sharma</h1>
+      <div class="contact-line">
+        <a class="contact-item" href="mailto:manan31206@gmail.com">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>manan31206@gmail.com</span>
+        </a>
+        <span class="contact-separator">|</span>
+        <a class="contact-item" href="https://www.linkedin.com/in/manan-sharma-3980b1324/" target="_blank">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c.92 0 1.66-.74 1.66-1.66a1.66 1.66 0 0 0-1.66-1.66 1.66 1.66 0 0 0-1.66 1.66c0 .92.74 1.66 1.66 1.66m1.39 9.74v-8.37H5.07v8.37h2.78z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <span class="contact-separator">|</span>
+        <a class="contact-item" href="https://github.com/manan316" target="_blank">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          <span>github.com/manan316</span>
+        </a>
+        <span class="contact-separator">|</span>
+        <a class="contact-item" href="https://portfolio.manan31206.workers.dev" target="_blank">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          <span>portfolio.manan31206.workers.dev</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- TECHNICAL SKILLS -->
+    <section>
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <span class="skill-label">Programming:</span> Python, C, C++, Rust, R, TypeScript, JavaScript, Kotlin, MATLAB, SQL, Bash/Shell, PowerShell
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">AI / ML & Vision:</span> PyTorch, TensorFlow, Keras, Intel OpenVINO, OpenCV, YOLOv8, DeepLabV3+, Residual U-Net (CRUNet), Scikit-learn, Model Context Protocol (MCP), Hugging Face, LLM Pipelines
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Embedded & IoT:</span> OpenWrt, Linux Kernel Customization, Device Tree Overlays (.dts), SPI / I2C / UART Drivers, LoRaWAN (SX1303 Baseband), ChirpStack, MIPS (MT7628), ARM (NanoPi Allwinner H3), Raspberry Pi, Arduino
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Systems & Cloud:</span> Linux Administration (Debian, Ubuntu, Arch), Docker, Git, CI/CD, Azure, GCP, AWS (ECS, S3, Lambda), TCP/IP Networking, iptables, Network Security, DBMS
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Full Stack & Scientific:</span> FastAPI, Flask, React.js, Three.js (WebGL, GLSL Shaders), HTML5/CSS3, Tailwind CSS, NumPy, SciPy, MNE-Python (DSP / EEG), QGIS, Figma
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section>
+      <div class="section-title">Education</div>
+      <div class="entry-block">
+        <div class="entry-header">
+          <span class="bold-title">University of Jammu</span>
+          <span class="right-meta">Jammu & Kashmir, India</span>
+        </div>
+        <div class="entry-subheader">
+          <span class="italic-subtitle">Bachelor of Technology (B.Tech) in Artificial Intelligence & Mathematics</span>
+          <span class="right-meta-italic">2024 – Present</span>
+        </div>
+        <ul class="bullet-list">
+          <li><strong>Relevant Coursework:</strong> Artificial Intelligence, Machine Learning, Data Structures & Algorithms, Systems Programming, Linear Algebra, Discrete Mathematics, Database Management Systems (DBMS), Operating Systems, Computer Networks.</li>
+        </ul>
+      </div>
+      <div class="entry-block" style="margin-top: 3px;">
+        <div class="entry-header">
+          <span class="bold-title">Kendriya Vidyalaya No. 1, Udhampur</span>
+          <span class="right-meta">Jammu & Kashmir, India</span>
+        </div>
+        <div class="entry-subheader">
+          <span class="italic-subtitle">Higher Secondary Education (Senior Secondary)</span>
+          <span class="right-meta-italic">Graduated 2024</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <div class="section-title">Experience</div>
+
+      <!-- Experience 1: UniConverge Technologies -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <span class="bold-title">Embedded & Internet of Things Engineer (Intern) – UniConverge Technologies</span>
+          <span class="right-meta">Jun. 2026 – Jul. 2026</span>
+        </div>
+        <div class="entry-subheader">
+          <span class="italic-subtitle">Noida, Uttar Pradesh, India</span>
+          <span class="right-meta-italic">On-site</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Built custom <strong>embedded Linux firmware</strong> images utilizing OpenWrt build environments, establishing seamless cross-compilation interoperability across <strong>MIPS (MT7628)</strong> and <strong>ARM (NanoPi Allwinner H3)</strong> gateway architectures.</li>
+          <li>Engineered hardware integration for <strong>Semtech SX1303 LoRa baseband concentrators</strong> by authoring custom device tree overlays (<code>.dts</code>), pin multiplexing configurations, and kernel-space SPI drivers.</li>
+          <li>Optimized <strong>kernel-space SPI drivers</strong> and tuned the Linux TCP/IP networking stack for deterministic high-throughput, low-latency edge packet transmission across distributed sensor nodes.</li>
+          <li>Configured and deployed <strong>ChirpStack IoT server stacks</strong> and LoRaWAN packet forwarders for enterprise industrial telemetry and edge gateway fleet monitoring.</li>
+          <li>Collaborated with engineering teams to automate board bring-up scripts and flashing workflows, cutting multi-board regression testing cycles by 40%.</li>
+        </ul>
+      </div>
+
+      <!-- Experience 2: IIT Roorkee -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <span class="bold-title">Research Intern (Computer Vision & Edge AI) – Indian Institute of Technology (IIT), Roorkee</span>
+          <span class="right-meta">Jun. 2025 – Jul. 2025</span>
+        </div>
+        <div class="entry-subheader">
+          <span class="italic-subtitle">Roorkee, Uttarakhand, India</span>
+          <span class="right-meta-italic">On-site</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Researched and developed an optimized real-time <strong>Object Detection pipeline</strong> based on custom-trained <strong>YOLOv8</strong> architectures for sustained low-latency edge video analytics.</li>
+          <li>Accelerated deep learning inference on <strong>Intel Core Ultra Neural Processing Units (NPUs)</strong> leveraging the <strong>Intel OpenVINO toolkit</strong>, converting models to INT8/FP16 Intermediate Representations (IR).</li>
+          <li>Benchmarked multi-device throughput and latency curves across CPU, integrated GPU, and dedicated NPU execution units, achieving continuous 60+ FPS inference with minimal power draw and thermal footprint.</li>
+          <li>Built internal data annotation, dataset augmentation, and automated validation pipelines for custom computer vision models with OpenCV.</li>
+        </ul>
+      </div>
+
+      <!-- Experience 3: Academic Leadership & Research Systems -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <span class="bold-title">Technical Organizer & Systems Lead – Innovathon & University Research</span>
+          <span class="right-meta">Aug. 2024 – Present</span>
+        </div>
+        <div class="entry-subheader">
+          <span class="italic-subtitle">University of Jammu, India</span>
+          <span class="right-meta-italic">Leadership / Research</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Core technical organizer for <strong>Innovathon 1.0 National Hackathon</strong>, leading platform operations, server infrastructure, and mentoring 200+ collegiate participants on edge computing and machine learning.</li>
+          <li>Architected telemetry ingestion pipelines and open-source scientific computing templates adopted across departmental research groups.</li>
+          <li>Selected for dramatic portrayal as Arjuna and Guru Kripacharya in <em>Rashmirathi</em> at the <strong>25th Bharat Rang Mahotsav (BRM)</strong> International Theatre Festival (2026) organized by the National School of Drama (NSD) & Ministry of Culture.</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <div class="page" id="page-2">
+
+    <!-- PROJECTS -->
+    <section>
+      <div class="section-title">Projects</div>
+
+      <!-- Project 1: NeuroView -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <div class="entry-header-left">
+            <span class="bold-title">NeuroView — 3D Spatial Telemetry & WebGL</span>
+            <span class="project-tech">| Python, FastAPI, Three.js, WebGL/GLSL, MNE, Groq, Docker</span>
+            <span class="project-links">
+              <a class="project-link-icon" href="https://portfolio.manan31206.workers.dev/#projects" target="_blank" title="Live Demo">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+              </a>
+              <a class="project-link-icon" href="https://github.com/manan316/neuroview" target="_blank" title="GitHub">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              </a>
+            </span>
+          </div>
+          <span class="right-meta">2026 – Present</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Engineered an asynchronous 3D spatial telemetry and neural signal visualization platform streaming multi-channel scientific data and 3D coordinate matrices.</li>
+          <li>Built an interactive <strong>Three.js WebGL rendering engine</strong> with custom <strong>GLSL shaders</strong> executing real-time <strong>Inverse Distance Weighting (IDW) scalar field heatmap interpolation</strong> across arbitrary 3D geometric surfaces.</li>
+          <li>Designed a high-throughput <strong>FastAPI backend</strong> utilizing <strong>NumPy and MNE-Python</strong> for parsing binary data streams, baseline noise filtering, and spatial electrode coordinate projection.</li>
+          <li>Integrated an automated diagnostic pipeline utilizing <strong>cascading agentic LLMs (Groq API, DeepSeek)</strong> for real-time anomaly detection and natural language telemetry reporting.</li>
+          <li>Delivered a fully containerized, cloud-native application using <strong>Docker</strong> with CI/CD optimization for microservice-based edge and cloud deployments.</li>
+        </ul>
+      </div>
+
+      <!-- Project 2: SlipSense -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <div class="entry-header-left">
+            <span class="bold-title">SlipSense — Res U-Net Landslide Mapping</span>
+            <span class="project-tech">| PyTorch, DeepLabV3+, CRUNet, HDF5, QGIS, Flask</span>
+            <span class="project-links">
+              <a class="project-link-icon" href="https://portfolio.manan31206.workers.dev/#projects" target="_blank" title="Live Demo">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+              </a>
+              <a class="project-link-icon" href="https://github.com/manan316" target="_blank" title="GitHub">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              </a>
+            </span>
+          </div>
+          <span class="right-meta">2025 – Present</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Developed an AI-powered semantic segmentation system to detect and delineate landslide hazards across complex Himalayan topography using <strong>14&#8209;band multispectral satellite imagery (Sentinel-2 HDF5)</strong>.</li>
+          <li>Designed a custom <strong>Residual U-Net (CRUNet)</strong> architecture integrated with <strong>Atrous Spatial Pyramid Pooling (ASPP)</strong> from DeepLabV3+ to capture multi-scale spatial receptive fields and eliminate vanishing gradients.</li>
+          <li>Implemented an end-to-end geospatial preprocessing pipeline in Python and QGIS for radiometric calibration, atmospheric correction, band stacking, and spatial alignment.</li>
+          <li>Exposed trained deep learning models via a high-throughput <strong>Flask REST API</strong>, enabling sub-second inference and automated hazard boundary mapping for disaster mitigation.</li>
+        </ul>
+      </div>
+
+      <!-- Project 3: YOLO OpenVINO NPU -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <div class="entry-header-left">
+            <span class="bold-title">YOLO-Based Live Object Detection on NPU</span>
+            <span class="project-tech">| Python, YOLOv8, OpenVINO, NPU, OpenCV</span>
+            <span class="project-links">
+              <a class="project-link-icon" href="https://portfolio.manan31206.workers.dev/#projects" target="_blank" title="Live Demo">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+              </a>
+              <a class="project-link-icon" href="https://github.com/manan316" target="_blank" title="GitHub">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              </a>
+            </span>
+          </div>
+          <span class="right-meta">2025</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Engineered a custom YOLOv8-based real-time object detection architecture optimized using <strong>Intel's OpenVINO toolkit</strong> for edge AI PC hardware.</li>
+          <li>Quantized model weights to <strong>INT8/FP16 Intermediate Representation (IR)</strong>, deploying directly to <strong>Intel Core Ultra Neural Processing Units (NPUs)</strong> for ultra-low power consumption.</li>
+          <li>Implemented asynchronous frame processing with <strong>OpenCV</strong>, sustaining 60+ FPS high-throughput video streams without taxing CPU/GPU resources.</li>
+        </ul>
+      </div>
+
+      <!-- Project 4: Custom OpenWrt Router -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <div class="entry-header-left">
+            <span class="bold-title">Custom Raspberry Pi Router & Hardening</span>
+            <span class="project-tech">| OpenWrt, Linux Kernel, iptables, Bash, DoH</span>
+            <span class="project-links">
+              <a class="project-link-icon" href="https://portfolio.manan31206.workers.dev/#projects" target="_blank" title="Live Demo">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+              </a>
+              <a class="project-link-icon" href="https://github.com/manan316" target="_blank" title="GitHub">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              </a>
+            </span>
+          </div>
+          <span class="right-meta">2024</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Compiled and deployed custom <strong>OpenWrt Linux firmware</strong> on Raspberry Pi 3 hardware, creating a hardened network gateway.</li>
+          <li>Engineered robust <strong>iptables firewall policies</strong>, NAT masquerading, stateful packet inspection, and <strong>DNS-over-HTTPS (DoH)</strong>.</li>
+        </ul>
+      </div>
+
+      <!-- Project 5: ETS Multi-Language Platform -->
+      <div class="entry-block">
+        <div class="entry-header">
+          <div class="entry-header-left">
+            <span class="bold-title">Temperature Prediction Platform (ETS)</span>
+            <span class="project-tech">| Python, C (ANSI), Time Series ETS, Derivatives</span>
+            <span class="project-links">
+              <a class="project-link-icon" href="https://github.com/manan316" target="_blank" title="GitHub">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              </a>
+            </span>
+          </div>
+          <span class="right-meta">2024 – 2025</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Hybrid multi-language platform predicting daily average temperatures using <strong>Exponential Smoothing (ETS)</strong> in Python and discrete derivative calculation routines in <strong>ANSI C</strong> for rapid numerical analysis.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- CERTIFICATIONS & HONORS -->
+    <section>
+      <div class="section-title">Certifications & Honors</div>
+
+      <div class="cert-item">
+        <div class="cert-header">
+          <span class="bold-title">AMD — AI Agents 101: Building AI Agents with MCP & Open-Source Inference</span>
+          <span class="right-meta">Issued: Aug. 2026</span>
+        </div>
+        <div class="cert-skills">
+          <strong>Skills:</strong> Model Context Protocol (MCP), Agentic Workflows, Open-Source Inference, Tool Calling, System Architecture
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-header">
+          <span class="bold-title">UniConverge Technologies — Embedded & IoT Engineering Industrial Certification</span>
+          <span class="right-meta">Issued: Jul. 2026</span>
+        </div>
+        <div class="cert-skills">
+          <strong>Skills:</strong> Embedded Linux, OpenWrt, LoRaWAN, ChirpStack, Kernel Drivers, SPI Drivers, Hardware Prototyping
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-header">
+          <span class="bold-title">IIT Kanpur — Junior Scientist Honor (26th National Children Science Congress)</span>
+          <span class="right-meta">Issued: Dec. 2018</span>
+        </div>
+        <div class="cert-skills">
+          <strong>Skills:</strong> Scientific Research Methodology, Experimental Design, State Representative, Technical Presentation
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-header">
+          <span class="bold-title">IIT Jammu — Visual Attention Modeling & High-Speed Instrumentation Workshop</span>
+          <span class="right-meta">Issued: Dec. 2024</span>
+        </div>
+        <div class="cert-skills">
+          <strong>Skills:</strong> High-Speed Eye-Tracking, Visual Attention Modeling, Spatial Gaze Calibration, Statistical Research
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-header">
+          <span class="bold-title">Ministry of Education & AICTE — IDE Innovation & Entrepreneurship Bootcamp</span>
+          <span class="right-meta">Issued: Jul. 2026</span>
+        </div>
+        <div class="cert-skills">
+          <strong>Skills:</strong> Deep-Tech Venture Design, Rapid Prototyping, Product Architecture, Technology Commercialization
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+</body>
+</html>

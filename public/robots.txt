@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://manan-sharma.pages.dev/sitemap.xml
+Sitemap: https://portfolio.manan31206.workers.dev/sitemap.xml
