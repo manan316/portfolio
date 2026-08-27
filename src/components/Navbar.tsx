@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Menu, X } from 'lucide-react';
+import { Download, Menu, X, Terminal } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+  onOpenTerminal?: () => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -11,7 +15,7 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      setScrolled(scrollY > 30);
+      setScrolled(scrollY > 25);
 
       const totalDocHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (totalDocHeight > 0) {
@@ -47,13 +51,13 @@ export const Navbar: React.FC = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-[#121214]/95 backdrop-blur-xl border-b border-[#2E2E35] py-2.5 shadow-[0_10px_35px_rgba(0,0,0,0.8)]' 
-        : 'bg-gradient-to-b from-[#121214]/90 to-transparent py-4'
+        ? 'bg-[#08090D]/85 backdrop-blur-2xl border-b border-[#1E263D]/80 py-2.5 shadow-[0_12px_40px_rgba(0,0,0,0.85)]' 
+        : 'bg-gradient-to-b from-[#08090D]/90 via-[#08090D]/50 to-transparent py-4'
     }`}>
-      {/* Scroll Progress Bar at the top of Navbar - Retro 5-color Stripe */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#2E2E35] overflow-hidden">
+      {/* Scroll Progress Bar at the top of Navbar - Glowing Cyber Spectrum */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#1E263D]/60 overflow-hidden">
         <div 
-          className="h-full bg-gradient-to-r from-[#B83A3A] via-[#E06D3B] via-[#E8A838] via-[#3D8B7A] to-[#3B281C] transition-all duration-150 ease-out shadow-[0_0_12px_rgba(224,109,59,0.8)]"
+          className="h-full bg-gradient-to-r from-[#00F0FF] via-[#38BDF8] via-[#00FF9D] via-[#8B5CF6] to-[#00F0FF] transition-all duration-150 ease-out shadow-[0_0_12px_#00F0FF]"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -62,8 +66,8 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center justify-between">
           
           {/* Logo / System Status */}
-          <a href="#hero" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 rounded-xl overflow-hidden border border-[#2E2E35] group-hover:border-[#E06D3B] group-hover:shadow-[0_0_18px_rgba(224,109,59,0.3)] transition-all duration-300 relative bg-[#18181A] shrink-0">
+          <a href="#hero" className="flex items-center gap-3 group interactive-btn">
+            <div className="w-9 h-9 rounded-xl overflow-hidden border border-[#1E263D] group-hover:border-[#00F0FF] group-hover:shadow-[0_0_22px_rgba(0,240,255,0.45)] transition-all duration-300 relative bg-[#0F121E]/90 shrink-0">
               <img
                 src={personalInfo.profileImage || "/images/profile.png"}
                 alt={personalInfo.name}
@@ -71,33 +75,34 @@ export const Navbar: React.FC = () => {
               />
             </div>
             <div>
-              <div className="font-mono text-xs font-bold tracking-widest text-[#FAF5EE] flex items-center gap-2 group-hover:text-[#E06D3B] transition-colors">
+              <div className="font-mono text-xs font-bold tracking-widest text-[#F1F5F9] flex items-center gap-2 group-hover:text-[#00F0FF] transition-colors">
                 <span>MANAN.SYS</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#E06D3B] beacon-pulse inline-block shadow-[0_0_8px_#E06D3B]"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00FF9D] beacon-pulse inline-block shadow-[0_0_8px_#00FF9D]"></span>
               </div>
-              <div className="font-mono text-[10px] text-[#A8A29E] tracking-tight group-hover:text-[#D6D0C5] transition-colors">
-                SOFTWARE ENGINEER & RESEARCHER
+              <div className="font-mono text-[10px] text-[#64748B] tracking-tight group-hover:text-[#94A3B8] transition-colors flex items-center gap-1">
+                <span>KERNEL_DAEMON</span>
+                <span className="text-[#00FF9D] font-bold">ONLINE</span>
               </div>
             </div>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 bg-[#18181A]/90 p-1.5 rounded-xl border border-[#2E2E35] backdrop-blur-md shadow-lg">
+          {/* Desktop Navigation - Frosted Glass Pill Container */}
+          <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 bg-[#0F121E]/75 p-1.5 rounded-2xl border border-white/[0.08] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.06)]">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
                 <a
                   key={link.id}
                   href={link.href}
-                  className={`relative font-mono text-xs px-3 py-1.5 rounded-lg transition-all duration-200 interactive-btn ${
+                  className={`relative font-mono text-xs px-3 py-1.5 rounded-xl transition-all duration-250 interactive-btn ${
                     isActive
-                      ? 'text-[#FAF5EE] bg-[#E06D3B]/20 font-bold border border-[#E06D3B]/50 shadow-[0_0_12px_rgba(224,109,59,0.25)]'
-                      : 'text-[#A8A29E] hover:text-[#FAF5EE] hover:bg-white/5 border border-transparent'
+                      ? 'text-[#00F0FF] bg-[#00F0FF]/15 font-bold border border-[#00F0FF]/50 shadow-[0_0_16px_rgba(0,240,255,0.25),inset_0_1px_1px_rgba(255,255,255,0.1)]'
+                      : 'text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-white/[0.06] border border-transparent'
                   }`}
                 >
                   {link.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-[#E06D3B] rounded-full shadow-[0_0_6px_#E06D3B]"></span>
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-[#00F0FF] rounded-full shadow-[0_0_8px_#00F0FF]"></span>
                   )}
                 </a>
               );
@@ -105,13 +110,23 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Action CTAs */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2.5">
+            {onOpenTerminal && (
+              <button
+                onClick={onOpenTerminal}
+                className="flex items-center gap-1.5 font-mono text-xs px-3.5 py-2 rounded-xl bg-[#0F121E]/80 hover:bg-[#00F0FF] text-[#00F0FF] hover:text-[#08090D] font-bold border border-[#00F0FF]/30 hover:border-[#00F0FF] interactive-btn transition-all shadow-sm"
+                title="Launch Interactive Terminal (Ctrl + K)"
+              >
+                <Terminal className="w-3.5 h-3.5" />
+                <span>TERMINAL</span>
+              </button>
+            )}
             <a
               href={personalInfo.resumeUrl}
               download="Manan_Sharma_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 font-mono text-xs px-4 py-2 rounded-xl bg-[#1E1E22] hover:bg-[#E06D3B] text-[#FAF5EE] hover:text-white font-bold shadow-md hover:shadow-[0_0_20px_rgba(224,109,59,0.4)] interactive-btn border border-[#2E2E35] hover:border-[#E06D3B] transition-all"
+              className="flex items-center gap-1.5 font-mono text-xs px-4 py-2 rounded-xl bg-gradient-to-r from-[#00F0FF]/15 to-[#00FF9D]/15 hover:from-[#00F0FF] hover:to-[#38BDF8] text-[#00F0FF] hover:text-[#08090D] font-bold shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_0_25px_rgba(0,240,255,0.5)] interactive-btn border border-[#00F0FF]/40 hover:border-[#00F0FF] transition-all backdrop-blur-md"
             >
               <Download className="w-3.5 h-3.5 animate-bounce" />
               <span>RESUME.PDF</span>
@@ -123,14 +138,14 @@ export const Navbar: React.FC = () => {
             <a
               href={personalInfo.resumeUrl}
               download="Manan_Sharma_Resume.pdf"
-              className="p-2 rounded-xl bg-[#1E1E22] border border-[#2E2E35] text-[#FAF5EE] text-xs interactive-btn shadow-md font-bold"
+              className="p-2 rounded-xl bg-[#0F121E]/90 border border-[#1E263D] text-[#00F0FF] text-xs interactive-btn shadow-md font-bold"
               title="Download Resume"
             >
               <Download className="w-4 h-4" />
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl bg-[#18181A] border border-[#2E2E35] text-[#FAF5EE] hover:text-[#E06D3B] hover:border-[#E06D3B] transition-colors"
+              className="p-2 rounded-xl bg-[#0F121E]/90 border border-[#1E263D] text-[#F1F5F9] hover:text-[#00F0FF] hover:border-[#00F0FF] transition-colors"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -142,10 +157,10 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#121214]/98 backdrop-blur-2xl border-b border-[#2E2E35] px-4 pt-3 pb-6 space-y-2 shadow-2xl animate-fadeIn">
-          <div className="font-mono text-[10px] text-[#A8A29E] px-3 py-1 border-b border-white/5 flex items-center justify-between">
-            <span>// TACTICAL SYSTEM NAVIGATION</span>
-            <span className="text-[#E06D3B] font-bold">ONLINE</span>
+        <div className="md:hidden bg-[#08090D]/95 backdrop-blur-2xl border-b border-[#1E263D] px-4 pt-3 pb-6 space-y-2 shadow-2xl animate-fadeIn">
+          <div className="font-mono text-[10px] text-[#64748B] px-3 py-1 border-b border-white/5 flex items-center justify-between">
+            <span>// LINUX KERNEL NAVIGATION HUD</span>
+            <span className="text-[#00FF9D] font-bold">ONLINE</span>
           </div>
           {navLinks.map((link) => (
             <a
@@ -154,8 +169,8 @@ export const Navbar: React.FC = () => {
               onClick={() => setMobileMenuOpen(false)}
               className={`block font-mono text-xs px-3 py-2.5 rounded-xl transition-all ${
                 activeSection === link.id
-                  ? 'text-[#FAF5EE] bg-[#E06D3B]/20 font-bold border-l-4 border-[#E06D3B]'
-                  : 'text-[#A8A29E] hover:text-white hover:bg-white/5'
+                  ? 'text-[#00F0FF] bg-[#00F0FF]/15 font-bold border-l-4 border-[#00F0FF] shadow-[inset_0_0_15px_rgba(0,240,255,0.15)]'
+                  : 'text-[#94A3B8] hover:text-white hover:bg-white/5'
               }`}
             >
               {link.label}
@@ -165,7 +180,7 @@ export const Navbar: React.FC = () => {
             <a
               href={personalInfo.resumeUrl}
               download="Manan_Sharma_Resume.pdf"
-              className="flex items-center justify-center gap-2 font-mono text-xs py-3 rounded-xl bg-[#E06D3B] hover:bg-[#B85D3B] text-white font-bold shadow-lg"
+              className="flex items-center justify-center gap-2 font-mono text-xs py-3 rounded-xl bg-gradient-to-r from-[#00F0FF] to-[#38BDF8] text-[#08090D] font-bold shadow-lg"
             >
               <Download className="w-4 h-4" />
               <span>DOWNLOAD RESUME (PDF)</span>
