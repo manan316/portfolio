@@ -11,26 +11,11 @@ import { EducationCertSection } from './components/EducationCertSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { TerminalModal } from './components/TerminalModal';
-import { KernelBootSequence } from './components/KernelBootSequence';
 import { CustomCursor } from './components/CustomCursor';
 import { Terminal as TerminalIcon } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [terminalOpen, setTerminalOpen] = useState(false);
-  const [isBooting, setIsBooting] = useState(() => {
-    try {
-      return !sessionStorage.getItem('hasBooted');
-    } catch {
-      return true;
-    }
-  });
-
-  const handleBootComplete = () => {
-    setIsBooting(false);
-    try {
-      sessionStorage.setItem('hasBooted', 'true');
-    } catch {}
-  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -53,9 +38,6 @@ export const App: React.FC = () => {
       {/* Custom Futuristic Cyber Reticle Cursor */}
       <CustomCursor />
 
-      {/* 1st Visit Encryption/Decryption Kernel Boot Sequence */}
-      {isBooting && <KernelBootSequence onComplete={handleBootComplete} />}
-
       {/* Fixed Tactical Gutter HUD */}
       <VerticalGutterTracker />
 
@@ -63,7 +45,7 @@ export const App: React.FC = () => {
       <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
 
       {/* Hero Section with Decrypted Title Animation */}
-      <Hero triggerAnimation={!isBooting} />
+      <Hero triggerAnimation={true} />
 
       {/* Main Content Blueprint Canvas */}
       <main className="relative z-10">
