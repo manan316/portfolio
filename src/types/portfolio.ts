@@ -35,7 +35,7 @@ export interface ProjectItem {
   id: string;
   title: string;
   subtitle?: string;
-  category: 'Edge AI & Vision' | 'Deep Learning & Neural Systems' | 'Embedded & Systems' | 'Time Series & Scientific';
+  category: 'Edge AI & Vision' | 'Deep Learning & Neural Systems' | 'Embedded & Systems' | 'Time Series & Scientific' | 'Geospatial & Environmental AI' | 'IoT & Digital Twins';
   featured: boolean;
   date: string;
   description: string;

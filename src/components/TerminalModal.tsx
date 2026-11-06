@@ -87,7 +87,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
         scrollToSection('experience');
         break;
       case 'projects':
-        response = <span className="text-[#00FF9D]">Jumping to Sector 03: Projects (NeuroView, SlipSense, YOLO NPU)...</span>;
+        response = <span className="text-[#00FF9D]">Jumping to Sector 03: Projects (OJASEWS, GeoChange AI, NeuroView, SlipSense)...</span>;
         scrollToSection('projects');
         break;
       case 'research':

@@ -30,6 +30,8 @@ export const personalInfo: PersonalInfo = {
     "Exploring scalable agentic workflows with Model Context Protocol (MCP)"
   ],
   pastHighlights: [
+    "Won Best Presentation Award at INDU X 5.0 International Hackathon (2026) for GeoChange AI (Satellite Remote Sensing)",
+    "Architected OJASEWS: Autonomous Geotechnical Landslide Simulation, 3D Digital Twin & Early-Warning Research Platform",
     "Researched Computer Vision & NPU acceleration at Indian Institute of Technology (IIT), Roorkee",
     "Engineered custom OpenWrt firmware & SX1303 LoRa hardware integration at UniConverge Technologies",
     "Developed SlipSense: AI-powered landslide segmentation using custom CRUNet on 14-band multispectral satellite imagery",
@@ -84,6 +86,72 @@ export const experiences: ExperienceItem[] = [
 ];
 
 export const projects: ProjectItem[] = [
+  {
+    id: "ojasews",
+    title: "OJASEWS — Autonomous Geotechnical Landslide Simulation & 3D Digital Twin",
+    subtitle: "Physics-Informed Slope Failure Modeling, Real-Time ESP32 Ingestion & ntfy.sh Mobile Early Warning",
+    category: "IoT & Digital Twins",
+    featured: true,
+    date: "Oct 2026 – Present",
+    description: "Architected OJASEWS under the SAVERA initiative — an advanced geotechnical simulation, digital twin visualization, and life-safety early-warning platform engineered to monitor landslide precursors across steep Himalayan terrain corridors (modeled after the critical Samroli sector on the Jammu–Srinagar NH-44 highway). The platform models the complete geotechnical warning lifecycle: ingesting continuous synthetic telemetry across 7 physics simulation scenarios alongside real-world ESP32 IoT sensor telemetry, validating data quality, and executing a dual-track AI risk assessment engine. Automatically dispatches urgent mobile push notifications via ntfy.sh to field subscribers and synchronizes real-time 3D terrain states.",
+    architectureDetails: [
+      "Procedural Three.js 3D Himalayan digital twin featuring custom elevation and slope shaders, dynamic risk heatmap blending, live rainfall particle simulation, and downhill debris-flow animation during slope failure.",
+      "Dual-track risk assessment arbiter combining an explainable geotechnical physics heuristic (moisture trend, tilt velocity, precipitation infiltration lag) with a 4-class Random Forest ML classifier.",
+      "Dual telemetry ingestion supporting 7 physics simulation scenarios with reproducible deterministic seeds and live physical ESP32 microcontroller nodes (capacitive soil moisture, MEMS tilt, tipping-bucket rain).",
+      "Sub-second asynchronous mobile push dispatch engine via ntfy.sh with priority bypass, cooldown safeguards, lock-screen alerts, and instant camera QR code subscription.",
+      "Full-stack telemetry workbench featuring real-time synchronized Recharts time-series, liquid slosh risk gauge, persistent SQLite audit trails, and RFC-4180 CSV / JSON research export."
+    ],
+    technologies: ["Python 3.11", "FastAPI", "React 19", "TypeScript", "Three.js", "WebGL / GLSL", "ESP32 / IoT", "Random Forest", "ntfy.sh", "Docker", "Tailwind CSS"],
+    githubUrl: "https://github.com/manan316/ojasews",
+    badge: "SAVERA Flagship System",
+    images: [
+      {
+        url: "/images/ojasews_command_center.png",
+        caption: "Command Center, Liquid Slosh Risk Gauge & Real-Time Alert Feed"
+      },
+      {
+        url: "/images/ojasews_digital_twin.png",
+        caption: "Procedural 3D Himalayan Digital Twin with Slope Heatmap Blending"
+      },
+      {
+        url: "/images/ojasews_simulation_lab.png",
+        caption: "Geotechnical Simulation Lab with 7 Geological Scenarios & Parameters"
+      }
+    ]
+  },
+  {
+    id: "geochange-ai",
+    title: "GeoChange AI — Satellite-Driven Environmental Intelligence & Change Detection",
+    subtitle: "Multi-Sensor Remote Sensing, Pixel-Level Annual Change Dating & NASA Carbon Accounting",
+    category: "Geospatial & Environmental AI",
+    featured: true,
+    date: "Nov 2026",
+    description: "Developed GeoChange AI — an end-to-end remote sensing platform that detects, quantifies, and visualizes terrestrial land-cover transformations over multi-year intervals (2021–2026). Winner of the Best Presentation Award at the INDU X 5.0 International Hackathon (Vikrant University, Gwalior in partnership with ARINA AI and GO KLOUD). Enforces a strict Data Readiness Gate before comparing pixels, evaluating multi-band cloud masks (Cloud Score+ / QA60) at 10m resolution across redundant STAC providers (AWS Earth Search, Microsoft Planetary Computer, CDSE). Combines Sentinel-2 optical bands, multi-spectral indices (dNDVI, dNDWI, dNDBI), Google Dynamic World ML land-cover classifications, and Landsat 8/9 thermal radiometry into actionable indicators.",
+    architectureDetails: [
+      "Rigorous Data Readiness Gate with multi-catalog STAC querying, sub-pixel registration, normalization, and cryptographic audit certification.",
+      "Multi-class land cover transition detection (built-up expansion, vegetation loss/gain, water bodies) with confidence scoring and hectare measurements.",
+      "Pixel-level annual change dating (Year of Change) tracking composites from 2021 to 2026 with 50m spatial smoothing and scrubbable timeline player.",
+      "NASA/ORNL Global Aboveground Biomass Carbon accounting calculating lost carbon storage in tonnes of CO2 equivalent (t CO2e) with 10th-to-90th percentile uncertainty bounds.",
+      "Landsat 8/9 daytime thermal infrared coupling quantifying urban surface temperature differentials (Δ°C), and automated publication-grade ReportLab PDF / GeoJSON report generation."
+    ],
+    technologies: ["Python", "FastAPI", "Sentinel-2 (10m)", "Dynamic World", "Landsat 8/9 Thermal", "NASA/ORNL Carbon", "Leaflet", "ReportLab", "GeoJSON", "STAC APIs"],
+    githubUrl: "https://github.com/manan316/geochange",
+    badge: "🏆 Hackathon Winner (Best Presentation)",
+    images: [
+      {
+        url: "/images/geochange_dashboard.png",
+        caption: "GeoChange AI Command Center & Multi-Catalog Data Readiness Hub"
+      },
+      {
+        url: "/images/geochange_map.png",
+        caption: "Sentinel-2 10m Land-Cover Transition & Patch Segmentation Map"
+      },
+      {
+        url: "/images/geochange_indicators.png",
+        caption: "NASA/ORNL Biomass Carbon Accounting & Urban Heat Island Analytics"
+      }
+    ]
+  },
   {
     id: "neuroview",
     title: "NeuroView — 3D Spatial Telemetry & Real-Time WebGL",
@@ -392,6 +460,13 @@ export const educationList: EducationItem[] = [
 ];
 
 export const trainingsAndWorkshops: TrainingWorkshopItem[] = [
+  {
+    title: "Best Presentation Award — INDU X 5.0 International Hackathon",
+    institution: "Vikrant University, Gwalior (with ARINA AI & GO KLOUD)",
+    year: "2026",
+    description: "Won the prestigious Best Presentation Award at INDU X 5.0 (AI for Real-World Impact 2026), an international 24-hour on-site hackathon, presenting GeoChange AI for satellite-driven environmental intelligence, data-readiness verification, and biomass carbon accounting.",
+    category: "INTERNATIONAL HACKATHON / AWARD"
+  },
   {
     title: "Junior Scientist — 26th National Children Science Congress (NCSC)",
     institution: "Indian Institute of Technology (IIT), Kanpur",

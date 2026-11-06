@@ -18,7 +18,7 @@ import {
 export const AboutSection: React.FC = () => {
   const containerRef = useScrollReveal<HTMLElement>();
   const internshipsCounter = useAnimatedCounter(2);
-  const buildsCounter = useAnimatedCounter(6);
+  const buildsCounter = useAnimatedCounter(8);
   const toolchainsCounter = useAnimatedCounter(12);
 
   const techLogos = [

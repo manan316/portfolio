@@ -31,7 +31,7 @@ export const ProjectsSection: React.FC = () => {
             Project Showcase
           </h2>
           <p className="text-xs sm:text-sm text-[#94A3B8] font-sans mt-1 max-w-2xl">
-            End-to-end architectures spanning 3D WebGL spatial telemetry, multispectral remote sensing, and low-level Linux routers.
+            End-to-end architectures spanning 3D digital twins, satellite remote sensing, IoT early-warning systems, and low-level Linux routers.
           </p>
         </div>
 
