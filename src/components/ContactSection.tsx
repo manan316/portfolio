@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Send, CheckCircle, Radio, Copy, Check, Sparkles } from 'lucide-react';
+import { Mail, Send, CheckCircle, Radio, Copy, Check } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 
 export const ContactSection: React.FC = () => {
@@ -45,18 +45,18 @@ export const ContactSection: React.FC = () => {
     <section id="contact" className="py-20 px-4 sm:px-8 lg:px-12 2xl:px-16 w-full max-w-[1720px] mx-auto scroll-mt-24">
       {/* Section Header */}
       <div className="mb-12">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="bento-badge text-cyan-800 bg-cyan-50 border-cyan-300 font-semibold">
-            [07 // INITIATE TRANSMISSION]
+        <div className="flex flex-wrap items-center gap-3 mb-3">
+          <span className="cartouche-label text-xs">
+            [07 // FIELD DISPATCH]
           </span>
-          <span className="text-xs text-slate-500 font-mono">
-            DIRECT COMMUNICATION RELAY
+          <span className="font-serif tracking-widest text-xs uppercase text-[#1a3055]/70 font-bold">
+            DIRECT COMMUNICATIONS RELAY
           </span>
         </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
-          Get in Touch
+        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1a3055] mb-4">
+          Direct Dispatch & Transmission
         </h2>
-        <p className="text-slate-600 text-sm sm:text-base max-w-3xl font-normal leading-relaxed">
+        <p className="font-serif text-sm sm:text-base max-w-3xl text-[#1a3055]/85 leading-relaxed">
           Whether you want to discuss research collaborations, high-impact engineering roles, or explore technical architectures, dispatch a direct message below.
         </p>
       </div>
@@ -64,33 +64,31 @@ export const ContactSection: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column (5 cols): Coordinates */}
         <div className="lg:col-span-5 space-y-4">
-          <div className="bento-card p-6 sm:p-8 space-y-4 bento-glow-cyan relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-400/10 rounded-full blur-2xl pointer-events-none" />
-
-            <div className="relative z-10">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-cyan-800 font-bold pb-2 border-b border-slate-200 flex items-center justify-between">
+          <div className="woodblock-card woodblock-bar-indigo p-6 sm:p-8 space-y-4 relative group">
+            <div>
+              <h3 className="font-serif text-xs uppercase tracking-widest text-[#1a3055] font-bold pb-2 border-b-2 border-[#1a3055]/20 flex items-center justify-between">
                 <span>Direct Contact Coordinates</span>
-                <Radio className="w-3.5 h-3.5 text-cyan-600 animate-pulse" />
+                <Radio className="w-4 h-4 text-[#d4553a] animate-pulse" />
               </h3>
 
               {/* Email Card */}
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 mt-4 hover:border-cyan-500/40 transition-all shadow-xs">
+              <div className="p-4 bg-[#f5f0e1] border-2 border-[#1a3055] space-y-2 mt-4 shadow-woodblock">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-slate-700 font-semibold flex items-center gap-2">
-                    <div className="p-1.5 rounded-lg bg-cyan-100 text-cyan-700">
+                  <span className="text-xs font-serif font-bold text-[#1a3055] flex items-center gap-2">
+                    <div className="p-1.5 bg-[#1a3055] text-[#f5f0e1]">
                       <Mail className="w-3.5 h-3.5" />
                     </div>
                     Electronic Mail
                   </span>
                   <button
                     onClick={handleCopyEmail}
-                    className="px-2.5 py-1 rounded-md text-[10px] font-mono text-slate-700 hover:text-slate-950 bg-white hover:bg-slate-100 border border-slate-200 flex items-center gap-1 transition-all shadow-xs"
+                    className="seal-btn-secondary px-2.5 py-1 text-[10px] flex items-center gap-1 font-serif uppercase tracking-wider"
                   >
-                    {copied ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3 text-cyan-600" />}
+                    {copied ? <Check className="w-3 h-3 text-[#747800]" /> : <Copy className="w-3 h-3 text-[#1a3055]" />}
                     {copied ? 'Copied' : 'Copy'}
                   </button>
                 </div>
-                <div className="text-sm font-bold text-slate-900 font-mono select-all">
+                <div className="text-sm font-bold text-[#1a3055] font-serif select-all">
                   manan31206@gmail.com
                 </div>
               </div>
@@ -100,18 +98,18 @@ export const ContactSection: React.FC = () => {
                 href="https://www.linkedin.com/in/manan-sharma-3980b1324/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 rounded-2xl bg-slate-50 border border-slate-200 block hover:border-indigo-400 hover:bg-indigo-50/40 transition-all group/link mt-3 shadow-xs"
+                className="p-4 bg-[#f5f0e1] border-2 border-[#1a3055] block hover:bg-[#c9a227]/20 transition-all group/link mt-3 shadow-woodblock"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-slate-700 font-semibold flex items-center gap-2">
-                    <div className="p-1.5 rounded-lg bg-indigo-100 text-indigo-700">
+                  <span className="text-xs font-serif font-bold text-[#1a3055] flex items-center gap-2">
+                    <div className="p-1.5 bg-[#2a5a8c] text-[#f5f0e1]">
                       <LinkedinIcon className="w-3.5 h-3.5" />
                     </div>
                     LinkedIn Network
                   </span>
-                  <span className="text-xs text-slate-400 group-hover/link:text-indigo-600 font-bold">↗</span>
+                  <span className="text-xs text-[#1a3055] group-hover/link:text-[#d4553a] font-bold">↗</span>
                 </div>
-                <div className="text-xs font-semibold text-slate-700 mt-2 font-mono truncate">
+                <div className="text-xs font-bold text-[#2a5a8c] mt-2 font-serif truncate">
                   linkedin.com/in/manan-sharma-3980b1324
                 </div>
               </a>
@@ -121,31 +119,31 @@ export const ContactSection: React.FC = () => {
                 href="https://github.com/manan316"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 rounded-2xl bg-slate-50 border border-slate-200 block hover:border-slate-400 hover:bg-slate-100 transition-all group/link mt-3 shadow-xs"
+                className="p-4 bg-[#f5f0e1] border-2 border-[#1a3055] block hover:bg-[#c9a227]/20 transition-all group/link mt-3 shadow-woodblock"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-slate-700 font-semibold flex items-center gap-2">
-                    <div className="p-1.5 rounded-lg bg-slate-200 text-slate-800">
+                  <span className="text-xs font-serif font-bold text-[#1a3055] flex items-center gap-2">
+                    <div className="p-1.5 bg-[#1a3055] text-[#f5f0e1]">
                       <GithubIcon className="w-3.5 h-3.5" />
                     </div>
                     GitHub Repositories
                   </span>
-                  <span className="text-xs text-slate-400 group-hover/link:text-slate-900 font-bold">↗</span>
+                  <span className="text-xs text-[#1a3055] group-hover/link:text-[#d4553a] font-bold">↗</span>
                 </div>
-                <div className="text-xs font-semibold text-slate-700 mt-2 font-mono truncate">
+                <div className="text-xs font-bold text-[#1a3055] mt-2 font-serif truncate">
                   github.com/manan316
                 </div>
               </a>
 
               {/* Location & Status Info */}
-              <div className="pt-3 border-t border-slate-200 text-xs font-mono text-slate-600 space-y-1">
+              <div className="pt-3 border-t-2 border-[#1a3055]/20 text-xs font-serif text-[#1a3055] space-y-1.5">
                 <div className="flex justify-between items-center">
-                  <span className="text-slate-500">PHYSICAL LOCATION</span>
-                  <span className="text-slate-800 font-bold">Jammu & Kashmir, India</span>
+                  <span className="text-[#1a3055]/70 font-bold uppercase tracking-wider text-[11px]">PHYSICAL STATION</span>
+                  <span className="text-[#1a3055] font-bold">Jammu & Kashmir, India</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-slate-500">COMMUNICATION LINK</span>
-                  <span className="text-emerald-700 font-bold">READY // ACTIVE</span>
+                  <span className="text-[#1a3055]/70 font-bold uppercase tracking-wider text-[11px]">COMMUNICATION RELAY</span>
+                  <span className="text-[#747800] font-bold uppercase tracking-wider">ACTIVE & MONITORED</span>
                 </div>
               </div>
             </div>
@@ -154,20 +152,18 @@ export const ContactSection: React.FC = () => {
 
         {/* Right Column (7 cols): Direct Message Dispatch Console */}
         <div className="lg:col-span-7">
-          <div className="bento-card p-6 sm:p-8 bento-glow-violet relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-violet-400/10 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative z-10">
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-slate-200">
+          <div className="woodblock-card woodblock-bar-vermilion p-6 sm:p-8 relative">
+            <div>
+              <div className="flex items-center justify-between pb-4 mb-6 border-b-2 border-[#1a3055]/20">
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900">
+                  <h3 className="font-serif text-base sm:text-xl font-bold text-[#1a3055]">
                     Dispatch Direct Transmission
                   </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="font-serif text-xs text-[#1a3055]/70 mt-0.5">
                     Opens your email client with structured headers and immediate delivery.
                   </p>
                 </div>
-                <span className="text-[10px] font-mono text-violet-800 bg-violet-50 px-2.5 py-1 rounded-full border border-violet-200 font-bold">
+                <span className="cartouche-label text-[10px]">
                   DIRECT RELAY
                 </span>
               </div>
@@ -176,7 +172,7 @@ export const ContactSection: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Topic Selector */}
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 font-bold mb-2">
+                  <label className="block text-xs font-serif uppercase tracking-widest text-[#1a3055] font-bold mb-2">
                     Topic of Discussion
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -185,10 +181,10 @@ export const ContactSection: React.FC = () => {
                         key={t}
                         type="button"
                         onClick={() => setFormData({ ...formData, topic: t })}
-                        className={`p-2 rounded-xl text-xs font-semibold text-center transition-all ${
+                        className={`p-2 text-xs font-serif font-bold text-center border-2 border-[#1a3055] transition-all duration-150 ${
                           formData.topic === t
-                            ? 'bg-slate-900 text-white font-bold shadow-xs'
-                            : 'bg-slate-100 text-slate-700 hover:bg-slate-200/80 border border-slate-200'
+                            ? 'bg-[#d4553a] text-[#f5f0e1] shadow-woodblock translate-x-0.5 translate-y-0.5'
+                            : 'bg-[#f5f0e1] text-[#1a3055] hover:bg-[#c9a227]/20'
                         }`}
                       >
                         {t}
@@ -200,7 +196,7 @@ export const ContactSection: React.FC = () => {
                 {/* Name & Email Inputs */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 font-bold mb-1.5">
+                    <label className="block text-xs font-serif uppercase tracking-widest text-[#1a3055] font-bold mb-1.5">
                       Your Name
                     </label>
                     <input
@@ -209,11 +205,11 @@ export const ContactSection: React.FC = () => {
                       placeholder="e.g. Dr. Alex Mercer"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="bento-input w-full text-xs sm:text-sm"
+                      className="woodblock-input w-full text-xs sm:text-sm font-serif"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 font-bold mb-1.5">
+                    <label className="block text-xs font-serif uppercase tracking-widest text-[#1a3055] font-bold mb-1.5">
                       Your Email Address
                     </label>
                     <input
@@ -222,14 +218,14 @@ export const ContactSection: React.FC = () => {
                       placeholder="alex@domain.org"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="bento-input w-full text-xs sm:text-sm"
+                      className="woodblock-input w-full text-xs sm:text-sm font-serif"
                     />
                   </div>
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 font-bold mb-1.5">
+                  <label className="block text-xs font-serif uppercase tracking-widest text-[#1a3055] font-bold mb-1.5">
                     Transmission Message
                   </label>
                   <textarea
@@ -238,7 +234,7 @@ export const ContactSection: React.FC = () => {
                     placeholder="Provide details about the project, opportunity, or research collaboration..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="bento-input w-full text-xs sm:text-sm resize-none"
+                    className="woodblock-input w-full text-xs sm:text-sm font-serif resize-none"
                   />
                 </div>
 
@@ -246,17 +242,17 @@ export const ContactSection: React.FC = () => {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="bento-btn-primary w-full py-3 text-sm flex items-center justify-center gap-2 group font-bold shadow-md"
+                  className="seal-btn-primary w-full py-3.5 text-sm flex items-center justify-center gap-2 group font-serif font-bold uppercase tracking-widest"
                 >
                   {status === 'submitting' ? (
                     <span>Opening Transmission Client...</span>
                   ) : status === 'success' ? (
-                    <span className="flex items-center gap-1.5 text-emerald-300">
-                      <CheckCircle className="w-4 h-4" /> Message Ready & Dispatched!
+                    <span className="flex items-center gap-1.5 text-[#f5f0e1]">
+                      <CheckCircle className="w-4 h-4 text-[#f5f0e1]" /> Message Dispatched!
                     </span>
                   ) : (
                     <>
-                      <Send className="w-4 h-4 text-cyan-300 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
+                      <Send className="w-4 h-4 text-[#f5f0e1] group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
                       <span>Send Transmission via Email</span>
                     </>
                   )}

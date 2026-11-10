@@ -34,43 +34,43 @@ export const ImageModal: React.FC<ImageModalProps> = ({
 
   return (
     <div 
-      className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-slate-900/75 backdrop-blur-md"
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-[#1a3055]/75"
       onClick={onClose}
     >
       <div 
-        className="relative max-w-4xl w-full bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden"
+        className="woodblock-card woodblock-bar-vermilion relative max-w-4xl w-full bg-[#f5f0e1] border-3 border-[#1a3055] shadow-woodblock-lg overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-3 border-b border-slate-200 bg-slate-50">
+        <div className="flex items-center justify-between px-5 py-3 border-b-2 border-[#1a3055]/20 bg-[#f5f0e1]">
           <div className="truncate mr-3">
-            <span className="text-xs font-bold text-slate-900 truncate block">
+            <span className="font-serif text-sm font-bold text-[#1a3055] truncate block">
               {title}
             </span>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1 rounded-full text-slate-500 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 transition-colors"
+            className="w-8 h-8 border-2 border-[#1a3055] bg-[#d4553a] text-[#f5f0e1] flex items-center justify-center hover:opacity-90 transition-opacity"
             aria-label="Close modal"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Image Display */}
-        <div className="p-3 bg-slate-100/60 max-h-[70vh] flex items-center justify-center overflow-auto">
+        <div className="p-4 bg-[#f5f0e1] max-h-[70vh] flex items-center justify-center overflow-auto">
           <img 
             src={imageUrl} 
             alt={caption || title} 
-            className="max-h-[65vh] w-auto max-w-full rounded-xl object-contain shadow-sm border border-slate-200/80" 
+            className="max-h-[65vh] w-auto max-w-full object-contain border-3 border-[#1a3055] shadow-woodblock" 
           />
         </div>
 
         {/* Caption */}
         {caption && (
-          <div className="px-5 py-3 border-t border-slate-200 bg-white">
-            <p className="text-xs text-slate-700 font-medium">
+          <div className="px-5 py-3 border-t-2 border-[#1a3055]/20 bg-[#f5f0e1]">
+            <p className="font-serif text-xs text-[#1a3055]/90 font-medium">
               {caption}
             </p>
           </div>

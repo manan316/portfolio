@@ -47,27 +47,27 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#f8fafc] text-[#0f172a] font-sans antialiased selection:bg-cyan-500/20 selection:text-cyan-900 w-full">
-      {/* Floating Glass Pill Navbar */}
+    <div className="relative min-h-screen bg-[#f5f0e1] text-[#1a3055] font-serif antialiased selection:bg-[#d4553a] selection:text-[#f5f0e1] w-full">
+      {/* Woodblock Header Navbar */}
       <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
 
-      {/* Main Bento Flow - Full Width Spanning */}
-      <main className="relative z-10 space-y-16 sm:space-y-24 w-full pb-16">
-        {/* SECTION 01: Hero Master Bento Grid */}
+      {/* Main Woodblock Flow */}
+      <main className="relative z-10 space-y-20 sm:space-y-28 w-full pb-20">
+        {/* SECTION 01: Hero Master Woodblock */}
         <Hero
           personalInfo={personalInfo}
           onOpenTerminal={() => setTerminalOpen(true)}
           onOpenImage={setSelectedImage}
         />
 
-        {/* SECTION 02: Flagship Systems Bento (OJASEWS, GeoChange AI, NeuroView, SlipSense) */}
+        {/* SECTION 02: Flagship Systems (OJASEWS, GeoChange AI, NeuroView, SlipSense) */}
         <FlagshipCaseStudies
           projects={projects}
           onOpenImage={setSelectedImage}
           onOpenInspector={setSelectedProject}
         />
 
-        {/* SECTION 03: Experience & Research Bento Timeline */}
+        {/* SECTION 03: Experience & Research Chronicle */}
         <CareerJourneyTimeline
           experiences={experiences}
           researchWork={researchWork}
@@ -82,10 +82,10 @@ export const App: React.FC = () => {
           onOpenInspector={setSelectedProject}
         />
 
-        {/* SECTION 05: Technical Stack & Engineering Workbench */}
+        {/* SECTION 05: Technical Stack & Toolchain Workbench */}
         <SkillsSection skillCategories={skillCategories} />
 
-        {/* SECTION 06: Education, Verified Certifications & Bootcamps */}
+        {/* SECTION 06: Education, Verified Certifications & Honors */}
         <EducationCertSection
           educationList={educationList}
           certifications={certifications}
@@ -93,7 +93,7 @@ export const App: React.FC = () => {
           onOpenImage={setSelectedImage}
         />
 
-        {/* SECTION 07: Direct Field Communications Relay */}
+        {/* SECTION 07: Direct Dispatch Relay */}
         <ContactSection />
       </main>
 
@@ -122,16 +122,16 @@ export const App: React.FC = () => {
         caption={selectedImage?.caption}
       />
 
-      {/* Floating Bottom-Right Terminal Launcher Pill */}
+      {/* Floating Bottom-Right Woodblock Terminal Launcher */}
       <button
         onClick={() => setTerminalOpen(true)}
-        className="fixed bottom-6 right-6 z-40 bento-btn-secondary py-2.5 px-3.5 text-xs shadow-xl backdrop-blur-2xl border border-slate-200/90 hover:border-cyan-500/50 hover:bg-white group flex items-center gap-2 transition-all duration-300 text-slate-800"
-        title="Open Terminal (Ctrl + K or `)"
-        aria-label="Open Terminal"
+        className="fixed bottom-6 right-6 z-40 seal-btn-secondary py-2.5 px-4 text-xs shadow-woodblock border-3 border-[#1a3055] group flex items-center gap-2.5 transition-all duration-150"
+        title="Open Command Shell (Ctrl + K or `)"
+        aria-label="Open Command Shell"
       >
-        <TerminalIcon className="w-4 h-4 text-cyan-600 group-hover:rotate-12 transition-transform" />
-        <span className="font-mono text-slate-800 font-semibold hidden sm:inline">terminal</span>
-        <span className="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.2 rounded font-mono hidden md:inline border border-slate-200">
+        <TerminalIcon className="w-4 h-4 text-[#d4553a] group-hover:rotate-12 transition-transform" />
+        <span className="font-mono text-[#1a3055] font-bold tracking-wider hidden sm:inline uppercase">Terminal</span>
+        <span className="text-[10px] bg-[#1a3055] text-[#f5f0e1] px-1.5 py-0.5 font-mono hidden md:inline">
           ^K
         </span>
       </button>
