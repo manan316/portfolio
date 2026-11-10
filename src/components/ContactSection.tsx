@@ -25,38 +25,20 @@ export const ContactSection: React.FC = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
 
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: 'YOUR_ACCESS_KEY_HERE',
-          name: formData.name,
-          email: formData.email,
-          subject: `[Portfolio Transmission: ${formData.topic}] from ${formData.name}`,
-          message: formData.message
-        })
-      });
+    const subject = `[Portfolio Inquiry: ${formData.topic}] from ${formData.name}`;
+    const body = `${formData.message}\n\n---\nSender: ${formData.name}\nEmail: ${formData.email}\nTopic: ${formData.topic}`;
+    const mailtoUrl = `mailto:manan31206@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-      if (response.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', topic: 'Research Collaboration', message: '' });
-      } else {
-        window.location.href = `mailto:manan31206@gmail.com?subject=${encodeURIComponent(
-          `[Portfolio Transmission: ${formData.topic}] from ${formData.name}`
-        )}&body=${encodeURIComponent(formData.message + '\n\nFrom: ' + formData.name + ' (' + formData.email + ')')}`;
-        setStatus('success');
-      }
-    } catch {
-      window.location.href = `mailto:manan31206@gmail.com?subject=${encodeURIComponent(
-        `[Portfolio Transmission: ${formData.topic}] from ${formData.name}`
-      )}&body=${encodeURIComponent(formData.message + '\n\nFrom: ' + formData.name + ' (' + formData.email + ')')}`;
-      setStatus('success');
-    }
+    window.location.href = mailtoUrl;
+    setStatus('success');
+    setTimeout(() => {
+      setStatus('idle');
+      setFormData({ name: '', email: '', topic: 'Research Collaboration', message: '' });
+    }, 3000);
   };
 
   return (

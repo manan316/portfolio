@@ -122,10 +122,10 @@ export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal }) => {
             </div>
 
             <div className="mt-4 w-full py-2 px-3 rounded-xl bg-white/5 border border-white/5 text-[11px] font-mono text-zinc-300 flex items-center justify-between">
-              <span className="text-zinc-500">SYS_STATUS</span>
+              <span className="text-zinc-500">AVAILABILITY</span>
               <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                ONLINE // OPTIMAL
+                ACTIVE // OPEN TO ROLES
               </span>
             </div>
           </div>

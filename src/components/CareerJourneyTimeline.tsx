@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ExperienceItem, ResearchItem, TrainingWorkshopItem } from '../types/portfolio';
-import { Briefcase, Award, GraduationCap, Microscope, Calendar, MapPin, ZoomIn, CheckCircle2, Trophy, Theater } from 'lucide-react';
+import { Briefcase, Award, GraduationCap, Microscope, Calendar, MapPin, ZoomIn, CheckCircle2, Trophy, Lightbulb } from 'lucide-react';
 
 interface CareerJourneyTimelineProps {
   experiences: ExperienceItem[];
@@ -137,36 +137,40 @@ export const CareerJourneyTimeline: React.FC<CareerJourneyTimelineProps> = ({
       glowClass: 'bento-glow-violet'
     },
     {
-      id: 'brm-theatre',
+      id: 'ide-bootcamp',
       category: 'honors',
-      title: "Dual Lead Role in 'Rashmirathi' (Arjuna & Guru Kripacharya)",
-      organization: '25th Bharat Rang Mahotsav (BRM) International Theatre Festival',
-      period: 'Feb 2026',
-      location: 'National School of Drama (NSD) Circuit',
-      badge: 'Cultural / Polymath Honor',
-      badgeColor: 'bg-violet-500/15 text-violet-300 border-violet-500/30',
-      description: "Selected to perform dual prominent roles as warrior Arjuna and Guru Kripacharya in Ramdhari Singh Dinkar's monumental epic drama 'Rashmirathi' at Asia's largest international theatre festival.",
+      title: 'Innovation, Design and Entrepreneurship (IDE) Bootcamp',
+      organization: 'University of Ladakh · MoE & AICTE (Govt. of India)',
+      period: 'Edition 3 · 2026',
+      location: 'Leh, Ladakh, India',
+      badge: 'National Innovation Bootcamp',
+      badgeColor: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
+      description: 'Selected participant at the residential IDE Bootcamp hosted at University of Ladakh, supported by the Ministry of Education, AICTE, Wadhwani Foundation, and SBI Foundation, focusing on deep-tech venture design.',
       highlights: [
-        'Delivered complex verse recitation and theatrical performance under national festival direction.',
-        'High-stakes stage presence, articulation, and discipline under pressure.'
+        'Rapid prototyping of edge AI hardware and life-safety early-warning architectures.',
+        'Market viability analysis and deployment modeling for rugged high-altitude terrains.'
       ],
-      skills: ['Public Defense', 'Stage Presence', 'Classical Verse Recitation', 'Cross-Domain Polymath'],
-      icon: <Theater className="w-5 h-5 text-violet-400" />,
-      glowClass: 'bento-glow-violet'
+      skills: ['Deep-Tech Prototyping', 'Venture Design', 'AICTE / MoE', 'Systems Validation'],
+      icon: <Lightbulb className="w-5 h-5 text-amber-400" />,
+      glowClass: 'bento-glow-amber'
     },
     {
-      id: 'ncsc-scientist',
-      category: 'honors',
-      title: 'Junior Scientist Selection — 26th National Children Science Congress',
-      organization: 'NCSTC · IIT Kanpur',
-      period: 'Dec 2018',
-      location: 'IIT Kanpur, Uttar Pradesh, India',
-      badge: 'Science Prodigy',
-      badgeColor: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
-      description: 'Selected as Junior Scientist to present original environmental science research at IIT Kanpur after winning district and state level evaluations.',
-      skills: ['Scientific Method', 'Environmental Research', 'Public Defense'],
-      icon: <Award className="w-5 h-5 text-emerald-400" />,
-      glowClass: 'bento-glow-emerald'
+      id: 'iit-jammu-workshop',
+      category: 'research',
+      title: 'Visual Attention Modeling & High-Speed Instrumentation',
+      organization: 'Indian Institute of Technology (IIT), Jammu',
+      period: '2024',
+      location: 'Jammu, India',
+      badge: 'IIT Research Workshop',
+      badgeColor: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',
+      description: 'Participated in an intensive hands-on instrumentation workshop focused on high-speed eye-tracking hardware, spatial gaze calibration, visual attention trajectory modeling, and statistical signal filtering.',
+      highlights: [
+        'Hands-on experimentation with high-speed optical instrumentation and spatio-temporal calibration.',
+        'Statistical validation and signal filtering of continuous gaze coordinates.'
+      ],
+      skills: ['Instrumentation', 'Signal Processing', 'Spatial Calibration', 'Statistical Analysis'],
+      icon: <Microscope className="w-5 h-5 text-cyan-400" />,
+      glowClass: 'bento-glow-cyan'
     }
   ];
 
@@ -190,7 +194,7 @@ export const CareerJourneyTimeline: React.FC<CareerJourneyTimelineProps> = ({
           Experience & Research Journey
         </h2>
         <p className="text-zinc-400 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
-          The engineering timeline spanning tier-1 research institutes (IIT Roorkee), high-throughput industrial IoT firmware (UniConverge), international hackathon victories, and cultural polymath achievements.
+          The engineering journey spanning tier-1 research institutes (IIT Roorkee), high-throughput industrial IoT firmware (UniConverge), national hackathon leadership, and international awards.
         </p>
       </div>
 

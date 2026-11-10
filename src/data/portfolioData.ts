@@ -12,10 +12,10 @@ import {
 export const personalInfo: PersonalInfo = {
   name: "Manan Sharma",
   pronouns: "He/Him",
-  role: "Software Engineer & AI/ML / Embedded Systems Researcher",
-  headline: "Engineer, Researcher & Polymath | Exploring Cloud, IoT, AI/ML, Computer Vision, Linux, Networking | Ex-Intern IIT Roorkee, UCT",
+  role: "Software Engineer & AI/ML Systems Researcher",
+  headline: "Software Engineer & AI/ML Systems Researcher | Embedded Linux, Edge AI & Geospatial Systems | Ex-Intern IIT Roorkee & UniConverge",
   subHeadline: "B.Tech Artificial Intelligence & Mathematics · University of Jammu",
-  status: "PRTS_LINK ACTIVE // SYS_READY",
+  status: "ACTIVE // OPEN TO OPPORTUNITIES",
   location: "Jammu & Kashmir, India",
   email: "manan31206@gmail.com",
   github: "https://github.com/manan316",
@@ -37,8 +37,6 @@ export const personalInfo: PersonalInfo = {
     "Developed SlipSense: AI-powered landslide segmentation using custom CRUNet on 14-band multispectral satellite imagery",
     "Created NeuroView: High-throughput 3D spatial telemetry & signal visualization platform with WebGL shaders & cascading LLMs",
     "Organised Innovathon 1.0 National level Hackathon at University of Jammu",
-    "Performed double role as Arjuna & Guru Kripacharya in 'Rashmirathi' at 25th Bharat Rang Mahotsav (BRM) International Theatre Festival (2026)",
-    "Selected as Junior Scientist at 26th National Children Science Congress (NCSC), IIT Kanpur (2018)",
     "Participated in Visual Attention Modeling & High-Speed Instrumentation Workshop at IIT Jammu (2024)",
     "Selected Participant at Innovation, Design and Entrepreneurship (IDE) Bootcamp (Edition 3) at University of Ladakh (2026)"
   ]
@@ -420,7 +418,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "Git / Version Control" },
       { name: "Cryptography & Security" },
       { name: "DevOps & CI/CD Pipelines" },
-      { name: "DBMS" }
+      { name: "PostgreSQL & SQLite" },
+      { name: "Redis" }
     ]
   },
   {
@@ -432,13 +431,13 @@ export const skillCategories: SkillCategory[] = [
       { name: "Flask" },
       { name: "Three.js (WebGL & GLSL Shaders)" },
       { name: "React" },
+      { name: "Tailwind CSS" },
       { name: "HTML5 / CSS3" },
-      { name: "Figma" },
-      { name: "PowerBI & Tableau" },
+      { name: "NumPy & Pandas" },
       { name: "QGIS (Geospatial Analysis)" },
-      { name: "Unity 3D & AR/VR" },
-      { name: "CAD" },
-      { name: "IBM SPSS Statistics" }
+      { name: "PowerBI & Tableau" },
+      { name: "Figma" },
+      { name: "Unity 3D & AR/VR" }
     ]
   }
 ];
@@ -450,10 +449,9 @@ export const educationList: EducationItem[] = [
     duration: "Aug 2024 – Aug 2028",
     location: "Jammu & Kashmir, India",
     highlights: [
-      "Core coursework: Artificial Intelligence, Discrete & Applied Mathematics, Data Structures, Algorithms, Linear Algebra, Machine Learning, DBMS, Software Engineering.",
-      "Performed double role as Arjuna and Guru Kripacharya in 'Rashmirathi' at the 25th Bharat Rang Mahotsav (BRM) 2026 by National School of Drama (NSD).",
+      "Core coursework: Artificial Intelligence, Applied Mathematics, Data Structures, Algorithms, Linear Algebra, Machine Learning, Operating Systems, Computer Networks.",
       "Organizing Team Member for Innovathon 1.0 — University of Jammu's premier National level Hackathon.",
-      "Active researcher in systems programming, high-performance computing, applied mathematics, and edge AI computer vision."
+      "Undergraduate researcher in edge AI acceleration, embedded Linux firmware, and geospatial satellite vision."
     ],
     skills: ["Artificial Intelligence", "Mathematics", "Machine Learning", "Software Development", "Data Structures", "System Design"]
   }
@@ -468,18 +466,11 @@ export const trainingsAndWorkshops: TrainingWorkshopItem[] = [
     category: "INTERNATIONAL HACKATHON / AWARD"
   },
   {
-    title: "Junior Scientist — 26th National Children Science Congress (NCSC)",
-    institution: "Indian Institute of Technology (IIT), Kanpur",
-    year: "2018",
-    description: "Selected and participated as Junior Scientist at the prestigious 26th NCSC held at Kendriya Vidyalaya, Indian Institute of Technology, Kanpur, presenting scientific research.",
-    category: "SCIENCE CONGRESS / HONOR"
-  },
-  {
-    title: "Visual Attention Modeling & High-Speed Instrumentation Workshop",
-    institution: "Indian Institute of Technology (IIT), Jammu",
-    year: "2024",
-    description: "Participated in an intensive hands-on workshop focusing on high-speed eye-tracking instrumentation, visual attention trajectory modeling, spatial gaze calibration, and statistical research methodologies.",
-    category: "WORKSHOP / RESEARCH"
+    title: "Innovation, Design and Entrepreneurship (IDE) Bootcamp",
+    institution: "University of Ladakh (MoE & AICTE)",
+    year: "2026",
+    description: "Selected student participant at the residential IDE Bootcamp (Edition 3 - Phase 3) hosted at the University of Ladakh, organized by the Ministry of Education (Govt. of India), AICTE, Wadhwani Foundation, and SBI Foundation.",
+    category: "BOOTCAMP / INNOVATION"
   },
   {
     title: "Innovathon 1.0 National Hackathon Management",
@@ -489,18 +480,11 @@ export const trainingsAndWorkshops: TrainingWorkshopItem[] = [
     category: "LEADERSHIP / HACKATHON"
   },
   {
-    title: "Actor (Arjuna & Guru Kripacharya) — 25th Bharat Rang Mahotsav (BRM)",
-    institution: "National School of Drama (NSD) & University of Jammu",
-    year: "2026",
-    description: "Performed a dual role portraying Arjuna and Guru Kripacharya in the dramatic presentation of Ramdhari Singh Dinkar's epic 'Rashmirathi' at the 25th Bharat Rang Mahotsav International Theatre Festival, organized by NSD, New Delhi (Ministry of Culture) and University of Jammu.",
-    category: "THEATRE / BRM FESTIVAL"
-  },
-  {
-    title: "Innovation, Design and Entrepreneurship (IDE) Bootcamp",
-    institution: "University of Ladakh (MoE & AICTE)",
-    year: "2026",
-    description: "Selected student participant at the residential IDE Bootcamp (Edition 3 - Phase 3) hosted at the University of Ladakh, organized by the Ministry of Education (Govt. of India), AICTE, Wadhwani Foundation, and SBI Foundation.",
-    category: "BOOTCAMP / INNOVATION"
+    title: "Visual Attention Modeling & High-Speed Instrumentation Workshop",
+    institution: "Indian Institute of Technology (IIT), Jammu",
+    year: "2024",
+    description: "Participated in an intensive hands-on workshop focusing on high-speed eye-tracking instrumentation, visual attention trajectory modeling, spatial gaze calibration, and statistical research methodologies.",
+    category: "WORKSHOP / RESEARCH"
   }
 ];
 
