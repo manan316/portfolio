@@ -7,50 +7,37 @@ export default {
   theme: {
     extend: {
       colors: {
-        washi: {
-          DEFAULT: '#f5f0e1',
-          light: '#fbf8f0',
-          dark: '#ece5d0',
+        ink: '#0a0a0a',
+        'warm-white': '#fafaf8',
+        'international-orange': '#ff4d00',
+        orange: {
+          DEFAULT: '#ff4d00',
+          hover: '#e04400',
         },
-        indigo: {
-          DEFAULT: '#1a3055',
-          dark: '#112038',
-          light: '#234173',
-        },
-        vermilion: {
-          DEFAULT: '#d4553a',
-          hover: '#bf442a',
-          light: '#e27159',
-        },
-        gold: {
-          DEFAULT: '#c9a227',
-          light: '#dfb73c',
-          dark: '#a8851a',
-        },
-        ultramarine: {
-          DEFAULT: '#2a5a8c',
-          light: '#366ea9',
-        },
-        grass: {
-          DEFAULT: '#747800',
-          light: '#8d9200',
-        }
+        'mid-grey': '#71717a',
+        'rule-grey': '#e4e4e7',
+        'off-black': '#18181b',
       },
       fontFamily: {
-        serif: ['"Noto Serif SC"', '"Songti SC"', 'Georgia', 'serif'],
-        sans: ['"Noto Serif SC"', 'Georgia', 'serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        sans: ['"Inter"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Inter"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+      },
+      borderRadius: {
+        none: '0px',
+        DEFAULT: '0px',
+        sm: '0px',
+        md: '0px',
+        lg: '0px',
+        xl: '0px',
+        '2xl': '0px',
+        full: '0px',
       },
       boxShadow: {
-        'woodblock': '4px 4px 0 #1a3055',
-        'woodblock-hover': '6px 6px 0 #1a3055',
-        'woodblock-lg': '8px 8px 0 #1a3055',
-        'woodblock-vermilion': '4px 4px 0 #d4553a',
-        'woodblock-gold': '4px 4px 0 #c9a227',
-        'woodblock-sm': '2px 2px 0 #1a3055',
+        none: 'none',
       },
-      borderWidth: {
-        '3': '3px',
+      maxWidth: {
+        'page': '1600px',
       }
     },
   },

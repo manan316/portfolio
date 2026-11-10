@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { ProjectItem } from '../types/portfolio';
-import { X, ZoomIn, Cpu, Calendar, Tag } from 'lucide-react';
+import { X, ZoomIn, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from './Icons';
 
 interface ProjectInspectorModalProps {
@@ -31,32 +31,24 @@ export const ProjectInspectorModal: React.FC<ProjectInspectorModalProps> = ({
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#1a3055]/70 animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-[#0a0a0a]/85 animate-fadeIn">
       <div
-        className="woodblock-card woodblock-bar-vermilion bg-[#f5f0e1] border-3 border-[#1a3055] w-full max-w-4xl max-h-[90vh] flex flex-col shadow-woodblock-lg relative overflow-hidden"
+        className="bg-[#fafaf8] border border-[#0a0a0a] w-full max-w-4xl max-h-[90vh] flex flex-col relative overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Bar */}
-        <div className="p-6 border-b-2 border-[#1a3055]/20 flex items-start justify-between gap-4 bg-[#f5f0e1]">
-          <div>
-            <div className="flex flex-wrap items-center gap-2 mb-2">
-              <span className="cartouche-label text-[10px]">
-                {project.category}
-              </span>
-              {project.badge && (
-                <span className="px-2 py-0.5 text-[10px] font-serif font-bold uppercase tracking-wider bg-[#c9a227] text-[#1a3055] border border-[#1a3055]">
-                  {project.badge}
-                </span>
-              )}
-              <span className="text-xs font-serif font-bold text-[#1a3055]/75 flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5 text-[#1a3055]" /> {project.date}
-              </span>
+        <div className="p-6 sm:p-8 border-b border-[#0a0a0a]/15 flex items-start justify-between gap-4 bg-[#fafaf8]">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a]">
+              <span className="text-[#ff4d00] font-medium">{project.category}</span>
+              {project.badge && <span>· {project.badge}</span>}
+              <span>· {project.date}</span>
             </div>
-            <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1a3055] tracking-tight">
+            <h3 className="text-2xl sm:text-4xl font-black text-[#0a0a0a] uppercase tracking-[-0.03em] leading-tight">
               {project.title}
             </h3>
             {project.subtitle && (
-              <p className="font-serif text-xs sm:text-sm text-[#2a5a8c] font-bold mt-1">
+              <p className="font-mono text-xs text-[#ff4d00] tracking-[0.1em] uppercase">
                 {project.subtitle}
               </p>
             )}
@@ -64,39 +56,38 @@ export const ProjectInspectorModal: React.FC<ProjectInspectorModalProps> = ({
 
           <button
             onClick={onClose}
-            className="w-8 h-8 border-2 border-[#1a3055] bg-[#d4553a] text-[#f5f0e1] flex items-center justify-center hover:opacity-90 transition-opacity shrink-0"
+            className="p-2 text-[#71717a] hover:text-[#0a0a0a] border border-[#0a0a0a]/15 hover:border-[#0a0a0a] transition-colors shrink-0"
             title="Close Inspector (Esc)"
           >
-            <X className="w-4 h-4" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Scrollable Body */}
-        <div className="p-6 sm:p-8 overflow-y-auto space-y-6 bg-[#f5f0e1]">
+        <div className="p-6 sm:p-8 overflow-y-auto space-y-8 bg-[#fafaf8]">
           {/* Overview */}
-          <div className="bg-[#f5f0e1] border-2 border-[#1a3055] p-5 shadow-woodblock">
-            <h4 className="font-serif text-xs uppercase tracking-widest text-[#1a3055] font-bold mb-2">
-              System Overview & Problem Statement
-            </h4>
-            <p className="font-serif text-xs sm:text-sm text-[#1a3055]/85 leading-relaxed font-normal">
+          <div className="p-6 border border-[#0a0a0a]/15 space-y-2">
+            <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ff4d00]">
+              SYSTEM OVERVIEW & PROBLEM STATEMENT
+            </div>
+            <p className="text-base text-[#0a0a0a] leading-relaxed font-normal">
               {project.description}
             </p>
           </div>
 
           {/* Subsystem Specifications */}
           {project.architectureDetails && project.architectureDetails.length > 0 && (
-            <div className="bg-[#f5f0e1] border-2 border-[#1a3055] p-5 space-y-3 shadow-woodblock">
-              <h4 className="font-serif text-xs uppercase tracking-widest text-[#1a3055] font-bold flex items-center gap-2">
-                <Cpu className="w-4 h-4 text-[#2a5a8c]" />
-                Architectural Breakdown & Engineering Subsystems
-              </h4>
-              <div className="space-y-2.5">
+            <div className="p-6 border border-[#0a0a0a]/15 space-y-4">
+              <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a]">
+                ARCHITECTURAL BREAKDOWN & SUBSYSTEMS
+              </div>
+              <div className="space-y-3 font-mono text-xs text-[#0a0a0a] tracking-[0.05em]">
                 {project.architectureDetails.map((detail, idx) => (
-                  <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#1a3055] font-medium">
-                    <span className="w-5 h-5 bg-[#1a3055] text-[#f5f0e1] border border-[#1a3055] flex items-center justify-center shrink-0 text-[10px] font-serif font-bold mt-0.5">
-                      {idx + 1}
+                  <div key={idx} className="flex items-start gap-3">
+                    <span className="text-[#ff4d00] font-bold">
+                      [{String(idx + 1).padStart(2, '0')}]
                     </span>
-                    <span className="font-serif leading-snug text-[#1a3055]/90">{detail}</span>
+                    <span className="leading-snug">{detail}</span>
                   </div>
                 ))}
               </div>
@@ -105,28 +96,28 @@ export const ProjectInspectorModal: React.FC<ProjectInspectorModalProps> = ({
 
           {/* Screenshot Gallery */}
           {project.images && project.images.length > 0 && (
-            <div className="space-y-3">
-              <h4 className="font-serif text-xs uppercase tracking-widest text-[#1a3055] font-bold">
-                Telemetry & System Captures ({project.images.length})
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="space-y-4">
+              <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a]">
+                TELEMETRY & CAPTURES ({project.images.length})
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {project.images.map((img, idx) => (
                   <div
                     key={idx}
                     onClick={() => onOpenImage(img)}
-                    className="h-32 border-3 border-[#1a3055] relative cursor-pointer group/card bg-[#f5f0e1] overflow-hidden shadow-woodblock"
+                    className="h-36 bg-[#e4e4e7] overflow-hidden cursor-pointer group relative"
                   >
                     <img
                       src={img.url}
                       alt={img.caption}
-                      className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-200"
+                      className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-200"
                     />
-                    <div className="absolute inset-0 bg-[#1a3055]/60 opacity-0 group-hover/card:opacity-100 flex items-center justify-center transition-opacity">
-                      <span className="text-[10px] text-[#f5f0e1] bg-[#1a3055] px-2 py-1 border border-[#f5f0e1] flex items-center gap-1 font-serif uppercase tracking-wider font-bold">
-                        <ZoomIn className="w-3 h-3 text-[#c9a227]" /> Zoom
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                      <span className="text-[10px] text-white font-mono uppercase tracking-[0.15em] flex items-center gap-1">
+                        <ZoomIn className="w-3 h-3 text-[#ff4d00]" /> ZOOM
                       </span>
                     </div>
-                    <div className="absolute bottom-0 inset-x-0 bg-[#1a3055] text-[#f5f0e1] p-1 text-[10px] truncate font-serif font-bold tracking-wider uppercase border-t border-[#1a3055]">
+                    <div className="absolute bottom-0 inset-x-0 bg-[#0a0a0a] text-white p-1 text-[10px] truncate font-mono uppercase tracking-[0.1em]">
                       {img.caption}
                     </div>
                   </div>
@@ -136,16 +127,13 @@ export const ProjectInspectorModal: React.FC<ProjectInspectorModalProps> = ({
           )}
 
           {/* Tech Stack */}
-          <div className="bg-[#f5f0e1] border-2 border-[#1a3055] p-5 shadow-woodblock">
-            <h4 className="font-serif text-xs uppercase tracking-widest text-[#1a3055] font-bold mb-3 flex items-center gap-1.5">
-              <Tag className="w-3.5 h-3.5 text-[#1a3055]" /> Technologies & Tooling
-            </h4>
-            <div className="flex flex-wrap gap-1.5">
+          <div className="space-y-3">
+            <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a]">
+              ENGINEERING TOOLCHAIN
+            </div>
+            <div className="flex flex-wrap gap-2">
               {project.technologies.map((t) => (
-                <span
-                  key={t}
-                  className="woodblock-tag text-xs"
-                >
+                <span key={t} className="type-tag text-xs">
                   {t}
                 </span>
               ))}
@@ -154,24 +142,25 @@ export const ProjectInspectorModal: React.FC<ProjectInspectorModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t-2 border-[#1a3055]/20 bg-[#f5f0e1] flex items-center justify-between gap-3">
-          <span className="text-xs font-serif font-bold text-[#1a3055]/70 uppercase tracking-wider">
-            SAVERA RESEARCH ARTIFACT // SPEC READY
+        <div className="p-6 border-t border-[#0a0a0a]/15 bg-[#fafaf8] flex flex-wrap items-center justify-between gap-4">
+          <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a]">
+            SAVERA ARTIFACT // SPECIFICATION COMPLETE
           </span>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="seal-btn-secondary text-xs flex items-center gap-1.5"
+                className="btn-ghost text-xs py-2.5 px-4"
               >
-                <GithubIcon className="w-3.5 h-3.5 text-[#1a3055]" />
-                <span>Codebase</span>
+                <GithubIcon className="w-3.5 h-3.5" />
+                <span>REPO</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             )}
-            <button onClick={onClose} className="seal-btn-primary text-xs">
-              Close Spec
+            <button onClick={onClose} className="btn-orange text-xs py-2.5 px-4">
+              CLOSE SPEC
             </button>
           </div>
         </div>

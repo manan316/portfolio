@@ -1,6 +1,6 @@
 import React from 'react';
 import { PersonalInfo } from '../types/portfolio';
-import { Terminal, FileText, ArrowRight, Sparkles, MapPin, Radio, Briefcase } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Terminal } from 'lucide-react';
 
 interface HeroProps {
   personalInfo: PersonalInfo;
@@ -8,199 +8,171 @@ interface HeroProps {
   onOpenImage?: (image: { url: string; caption: string }) => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal }) => {
+export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal, onOpenImage }) => {
   return (
-    <section id="hero" className="relative pt-28 sm:pt-36 pb-12 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto">
-      {/* Hokusai Wave Decorative Rule */}
-      <div className="wave-divider mb-8" />
+    <section id="hero" className="pt-24 sm:pt-32 lg:pt-40 px-4 sm:px-8 max-w-[1600px] mx-auto">
+      {/* Monospace Metadata Top Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 border-b border-[#0a0a0a]/15 text-[#71717a] font-mono text-[11px] tracking-[0.2em] uppercase">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 bg-[#ff4d00] inline-block"></span>
+          <span className="text-[#0a0a0a] font-medium">01 // MANAN SHARMA</span>
+          <span>· SOFTWARE ENGINEER & AI/ML RESEARCHER</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <span>JAMMU & KASHMIR, INDIA</span>
+          <span className="text-[#0a0a0a] font-medium">SYS_ONLINE // 2026</span>
+        </div>
+      </div>
 
-      {/* Master Woodblock Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
-        
-        {/* Cell 1: Master Pitch Woodblock (8 cols) */}
-        <div className="lg:col-span-8 woodblock-card woodblock-bar-vermilion p-6 sm:p-10 lg:p-12 flex flex-col justify-between">
-          <div>
-            {/* Cartouche & Location Stamp */}
-            <div className="flex flex-wrap items-center gap-3 mb-6">
-              <span className="cartouche-label">
-                [巻頭 // PRELUDE] AVAILABLE FOR ROLES
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold font-serif bg-[#ece5d0] text-[#1a3055] border-2 border-[#1a3055] shadow-woodblock-sm">
-                <MapPin className="w-3.5 h-3.5 text-[#d4553a]" /> {personalInfo.location}
-              </span>
+      {/* Extreme Fluid Headline — The Type IS the Layout */}
+      <div className="pt-10 sm:pt-16 pb-12 sm:pb-20">
+        <h1 className="fluid-display text-[#0a0a0a] uppercase tracking-[-0.05em] leading-[0.85] font-black break-words">
+          ARCHITECTING
+        </h1>
+        <div className="fluid-display text-[#0a0a0a] uppercase tracking-[-0.05em] leading-[0.85] font-black break-words mt-1 sm:mt-2">
+          SYSTEMS FROM
+        </div>
+        <div className="fluid-display text-[#0a0a0a] uppercase tracking-[-0.05em] leading-[0.85] font-black break-words mt-1 sm:mt-2">
+          <span className="text-[#ff4d00]">SILICON</span> TO{' '}
+          <span className="text-stroke">SATELLITE.</span>
+        </div>
+      </div>
+
+      {/* Main Statement & Receding Imagery Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-8 pb-16 border-t border-[#0a0a0a]/15 items-start">
+        {/* Left Column (8 cols): Body statement & provenance */}
+        <div className="lg:col-span-8 space-y-8">
+          <p className="text-xl sm:text-2xl text-[#0a0a0a] font-normal leading-[1.4] max-w-3xl">
+            I bridge low-level embedded Linux kernel firmware with deep learning to build production-grade edge AI inference pipelines, procedural 3D digital twins, and autonomous geotechnical early-warning platforms.
+          </p>
+
+          {/* Monospace Provenance Roster */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 font-mono text-[11px] tracking-[0.18em] uppercase text-[#71717a]">
+            <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between">
+              <span className="text-[#0a0a0a] font-medium">[01] RESEARCH INTERN</span>
+              <span>IIT ROORKEE</span>
             </div>
-
-            {/* Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1a3055] mb-6 leading-[1.18]">
-              Architecting intelligent systems from{' '}
-              <span className="text-[#d4553a] underline decoration-[#c9a227] decoration-4 underline-offset-8">
-                silicon to satellite.
-              </span>
-            </h1>
-
-            {/* Bio Narrative */}
-            <p className="text-base sm:text-lg text-[#1a3055] font-serif leading-[1.7] max-w-3xl mb-8">
-              I am <strong className="font-bold underline decoration-[#d4553a] decoration-2 underline-offset-4">{personalInfo.name}</strong>. I bridge low-level embedded Linux engineering with deep learning to build production-grade edge AI inference pipelines, procedural 3D digital twins, and autonomous geotechnical early-warning platforms.
-            </p>
-
-            {/* Provenance Blocks */}
-            <div className="flex flex-wrap gap-2.5 mb-8">
-              <span className="px-3.5 py-1.5 text-xs font-bold bg-[#ece5d0] text-[#1a3055] border-2 border-[#1a3055] shadow-woodblock-sm flex items-center gap-1.5">
-                🏛️ Ex-Research Intern · IIT Roorkee
-              </span>
-              <span className="px-3.5 py-1.5 text-xs font-bold bg-[#ece5d0] text-[#1a3055] border-2 border-[#1a3055] shadow-woodblock-sm flex items-center gap-1.5">
-                📡 Ex-IoT Engineer · UniConverge
-              </span>
-              <span className="px-3.5 py-1.5 text-xs font-bold bg-[#ece5d0] text-[#1a3055] border-2 border-[#1a3055] shadow-woodblock-sm flex items-center gap-1.5">
-                🏆 Winner · INDU X 5.0 Hackathon
-              </span>
-              <span className="px-3.5 py-1.5 text-xs font-bold bg-[#ece5d0] text-[#1a3055] border-2 border-[#1a3055] shadow-woodblock-sm flex items-center gap-1.5">
-                🎓 University of Jammu · B.Tech AI & Math
-              </span>
+            <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between">
+              <span className="text-[#0a0a0a] font-medium">[02] FIRMWARE ENGINEER</span>
+              <span>UNICONVERGE</span>
+            </div>
+            <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between">
+              <span className="text-[#ff4d00] font-medium">[03] 1ST PRIZE WINNER</span>
+              <span>INDU X 5.0 HACKATHON</span>
+            </div>
+            <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between">
+              <span className="text-[#0a0a0a] font-medium">[04] B.TECH CANDIDATE</span>
+              <span>UNIVERSITY OF JAMMU</span>
             </div>
           </div>
 
-          {/* Action Seal Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-6 border-t-2 border-[#1a3055]">
-            <a href="#flagships" className="seal-btn-primary">
-              <Sparkles className="w-4 h-4 text-[#c9a227]" />
-              <span>EXPLORE FLAGSHIPS</span>
+          {/* Action Row */}
+          <div className="flex flex-wrap items-center gap-4 pt-4">
+            <a href="#flagships" className="btn-orange">
+              <span>EXPLORE BLUEPRINTS</span>
               <ArrowRight className="w-4 h-4" />
             </a>
-            <a href="#journey" className="seal-btn-secondary">
-              <Briefcase className="w-4 h-4 text-[#2a5a8c]" />
-              <span>CHRONICLE</span>
-            </a>
-            <button onClick={onOpenTerminal} className="seal-btn-secondary">
-              <Terminal className="w-4 h-4 text-[#d4553a]" />
-              <span>TERMINAL [~]</span>
-            </button>
             <a
               href={personalInfo.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="seal-btn-secondary"
+              className="btn-ghost"
             >
-              <FileText className="w-4 h-4 text-[#c9a227]" />
-              <span>RESUME PDF</span>
+              <span>RESUME [PDF]</span>
+              <ArrowUpRight className="w-4 h-4" />
             </a>
+            <button
+              onClick={onOpenTerminal}
+              className="px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-[#71717a] hover:text-[#0a0a0a] border border-transparent hover:border-[#0a0a0a]/15 transition-all flex items-center gap-2"
+            >
+              <Terminal className="w-3.5 h-3.5 text-[#ff4d00]" />
+              <span>TERMINAL [^K]</span>
+            </button>
           </div>
         </div>
 
-        {/* Cell 2 & 3: Portrait & Telemetry (4 cols) */}
-        <div className="lg:col-span-4 flex flex-col gap-6">
-          {/* Portrait Woodblock Card */}
-          <div className="woodblock-card woodblock-bar-gold p-6 flex flex-col items-center text-center">
-            {/* Woodcut Portrait Frame */}
-            <div className="relative w-40 h-40 sm:w-48 sm:h-48 border-3 border-[#1a3055] p-2 bg-[#ece5d0] shadow-woodblock mb-4">
-              <div className="w-full h-full border-2 border-[#d4553a] overflow-hidden bg-[#f5f0e1]">
-                <img
-                  src={personalInfo.profileImage || '/images/profile.png'}
-                  alt={personalInfo.name}
-                  className="w-full h-full object-cover object-top contrast-110"
-                />
+        {/* Right Column (4 cols): Single small receding unbordered accent portrait & telemetry */}
+        <div className="lg:col-span-4 space-y-6">
+          <div className="flex flex-col sm:flex-row lg:flex-col gap-6 items-start">
+            {/* Small unbordered portrait - imagery recedes to accent */}
+            <div
+              onClick={() =>
+                onOpenImage &&
+                onOpenImage({
+                  url: personalInfo.profileImage || '/images/profile.png',
+                  caption: 'Manan Sharma — AI & Systems Researcher'
+                })
+              }
+              className="w-44 h-52 shrink-0 bg-[#e4e4e7] cursor-pointer overflow-hidden group"
+            >
+              <img
+                src={personalInfo.profileImage || '/images/profile.png'}
+                alt={personalInfo.name}
+                className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
+
+            {/* Receding Monospace Telemetry */}
+            <div className="flex-1 w-full font-mono text-[11px] tracking-[0.18em] uppercase space-y-2 text-[#71717a]">
+              <div className="text-[#0a0a0a] font-medium pb-1 border-b border-[#0a0a0a]/15 flex items-center justify-between">
+                <span>ACTIVE TELEMETRY</span>
+                <span className="text-[#ff4d00]">● ONLINE</span>
               </div>
-              {/* Corner Hanko Stamp */}
-              <div className="absolute -bottom-2 -right-2 hanko-seal text-xs font-black shadow-woodblock-sm">
-                印
+              <div className="flex justify-between">
+                <span>FLAGSHIP</span>
+                <span className="text-[#0a0a0a]">SAVERA OJASEWS</span>
               </div>
-            </div>
-
-            <div className="text-xl font-black text-[#1a3055] tracking-wide mt-1">
-              {personalInfo.name}
-            </div>
-            <div className="text-xs text-[#2a5a8c] font-bold tracking-[0.12em] uppercase mt-1">
-              Software Engineer & AI/ML Systems
-            </div>
-
-            <div className="mt-4 w-full py-2.5 px-3 bg-[#1a3055] text-[#f5f0e1] border-2 border-[#1a3055] text-xs font-mono font-bold flex items-center justify-between shadow-woodblock-sm">
-              <span className="text-[#c9a227] tracking-wider">AVAILABILITY</span>
-              <span className="text-[#f5f0e1] flex items-center gap-1.5">
-                <span className="w-2 h-2 bg-[#747800] border border-[#f5f0e1]" />
-                SYS_ONLINE // OPEN
-              </span>
-            </div>
-          </div>
-
-          {/* Real-Time Telemetry Node Card */}
-          <div className="woodblock-card woodblock-bar-indigo p-6 flex-1 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between pb-3 border-b-2 border-[#1a3055]">
-                <span className="text-xs font-bold text-[#1a3055] tracking-wider uppercase flex items-center gap-2">
-                  <Radio className="w-3.5 h-3.5 text-[#d4553a]" />
-                  Telemetry Node
-                </span>
-                <span className="text-[10px] font-mono font-bold text-[#f5f0e1] bg-[#1a3055] px-2 py-0.5 border border-[#1a3055]">
-                  ACTIVE
-                </span>
+              <div className="flex justify-between">
+                <span>RADAR SENSOR</span>
+                <span className="text-[#0a0a0a]">868 MHZ LORAWAN</span>
               </div>
-
-              <div className="space-y-2.5 py-4 text-xs font-mono">
-                <div className="flex justify-between items-center bg-[#ece5d0] p-2.5 border-2 border-[#1a3055] shadow-woodblock-sm">
-                  <span className="text-[#1a3055] font-semibold">Samroli Sensor:</span>
-                  <span className="text-[#747800] font-bold">868 MHz LoRa // 100%</span>
-                </div>
-                <div className="flex justify-between items-center bg-[#ece5d0] p-2.5 border-2 border-[#1a3055] shadow-woodblock-sm">
-                  <span className="text-[#1a3055] font-semibold">STAC Cloud Gate:</span>
-                  <span className="text-[#2a5a8c] font-bold">PASS (QA60 &lt; 5%)</span>
-                </div>
-                <div className="flex justify-between items-center bg-[#ece5d0] p-2.5 border-2 border-[#1a3055] shadow-woodblock-sm">
-                  <span className="text-[#1a3055] font-semibold">OpenVINO NPU:</span>
-                  <span className="text-[#d4553a] font-bold">4.2ms / Frame</span>
-                </div>
+              <div className="flex justify-between">
+                <span>SATELLITE ACCURACY</span>
+                <span className="text-[#0a0a0a]">QA60 CLOUD GATING</span>
               </div>
-            </div>
-
-            <div className="text-[10px] text-[#1a3055] font-mono flex items-center justify-between pt-2 border-t-2 border-[#1a3055]">
-              <span>Himalayan Corridor NH-44</span>
-              <span className="font-bold">UTC +05:30</span>
+              <div className="flex justify-between">
+                <span>NPU ACCELERATION</span>
+                <span className="text-[#0a0a0a]">INTEL OPENVINO IR</span>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Cell 4: 4x Stats Row */}
-        <div className="lg:col-span-12 grid grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="woodblock-card woodblock-bar-vermilion p-6 text-center">
-            <div className="text-4xl sm:text-5xl font-black text-[#d4553a] font-serif">
-              8+
-            </div>
-            <div className="text-xs sm:text-sm font-bold text-[#1a3055] tracking-wider uppercase mt-2">
-              Production Systems
-            </div>
-            <div className="text-xs text-[#2a5a8c] font-serif mt-1">Edge AI, IoT & Spatial WebGL</div>
+      {/* Extreme Typographic Statistics Strip */}
+      <div className="grid grid-cols-2 md:grid-cols-4 border-t border-[#0a0a0a]/15 divide-y md:divide-y-0 md:divide-x divide-[#0a0a0a]/15">
+        <div className="py-8 pr-6">
+          <div className="text-5xl sm:text-7xl lg:text-8xl font-black text-[#0a0a0a] tracking-tight leading-none">
+            8+
           </div>
-
-          <div className="woodblock-card woodblock-bar-ultramarine p-6 text-center">
-            <div className="text-4xl sm:text-5xl font-black text-[#2a5a8c] font-serif">
-              2
-            </div>
-            <div className="text-xs sm:text-sm font-bold text-[#1a3055] tracking-wider uppercase mt-2">
-              Tier-1 Research Labs
-            </div>
-            <div className="text-xs text-[#2a5a8c] font-serif mt-1">IIT Roorkee & UniConverge</div>
-          </div>
-
-          <div className="woodblock-card woodblock-bar-gold p-6 text-center">
-            <div className="text-4xl sm:text-5xl font-black text-[#c9a227] font-serif">
-              1st Prize
-            </div>
-            <div className="text-xs sm:text-sm font-bold text-[#1a3055] tracking-wider uppercase mt-2">
-              Best Presentation Award
-            </div>
-            <div className="text-xs text-[#2a5a8c] font-serif mt-1">INDU X 5.0 Hackathon (2026)</div>
-          </div>
-
-          <div className="woodblock-card woodblock-bar-indigo p-6 text-center">
-            <div className="text-4xl sm:text-5xl font-black text-[#747800] font-serif">
-              14-Band
-            </div>
-            <div className="text-xs sm:text-sm font-bold text-[#1a3055] tracking-wider uppercase mt-2">
-              Multispectral Vision
-            </div>
-            <div className="text-xs text-[#2a5a8c] font-serif mt-1">Custom CRUNet Satellite AI</div>
+          <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a] mt-3">
+            PRODUCTION BUILDS
           </div>
         </div>
-
+        <div className="py-8 sm:px-6">
+          <div className="text-5xl sm:text-7xl lg:text-8xl font-black text-[#0a0a0a] tracking-tight leading-none">
+            02
+          </div>
+          <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a] mt-3">
+            TIER-1 RESEARCH LABS
+          </div>
+        </div>
+        <div className="py-8 sm:px-6">
+          <div className="text-5xl sm:text-7xl lg:text-8xl font-black text-[#ff4d00] tracking-tight leading-none">
+            1ST
+          </div>
+          <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a] mt-3">
+            INDU X 5.0 HACKATHON
+          </div>
+        </div>
+        <div className="py-8 pl-6">
+          <div className="text-5xl sm:text-7xl lg:text-8xl font-black text-[#0a0a0a] tracking-tight leading-none">
+            14B
+          </div>
+          <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a] mt-3">
+            MULTISPECTRAL SENSING
+          </div>
+        </div>
       </div>
     </section>
   );

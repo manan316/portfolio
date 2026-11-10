@@ -1,6 +1,6 @@
 import React from 'react';
 import { EducationItem, CertificationItem, TrainingWorkshopItem } from '../types/portfolio';
-import { GraduationCap, Award, ZoomIn, CheckCircle2 } from 'lucide-react';
+import { ZoomIn } from 'lucide-react';
 
 interface EducationCertSectionProps {
   educationList: EducationItem[];
@@ -16,153 +16,145 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
   onOpenImage,
 }) => {
   return (
-    <section id="education" className="py-20 px-4 sm:px-8 lg:px-12 2xl:px-16 w-full max-w-[1720px] mx-auto scroll-mt-24">
+    <section id="education" className="pt-24 sm:pt-32 lg:pt-40 px-4 sm:px-8 max-w-[1600px] mx-auto scroll-mt-24 hairline-divider">
       {/* Section Header */}
-      <div className="mb-12">
-        <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="cartouche-label text-xs">
-            [06 // CREDENTIALS & HONORS]
-          </span>
-          <span className="font-serif tracking-widest text-xs uppercase text-[#1a3055]/70 font-bold">
-            DEGREES · CERTIFICATIONS · WORKSHOPS
-          </span>
+      <div className="pb-12 sm:pb-16">
+        <div className="flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a]">
+          <span className="w-2 h-2 bg-[#ff4d00] inline-block"></span>
+          <span>06 // CREDENTIALS & FOUNDATION</span>
+          <span>· DEGREES · CERTIFICATIONS · WORKSHOPS</span>
         </div>
-        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1a3055] mb-4">
-          Education & Verified Credentials
+        <h2 className="fluid-heading text-[#0a0a0a] uppercase tracking-[-0.04em] leading-[0.88] font-black break-words mt-4 mb-6">
+          FOUNDATION & HONORS.
         </h2>
-        <p className="font-serif text-sm sm:text-base max-w-3xl text-[#1a3055]/85 leading-relaxed">
+        <p className="text-lg sm:text-xl text-[#0a0a0a] font-normal leading-[1.5] max-w-3xl">
           Rigorous foundational degree in Artificial Intelligence & Mathematics, paired with verified certifications and national engineering bootcamps.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column (6 cols): Education Degrees & National Bootcamps */}
-        <div className="lg:col-span-6 space-y-6">
-          <h3 className="font-serif text-sm font-bold uppercase tracking-widest text-[#1a3055] flex items-center gap-2">
-            <GraduationCap className="w-4 h-4 text-[#1a3055]" /> Academic Degrees & Foundation
-          </h3>
+        <div className="lg:col-span-6 space-y-12">
+          {/* Degrees */}
+          <div>
+            <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ff4d00] pb-3 border-b border-[#0a0a0a]/15">
+              [ACADEMIC DEGREES]
+            </div>
 
-          <div className="space-y-4">
-            {educationList.map((edu, idx) => (
-              <div key={idx} className="woodblock-card woodblock-bar-indigo p-6 sm:p-8 group relative">
-                <div className="flex items-start gap-4 pb-4 mb-4 border-b-2 border-[#1a3055]/20">
-                  <div className="p-3 border-2 border-[#1a3055] bg-[#1a3055] text-[#f5f0e1] shrink-0 group-hover:scale-105 transition-transform">
-                    <GraduationCap className="w-6 h-6" />
+            <div className="divide-y divide-[#0a0a0a]/15">
+              {educationList.map((edu, idx) => (
+                <div key={idx} className="py-8 space-y-4">
+                  <div className="flex items-center justify-between font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a]">
+                    <span>{edu.institution} · {edu.location}</span>
+                    <span className="text-[#0a0a0a] font-medium">{edu.duration}</span>
                   </div>
-                  <div>
-                    <span className="font-serif text-xs font-bold text-[#d4553a] uppercase tracking-wider">{edu.duration}</span>
-                    <h4 className="font-serif text-lg sm:text-xl font-bold text-[#1a3055] tracking-tight mt-0.5">
-                      {edu.degree}
-                    </h4>
-                    <div className="font-serif text-xs sm:text-sm text-[#2a5a8c] font-bold mt-1">
-                      {edu.institution} · {edu.location}
+
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0a0a0a] tracking-tight leading-tight">
+                    {edu.degree}
+                  </h3>
+
+                  {edu.highlights && edu.highlights.length > 0 && (
+                    <ul className="space-y-1.5 font-mono text-xs text-[#0a0a0a] tracking-[0.05em] pt-2">
+                      {edu.highlights.map((h, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-[#ff4d00] font-bold">—</span>
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {edu.skills && (
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {edu.skills.map((s) => (
+                        <span key={s} className="type-tag text-[10px]">
+                          {s}
+                        </span>
+                      ))}
                     </div>
-                  </div>
+                  )}
                 </div>
-
-                {edu.highlights && edu.highlights.length > 0 && (
-                  <div className="space-y-2 mb-4 text-xs font-serif text-[#1a3055] bg-[#f5f0e1] p-4 border-2 border-[#1a3055]">
-                    {edu.highlights.map((h, i) => (
-                      <div key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#d4553a] shrink-0 mt-0.5" />
-                        <span className="leading-snug">{h}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {edu.skills && (
-                  <div className="flex flex-wrap gap-1.5 pt-2 border-t-2 border-[#1a3055]/20">
-                    {edu.skills.map((s) => (
-                      <span key={s} className="woodblock-tag text-[10px]">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          {/* National Bootcamps */}
-          <div className="pt-4">
-            <h3 className="font-serif text-sm font-bold uppercase tracking-widest text-[#1a3055] flex items-center gap-2 mb-4">
-              <Award className="w-4 h-4 text-[#c9a227]" /> National Bootcamps, Workshops & Honors
-            </h3>
-            <div className="space-y-3">
+          {/* National Bootcamps & Workshops */}
+          <div>
+            <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ff4d00] pb-3 border-b border-[#0a0a0a]/15">
+              [NATIONAL BOOTCAMPS & RESEARCH WORKSHOPS]
+            </div>
+
+            <div className="divide-y divide-[#0a0a0a]/15">
               {trainingWorkshops.map((ws, i) => (
-                <div key={i} className="woodblock-card woodblock-bar-gold p-5 space-y-1.5 group relative">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-serif font-bold text-[#c9a227] tracking-wider">{ws.year}</span>
-                    <span className="font-serif text-[10px] uppercase font-bold text-[#1a3055] bg-[#c9a227]/20 px-2 py-0.5 border border-[#1a3055]">
-                      {ws.institution}
-                    </span>
+                <div key={i} className="py-6 space-y-2">
+                  <div className="flex items-center justify-between font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a]">
+                    <span>{ws.institution}</span>
+                    <span className="text-[#0a0a0a] font-medium">{ws.year}</span>
                   </div>
-                  <h4 className="font-serif text-sm font-bold text-[#1a3055] group-hover:text-[#d4553a] transition-colors">{ws.title}</h4>
-                  <p className="font-serif text-xs text-[#1a3055]/85 leading-relaxed">{ws.description}</p>
+                  <h4 className="text-lg font-bold text-[#0a0a0a] tracking-tight">
+                    {ws.title}
+                  </h4>
+                  <p className="text-sm text-[#71717a] font-normal leading-relaxed">
+                    {ws.description}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Right Column (6 cols): Certifications */}
+        {/* Right Column (6 cols): Verified Industrial Certifications */}
         <div className="lg:col-span-6 space-y-6">
-          <h3 className="font-serif text-sm font-bold uppercase tracking-widest text-[#1a3055] flex items-center gap-2">
-            <Award className="w-4 h-4 text-[#747800]" /> Verified Industrial Certifications
-          </h3>
+          <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ff4d00] pb-3 border-b border-[#0a0a0a]/15">
+            [VERIFIED INDUSTRIAL CREDENTIALS]
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="divide-y divide-[#0a0a0a]/15">
             {certifications.map((cert, idx) => (
-              <div key={idx} className="woodblock-card woodblock-bar-grass p-6 flex flex-col justify-between group relative">
-                <div>
-                  <div className="flex items-center justify-between text-xs mb-2 font-serif text-[#1a3055]">
-                    <span className="font-bold bg-[#747800] text-[#f5f0e1] px-2 py-0.5 border border-[#1a3055] text-[10px] uppercase tracking-wider">
-                      {cert.issuer}
-                    </span>
-                    <span className="font-bold text-[#1a3055]/70 text-[11px]">{cert.issueDate}</span>
-                  </div>
-
-                  <h4 className="font-serif text-sm sm:text-base font-bold text-[#1a3055] mb-3 leading-snug group-hover:text-[#d4553a] transition-colors">
-                    {cert.title}
-                  </h4>
-
-                  {cert.thumbnail && (
-                    <div
-                      onClick={() =>
-                        onOpenImage({
-                          url: cert.thumbnail!,
-                          caption: `${cert.title} — ${cert.issuer}`
-                        })
-                      }
-                      className="mb-4 h-32 border-3 border-[#1a3055] relative cursor-pointer group/thumb bg-[#f5f0e1] overflow-hidden shadow-woodblock"
-                    >
-                      <img
-                        src={cert.thumbnail}
-                        alt={cert.title}
-                        className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-200"
-                      />
-                      <div className="absolute inset-x-0 bottom-0 bg-[#1a3055] text-[#f5f0e1] px-2 py-1 flex items-center justify-between border-t-2 border-[#1a3055]">
-                        <span className="text-[10px] font-serif font-bold tracking-wider uppercase truncate">
-                          Official Certificate
-                        </span>
-                        <ZoomIn className="w-3.5 h-3.5 text-[#c9a227] shrink-0 ml-1" />
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {cert.skills.map((s) => (
-                      <span key={s} className="woodblock-tag text-[10px]">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
+              <div key={idx} className="py-8 space-y-4">
+                <div className="flex items-center justify-between font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a]">
+                  <span className="text-[#ff4d00] font-medium">{cert.issuer}</span>
+                  <span>{cert.issueDate}</span>
                 </div>
 
-                <div className="pt-3 border-t-2 border-[#1a3055]/20 flex items-center justify-between text-xs font-serif font-bold">
-                  <span className="text-[#1a3055]/70 text-[10px] tracking-wider uppercase">VERIFIED CREDENTIAL</span>
-                  <span className="text-[#747800] tracking-wider uppercase">AUTHENTIC</span>
+                <h4 className="text-xl sm:text-2xl font-bold text-[#0a0a0a] tracking-tight leading-snug">
+                  {cert.title}
+                </h4>
+
+                {/* Receding unbordered certificate thumbnail */}
+                {cert.thumbnail && (
+                  <div
+                    onClick={() =>
+                      onOpenImage({
+                        url: cert.thumbnail!,
+                        caption: `${cert.title} — ${cert.issuer}`
+                      })
+                    }
+                    className="w-48 h-32 bg-[#e4e4e7] overflow-hidden cursor-pointer group relative"
+                  >
+                    <img
+                      src={cert.thumbnail}
+                      alt={cert.title}
+                      className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-200"
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                      <span className="text-[10px] text-white font-mono uppercase tracking-[0.15em] flex items-center gap-1">
+                        <ZoomIn className="w-3 h-3 text-[#ff4d00]" /> ZOOM
+                      </span>
+                    </div>
+                  </div>
+                )}
+
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {cert.skills.map((s) => (
+                    <span key={s} className="type-tag text-[10px]">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#71717a] pt-1">
+                  CREDENTIAL VERIFICATION // 100% AUTHENTIC
                 </div>
               </div>
             ))}

@@ -1,7 +1,6 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { ArrowUp } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './Icons';
+import { ArrowUp, ArrowUpRight } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -9,51 +8,51 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative border-t-3 border-[#1a3055] bg-[#f5f0e1] py-12 px-4 sm:px-8 lg:px-12 2xl:px-16 mt-20 w-full">
-      <div className="max-w-[1720px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-        {/* Brand */}
-        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-          <div className="flex items-center gap-2">
-            <span className="hanko-seal w-7 h-7 text-xs">MS</span>
-            <span className="font-serif text-base font-bold text-[#1a3055] tracking-tight">
-              {personalInfo.name}
-            </span>
+    <footer className="pt-24 pb-16 px-4 sm:px-8 max-w-[1600px] mx-auto hairline-divider">
+      {/* Huge Fluid Name Stamp across the bottom */}
+      <div className="pb-16 sm:pb-24 overflow-hidden select-none">
+        <div className="fluid-display text-[#0a0a0a] uppercase tracking-[-0.05em] leading-[0.82] font-black break-words opacity-90 hover:opacity-100 transition-opacity">
+          MANAN SHARMA
+        </div>
+      </div>
+
+      {/* Monospace Metadata Row */}
+      <div className="pt-8 border-t border-[#0a0a0a]/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a]">
+        <div className="space-y-1">
+          <div className="text-[#0a0a0a] font-medium">
+            SOFTWARE ENGINEER & AI/ML SYSTEMS RESEARCHER
           </div>
-          <div className="font-serif text-xs text-[#1a3055]/75 mt-1">
-            Software Engineer & AI/ML Systems Researcher
-          </div>
-          <div className="font-serif text-[11px] text-[#1a3055]/60 mt-2">
-            © {new Date().getFullYear()} Manan Sharma. Composed in Ukiyo-e Digital Woodblock Architecture.
+          <div>
+            © {new Date().getFullYear()} MANAN SHARMA. OVERSIZED TYPOGRAPHY ARCHITECTURE.
           </div>
         </div>
 
-        {/* Links & Back to top */}
-        <div className="flex items-center gap-3">
+        {/* Links & Back to Top */}
+        <div className="flex flex-wrap items-center gap-6">
           <a
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 border-2 border-[#1a3055] bg-[#f5f0e1] shadow-woodblock flex items-center justify-center hover:bg-[#c9a227]/20 transition-all duration-150"
-            title="GitHub"
+            className="hover:text-[#ff4d00] transition-colors flex items-center gap-1"
           >
-            <GithubIcon className="w-4 h-4 text-[#1a3055]" />
+            <span>GITHUB</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
           <a
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 border-2 border-[#1a3055] bg-[#f5f0e1] shadow-woodblock flex items-center justify-center hover:bg-[#c9a227]/20 transition-all duration-150"
-            title="LinkedIn"
+            className="hover:text-[#ff4d00] transition-colors flex items-center gap-1"
           >
-            <LinkedinIcon className="w-4 h-4 text-[#1a3055]" />
+            <span>LINKEDIN</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
           <button
             onClick={scrollToTop}
-            className="seal-btn-secondary py-1.5 px-3.5 text-xs flex items-center gap-1.5 font-serif font-bold uppercase tracking-wider"
-            title="Back to Top"
+            className="hover:text-[#ff4d00] transition-colors flex items-center gap-1 text-[#0a0a0a] font-medium"
           >
-            <span>Top</span>
-            <ArrowUp className="w-3.5 h-3.5 text-[#1a3055]" />
+            <span>TOP</span>
+            <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>

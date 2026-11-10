@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, FileText, Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -29,65 +29,60 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
   }, []);
 
   const navLinks = [
-    { label: 'OVERVIEW', href: '#hero', id: 'hero' },
-    { label: 'FLAGSHIPS', href: '#flagships', id: 'flagships' },
-    { label: 'CHRONICLE', href: '#journey', id: 'journey' },
-    { label: 'ARCHIVE', href: '#work', id: 'work' },
-    { label: 'TOOLCHAIN', href: '#skills', id: 'skills' },
-    { label: 'HONORS', href: '#education', id: 'education' },
-    { label: 'DISPATCH', href: '#contact', id: 'contact' },
+    { num: '01', label: 'OVERVIEW', href: '#hero', id: 'hero' },
+    { num: '02', label: 'FLAGSHIPS', href: '#flagships', id: 'flagships' },
+    { num: '03', label: 'CHRONICLE', href: '#journey', id: 'journey' },
+    { num: '04', label: 'ARCHIVE', href: '#work', id: 'work' },
+    { num: '05', label: 'WORKBENCH', href: '#skills', id: 'skills' },
+    { num: '06', label: 'CREDENTIALS', href: '#education', id: 'education' },
+    { num: '07', label: 'DISPATCH', href: '#contact', id: 'contact' },
   ];
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 flex justify-center px-4 sm:px-6 lg:px-8 pt-3 pointer-events-none">
-      <div
-        className="pointer-events-auto flex items-center justify-between w-full max-w-[1400px] bg-[#f5f0e1] border-3 border-[#1a3055] border-t-4 border-t-[#d4553a] shadow-woodblock px-4 sm:px-6 py-2.5 transition-all duration-150"
-      >
-        {/* Brand / Hanko Seal Stamp */}
-        <a href="#hero" className="flex items-center gap-3 group">
-          <div className="hanko-seal font-serif text-sm font-black group-hover:bg-[#bf442a] transition-colors">
-            MS
-          </div>
-          <div className="hidden sm:flex flex-col">
-            <span className="text-sm font-bold tracking-[0.08em] text-[#1a3055] uppercase">
-              {personalInfo.name}
-            </span>
-            <span className="text-[10px] tracking-[0.18em] text-[#2a5a8c] font-semibold uppercase">
-              AI/ML & Systems Researcher
-            </span>
-          </div>
+    <header className="fixed top-0 inset-x-0 z-50 bg-[#fafaf8] border-b border-[#0a0a0a]/15">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between">
+        {/* Brand in 11px Monospace Uppercase at 0.2em */}
+        <a href="#hero" className="flex items-center gap-2 group">
+          <span className="w-2 h-2 bg-[#ff4d00] inline-block"></span>
+          <span className="font-mono text-[11px] font-medium tracking-[0.2em] uppercase text-[#0a0a0a] group-hover:text-[#ff4d00] transition-colors">
+            {personalInfo.name}
+          </span>
+          <span className="hidden lg:inline font-mono text-[11px] text-[#71717a] tracking-[0.15em] uppercase">
+            / AI·ML SYSTEMS
+          </span>
         </a>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-1">
+        {/* Monospace Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <a
                 key={link.id}
                 href={link.href}
-                className={`relative px-3 py-1.5 text-xs font-bold tracking-[0.14em] uppercase transition-colors duration-120 ${
+                className={`font-mono text-[11px] tracking-[0.2em] uppercase transition-colors duration-150 flex items-center gap-1.5 ${
                   isActive
-                    ? 'bg-[#1a3055] text-[#f5f0e1] border-b-2 border-b-[#c9a227]'
-                    : 'text-[#1a3055] hover:bg-[#ece5d0] hover:text-[#d4553a]'
+                    ? 'text-[#ff4d00] font-medium'
+                    : 'text-[#71717a] hover:text-[#0a0a0a]'
                 }`}
               >
-                {link.label}
+                <span className="text-[10px] text-[#71717a]/70">{link.num}</span>
+                <span>{link.label}</span>
               </a>
             );
           })}
         </nav>
 
-        {/* Action Buttons */}
-        <div className="flex items-center gap-2.5">
+        {/* Actions */}
+        <div className="flex items-center gap-3">
           {onOpenTerminal && (
             <button
               onClick={onOpenTerminal}
-              className="seal-btn-secondary py-1.5 px-3 text-xs tracking-wider group"
-              title="Open Command Shell (Ctrl + K)"
+              className="hidden sm:inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a] hover:text-[#ff4d00] transition-colors py-1 px-2 border border-[#0a0a0a]/15 hover:border-[#ff4d00]"
+              title="Terminal [^K]"
             >
-              <Terminal className="w-3.5 h-3.5 text-[#d4553a]" />
-              <span className="font-mono text-[11px] hidden lg:inline text-[#1a3055]">~</span>
+              <span>TERM</span>
+              <span className="text-[10px] text-[#71717a]">[^K]</span>
             </button>
           )}
 
@@ -95,17 +90,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
             href={personalInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="seal-btn-primary py-1.5 px-4 text-xs tracking-[0.15em]"
+            className="inline-flex items-center gap-1 bg-[#ff4d00] text-white hover:bg-[#0a0a0a] px-3.5 py-1.5 font-mono text-[11px] font-medium tracking-[0.2em] uppercase transition-colors duration-150"
           >
-            <FileText className="w-3.5 h-3.5" />
             <span>RESUME</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
 
-          {/* Mobile Menu Trigger */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 border-2 border-[#1a3055] bg-[#ece5d0] text-[#1a3055]"
-            aria-label="Toggle Navigation"
+            className="md:hidden p-1 text-[#0a0a0a] hover:text-[#ff4d00]"
+            aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -114,16 +109,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed top-20 inset-x-4 bg-[#f5f0e1] border-3 border-[#1a3055] border-t-4 border-t-[#d4553a] p-4 space-y-2 shadow-woodblock-lg pointer-events-auto">
+        <div className="md:hidden bg-[#fafaf8] border-b border-[#0a0a0a]/15 px-4 py-4 space-y-3">
           {navLinks.map((link) => (
             <a
               key={link.id}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between p-2.5 text-xs font-bold tracking-[0.15em] text-[#1a3055] hover:bg-[#1a3055] hover:text-[#f5f0e1] border-b border-[#1a3055]/20 uppercase transition-colors"
+              className="block font-mono text-[11px] tracking-[0.2em] uppercase text-[#0a0a0a] hover:text-[#ff4d00] py-1 border-b border-[#0a0a0a]/10"
             >
-              <span>{link.label}</span>
-              <ChevronRight className="w-4 h-4 text-[#d4553a]" />
+              <span className="text-[#ff4d00] mr-2">{link.num}</span>
+              {link.label}
             </a>
           ))}
         </div>

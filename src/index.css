@@ -3,268 +3,228 @@
 @tailwind utilities;
 
 :root {
-  --color-indigo: #1a3055;
-  --color-washi: #f5f0e1;
-  --color-vermilion: #d4553a;
-  --color-gold-leaf: #c9a227;
-  --color-ultramarine: #2a5a8c;
-  --color-young-grass: #747800;
+  /* Colors */
+  --color-ink: #0a0a0a;
+  --color-warm-white: #fafaf8;
+  --color-international-orange: #ff4d00;
+  --color-mid-grey: #71717a;
+  --color-rule-grey: #e4e4e7;
+  --color-off-black: #18181b;
 
-  --shadow-woodblock: 4px 4px 0 #1a3055;
-  --shadow-woodblock-hover: 6px 6px 0 #1a3055;
-  --shadow-woodblock-lg: 8px 8px 0 #1a3055;
+  /* Typography — Font Families */
+  --font-display: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+
+  /* Typography — Scale */
+  --text-display: clamp(3rem, 12vw, 10rem);
+  --leading-display: 0.85;
+  --tracking-display: -0.05em;
+
+  --text-heading: clamp(2.25rem, 7vw, 5.5rem);
+  --leading-heading: 0.88;
+  --tracking-heading: -0.04em;
+
+  --text-subheading: clamp(1.5rem, 4vw, 3rem);
+  --leading-subheading: 1.05;
+  --tracking-subheading: -0.03em;
+
+  --text-body-lg: 24px;
+  --leading-body-lg: 1.4;
+
+  --text-body: 16px;
+  --leading-body: 1.5;
+
+  --text-label: 11px;
+  --leading-label: 1.5;
+  --tracking-label: 0.2em;
+
+  /* Layout */
+  --page-max-width: 1600px;
+  --section-gap: 160px;
+  --card-padding: 24px;
+  --element-gap: 24px;
 }
 
 * {
   box-sizing: border-box;
+  border-radius: 0 !important;
 }
 
 html {
-  background-color: #f5f0e1;
-  color: #1a3055;
-  font-family: 'Noto Serif SC', 'Songti SC', Georgia, serif;
+  background-color: #fafaf8;
+  color: #0a0a0a;
+  font-family: var(--font-display);
   scroll-behavior: smooth;
   color-scheme: light;
 }
 
 body {
-  background-color: #f5f0e1;
-  color: #1a3055;
+  background-color: #fafaf8;
+  color: #0a0a0a;
   overflow-x: hidden;
-  font-family: 'Noto Serif SC', 'Songti SC', Georgia, serif;
-  /* Authentic Washi Paper Grid / Texture */
-  background-image: 
-    linear-gradient(to right, rgba(26, 48, 85, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(26, 48, 85, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
+  font-family: var(--font-display);
 }
 
-/* Custom Woodblock Scrollbar */
+/* Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f5f0e1;
-  border-left: 2px solid #1a3055;
+  background: #fafaf8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1a3055;
-  border-radius: 0;
-  border: 1px solid #f5f0e1;
+  background: #0a0a0a;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #d4553a;
+  background: #ff4d00;
 }
 
-/* Woodblock Print Registration Shift Animations (No silky smooth spring, authentic 150ms linear) */
-.woodblock-card {
-  position: relative;
-  background-color: #f5f0e1;
-  border: 3px solid #1a3055;
-  border-radius: 0;
-  padding: 1.75rem;
-  box-shadow: 4px 4px 0 #1a3055;
-  transition: transform 150ms linear, box-shadow 150ms linear;
-  overflow: hidden;
+/* Fluid Typography Utilities */
+.fluid-display {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 12vw, 10rem);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  font-weight: 900;
 }
 
-.woodblock-card:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 6px 6px 0 #1a3055;
+.fluid-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 7vw, 5.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  font-weight: 900;
 }
 
-/* Vermilion & Gold Decorative Header Bars */
-.woodblock-bar-vermilion::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background-color: #d4553a;
-  z-index: 10;
+.fluid-subheading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 500;
 }
 
-.woodblock-bar-gold::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background-color: #c9a227;
-  z-index: 10;
-}
-
-.woodblock-bar-indigo::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background-color: #1a3055;
-  z-index: 10;
-}
-
-.woodblock-bar-ultramarine::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background-color: #2a5a8c;
-  z-index: 10;
-}
-
-/* Seal Buttons */
-.seal-btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  border-radius: 0;
-  border: 3px solid #1a3055;
-  background-color: #d4553a;
-  color: #f5f0e1;
-  font-family: 'Noto Serif SC', 'Songti SC', Georgia, serif;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  box-shadow: 4px 4px 0 #1a3055;
-  transition: transform 120ms linear, box-shadow 120ms linear, background-color 120ms linear;
-  cursor: pointer;
 }
 
-.seal-btn-primary:hover {
-  background-color: #bf442a;
-  transform: translate(2px, 2px);
-  box-shadow: 6px 6px 0 #1a3055;
+.text-stroke {
+  -webkit-text-stroke: 1.5px #0a0a0a;
+  color: transparent;
 }
 
-.seal-btn-primary:active {
-  transform: translate(4px, 4px);
-  box-shadow: 0 0 0 #1a3055;
+.text-stroke-orange {
+  -webkit-text-stroke: 1.5px #ff4d00;
+  color: transparent;
 }
 
-.seal-btn-secondary {
+/* Hairline Section Divider: 1px ink border at 15% with vertical emptiness */
+.hairline-divider {
+  border-top: 1px solid rgba(10, 10, 10, 0.15);
+}
+
+/* International Orange Action Mark */
+.btn-orange {
+  background-color: #ff4d00;
+  color: #ffffff;
+  border: 1px solid #ff4d00;
+  border-radius: 0;
+  padding: 14px 28px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 150ms ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
+  gap: 8px;
+}
+
+.btn-orange:hover {
+  background-color: #0a0a0a;
+  border-color: #0a0a0a;
+  color: #ffffff;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: #0a0a0a;
+  border: 1px solid #0a0a0a;
   border-radius: 0;
-  border: 3px solid #1a3055;
-  background-color: #f5f0e1;
-  color: #1a3055;
-  font-family: 'Noto Serif SC', 'Songti SC', Georgia, serif;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  box-shadow: 4px 4px 0 #1a3055;
-  transition: transform 120ms linear, box-shadow 120ms linear, background-color 120ms linear;
-  cursor: pointer;
-}
-
-.seal-btn-secondary:hover {
-  background-color: #ece5d0;
-  transform: translate(2px, 2px);
-  box-shadow: 6px 6px 0 #1a3055;
-}
-
-.seal-btn-secondary:active {
-  transform: translate(4px, 4px);
-  box-shadow: 0 0 0 #1a3055;
-}
-
-/* Cartouche Label (Woodblock title stamp) */
-.cartouche-label {
+  padding: 14px 28px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 150ms ease;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.9rem;
-  background-color: #1a3055;
-  color: #f5f0e1;
-  border: 2px solid #1a3055;
-  border-left: 5px solid #c9a227;
-  font-family: 'Noto Serif SC', Georgia, serif;
-  font-size: 0.8125rem;
-  font-weight: 700;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-ghost:hover {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+/* Index Row: 1px ink border at 15% across index, project, category, year */
+.index-row {
+  border-top: 1px solid rgba(10, 10, 10, 0.15);
+  transition: all 150ms ease;
+}
+
+.index-row:hover {
+  background-color: rgba(255, 77, 0, 0.03);
+}
+
+.index-row:hover .index-title {
+  color: #ff4d00;
+}
+
+/* Clean Input */
+.type-input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 0;
+  padding: 14px 0;
+  color: #0a0a0a;
+  font-family: var(--font-display);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 150ms ease;
+}
+
+.type-input:focus {
+  border-bottom-color: #ff4d00;
+}
+
+.type-input::placeholder {
+  color: #71717a;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Monospace Pill / Tag without radius */
+.type-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  border-radius: 0;
-  box-shadow: 3px 3px 0 rgba(26, 48, 85, 0.4);
-}
-
-/* Hanko Seal Mark (Square stamp with 4px radius) */
-.hanko-seal {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 4px;
-  background-color: #d4553a;
-  color: #f5f0e1;
-  border: 2px solid #1a3055;
-  font-family: 'Noto Serif SC', Georgia, serif;
-  font-weight: 900;
-  font-size: 0.9375rem;
-  letter-spacing: 0;
-  box-shadow: 2px 2px 0 #1a3055;
-}
-
-.hanko-seal-gold {
-  background-color: #c9a227;
-  color: #1a3055;
-}
-
-/* Woodblock Form Inputs */
-.woodblock-input {
-  background-color: #fbf8f0;
-  border: 3px solid #1a3055;
-  border-radius: 0;
-  padding: 0.75rem 1rem;
-  color: #1a3055;
-  font-family: 'Noto Serif SC', Georgia, serif;
-  outline: none;
-  box-shadow: 3px 3px 0 #1a3055;
-  transition: box-shadow 120ms linear, border-color 120ms linear;
-}
-
-.woodblock-input:focus {
-  border-color: #d4553a;
-  box-shadow: 4px 4px 0 #d4553a;
-  background-color: #ffffff;
-}
-
-/* Hokusai Wave Divider (SVG Pattern) */
-.wave-divider {
-  width: 100%;
-  height: 28px;
-  background-repeat: repeat-x;
-  background-size: 56px 28px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 28'%3E%3Cpath d='M0 28 C 14 28, 20 8, 28 8 C 36 8, 42 28, 56 28 Z' fill='%231a3055' /%3E%3Cpath d='M28 8 C 24 16, 18 18, 12 18 C 18 16, 22 12, 28 8 Z' fill='%23c9a227' /%3E%3C/svg%3E");
-}
-
-.wave-divider-vermilion {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 28'%3E%3Cpath d='M0 28 C 14 28, 20 8, 28 8 C 36 8, 42 28, 56 28 Z' fill='%23d4553a' /%3E%3Cpath d='M28 8 C 24 16, 18 18, 12 18 C 18 16, 22 12, 28 8 Z' fill='%23c9a227' /%3E%3C/svg%3E");
-}
-
-/* Woodblock Pill Badge */
-.woodblock-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25rem 0.6rem;
-  font-size: 0.75rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  border-radius: 0;
-  border: 2px solid #1a3055;
-  background-color: #ece5d0;
-  color: #1a3055;
+  padding: 4px 10px;
+  border: 1px solid rgba(10, 10, 10, 0.2);
+  color: #0a0a0a;
+  background: transparent;
+  display: inline-block;
 }

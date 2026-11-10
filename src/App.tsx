@@ -47,20 +47,20 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#f5f0e1] text-[#1a3055] font-serif antialiased selection:bg-[#d4553a] selection:text-[#f5f0e1] w-full">
-      {/* Woodblock Header Navbar */}
+    <div className="relative min-h-screen bg-[#fafaf8] text-[#0a0a0a] font-sans antialiased selection:bg-[#ff4d00] selection:text-white w-full">
+      {/* Pinned Minimal Monospace Header */}
       <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
 
-      {/* Main Woodblock Flow */}
-      <main className="relative z-10 space-y-20 sm:space-y-28 w-full pb-20">
-        {/* SECTION 01: Hero Master Woodblock */}
+      {/* Main Flow: Sections divide with hairline and vast vertical emptiness */}
+      <main className="relative z-10 w-full pb-32">
+        {/* SECTION 01: Fluid Headline Hero */}
         <Hero
           personalInfo={personalInfo}
           onOpenTerminal={() => setTerminalOpen(true)}
           onOpenImage={setSelectedImage}
         />
 
-        {/* SECTION 02: Flagship Systems (OJASEWS, GeoChange AI, NeuroView, SlipSense) */}
+        {/* SECTION 02: Flagship Systems */}
         <FlagshipCaseStudies
           projects={projects}
           onOpenImage={setSelectedImage}
@@ -75,7 +75,7 @@ export const App: React.FC = () => {
           onOpenImage={setSelectedImage}
         />
 
-        {/* SECTION 04: Complete Systems & Engineering Archive (8+ Builds) */}
+        {/* SECTION 04: Complete Systems & Engineering Archive (Index Rows) */}
         <ProjectsSection
           projects={projects}
           onOpenImage={setSelectedImage}
@@ -122,18 +122,16 @@ export const App: React.FC = () => {
         caption={selectedImage?.caption}
       />
 
-      {/* Floating Bottom-Right Woodblock Terminal Launcher */}
+      {/* Floating Bottom-Right Monospace Terminal Launcher */}
       <button
         onClick={() => setTerminalOpen(true)}
-        className="fixed bottom-6 right-6 z-40 seal-btn-secondary py-2.5 px-4 text-xs shadow-woodblock border-3 border-[#1a3055] group flex items-center gap-2.5 transition-all duration-150"
+        className="fixed bottom-6 right-6 z-40 bg-[#0a0a0a] text-white hover:bg-[#ff4d00] py-2.5 px-4 font-mono text-[11px] uppercase tracking-[0.2em] transition-colors duration-150 flex items-center gap-2"
         title="Open Command Shell (Ctrl + K or `)"
         aria-label="Open Command Shell"
       >
-        <TerminalIcon className="w-4 h-4 text-[#d4553a] group-hover:rotate-12 transition-transform" />
-        <span className="font-mono text-[#1a3055] font-bold tracking-wider hidden sm:inline uppercase">Terminal</span>
-        <span className="text-[10px] bg-[#1a3055] text-[#f5f0e1] px-1.5 py-0.5 font-mono hidden md:inline">
-          ^K
-        </span>
+        <TerminalIcon className="w-3.5 h-3.5 text-[#ff4d00] group-hover:text-white" />
+        <span className="hidden sm:inline">TERMINAL</span>
+        <span className="text-[10px] text-[#71717a] font-mono">[^K]</span>
       </button>
     </div>
   );
