@@ -1,6 +1,6 @@
 import React from 'react';
 import { EducationItem, CertificationItem, TrainingWorkshopItem } from '../types/portfolio';
-import { GraduationCap, Award, ZoomIn, CheckCircle2 } from 'lucide-react';
+import { GraduationCap, Award, ZoomIn, CheckCircle2, Bookmark } from 'lucide-react';
 
 interface EducationCertSectionProps {
   educationList: EducationItem[];
@@ -21,13 +21,13 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
       <div className="mb-12">
         <div className="flex items-center gap-2 mb-3">
           <span className="bento-badge text-cyan-400 bg-cyan-500/10 border-cyan-500/20">
-            [08 // CREDENTIALS & HONORS]
+            [06 // CREDENTIALS & HONORS]
           </span>
           <span className="text-xs text-zinc-400 font-mono">
             DEGREES · CERTIFICATIONS · WORKSHOPS
           </span>
         </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
           Education & Verified Credentials
         </h2>
         <p className="text-zinc-400 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
@@ -38,19 +38,19 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column (6 cols): Education Degrees */}
         <div className="lg:col-span-6 space-y-5">
-          <h3 className="text-xs font-mono uppercase tracking-wider text-zinc-400">
-            Academic Degrees & Foundation
+          <h3 className="text-xs font-mono uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+            <GraduationCap className="w-4 h-4" /> Academic Degrees & Foundation
           </h3>
 
           <div className="space-y-4">
             {educationList.map((edu, idx) => (
-              <div key={idx} className="bento-card p-6">
-                <div className="flex items-start gap-4 pb-4 mb-4 border-b border-white/5">
-                  <div className="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 shrink-0">
+              <div key={idx} className="bento-card p-6 bento-glow-cyan group">
+                <div className="flex items-start gap-4 pb-4 mb-4 border-b border-white/10">
+                  <div className="p-3 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 shrink-0 group-hover:scale-110 transition-transform">
                     <GraduationCap className="w-6 h-6" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-mono text-zinc-400">{edu.duration}</span>
+                    <span className="text-[11px] font-mono text-cyan-300 font-semibold">{edu.duration}</span>
                     <h4 className="text-base sm:text-lg font-bold text-white tracking-tight mt-0.5">
                       {edu.degree}
                     </h4>
@@ -61,7 +61,7 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
                 </div>
 
                 {edu.highlights && edu.highlights.length > 0 && (
-                  <div className="space-y-1.5 mb-4 text-xs text-zinc-300">
+                  <div className="space-y-2 mb-4 text-xs text-zinc-300 bg-zinc-950/40 p-3.5 rounded-xl border border-white/5">
                     {edu.highlights.map((h, i) => (
                       <div key={i} className="flex items-start gap-2">
                         <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
@@ -72,9 +72,9 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
                 )}
 
                 {edu.skills && (
-                  <div className="flex flex-wrap gap-1 pt-2 border-t border-white/5">
+                  <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
                     {edu.skills.map((s) => (
-                      <span key={s} className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-white/5 text-zinc-400 border border-white/5">
+                      <span key={s} className="px-2.5 py-0.5 rounded-md text-[10px] font-mono bg-white/5 text-zinc-400 border border-white/5">
                         {s}
                       </span>
                     ))}
@@ -86,18 +86,18 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
 
           {/* National Bootcamps */}
           <div className="pt-4">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-4">
-              National Bootcamps & Workshops
+            <h3 className="text-xs font-mono uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-4">
+              <Award className="w-4 h-4" /> National Bootcamps & Workshops
             </h3>
             <div className="space-y-3">
               {trainingWorkshops.map((ws, i) => (
-                <div key={i} className="bento-card p-4 space-y-1.5">
+                <div key={i} className="bento-card p-4 space-y-1.5 bento-glow-amber group">
                   <div className="flex items-center justify-between text-[11px]">
-                    <span className="font-mono text-cyan-400">{ws.year}</span>
-                    <span className="text-zinc-500 font-mono">{ws.institution}</span>
+                    <span className="font-mono text-amber-300 font-semibold">{ws.year}</span>
+                    <span className="text-zinc-400 font-mono">{ws.institution}</span>
                   </div>
-                  <h4 className="text-sm font-semibold text-white">{ws.title}</h4>
-                  <p className="text-xs text-zinc-400 leading-relaxed">{ws.description}</p>
+                  <h4 className="text-sm font-semibold text-white group-hover:text-amber-200 transition-colors">{ws.title}</h4>
+                  <p className="text-xs text-zinc-300 leading-relaxed">{ws.description}</p>
                 </div>
               ))}
             </div>
@@ -106,20 +106,20 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
 
         {/* Right Column (6 cols): Certifications */}
         <div className="lg:col-span-6 space-y-5">
-          <h3 className="text-xs font-mono uppercase tracking-wider text-zinc-400">
-            Verified Industrial Certifications
+          <h3 className="text-xs font-mono uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+            <Award className="w-4 h-4" /> Verified Industrial Certifications
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {certifications.map((cert, idx) => (
-              <div key={idx} className="bento-card p-4 flex flex-col justify-between">
+              <div key={idx} className="bento-card p-4 flex flex-col justify-between bento-glow-emerald group">
                 <div>
                   <div className="flex items-center justify-between text-[10px] mb-2 font-mono text-zinc-400">
-                    <span className="text-cyan-400">{cert.issuer}</span>
+                    <span className="text-emerald-300 font-semibold">{cert.issuer}</span>
                     <span>{cert.issueDate}</span>
                   </div>
 
-                  <h4 className="text-xs sm:text-sm font-semibold text-white mb-2 leading-snug">
+                  <h4 className="text-xs sm:text-sm font-bold text-white mb-2 leading-snug group-hover:text-emerald-200 transition-colors">
                     {cert.title}
                   </h4>
 
@@ -131,15 +131,15 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
                           caption: `${cert.title} — ${cert.issuer}`
                         })
                       }
-                      className="mb-3 h-24 rounded-lg overflow-hidden border border-white/10 relative cursor-pointer group/thumb bg-zinc-950"
+                      className="mb-3 h-24 rounded-lg overflow-hidden border border-white/10 relative cursor-pointer group/thumb bg-zinc-950 shadow-md"
                     >
                       <img
                         src={cert.thumbnail}
                         alt={cert.title}
-                        className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-200"
+                        className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 flex items-center justify-center transition-opacity">
-                        <ZoomIn className="w-4 h-4 text-white" />
+                        <ZoomIn className="w-4 h-4 text-emerald-300" />
                       </div>
                     </div>
                   )}
@@ -161,7 +161,7 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
                         caption: `${cert.title} — ${cert.issuer}`
                       })
                     }
-                    className="bento-btn-secondary text-[11px] py-1 px-2.5 w-full mt-2"
+                    className="bento-btn-secondary text-[11px] py-1 px-2.5 w-full mt-2 hover:border-emerald-500/40"
                   >
                     <span>View Credential</span>
                   </button>

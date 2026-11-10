@@ -13,17 +13,34 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
       case 'Brain':
-        return <Brain className="w-4 h-4 text-cyan-400" />;
+        return <Brain className="w-5 h-5 text-cyan-400" />;
       case 'Cpu':
-        return <Cpu className="w-4 h-4 text-emerald-400" />;
+        return <Cpu className="w-5 h-5 text-emerald-400" />;
       case 'Code2':
-        return <Code2 className="w-4 h-4 text-indigo-400" />;
+        return <Code2 className="w-5 h-5 text-indigo-400" />;
       case 'Server':
-        return <Server className="w-4 h-4 text-amber-400" />;
+        return <Server className="w-5 h-5 text-amber-400" />;
       case 'Layers':
-        return <Layers className="w-4 h-4 text-violet-400" />;
+        return <Layers className="w-5 h-5 text-violet-400" />;
       default:
-        return <Code2 className="w-4 h-4 text-zinc-400" />;
+        return <Code2 className="w-5 h-5 text-zinc-400" />;
+    }
+  };
+
+  const getCategoryGlow = (iconName: string) => {
+    switch (iconName) {
+      case 'Brain':
+        return 'bento-glow-cyan';
+      case 'Cpu':
+        return 'bento-glow-emerald';
+      case 'Code2':
+        return 'bento-glow-violet';
+      case 'Server':
+        return 'bento-glow-amber';
+      case 'Layers':
+        return 'bento-glow-violet';
+      default:
+        return 'bento-glow-cyan';
     }
   };
 
@@ -53,13 +70,13 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
       <div className="mb-12">
         <div className="flex items-center gap-2 mb-3">
           <span className="bento-badge text-cyan-400 bg-cyan-500/10 border-cyan-500/20">
-            [06 // TECHNICAL WORKBENCH]
+            [05 // TECHNICAL WORKBENCH]
           </span>
           <span className="text-xs text-zinc-400 font-mono">
             {totalSkillCount} VERIFIED PROFICIENCIES
           </span>
         </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
           Engineering Toolchain & Stack
         </h2>
         <p className="text-zinc-400 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
@@ -71,7 +88,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
       <div className="bento-card p-4 sm:p-5 mb-8 space-y-4">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
           <div className="relative flex-1">
-            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500" />
+            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-cyan-400" />
             <input
               type="text"
               placeholder="Search specific tool, framework, or protocol (e.g. OpenVINO, C++, OpenWrt, Three.js)..."
@@ -98,7 +115,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
               onClick={() => setSelectedCategory(cat)}
               className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
                 selectedCategory === cat
-                  ? 'bg-white text-zinc-950 shadow-sm'
+                  ? 'bg-gradient-to-r from-cyan-400 to-indigo-500 text-zinc-950 font-bold shadow-sm shadow-cyan-500/20'
                   : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10'
               }`}
             >
@@ -111,14 +128,14 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
       {/* Bento Skills Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredCategories.map((cat) => (
-          <div key={cat.category} className="bento-card p-5 flex flex-col justify-between">
+          <div key={cat.category} className={`bento-card p-5 flex flex-col justify-between ${getCategoryGlow(cat.icon)} group`}>
             <div>
-              <div className="flex items-center gap-2.5 mb-3 pb-3 border-b border-white/5">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/10">
+              <div className="flex items-center gap-3 mb-3 pb-3 border-b border-white/10">
+                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 shrink-0 group-hover:scale-110 transition-transform duration-300">
                   {getCategoryIcon(cat.icon)}
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white">{cat.category}</h3>
+                  <h3 className="text-sm font-bold text-white">{cat.category}</h3>
                   <p className="text-[11px] text-zinc-400">{cat.description}</p>
                 </div>
               </div>
@@ -127,7 +144,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
                 {cat.skills.map((skill) => (
                   <span
                     key={skill.name}
-                    className="px-2.5 py-1 rounded-lg text-xs font-mono bg-white/5 text-zinc-300 border border-white/5 hover:border-cyan-400/30 hover:text-cyan-300 transition-colors"
+                    className="px-2.5 py-1 rounded-lg text-xs font-mono bg-white/5 text-zinc-300 border border-white/5 hover:border-cyan-400/50 hover:bg-cyan-500/10 hover:text-cyan-200 transition-all cursor-default"
                   >
                     {skill.name}
                   </span>
@@ -137,7 +154,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
 
             <div className="mt-4 pt-3 border-t border-white/5 text-[11px] text-zinc-500 font-mono flex items-center justify-between">
               <span>{cat.skills.length} specialized tools</span>
-              <span className="text-emerald-400">Verified</span>
+              <span className="text-emerald-400 font-semibold">Verified</span>
             </div>
           </div>
         ))}

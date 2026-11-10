@@ -20,11 +20,11 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
         <div className="space-y-1 text-zinc-300 font-mono text-xs">
           <div className="text-cyan-400 font-semibold uppercase">Available Commands:</div>
           <div><span className="text-violet-400 font-semibold">help</span> — Display this manual</div>
-          <div><span className="text-violet-400 font-semibold">sim</span> / <span className="text-violet-400 font-semibold">lab</span> — Jump to Interactive Simulation Lab</div>
           <div><span className="text-violet-400 font-semibold">flagships</span> — Jump to Flagship Systems (OJASEWS, GeoChange AI)</div>
           <div><span className="text-violet-400 font-semibold">journey</span> — Jump to Experience & Research Timeline</div>
           <div><span className="text-violet-400 font-semibold">archive</span> / <span className="text-violet-400 font-semibold">work</span> — Jump to 8+ Systems Archive</div>
           <div><span className="text-violet-400 font-semibold">skills</span> — Jump to Technical Workbench</div>
+          <div><span className="text-violet-400 font-semibold">education</span> — Jump to Degrees & Certifications</div>
           <div><span className="text-violet-400 font-semibold">contact</span> — Jump to Field Communications Relay</div>
           <div><span className="text-violet-400 font-semibold">resume</span> — Open verified Resume.pdf</div>
           <div><span className="text-violet-400 font-semibold">sudo hire</span> — Authorize interview protocol</div>
@@ -73,22 +73,17 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
           <div className="space-y-1 text-zinc-300 font-mono text-xs">
             <div className="text-cyan-400 font-semibold uppercase">Available Commands:</div>
             <div><span className="text-violet-400 font-semibold">help</span> — Display this manual</div>
-            <div><span className="text-violet-400 font-semibold">sim</span> / <span className="text-violet-400 font-semibold">lab</span> — Jump to Simulation Lab</div>
             <div><span className="text-violet-400 font-semibold">flagships</span> — Jump to Flagship Systems</div>
             <div><span className="text-violet-400 font-semibold">journey</span> — Jump to Experience & Research Timeline</div>
             <div><span className="text-violet-400 font-semibold">archive</span> / <span className="text-violet-400 font-semibold">work</span> — Jump to 8+ Systems Archive</div>
             <div><span className="text-violet-400 font-semibold">skills</span> — Jump to Technical Workbench</div>
+            <div><span className="text-violet-400 font-semibold">education</span> — Jump to Degrees & Certifications</div>
             <div><span className="text-violet-400 font-semibold">contact</span> — Jump to Direct Communication Relay</div>
             <div><span className="text-violet-400 font-semibold">resume</span> — Open verified Resume.pdf</div>
             <div><span className="text-violet-400 font-semibold">sudo hire</span> — Authorize interview protocol</div>
             <div><span className="text-violet-400 font-semibold">clear</span> — Clear terminal output buffer</div>
           </div>
         );
-        break;
-      case 'sim':
-      case 'lab':
-        response = <span className="text-emerald-400 font-semibold">Navigating to [03 // SIMULATION LAB]...</span>;
-        scrollToSection('lab');
         break;
       case 'flagships':
       case 'case-studies':
@@ -97,18 +92,24 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
         break;
       case 'journey':
       case 'experience':
-        response = <span className="text-emerald-400 font-semibold">Navigating to [04 // CAREER & RESEARCH CHRONICLE]...</span>;
+        response = <span className="text-emerald-400 font-semibold">Navigating to [03 // CAREER & RESEARCH CHRONICLE]...</span>;
         scrollToSection('journey');
         break;
       case 'archive':
       case 'work':
       case 'projects':
-        response = <span className="text-emerald-400 font-semibold">Navigating to [05 // SYSTEMS ARCHIVE]...</span>;
+        response = <span className="text-emerald-400 font-semibold">Navigating to [04 // SYSTEMS ARCHIVE]...</span>;
         scrollToSection('work');
         break;
       case 'skills':
-        response = <span className="text-emerald-400 font-semibold">Navigating to [06 // TECHNICAL WORKBENCH]...</span>;
+      case 'stack':
+        response = <span className="text-emerald-400 font-semibold">Navigating to [05 // TECHNICAL WORKBENCH]...</span>;
         scrollToSection('skills');
+        break;
+      case 'education':
+      case 'certs':
+        response = <span className="text-emerald-400 font-semibold">Navigating to [06 // CREDENTIALS & HONORS]...</span>;
+        scrollToSection('education');
         break;
       case 'contact':
         response = <span className="text-emerald-400 font-semibold">Navigating to [07 // CONTACT RELAY]...</span>;

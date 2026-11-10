@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { FlagshipCaseStudies } from './components/FlagshipCaseStudies';
-import { InteractiveSimLab } from './components/InteractiveSimLab';
 import { CareerJourneyTimeline } from './components/CareerJourneyTimeline';
 import { ProjectsSection } from './components/ProjectsSection';
 import { SkillsSection } from './components/SkillsSection';
@@ -53,7 +52,7 @@ export const App: React.FC = () => {
       <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
 
       {/* Main Bento Flow */}
-      <main className="relative z-10 space-y-12">
+      <main className="relative z-10 space-y-16">
         {/* SECTION 01: Hero Master Bento Grid */}
         <Hero
           personalInfo={personalInfo}
@@ -68,10 +67,7 @@ export const App: React.FC = () => {
           onOpenInspector={setSelectedProject}
         />
 
-        {/* SECTION 03: Interactive Simulation Lab Bento (Slope Physics & Carbon Accounting) */}
-        <InteractiveSimLab />
-
-        {/* SECTION 04: Experience & Research Bento Timeline */}
+        {/* SECTION 03: Experience & Research Bento Timeline */}
         <CareerJourneyTimeline
           experiences={experiences}
           researchWork={researchWork}
@@ -79,17 +75,17 @@ export const App: React.FC = () => {
           onOpenImage={setSelectedImage}
         />
 
-        {/* SECTION 05: Complete Systems & Engineering Archive (8+ Builds) */}
+        {/* SECTION 04: Complete Systems & Engineering Archive (8+ Builds) */}
         <ProjectsSection
           projects={projects}
           onOpenImage={setSelectedImage}
           onOpenInspector={setSelectedProject}
         />
 
-        {/* SECTION 06: Technical Stack & Engineering Workbench */}
+        {/* SECTION 05: Technical Stack & Engineering Workbench */}
         <SkillsSection skillCategories={skillCategories} />
 
-        {/* SECTION 07: Education, Verified Certifications & Bootcamps */}
+        {/* SECTION 06: Education, Verified Certifications & Bootcamps */}
         <EducationCertSection
           educationList={educationList}
           certifications={certifications}
@@ -97,7 +93,7 @@ export const App: React.FC = () => {
           onOpenImage={setSelectedImage}
         />
 
-        {/* SECTION 08: Direct Field Communications Relay */}
+        {/* SECTION 07: Direct Field Communications Relay */}
         <ContactSection />
       </main>
 
@@ -129,12 +125,12 @@ export const App: React.FC = () => {
       {/* Floating Bottom-Right Terminal Launcher Pill */}
       <button
         onClick={() => setTerminalOpen(true)}
-        className="fixed bottom-6 right-6 z-40 bento-btn-secondary py-2 px-3 text-xs shadow-2xl backdrop-blur-xl border border-white/10 hover:border-cyan-400/40 group flex items-center gap-2"
+        className="fixed bottom-6 right-6 z-40 bento-btn-secondary py-2.5 px-3.5 text-xs shadow-2xl backdrop-blur-2xl border border-white/15 hover:border-cyan-400/50 hover:bg-white/10 group flex items-center gap-2 transition-all duration-300"
         title="Open Terminal (Ctrl + K or `)"
         aria-label="Open Terminal"
       >
-        <TerminalIcon className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
-        <span className="font-mono text-zinc-300 hidden sm:inline">terminal</span>
+        <TerminalIcon className="w-4 h-4 text-cyan-400 group-hover:rotate-12 transition-transform" />
+        <span className="font-mono text-zinc-200 hidden sm:inline">terminal</span>
         <span className="text-[10px] bg-white/10 text-zinc-400 px-1.5 py-0.2 rounded font-mono hidden md:inline">
           ^K
         </span>
