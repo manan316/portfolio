@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ProjectItem } from '../types/portfolio';
-import { MemphisCardOrnaments } from './MemphisOrnament';
-import { ExternalLink, ZoomIn, Cpu, Layers, Sparkles, ArrowRight, Play, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, ZoomIn, Cpu, Layers, Sparkles, ArrowRight, CheckCircle2, Trophy, ShieldAlert, Activity } from 'lucide-react';
 import { GithubIcon } from './Icons';
 
 interface FlagshipCaseStudiesProps {
@@ -15,342 +14,401 @@ export const FlagshipCaseStudies: React.FC<FlagshipCaseStudiesProps> = ({
   onOpenImage,
   onOpenInspector,
 }) => {
-  // Filter the top 4 flagship systems
-  const flagships = projects.filter((p) =>
-    ['ojasews', 'geochange-ai', 'neuroview', 'slipsense'].includes(p.id)
-  );
+  const ojasews = projects.find((p) => p.id === 'ojasews') || projects[0];
+  const geochange = projects.find((p) => p.id === 'geochange-ai') || projects[1];
+  const neuroview = projects.find((p) => p.id === 'neuroview') || projects[2];
+  const slipsense = projects.find((p) => p.id === 'slipsense') || projects[3];
 
-  const [activeId, setActiveId] = useState<string>(flagships[0]?.id || 'ojasews');
-  const [activeTab, setActiveTab] = useState<'blueprint' | 'innovations' | 'gallery' | 'tech'>('blueprint');
-  const [activeImageIdx, setActiveImageIdx] = useState<number>(0);
-
-  const activeProject = flagships.find((p) => p.id === activeId) || flagships[0];
+  const [ojasewsImgIdx, setOjasewsImgIdx] = useState(0);
+  const [geochangeImgIdx, setGeochangeImgIdx] = useState(0);
 
   return (
-    <section id="case-studies" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-24">
+    <section id="flagships" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto scroll-mt-24">
       {/* Section Header */}
       <div className="mb-12">
-        <div className="flex flex-wrap items-center gap-3 mb-4">
-          <span className="memphis-badge bg-coral text-white border-4 border-black px-4 py-1.5 text-xs font-black tracking-widest uppercase">
-            [03 // FLAGSHIP CASE STUDIES]
+        <div className="flex items-center gap-2 mb-3">
+          <span className="bento-badge text-cyan-400 bg-cyan-500/10 border-cyan-500/20">
+            [02 // FLAGSHIP SYSTEMS]
           </span>
-          <span className="bg-electric-blue text-black border-3 border-black px-3 py-1 text-xs font-black tracking-wider uppercase">
-            DEEP ARCHITECTURAL DEEP-DIVES
+          <span className="text-xs text-zinc-400 font-mono">
+            CORE ARCHITECTURAL INNOVATIONS
           </span>
         </div>
-        <h2 className="memphis-heading text-black pop-swap mb-4">
-          SYSTEM ARCHITECTURE & CASE STUDIES
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+          Featured Engineering Blueprints
         </h2>
-        <p className="text-black text-base sm:text-lg font-bold max-w-3xl leading-relaxed">
-          Examine the comprehensive system engineering, data ingestion pipelines, and ML architectures behind my four flagship innovations.
+        <p className="text-zinc-400 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+          Deep-tech platforms developed under Project SAVERA, international hackathon winners, and high-throughput spatial telemetry architectures.
         </p>
       </div>
 
-      {/* Flagship Selector Bar */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {flagships.map((proj, idx) => {
-          const isSelected = proj.id === activeId;
-          const bgColors = ['bg-honey', 'bg-coral', 'bg-electric-blue', 'bg-mint'];
-          const activeBg = bgColors[idx % bgColors.length];
-
-          return (
-            <button
-              key={proj.id}
-              onClick={() => {
-                setActiveId(proj.id);
-                setActiveImageIdx(0);
-              }}
-              className={`p-4 border-4 border-black text-left font-black transition-all duration-150 relative ${
-                isSelected
-                  ? `${activeBg} text-black shadow-memphis -translate-y-1`
-                  : 'bg-white text-black hover:bg-paper shadow-memphis-sm'
-              }`}
-            >
-              <div className="flex items-center justify-between text-[11px] mb-2 opacity-80 uppercase tracking-widest">
-                <span>SYSTEM 0{idx + 1}</span>
-                {proj.badge && (
-                  <span className="bg-black text-white px-1.5 py-0.5 text-[9px] font-black truncate max-w-[120px]">
-                    {proj.badge.split('(')[0]}
+      {/* Flagships Bento Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        
+        {/* BENTO CARD 1: OJASEWS (7 Cols) */}
+        {ojasews && (
+          <div className="lg:col-span-7 bento-card p-6 sm:p-8 flex flex-col justify-between bento-glow-cyan">
+            <div>
+              {/* Badges */}
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <div className="flex items-center gap-2">
+                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20">
+                    SAVERA Flagship System
                   </span>
-                )}
-              </div>
-              <div className="text-base sm:text-lg leading-tight line-clamp-2">
-                {proj.title.split('—')[0]}
-              </div>
-              <div className="text-xs font-bold text-gray-700 mt-1 line-clamp-1">
-                {proj.category}
-              </div>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Main Case Study Stage */}
-      {activeProject && (
-        <div className="memphis-card bg-paper p-6 sm:p-8 lg:p-10 relative overflow-hidden group">
-          <MemphisCardOrnaments variant={3} />
-
-          {/* Top Metadata Banner */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b-4 border-black">
-            <div className="space-y-1.5 max-w-3xl">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="bg-black text-white px-3 py-1 text-xs font-black tracking-wider uppercase">
-                  {activeProject.category}
-                </span>
-                {activeProject.badge && (
-                  <span className="bg-honey text-black border-2 border-black px-3 py-1 text-xs font-black tracking-wider uppercase">
-                    {activeProject.badge}
+                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-white/5 text-zinc-300 border border-white/10">
+                    {ojasews.category}
                   </span>
-                )}
-                <span className="text-xs font-bold text-gray-600 bg-white border-2 border-black px-2 py-0.5">
-                  {activeProject.date}
+                </div>
+                <span className="text-[11px] font-mono text-zinc-500">
+                  {ojasews.date}
                 </span>
               </div>
-              <h3 className="text-2xl sm:text-4xl font-black text-black tracking-tight leading-tight pt-2">
-                {activeProject.title}
+
+              {/* Title */}
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 tracking-tight">
+                {ojasews.title.split('—')[0]}
               </h3>
-              {activeProject.subtitle && (
-                <p className="text-xs sm:text-sm font-bold text-gray-800 leading-normal">
-                  {activeProject.subtitle}
-                </p>
+              <p className="text-xs sm:text-sm text-cyan-400/90 font-medium mb-4">
+                {ojasews.subtitle}
+              </p>
+
+              {/* Description */}
+              <p className="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed mb-6 line-clamp-3">
+                {ojasews.description}
+              </p>
+
+              {/* Screenshot Preview Stage */}
+              {ojasews.images && ojasews.images.length > 0 && (
+                <div className="mb-6 rounded-2xl overflow-hidden border border-white/10 bg-zinc-950/60 p-2 relative group/img">
+                  <div
+                    onClick={() => onOpenImage(ojasews.images![ojasewsImgIdx])}
+                    className="h-56 sm:h-64 rounded-xl overflow-hidden relative cursor-zoom-in"
+                  >
+                    <img
+                      src={ojasews.images[ojasewsImgIdx].url}
+                      alt={ojasews.images[ojasewsImgIdx].caption}
+                      className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                      <p className="text-xs font-medium text-white truncate flex items-center justify-between w-full">
+                        <span>{ojasews.images[ojasewsImgIdx].caption}</span>
+                        <span className="text-[10px] bg-white/20 px-2 py-0.5 rounded-md flex items-center gap-1">
+                          <ZoomIn className="w-3 h-3" /> Enlarge
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Thumbnail Row */}
+                  <div className="flex gap-2 mt-2 pt-2 border-t border-white/5">
+                    {ojasews.images.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setOjasewsImgIdx(idx)}
+                        className={`h-12 w-20 rounded-lg overflow-hidden border transition-all ${
+                          ojasewsImgIdx === idx
+                            ? 'border-cyan-400 ring-2 ring-cyan-400/30'
+                            : 'border-white/10 opacity-60 hover:opacity-100'
+                        }`}
+                      >
+                        <img src={img.url} alt={img.caption} className="w-full h-full object-cover" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
               )}
+
+              {/* Engineering Highlights */}
+              <div className="space-y-2 mb-6 text-xs text-zinc-300">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                  <span>Procedural Three.js 3D Himalayan digital twin with dynamic slope shader heatmaps.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                  <span>Dual-track risk arbiter: Mohr-Coulomb physics heuristic + Random Forest classifier.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                  <span>Sub-second mobile push dispatch via ntfy.sh with priority lock-screen bypass.</span>
+                </div>
+              </div>
+
+              {/* Technologies */}
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {ojasews.technologies.slice(0, 6).map((t) => (
+                  <span key={t} className="px-2.5 py-0.5 rounded-lg text-[11px] font-mono bg-white/5 text-zinc-300 border border-white/5">
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {/* Quick Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3">
-              {activeProject.githubUrl && (
+            {/* Action Strip */}
+            <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
+              <button
+                onClick={() => onOpenInspector(ojasews)}
+                className="bento-btn-primary text-xs"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Full Architectural Spec</span>
+              </button>
+              {ojasews.githubUrl && (
                 <a
-                  href={activeProject.githubUrl}
+                  href={ojasews.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="memphis-btn-honey px-4 py-2.5 text-xs flex items-center gap-2"
+                  className="bento-btn-secondary text-xs"
                 >
-                  <GithubIcon className="w-4 h-4" /> Codebase
+                  <GithubIcon className="w-3.5 h-3.5" />
+                  <span>Codebase</span>
                 </a>
               )}
+            </div>
+          </div>
+        )}
+
+        {/* BENTO CARD 2: GeoChange AI (5 Cols) */}
+        {geochange && (
+          <div className="lg:col-span-5 bento-card p-6 sm:p-8 flex flex-col justify-between bento-glow-emerald">
+            <div>
+              {/* Badges */}
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-500/10 text-amber-300 border border-amber-500/20 flex items-center gap-1">
+                  <Trophy className="w-3 h-3 text-amber-400" /> Best Presentation Award
+                </span>
+                <span className="text-[11px] font-mono text-zinc-500">
+                  {geochange.date}
+                </span>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 tracking-tight">
+                {geochange.title.split('—')[0]}
+              </h3>
+              <p className="text-xs sm:text-sm text-emerald-400/90 font-medium mb-4">
+                {geochange.subtitle}
+              </p>
+
+              {/* Description */}
+              <p className="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed mb-6 line-clamp-3">
+                {geochange.description}
+              </p>
+
+              {/* Image Preview */}
+              {geochange.images && geochange.images.length > 0 && (
+                <div className="mb-6 rounded-2xl overflow-hidden border border-white/10 bg-zinc-950/60 p-2 relative group/geo">
+                  <div
+                    onClick={() => onOpenImage(geochange.images![geochangeImgIdx])}
+                    className="h-48 sm:h-56 rounded-xl overflow-hidden relative cursor-zoom-in"
+                  >
+                    <img
+                      src={geochange.images[geochangeImgIdx].url}
+                      alt={geochange.images[geochangeImgIdx].caption}
+                      className="w-full h-full object-cover group-hover/geo:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                      <p className="text-xs font-medium text-white truncate flex items-center justify-between w-full">
+                        <span>{geochange.images[geochangeImgIdx].caption}</span>
+                        <span className="text-[10px] bg-white/20 px-2 py-0.5 rounded-md flex items-center gap-1">
+                          <ZoomIn className="w-3 h-3" /> Zoom
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2 mt-2 pt-2 border-t border-white/5">
+                    {geochange.images.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setGeochangeImgIdx(idx)}
+                        className={`h-10 w-16 rounded-lg overflow-hidden border transition-all ${
+                          geochangeImgIdx === idx
+                            ? 'border-emerald-400 ring-2 ring-emerald-400/30'
+                            : 'border-white/10 opacity-60 hover:opacity-100'
+                        }`}
+                      >
+                        <img src={img.url} alt={img.caption} className="w-full h-full object-cover" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Key Bullet Highlights */}
+              <div className="space-y-2 mb-6 text-xs text-zinc-300">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <span>STAC Data Readiness Gate with QA60 cloud mask at 10m Sentinel-2.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <span>NASA/ORNL Aboveground Biomass Carbon accounting in lost tonnes CO2e.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <span>Landsat 8/9 daytime thermal infrared coupling quantifying urban Δ°C.</span>
+                </div>
+              </div>
+
+              {/* Technologies */}
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {geochange.technologies.slice(0, 5).map((t) => (
+                  <span key={t} className="px-2.5 py-0.5 rounded-lg text-[11px] font-mono bg-white/5 text-zinc-300 border border-white/5">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Action Strip */}
+            <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
               <button
-                onClick={() => onOpenInspector(activeProject)}
-                className="memphis-btn px-4 py-2.5 text-xs flex items-center gap-2"
+                onClick={() => onOpenInspector(geochange)}
+                className="bento-btn-primary text-xs"
               >
-                <Sparkles className="w-4 h-4" /> Full Blueprint
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Full Blueprint Spec</span>
+              </button>
+              {geochange.githubUrl && (
+                <a
+                  href={geochange.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bento-btn-secondary text-xs"
+                >
+                  <GithubIcon className="w-3.5 h-3.5" />
+                  <span>Codebase</span>
+                </a>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* BENTO CARD 3: NeuroView (6 Cols) */}
+        {neuroview && (
+          <div className="lg:col-span-6 bento-card p-6 sm:p-8 flex flex-col justify-between bento-glow-violet">
+            <div>
+              <div className="flex items-center justify-between gap-2 mb-4">
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-violet-500/10 text-violet-400 border border-violet-500/20">
+                  {neuroview.category}
+                </span>
+                <span className="text-[11px] font-mono text-zinc-500">
+                  {neuroview.date}
+                </span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 tracking-tight">
+                {neuroview.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-violet-400/90 font-medium mb-3">
+                {neuroview.subtitle}
+              </p>
+              <p className="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed mb-4 line-clamp-3">
+                {neuroview.description}
+              </p>
+
+              {neuroview.images && neuroview.images[0] && (
+                <div
+                  onClick={() => onOpenImage(neuroview.images![0])}
+                  className="mb-4 h-40 rounded-xl overflow-hidden border border-white/10 relative cursor-pointer group/nv"
+                >
+                  <img
+                    src={neuroview.images[0].url}
+                    alt={neuroview.images[0].caption}
+                    className="w-full h-full object-cover group-hover/nv:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2.5">
+                    <span className="text-xs text-white truncate font-medium">
+                      {neuroview.images[0].caption}
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {neuroview.technologies.slice(0, 5).map((t) => (
+                  <span key={t} className="px-2.5 py-0.5 rounded-lg text-[11px] font-mono bg-white/5 text-zinc-300 border border-white/5">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+              <button onClick={() => onOpenInspector(neuroview)} className="bento-btn-primary text-xs">
+                <span>View Blueprint Spec</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+              {neuroview.githubUrl && (
+                <a href={neuroview.githubUrl} target="_blank" rel="noopener noreferrer" className="bento-btn-secondary text-xs">
+                  <GithubIcon className="w-3.5 h-3.5" />
+                </a>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* BENTO CARD 4: SlipSense (6 Cols) */}
+        {slipsense && (
+          <div className="lg:col-span-6 bento-card p-6 sm:p-8 flex flex-col justify-between bento-glow-cyan">
+            <div>
+              <div className="flex items-center justify-between gap-2 mb-4">
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                  {slipsense.category}
+                </span>
+                <span className="text-[11px] font-mono text-zinc-500">
+                  {slipsense.date}
+                </span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 tracking-tight">
+                {slipsense.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-cyan-400/90 font-medium mb-3">
+                {slipsense.subtitle}
+              </p>
+              <p className="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed mb-4 line-clamp-3">
+                {slipsense.description}
+              </p>
+
+              {slipsense.images && slipsense.images[0] && (
+                <div
+                  onClick={() => onOpenImage(slipsense.images![0])}
+                  className="mb-4 h-40 rounded-xl overflow-hidden border border-white/10 relative cursor-pointer group/ss"
+                >
+                  <img
+                    src={slipsense.images[0].url}
+                    alt={slipsense.images[0].caption}
+                    className="w-full h-full object-cover group-hover/ss:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2.5">
+                    <span className="text-xs text-white truncate font-medium">
+                      {slipsense.images[0].caption}
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {slipsense.technologies.slice(0, 5).map((t) => (
+                  <span key={t} className="px-2.5 py-0.5 rounded-lg text-[11px] font-mono bg-white/5 text-zinc-300 border border-white/5">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+              <button onClick={() => onOpenInspector(slipsense)} className="bento-btn-primary text-xs">
+                <span>View Blueprint Spec</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
+        )}
 
-          {/* Sub-Tabs Navigation */}
-          <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 pb-4 border-b-3 border-black">
-            <button
-              onClick={() => setActiveTab('blueprint')}
-              className={`memphis-tab-btn text-xs sm:text-sm py-2 px-3 sm:px-4 ${
-                activeTab === 'blueprint' ? 'active' : ''
-              }`}
-            >
-              System Blueprint & Flow
-            </button>
-            <button
-              onClick={() => setActiveTab('innovations')}
-              className={`memphis-tab-btn text-xs sm:text-sm py-2 px-3 sm:px-4 ${
-                activeTab === 'innovations' ? 'active' : ''
-              }`}
-            >
-              Key Innovations
-            </button>
-            <button
-              onClick={() => setActiveTab('gallery')}
-              className={`memphis-tab-btn text-xs sm:text-sm py-2 px-3 sm:px-4 ${
-                activeTab === 'gallery' ? 'active' : ''
-              }`}
-            >
-              Telemetry & UI ({activeProject.images?.length || 0})
-            </button>
-            <button
-              onClick={() => setActiveTab('tech')}
-              className={`memphis-tab-btn text-xs sm:text-sm py-2 px-3 sm:px-4 ${
-                activeTab === 'tech' ? 'active' : ''
-              }`}
-            >
-              Stack & Metrics
-            </button>
-          </div>
-
-          {/* Sub-Tab Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left 7 Columns: Active Tab Information */}
-            <div className="lg:col-span-7 space-y-6">
-              {/* Tab 1: Blueprint */}
-              {activeTab === 'blueprint' && (
-                <div className="space-y-6">
-                  <div className="bg-white border-4 border-black p-6 shadow-memphis-sm">
-                    <h4 className="text-xs font-black uppercase tracking-widest text-black mb-3 pb-2 border-b-2 border-black flex items-center gap-2">
-                      <Cpu className="w-4 h-4 text-coral" /> Architecture & Data Pipeline
-                    </h4>
-                    <p className="text-xs sm:text-sm font-bold text-black leading-relaxed mb-4">
-                      {activeProject.description}
-                    </p>
-
-                    {activeProject.architectureDetails && (
-                      <div className="space-y-3 mt-4 pt-4 border-t-2 border-black">
-                        <span className="text-xs font-black uppercase tracking-wider block text-gray-700">
-                          Engineering Subsystem Specifications:
-                        </span>
-                        {activeProject.architectureDetails.map((detail, idx) => (
-                          <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm font-bold text-black">
-                            <span className="bg-black text-white w-5 h-5 flex items-center justify-center shrink-0 text-[10px] font-black mt-0.5">
-                              {idx + 1}
-                            </span>
-                            <span className="leading-snug">{detail}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              {/* Tab 2: Innovations */}
-              {activeTab === 'innovations' && (
-                <div className="space-y-4">
-                  <div className="bg-white border-4 border-black p-6 shadow-memphis-sm space-y-4">
-                    <h4 className="text-xs font-black uppercase tracking-widest text-black pb-2 border-b-2 border-black flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-honey" /> Technical Breakthroughs
-                    </h4>
-                    <ul className="space-y-3 text-xs sm:text-sm font-bold text-black">
-                      {activeProject.architectureDetails?.slice(0, 4).map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-mint shrink-0 mt-0.5" />
-                          <span className="leading-relaxed">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {activeProject.mentor && (
-                    <div className="bg-mint text-black border-4 border-black p-4 shadow-memphis-sm text-xs font-black">
-                      Academic / Research Mentor: {activeProject.mentor}
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Tab 3: Gallery */}
-              {activeTab === 'gallery' && (
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {activeProject.images?.map((img, idx) => (
-                      <div
-                        key={idx}
-                        onClick={() => onOpenImage(img)}
-                        className="bg-white border-4 border-black p-2 shadow-memphis-sm cursor-pointer group/img hover:bg-honey transition-colors"
-                      >
-                        <div className="h-44 overflow-hidden border-2 border-black relative">
-                          <img
-                            src={img.url}
-                            alt={img.caption}
-                            className="w-full h-full object-cover transition-transform duration-200 group-hover/img:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
-                            <span className="bg-white text-black px-2 py-1 text-xs font-black border-2 border-black flex items-center gap-1">
-                              <ZoomIn className="w-3.5 h-3.5" /> Click to Enlarge
-                            </span>
-                          </div>
-                        </div>
-                        <p className="text-[11px] font-black text-black mt-2 line-clamp-2 px-1">
-                          {img.caption}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Tab 4: Tech Stack */}
-              {activeTab === 'tech' && (
-                <div className="bg-white border-4 border-black p-6 shadow-memphis-sm space-y-4">
-                  <h4 className="text-xs font-black uppercase tracking-widest text-black pb-2 border-b-2 border-black">
-                    Technologies & Protocols Utilized
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {activeProject.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="memphis-badge bg-paper hover:bg-honey text-black border-2 border-black px-3 py-1.5 text-xs font-black"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Action Banner */}
-              <div className="flex flex-wrap items-center justify-between gap-4 p-4 bg-honey border-4 border-black shadow-memphis-sm">
-                <span className="text-xs font-black uppercase tracking-wider text-black">
-                  Interested in the code or mathematical formulation?
-                </span>
-                <button
-                  onClick={() => onOpenInspector(activeProject)}
-                  className="memphis-btn bg-coral text-white px-4 py-2 text-xs flex items-center gap-1.5"
-                >
-                  Inspect Full Spec <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-
-            {/* Right 5 Columns: Active Featured Screenshot Showcase */}
-            <div className="lg:col-span-5 space-y-4">
-              {activeProject.images && activeProject.images.length > 0 && (
-                <div className="bg-white border-4 border-black p-4 shadow-memphis relative">
-                  <div className="flex items-center justify-between pb-3 mb-3 border-b-2 border-black">
-                    <span className="text-xs font-black uppercase tracking-widest">
-                      SYSTEM TELEMETRY DISPLAY
-                    </span>
-                    <button
-                      onClick={() => onOpenImage(activeProject.images![activeImageIdx])}
-                      className="text-xs font-black bg-electric-blue border-2 border-black px-2 py-0.5 flex items-center gap-1 hover:bg-honey"
-                    >
-                      <ZoomIn className="w-3.5 h-3.5" /> Fullscreen
-                    </button>
-                  </div>
-
-                  {/* Main Selected Image */}
-                  <div
-                    onClick={() => onOpenImage(activeProject.images![activeImageIdx])}
-                    className="h-64 sm:h-72 border-3 border-black overflow-hidden relative cursor-zoom-in group/main"
-                  >
-                    <img
-                      src={activeProject.images[activeImageIdx].url}
-                      alt={activeProject.images[activeImageIdx].caption}
-                      className="w-full h-full object-cover group-hover/main:scale-105 transition-transform duration-200"
-                    />
-                    <div className="absolute bottom-0 inset-x-0 bg-black/80 text-white p-2 text-xs font-bold leading-tight">
-                      {activeProject.images[activeImageIdx].caption}
-                    </div>
-                  </div>
-
-                  {/* Thumbnail Row if multiple images */}
-                  {activeProject.images.length > 1 && (
-                    <div className="flex gap-2 mt-3 pt-3 border-t-2 border-black overflow-x-auto">
-                      {activeProject.images.map((img, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => setActiveImageIdx(idx)}
-                          className={`w-16 h-12 shrink-0 border-2 border-black overflow-hidden relative transition-transform ${
-                            activeImageIdx === idx
-                              ? 'ring-4 ring-coral scale-105'
-                              : 'opacity-70 hover:opacity-100'
-                          }`}
-                        >
-                          <img src={img.url} alt={img.caption} className="w-full h-full object-cover" />
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
+      </div>
     </section>
   );
 };

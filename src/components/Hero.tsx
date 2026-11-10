@@ -1,7 +1,6 @@
 import React from 'react';
 import { PersonalInfo } from '../types/portfolio';
-import { Terminal, FileText, ArrowDown, Activity, Sparkles, MapPin, ExternalLink, ShieldCheck, Flame, Radio } from 'lucide-react';
-import { MemphisCardOrnaments } from './MemphisOrnament';
+import { Terminal, FileText, ArrowDown, Activity, Sparkles, MapPin, ExternalLink, ShieldCheck, Cpu, Layers, Radio } from 'lucide-react';
 
 interface HeroProps {
   personalInfo: PersonalInfo;
@@ -9,208 +8,184 @@ interface HeroProps {
   onOpenImage?: (image: { url: string; caption: string }) => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal, onOpenImage }) => {
+export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal }) => {
   return (
-    <section id="hero" className="relative pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Decorative Floating Geometry in Background */}
-      <div className="absolute top-16 left-6 w-12 h-12 rounded-full bg-honey border-4 border-black -z-10 animate-bounce-short pointer-events-none" />
-      <div className="absolute top-36 right-8 w-14 h-14 bg-electric-blue border-4 border-black rotate-12 -z-10 pointer-events-none" />
+    <section id="hero" className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      {/* Ambient Radial Mesh Background Glows */}
+      <div className="absolute top-20 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute top-40 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
-      {/* Top Banner Tag */}
-      <div className="flex flex-wrap items-center gap-3 mb-6">
-        <span className="memphis-badge bg-coral text-white border-4 border-black px-4 py-1.5 text-xs font-black tracking-widest uppercase">
-          [01 // MASTER IDENTITY MATRIX]
-        </span>
-        <span className="bg-mint text-black border-3 border-black px-3 py-1 text-xs font-black tracking-wider uppercase flex items-center gap-1.5">
-          <Radio className="w-3.5 h-3.5 animate-pulse" /> PRTS_LINK ACTIVE // SYS_READY
-        </span>
-        <span className="bg-white text-black border-2 border-black px-2.5 py-0.5 text-xs font-bold hidden sm:inline-block">
-          📍 {personalInfo.location}
-        </span>
-      </div>
-
-      {/* Bento Grid Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-        {/* Bento Cell 1: Master Identity & Mission (Col 1 to 8, 8 cols) */}
-        <div className="lg:col-span-8 memphis-card bg-paper p-6 sm:p-10 relative overflow-hidden group flex flex-col justify-between">
-          <MemphisCardOrnaments variant={1} />
-
+      {/* Bento Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+        
+        {/* Bento Cell 1: Master Pitch & Headline (8 cols) */}
+        <div className="lg:col-span-8 bento-card p-6 sm:p-10 flex flex-col justify-between bento-glow-cyan">
           <div>
-            <div className="flex flex-wrap items-center gap-2 mb-4">
-              <span className="bg-honey text-black border-2 border-black px-2.5 py-0.5 text-xs font-black uppercase">
-                AI/ML Researcher
+            {/* Status Beacon */}
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                Available for High-Impact Roles & Research
               </span>
-              <span className="bg-electric-blue text-black border-2 border-black px-2.5 py-0.5 text-xs font-black uppercase">
-                Embedded Linux & IoT
-              </span>
-              <span className="bg-mint text-black border-2 border-black px-2.5 py-0.5 text-xs font-black uppercase">
-                Computer Vision
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-zinc-300 border border-white/10">
+                <MapPin className="w-3 h-3 text-zinc-400" /> {personalInfo.location}
               </span>
             </div>
 
-            <h1 className="memphis-display text-black mb-4 pop-swap tracking-tight">
-              MANAN SHARMA
+            {/* Headline */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
+              Architecting intelligent systems from{' '}
+              <span className="bg-gradient-to-r from-cyan-400 via-indigo-300 to-violet-400 bg-clip-text text-transparent">
+                silicon to satellite.
+              </span>
             </h1>
 
-            <div className="text-xl sm:text-2xl font-black text-black leading-tight mb-4 flex items-center gap-2">
-              <span className="bg-black text-white px-3 py-1">ENGINEER</span>
-              <span className="bg-coral text-white px-3 py-1">RESEARCHER</span>
-              <span className="bg-honey text-black px-3 py-1">POLYMATH</span>
-            </div>
-
-            <p className="text-sm sm:text-base font-bold text-gray-900 leading-relaxed max-w-2xl mb-6">
-              Specializing in <strong className="underline decoration-coral decoration-4">Edge AI NPU acceleration</strong> (Intel OpenVINO, YOLOv8), <strong className="underline decoration-honey decoration-4">custom embedded Linux firmware</strong> (OpenWrt, LoRaWAN SX1303), and <strong className="underline decoration-electric-blue decoration-4">geotechnical 3D digital twins & satellite remote sensing</strong> (OJASEWS, GeoChange AI, Sentinel-2).
+            {/* Bio Narrative */}
+            <p className="text-sm sm:text-base text-zinc-300 font-normal leading-relaxed max-w-2xl mb-8">
+              Hi, I'm <strong className="text-white font-semibold">{personalInfo.name}</strong>. I bridge low-level embedded Linux engineering with deep learning to build production-grade edge AI pipelines, procedural 3D digital twins, and autonomous geotechnical early-warning platforms.
             </p>
 
-            {/* Provenance Badges */}
+            {/* Provenance Pills */}
             <div className="flex flex-wrap gap-2 mb-8">
-              <span className="bg-white border-3 border-black text-black px-3 py-1 text-xs font-black">
+              <span className="px-3 py-1 rounded-xl text-xs font-medium bg-white/5 text-zinc-300 border border-white/10 flex items-center gap-1.5">
                 🏛️ Ex-Research Intern · IIT Roorkee
               </span>
-              <span className="bg-white border-3 border-black text-black px-3 py-1 text-xs font-black">
-                📡 Ex-IoT Engineer Intern · UniConverge
+              <span className="px-3 py-1 rounded-xl text-xs font-medium bg-white/5 text-zinc-300 border border-white/10 flex items-center gap-1.5">
+                📡 Ex-IoT Engineer · UniConverge
               </span>
-              <span className="bg-white border-3 border-black text-black px-3 py-1 text-xs font-black">
+              <span className="px-3 py-1 rounded-xl text-xs font-medium bg-white/5 text-zinc-300 border border-white/10 flex items-center gap-1.5">
                 🏆 Winner · INDU X 5.0 Hackathon
               </span>
-              <span className="bg-white border-3 border-black text-black px-3 py-1 text-xs font-black">
+              <span className="px-3 py-1 rounded-xl text-xs font-medium bg-white/5 text-zinc-300 border border-white/10 flex items-center gap-1.5">
                 🎓 University of Jammu · B.Tech AI & Math
               </span>
             </div>
           </div>
 
-          {/* Action Button Strip */}
-          <div className="flex flex-wrap items-center gap-3 pt-6 border-t-4 border-black">
-            <a
-              href="#lab"
-              className="memphis-btn flex items-center gap-2 text-xs sm:text-sm"
-            >
-              <Activity className="w-4 h-4" /> Try Live Sim Lab
+          {/* Action CTAs */}
+          <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-white/10">
+            <a href="#flagships" className="bento-btn-primary">
+              <Sparkles className="w-4 h-4 text-zinc-900" />
+              <span>Explore Flagships</span>
             </a>
-            <a
-              href="#case-studies"
-              className="memphis-btn-honey flex items-center gap-2 text-xs sm:text-sm"
-            >
-              <Sparkles className="w-4 h-4" /> Case Studies
+            <a href="#lab" className="bento-btn-secondary">
+              <Activity className="w-4 h-4 text-cyan-400" />
+              <span>Interactive Sim Lab</span>
             </a>
-            <button
-              onClick={onOpenTerminal}
-              className="memphis-btn-blue flex items-center gap-2 text-xs sm:text-sm"
-            >
-              <Terminal className="w-4 h-4" /> Terminal [~]
+            <button onClick={onOpenTerminal} className="bento-btn-secondary">
+              <Terminal className="w-4 h-4 text-indigo-400" />
+              <span>Terminal [~]</span>
             </button>
             <a
               href={personalInfo.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="memphis-btn-mint flex items-center gap-2 text-xs sm:text-sm"
+              className="bento-btn-secondary"
             >
-              <FileText className="w-4 h-4" /> Resume [PDF]
+              <FileText className="w-4 h-4 text-zinc-400" />
+              <span>Resume PDF</span>
             </a>
           </div>
         </div>
 
-        {/* Bento Cell 2 & 3: Profile Photo + Telemetry Widget (4 cols) */}
-        <div className="lg:col-span-4 flex flex-col gap-6">
-          {/* Framed Profile Card */}
-          <div className="memphis-card bg-paper p-5 relative overflow-hidden group flex flex-col items-center text-center">
-            <MemphisCardOrnaments variant={2} />
-
-            <div className="relative mb-4 mt-2">
-              {/* Offset Backdrop Stamp */}
-              <div className="absolute -inset-1.5 bg-honey border-4 border-black rotate-2" />
-              <div className="relative w-44 h-44 sm:w-48 sm:h-48 border-4 border-black overflow-hidden bg-white shadow-memphis-sm">
-                <img
-                  src={personalInfo.profileImage || '/images/profile.png'}
-                  alt={personalInfo.name}
-                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-200"
-                />
-              </div>
+        {/* Bento Cell 2 & 3: Portrait & Real-Time Telemetry (4 cols) */}
+        <div className="lg:col-span-4 flex flex-col gap-5">
+          {/* Portrait Card */}
+          <div className="bento-card p-5 flex flex-col items-center text-center bento-glow-violet">
+            <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-2xl overflow-hidden mb-4 border border-white/10 shadow-2xl p-1 bg-gradient-to-tr from-white/10 via-white/5 to-transparent">
+              <img
+                src={personalInfo.profileImage || '/images/profile.png'}
+                alt={personalInfo.name}
+                className="w-full h-full object-cover object-top rounded-xl"
+              />
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
             </div>
 
-            <div className="text-lg font-black text-black uppercase tracking-tight">
+            <div className="text-base font-semibold text-white">
               {personalInfo.name}
             </div>
-            <div className="text-xs font-bold text-gray-700 mt-0.5">
-              {personalInfo.pronouns} · Jammu & Kashmir, India
+            <div className="text-xs text-zinc-400 mt-0.5">
+              Software Engineer & AI/ML Researcher
             </div>
 
-            <div className="mt-3 bg-white border-2 border-black px-3 py-1 text-xs font-black text-black flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-mint border border-black animate-pulse" />
-              Open for Research & High-Impact Roles
-            </div>
-          </div>
-
-          {/* Real-Time Telemetry Ticker Card */}
-          <div className="bg-white border-4 border-black p-5 shadow-memphis space-y-3">
-            <div className="flex items-center justify-between pb-2 border-b-2 border-black">
-              <span className="text-xs font-black uppercase tracking-widest text-black flex items-center gap-1.5">
-                <Activity className="w-4 h-4 text-coral animate-spin-slow" /> SYSTEM METRICS PULSE
-              </span>
-              <span className="text-[10px] font-black bg-honey px-1.5 py-0.5 border border-black">
-                LIVE TELEMETRY
+            <div className="mt-4 w-full py-2 px-3 rounded-xl bg-white/5 border border-white/5 text-[11px] font-mono text-zinc-300 flex items-center justify-between">
+              <span className="text-zinc-500">SYS_STATUS</span>
+              <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                ONLINE // OPTIMAL
               </span>
             </div>
+          </div>
 
-            <div className="space-y-2 text-xs font-bold">
-              <div className="flex justify-between items-center bg-paper p-2 border-2 border-black">
-                <span>Himalayan Samroli Sensor:</span>
-                <span className="font-black text-green-700">ONLINE // 100%</span>
+          {/* Real-Time Telemetry Node Card */}
+          <div className="bento-card p-5 flex-1 flex flex-col justify-between bento-glow-emerald">
+            <div className="flex items-center justify-between pb-3 border-b border-white/10">
+              <span className="text-xs font-medium text-zinc-400 flex items-center gap-1.5">
+                <Radio className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+                Live Engineering Pulse
+              </span>
+              <span className="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">
+                ACTIVE
+              </span>
+            </div>
+
+            <div className="space-y-2 py-3 text-xs font-mono">
+              <div className="flex justify-between items-center bg-zinc-950/40 p-2 rounded-xl border border-white/5">
+                <span className="text-zinc-400">Samroli Sensor Node:</span>
+                <span className="text-emerald-400 font-semibold">868 MHz LoRa // 100%</span>
               </div>
-              <div className="flex justify-between items-center bg-paper p-2 border-2 border-black">
-                <span>STAC Satellite Cloud Mask:</span>
-                <span className="font-black text-blue-700">PASS (QA60 &lt; 5%)</span>
+              <div className="flex justify-between items-center bg-zinc-950/40 p-2 rounded-xl border border-white/5">
+                <span className="text-zinc-400">Sentinel-2 STAC Gate:</span>
+                <span className="text-cyan-400 font-semibold">PASS (QA60 &lt; 5%)</span>
               </div>
-              <div className="flex justify-between items-center bg-paper p-2 border-2 border-black">
-                <span>Intel OpenVINO NPU Latency:</span>
-                <span className="font-black text-purple-700">4.2ms / Frame</span>
+              <div className="flex justify-between items-center bg-zinc-950/40 p-2 rounded-xl border border-white/5">
+                <span className="text-zinc-400">Intel OpenVINO NPU:</span>
+                <span className="text-violet-400 font-semibold">4.2ms / Frame</span>
               </div>
+            </div>
+
+            <div className="text-[10px] text-zinc-500 font-mono flex items-center justify-between pt-2 border-t border-white/5">
+              <span>Himalayan Corridor NH-44</span>
+              <span>UTC +05:30</span>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Chunky Metric Clash Tiles (Full-width row) */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-        <div className="bg-coral text-white border-4 border-black p-5 shadow-memphis group hover:-translate-y-1 transition-transform">
-          <div className="text-4xl sm:text-5xl font-black leading-none mb-1">8+</div>
-          <div className="text-xs font-black uppercase tracking-wider">
-            Engineered Systems Built
+        {/* Bento Cell 4: 4x Stats Row (12 cols) */}
+        <div className="lg:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="bento-card p-5 text-center">
+            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              8+
+            </div>
+            <div className="text-xs font-semibold text-zinc-200 mt-1">Production Systems</div>
+            <div className="text-[11px] text-zinc-400 mt-0.5">Edge AI, IoT & Spatial WebGL</div>
           </div>
-          <div className="text-[11px] font-bold opacity-90 mt-1">
-            Edge AI, IoT, WebGL & Remote Sensing
+
+          <div className="bento-card p-5 text-center">
+            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-400 to-violet-500 bg-clip-text text-transparent">
+              2
+            </div>
+            <div className="text-xs font-semibold text-zinc-200 mt-1">Tier-1 Labs & Internships</div>
+            <div className="text-[11px] text-zinc-400 mt-0.5">IIT Roorkee & UniConverge</div>
+          </div>
+
+          <div className="bento-card p-5 text-center">
+            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+              1st Prize
+            </div>
+            <div className="text-xs font-semibold text-zinc-200 mt-1">Best Presentation Award</div>
+            <div className="text-[11px] text-zinc-400 mt-0.5">INDU X 5.0 Hackathon (2026)</div>
+          </div>
+
+          <div className="bento-card p-5 text-center">
+            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">
+              14-Band
+            </div>
+            <div className="text-xs font-semibold text-zinc-200 mt-1">Multispectral Vision</div>
+            <div className="text-[11px] text-zinc-400 mt-0.5">Custom CRUNet Satellite AI</div>
           </div>
         </div>
 
-        <div className="bg-honey text-black border-4 border-black p-5 shadow-memphis group hover:-translate-y-1 transition-transform">
-          <div className="text-4xl sm:text-5xl font-black leading-none mb-1">2</div>
-          <div className="text-xs font-black uppercase tracking-wider">
-            Tier-1 Labs & Internships
-          </div>
-          <div className="text-[11px] font-bold text-gray-800 mt-1">
-            IIT Roorkee & UniConverge Technologies
-          </div>
-        </div>
-
-        <div className="bg-mint text-black border-4 border-black p-5 shadow-memphis group hover:-translate-y-1 transition-transform">
-          <div className="text-4xl sm:text-5xl font-black leading-none mb-1">1st</div>
-          <div className="text-xs font-black uppercase tracking-wider">
-            Best Presentation Prize
-          </div>
-          <div className="text-[11px] font-bold text-gray-800 mt-1">
-            INDU X 5.0 International Hackathon
-          </div>
-        </div>
-
-        <div className="bg-electric-blue text-black border-4 border-black p-5 shadow-memphis group hover:-translate-y-1 transition-transform">
-          <div className="text-4xl sm:text-5xl font-black leading-none mb-1">14</div>
-          <div className="text-xs font-black uppercase tracking-wider">
-            Multispectral Bands
-          </div>
-          <div className="text-[11px] font-bold text-gray-800 mt-1">
-            CRUNet Deep Satellite Segmentation
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { ProjectItem } from '../types/portfolio';
-import { ExternalLink, ZoomIn, Sparkles, Filter, Code2, ArrowUpRight } from 'lucide-react';
+import { ZoomIn, Sparkles, ArrowRight } from 'lucide-react';
 import { GithubIcon } from './Icons';
-import { MemphisCardOrnaments } from './MemphisOrnament';
 
 interface ProjectsSectionProps {
   projects: ProjectItem[];
@@ -33,33 +32,35 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   });
 
   return (
-    <section id="work" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-24">
+    <section id="work" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto scroll-mt-24">
       {/* Section Header */}
       <div className="mb-12">
-        <div className="flex flex-wrap items-center gap-3 mb-4">
-          <span className="memphis-badge bg-mint text-black border-4 border-black px-4 py-1.5 text-xs font-black tracking-widest uppercase">
+        <div className="flex items-center gap-2 mb-3">
+          <span className="bento-badge text-cyan-400 bg-cyan-500/10 border-cyan-500/20">
             [05 // ENGINEERING ARCHIVE]
           </span>
-          <span className="bg-honey text-black border-3 border-black px-3 py-1 text-xs font-black tracking-wider uppercase">
-            FULL SYSTEM REPERTOIRE ({projects.length} BUILDS)
+          <span className="text-xs text-zinc-400 font-mono">
+            {projects.length} PRODUCTION & RESEARCH BUILDS
           </span>
         </div>
-        <h2 className="memphis-heading text-black pop-swap mb-4">
-          SYSTEMS & ENGINEERING ARCHIVE
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+          Complete Systems & Engineering Archive
         </h2>
-        <p className="text-black text-base sm:text-lg font-bold max-w-3xl leading-relaxed">
-          Comprehensive catalog of all production pipelines, edge firmware, neural network architectures, and multi-language scientific tools built by Manan Sharma.
+        <p className="text-zinc-400 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+          Comprehensive inventory of edge firmware, low-level C pipelines, neural network models, and full-stack systems engineered across research and independent initiatives.
         </p>
       </div>
 
       {/* Filter Category Pills */}
-      <div className="flex flex-wrap gap-2.5 mb-10 pb-4 border-b-4 border-black">
+      <div className="flex flex-wrap gap-2 mb-8">
         {filterCategories.map((cat) => (
           <button
             key={cat}
             onClick={() => setSelectedFilter(cat)}
-            className={`memphis-tab-btn text-xs py-2 px-3 sm:px-4 ${
-              selectedFilter === cat ? 'active' : ''
+            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
+              selectedFilter === cat
+                ? 'bg-white text-zinc-950 shadow-md'
+                : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5'
             }`}
           >
             {cat} {cat === 'All' ? `(${projects.length})` : ''}
@@ -67,102 +68,96 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         ))}
       </div>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-        {filteredProjects.map((project, idx) => (
+      {/* Bento Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="memphis-card bg-paper p-6 relative flex flex-col justify-between group overflow-hidden"
+            className="bento-card p-5 flex flex-col justify-between"
           >
-            <MemphisCardOrnaments variant={(((idx % 4) + 1) as 1 | 2 | 3 | 4)} />
-
             <div>
-              {/* Card Header */}
-              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <span className="bg-black text-white px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider">
+              {/* Category & Date */}
+              <div className="flex items-center justify-between text-xs mb-3">
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-white/5 text-zinc-300 border border-white/10">
                   {project.category}
                 </span>
-                <span className="text-xs font-bold text-gray-700 bg-white border-2 border-black px-1.5 py-0.5">
-                  {project.date}
-                </span>
+                <span className="text-[11px] font-mono text-zinc-500">{project.date}</span>
               </div>
 
-              {/* Title & Pop Swap */}
-              <h3 className="text-xl font-black text-black leading-tight pop-swap mb-2">
+              {/* Title */}
+              <h3 className="text-lg font-bold text-white mb-1 tracking-tight leading-snug">
                 {project.title}
               </h3>
 
               {project.badge && (
                 <div className="mb-3">
-                  <span className="bg-honey text-black border-2 border-black px-2 py-0.5 text-[10px] font-black uppercase inline-block shadow-[1px_1px_0_#000]">
+                  <span className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 inline-block">
                     {project.badge}
                   </span>
                 </div>
               )}
 
-              {/* Thumbnail Image if available */}
+              {/* Screenshot thumbnail */}
               {project.images && project.images[0] && (
                 <div
                   onClick={() => onOpenImage(project.images![0])}
-                  className="mb-4 h-40 border-3 border-black overflow-hidden relative cursor-pointer group/thumb bg-white shadow-memphis-sm"
+                  className="mb-3.5 h-36 rounded-xl overflow-hidden border border-white/10 relative cursor-pointer group/thumb bg-zinc-950"
                 >
                   <img
                     src={project.images[0].url}
                     alt={project.images[0].caption}
-                    className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-200"
+                    className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 flex items-center justify-center transition-opacity">
-                    <span className="bg-white text-black px-2 py-1 text-xs font-black border-2 border-black flex items-center gap-1">
-                      <ZoomIn className="w-3.5 h-3.5" /> Enlarge
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2">
+                    <span className="text-[11px] text-white truncate font-medium flex items-center justify-between w-full">
+                      <span className="truncate">{project.images[0].caption}</span>
+                      <ZoomIn className="w-3 h-3 text-cyan-400 ml-1 shrink-0" />
                     </span>
-                  </div>
-                  <div className="absolute bottom-0 inset-x-0 bg-black/75 text-white p-1 text-[10px] font-bold truncate">
-                    {project.images[0].caption}
                   </div>
                 </div>
               )}
 
-              {/* Summary Description */}
-              <p className="text-xs font-bold text-black leading-relaxed line-clamp-3 mb-4">
+              {/* Summary */}
+              <p className="text-xs text-zinc-300 font-normal leading-relaxed line-clamp-3 mb-4">
                 {project.description}
               </p>
 
-              {/* Technologies Badges */}
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {project.technologies.slice(0, 5).map((tech) => (
+              {/* Tech Tags */}
+              <div className="flex flex-wrap gap-1.5 mb-5">
+                {project.technologies.slice(0, 4).map((tech) => (
                   <span
                     key={tech}
-                    className="bg-white text-black border-2 border-black px-2 py-0.5 text-[10px] font-black"
+                    className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-white/5 text-zinc-400 border border-white/5"
                   >
                     {tech}
                   </span>
                 ))}
-                {project.technologies.length > 5 && (
-                  <span className="bg-paper text-gray-700 border-2 border-black px-1.5 py-0.5 text-[10px] font-bold">
-                    +{project.technologies.length - 5}
+                {project.technologies.length > 4 && (
+                  <span className="px-1.5 py-0.5 rounded-md text-[10px] font-mono text-zinc-500">
+                    +{project.technologies.length - 4}
                   </span>
                 )}
               </div>
             </div>
 
-            {/* Card Footer Actions */}
-            <div className="pt-4 border-t-3 border-black flex items-center justify-between gap-2 mt-auto">
+            {/* Actions */}
+            <div className="pt-3 border-t border-white/5 flex items-center justify-between gap-2">
               <button
                 onClick={() => onOpenInspector(project)}
-                className="memphis-btn-honey text-xs py-2 px-3 flex items-center gap-1.5 flex-1 justify-center"
+                className="bento-btn-primary py-1.5 px-3 text-xs flex-1 justify-center"
               >
-                <Sparkles className="w-3.5 h-3.5" /> Deep Dive
+                <Sparkles className="w-3 h-3" />
+                <span>Blueprint Spec</span>
               </button>
-
               {project.githubUrl && (
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="memphis-btn bg-white hover:bg-black hover:text-white text-black border-3 border-black p-2 flex items-center justify-center shrink-0"
-                  title="View GitHub Repository"
+                  className="bento-btn-secondary p-1.5"
+                  title="GitHub Repository"
                 >
-                  <GithubIcon className="w-4 h-4" />
+                  <GithubIcon className="w-3.5 h-3.5" />
                 </a>
               )}
             </div>

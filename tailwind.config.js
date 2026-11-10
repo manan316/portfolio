@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,45 +8,38 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: '#fdf6e3',
-        coral: '#ff6b6b',
-        honey: '#feca57',
-        'electric-blue': '#48dbfb',
-        bubblegum: '#ff9ff3',
-        mint: '#1dd1a1',
-        grape: '#5f27cd',
-        'memphis-black': '#000000',
-        'memphis-white': '#ffffff',
+        background: '#09090b',
+        surface: {
+          DEFAULT: '#121217',
+          card: 'rgba(18, 18, 23, 0.65)',
+          muted: '#18181b',
+          border: 'rgba(255, 255, 255, 0.08)',
+          hover: 'rgba(255, 255, 255, 0.12)',
+        },
+        brand: {
+          cyan: '#22d3ee',
+          emerald: '#10b981',
+          violet: '#8b5cf6',
+          indigo: '#6366f1',
+          amber: '#f59e0b',
+          rose: '#f43f5e',
+        }
       },
       fontFamily: {
-        sans: ['Inter', '"Arial Black"', 'Helvetica', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
-        display: ['Inter', '"Arial Black"', 'sans-serif'],
       },
       boxShadow: {
-        'memphis': '6px 6px 0 #000000',
-        'memphis-lg': '10px 10px 0 #000000',
-        'memphis-sm': '4px 4px 0 #000000',
-        'memphis-honey': '4px 4px 0 #feca57',
-        'memphis-coral': '6px 6px 0 #ff6b6b',
-        'memphis-blue': '6px 6px 0 #48dbfb',
-        'memphis-mint': '6px 6px 0 #1dd1a1',
-        'memphis-bubblegum': '6px 6px 0 #ff9ff3',
+        'bento': '0 0 0 1px rgba(255, 255, 255, 0.08), 0 20px 40px -15px rgba(0, 0, 0, 0.5)',
+        'bento-hover': '0 0 0 1px rgba(255, 255, 255, 0.18), 0 24px 48px -12px rgba(0, 0, 0, 0.65)',
+        'glow-cyan': '0 0 30px -5px rgba(34, 211, 238, 0.25)',
+        'glow-emerald': '0 0 30px -5px rgba(16, 185, 129, 0.25)',
+        'glow-violet': '0 0 30px -5px rgba(139, 92, 246, 0.25)',
       },
-      borderWidth: {
-        '3': '3px',
-        '4': '4px',
-        '6': '6px',
-      },
-      spacing: {
-        '8': '8px',
-        '16': '16px',
-        '24': '24px',
-        '32': '32px',
-        '48': '48px',
-        '64': '64px',
-        '96': '96px',
-      },
+      animation: {
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'spin-slow': 'spin 12s linear infinite',
+      }
     },
   },
   plugins: [],

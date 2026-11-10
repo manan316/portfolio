@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { SkillCategory } from '../types/portfolio';
-import { Search, Brain, Cpu, Code2, Server, Layers, Terminal, CheckCircle2, Sparkles } from 'lucide-react';
-import { MemphisCardOrnaments } from './MemphisOrnament';
+import { Search, Brain, Cpu, Code2, Server, Layers } from 'lucide-react';
 
 interface SkillsSectionProps {
   skillCategories: SkillCategory[];
@@ -14,21 +13,20 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
       case 'Brain':
-        return <Brain className="w-5 h-5 text-coral" />;
+        return <Brain className="w-4 h-4 text-cyan-400" />;
       case 'Cpu':
-        return <Cpu className="w-5 h-5 text-honey" />;
+        return <Cpu className="w-4 h-4 text-emerald-400" />;
       case 'Code2':
-        return <Code2 className="w-5 h-5 text-electric-blue" />;
+        return <Code2 className="w-4 h-4 text-indigo-400" />;
       case 'Server':
-        return <Server className="w-5 h-5 text-mint" />;
+        return <Server className="w-4 h-4 text-amber-400" />;
       case 'Layers':
-        return <Layers className="w-5 h-5 text-grape" />;
+        return <Layers className="w-4 h-4 text-violet-400" />;
       default:
-        return <Code2 className="w-5 h-5 text-black" />;
+        return <Code2 className="w-4 h-4 text-zinc-400" />;
     }
   };
 
-  // Filter skills based on search and category
   const filteredCategories = skillCategories
     .map((cat) => {
       const matchesCategory = selectedCategory === 'All' || cat.category === selectedCategory;
@@ -50,84 +48,42 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
   const totalSkillCount = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0);
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-24">
+    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto scroll-mt-24">
       {/* Section Header */}
       <div className="mb-12">
-        <div className="flex flex-wrap items-center gap-3 mb-4">
-          <span className="memphis-badge bg-electric-blue text-black border-4 border-black px-4 py-1.5 text-xs font-black tracking-widest uppercase">
-            [06 // ENGINEERING WORKBENCH]
+        <div className="flex items-center gap-2 mb-3">
+          <span className="bento-badge text-cyan-400 bg-cyan-500/10 border-cyan-500/20">
+            [06 // TECHNICAL WORKBENCH]
           </span>
-          <span className="bg-honey text-black border-3 border-black px-3 py-1 text-xs font-black tracking-wider uppercase">
+          <span className="text-xs text-zinc-400 font-mono">
             {totalSkillCount} VERIFIED PROFICIENCIES
           </span>
         </div>
-        <h2 className="memphis-heading text-black pop-swap mb-4">
-          TECHNICAL STACK & WORKBENCH
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+          Engineering Toolchain & Stack
         </h2>
-        <p className="text-black text-base sm:text-lg font-bold max-w-3xl leading-relaxed">
-          Comprehensive matrix of frameworks, systems programming tools, AI accelerators, and cloud platforms actively used across research and commercial systems.
+        <p className="text-zinc-400 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+          Comprehensive inventory of machine learning frameworks, embedded Linux environments, systems programming languages, and distributed cloud tools.
         </p>
       </div>
 
-      {/* Core Engineering Trifecta Spotlight */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <div className="bg-coral text-white border-4 border-black p-6 shadow-memphis group hover:-translate-y-1 transition-transform">
-          <div className="flex items-center justify-between mb-3 pb-2 border-b-2 border-black">
-            <span className="text-xs font-black uppercase tracking-wider bg-black text-white px-2 py-0.5">
-              PILLAR 01
-            </span>
-            <Brain className="w-6 h-6 text-white" />
-          </div>
-          <h3 className="text-xl font-black uppercase tracking-tight">AI, NPU & Vision</h3>
-          <p className="text-xs font-bold mt-2 opacity-95 leading-relaxed">
-            PyTorch, Intel OpenVINO, YOLOv8, Custom CRUNet, DeepLabV3+, DSP, Multispectral Remote Sensing.
-          </p>
-        </div>
-
-        <div className="bg-honey text-black border-4 border-black p-6 shadow-memphis group hover:-translate-y-1 transition-transform">
-          <div className="flex items-center justify-between mb-3 pb-2 border-b-2 border-black">
-            <span className="text-xs font-black uppercase tracking-wider bg-black text-white px-2 py-0.5">
-              PILLAR 02
-            </span>
-            <Cpu className="w-6 h-6 text-black" />
-          </div>
-          <h3 className="text-xl font-black uppercase tracking-tight">Embedded & Linux</h3>
-          <p className="text-xs font-bold mt-2 text-gray-900 leading-relaxed">
-            OpenWrt, LoRaWAN SX1303, MIPS/ARM Toolchains, Linux Kernel SPI Drivers, Device Tree Overlays (.dts).
-          </p>
-        </div>
-
-        <div className="bg-mint text-black border-4 border-black p-6 shadow-memphis group hover:-translate-y-1 transition-transform">
-          <div className="flex items-center justify-between mb-3 pb-2 border-b-2 border-black">
-            <span className="text-xs font-black uppercase tracking-wider bg-black text-white px-2 py-0.5">
-              PILLAR 03
-            </span>
-            <Layers className="w-6 h-6 text-black" />
-          </div>
-          <h3 className="text-xl font-black uppercase tracking-tight">Systems & Graphics</h3>
-          <p className="text-xs font-bold mt-2 text-gray-900 leading-relaxed">
-            C/C++, Python, FastAPI, Three.js (WebGL/GLSL Shaders), Docker Containers, TCP/IP Networking.
-          </p>
-        </div>
-      </div>
-
       {/* Search & Filter Toolbar */}
-      <div className="bg-white border-4 border-black p-4 sm:p-6 shadow-memphis mb-8 space-y-4">
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+      <div className="bento-card p-4 sm:p-5 mb-8 space-y-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
           <div className="relative flex-1">
-            <Search className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-black" />
+            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500" />
             <input
               type="text"
-              placeholder="Search specific tool, library or protocol (e.g. OpenVINO, C++, Three.js, LoRa)..."
+              placeholder="Search specific tool, framework, or protocol (e.g. OpenVINO, C++, OpenWrt, Three.js)..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="memphis-input pl-11 w-full text-xs sm:text-sm font-bold"
+              className="bento-input pl-10 w-full text-xs sm:text-sm font-medium"
             />
           </div>
           {searchTerm && (
             <button
               onClick={() => setSearchTerm('')}
-              className="memphis-btn-honey px-4 py-2.5 text-xs font-black"
+              className="bento-btn-secondary py-2 px-3 text-xs"
             >
               Clear
             </button>
@@ -135,15 +91,15 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
         </div>
 
         {/* Category Pills */}
-        <div className="flex flex-wrap gap-2 pt-2 border-t-2 border-black">
+        <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
           {['All', ...skillCategories.map((c) => c.category)].map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 text-xs font-black border-2 border-black uppercase transition-colors ${
+              className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
                 selectedCategory === cat
-                  ? 'bg-black text-white'
-                  : 'bg-paper text-black hover:bg-honey'
+                  ? 'bg-white text-zinc-950 shadow-sm'
+                  : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10'
               }`}
             >
               {cat}
@@ -152,45 +108,36 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
         </div>
       </div>
 
-      {/* Filtered Skill Categories Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
-        {filteredCategories.map((cat, idx) => (
-          <div
-            key={cat.category}
-            className="memphis-card bg-paper p-6 relative group overflow-hidden"
-          >
-            <MemphisCardOrnaments variant={(((idx % 4) + 1) as 1 | 2 | 3 | 4)} />
-
-            {/* Header */}
-            <div className="flex items-center gap-3 pb-3 mb-3 border-b-3 border-black">
-              <div className="w-10 h-10 bg-white border-3 border-black flex items-center justify-center shrink-0 shadow-[2px_2px_0_#000]">
-                {getCategoryIcon(cat.icon)}
+      {/* Bento Skills Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {filteredCategories.map((cat) => (
+          <div key={cat.category} className="bento-card p-5 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2.5 mb-3 pb-3 border-b border-white/5">
+                <div className="p-2 rounded-xl bg-white/5 border border-white/10">
+                  {getCategoryIcon(cat.icon)}
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-white">{cat.category}</h3>
+                  <p className="text-[11px] text-zinc-400">{cat.description}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-base sm:text-lg font-black text-black leading-tight">
-                  {cat.category}
-                </h3>
-                <p className="text-[11px] font-bold text-gray-700 leading-snug">
-                  {cat.description}
-                </p>
+
+              <div className="flex flex-wrap gap-1.5">
+                {cat.skills.map((skill) => (
+                  <span
+                    key={skill.name}
+                    className="px-2.5 py-1 rounded-lg text-xs font-mono bg-white/5 text-zinc-300 border border-white/5 hover:border-cyan-400/30 hover:text-cyan-300 transition-colors"
+                  >
+                    {skill.name}
+                  </span>
+                ))}
               </div>
             </div>
 
-            {/* Skills Pills */}
-            <div className="flex flex-wrap gap-2 pt-2">
-              {cat.skills.map((skill) => (
-                <span
-                  key={skill.name}
-                  className="bg-white hover:bg-honey text-black border-2 border-black px-3 py-1.5 text-xs font-black transition-colors shadow-[1px_1px_0_#000]"
-                >
-                  {skill.name}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-4 pt-3 border-t-2 border-black flex items-center justify-between text-[11px] font-bold text-gray-600">
+            <div className="mt-4 pt-3 border-t border-white/5 text-[11px] text-zinc-500 font-mono flex items-center justify-between">
               <span>{cat.skills.length} specialized tools</span>
-              <span className="text-black font-black uppercase">Verified</span>
+              <span className="text-emerald-400">Verified</span>
             </div>
           </div>
         ))}

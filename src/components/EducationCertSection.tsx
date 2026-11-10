@@ -1,7 +1,6 @@
 import React from 'react';
 import { EducationItem, CertificationItem, TrainingWorkshopItem } from '../types/portfolio';
-import { GraduationCap, Award, ExternalLink, Calendar, MapPin, ZoomIn, CheckCircle2, Bookmark } from 'lucide-react';
-import { MemphisCardOrnaments } from './MemphisOrnament';
+import { GraduationCap, Award, ZoomIn, CheckCircle2 } from 'lucide-react';
 
 interface EducationCertSectionProps {
   educationList: EducationItem[];
@@ -17,77 +16,65 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
   onOpenImage,
 }) => {
   return (
-    <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-24">
+    <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto scroll-mt-24">
       {/* Section Header */}
       <div className="mb-12">
-        <div className="flex flex-wrap items-center gap-3 mb-4">
-          <span className="memphis-badge bg-honey text-black border-4 border-black px-4 py-1.5 text-xs font-black tracking-widest uppercase">
-            [07 // CREDENTIALS & HONORS]
+        <div className="flex items-center gap-2 mb-3">
+          <span className="bento-badge text-cyan-400 bg-cyan-500/10 border-cyan-500/20">
+            [08 // CREDENTIALS & HONORS]
           </span>
-          <span className="bg-coral text-white border-3 border-black px-3 py-1 text-xs font-black tracking-wider uppercase">
-            DEGREES · CERTIFICATIONS · BOOTCAMPS
+          <span className="text-xs text-zinc-400 font-mono">
+            DEGREES · CERTIFICATIONS · WORKSHOPS
           </span>
         </div>
-        <h2 className="memphis-heading text-black pop-swap mb-4">
-          EDUCATION & VERIFIED CREDENTIALS
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+          Education & Verified Credentials
         </h2>
-        <p className="text-black text-base sm:text-lg font-bold max-w-3xl leading-relaxed">
-          Rigorous academic foundation in Artificial Intelligence and Mathematics, reinforced by tier-1 institutional workshops and verified industrial credentials.
+        <p className="text-zinc-400 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+          Rigorous foundational degree in Artificial Intelligence & Mathematics, paired with verified certifications and national engineering bootcamps.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column (6 cols): Education Degrees */}
-        <div className="lg:col-span-6 space-y-6">
-          <h3 className="text-xs font-black uppercase tracking-widest bg-black text-white px-3 py-1.5 inline-block mb-2">
-            ACADEMIC DEGREES & FOUNDATION
+        <div className="lg:col-span-6 space-y-5">
+          <h3 className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+            Academic Degrees & Foundation
           </h3>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {educationList.map((edu, idx) => (
-              <div
-                key={idx}
-                className="memphis-card bg-paper p-6 relative overflow-hidden group"
-              >
-                <MemphisCardOrnaments variant={(((idx % 4) + 1) as 1 | 2 | 3 | 4)} />
-
-                <div className="flex items-start gap-4 pb-4 mb-4 border-b-3 border-black">
-                  <div className="w-12 h-12 bg-honey border-3 border-black flex items-center justify-center shrink-0 shadow-[2px_2px_0_#000]">
-                    <GraduationCap className="w-6 h-6 text-black" />
+              <div key={idx} className="bento-card p-6">
+                <div className="flex items-start gap-4 pb-4 mb-4 border-b border-white/5">
+                  <div className="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 shrink-0">
+                    <GraduationCap className="w-6 h-6" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold bg-white border-2 border-black px-2 py-0.5 inline-block mb-1">
-                      {edu.duration}
-                    </span>
-                    <h4 className="text-lg sm:text-xl font-black text-black leading-tight">
+                    <span className="text-[11px] font-mono text-zinc-400">{edu.duration}</span>
+                    <h4 className="text-base sm:text-lg font-bold text-white tracking-tight mt-0.5">
                       {edu.degree}
                     </h4>
-                    <div className="text-xs font-bold text-gray-800 mt-0.5">
+                    <div className="text-xs text-zinc-400 mt-1">
                       {edu.institution} · {edu.location}
                     </div>
                   </div>
                 </div>
 
-                {/* Highlights */}
                 {edu.highlights && edu.highlights.length > 0 && (
-                  <div className="space-y-2 mb-4 bg-white border-3 border-black p-4 shadow-memphis-sm">
+                  <div className="space-y-1.5 mb-4 text-xs text-zinc-300">
                     {edu.highlights.map((h, i) => (
-                      <div key={i} className="flex items-start gap-2.5 text-xs font-bold text-black">
-                        <CheckCircle2 className="w-4 h-4 text-mint shrink-0 mt-0.5" />
-                        <span className="leading-snug">{h}</span>
+                      <div key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                        <span>{h}</span>
                       </div>
                     ))}
                   </div>
                 )}
 
-                {/* Skills */}
                 {edu.skills && (
-                  <div className="flex flex-wrap gap-1.5 pt-2">
+                  <div className="flex flex-wrap gap-1 pt-2 border-t border-white/5">
                     {edu.skills.map((s) => (
-                      <span
-                        key={s}
-                        className="bg-white text-black border-2 border-black px-2 py-0.5 text-[11px] font-black"
-                      >
+                      <span key={s} className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-white/5 text-zinc-400 border border-white/5">
                         {s}
                       </span>
                     ))}
@@ -97,64 +84,45 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
             ))}
           </div>
 
-          {/* National Bootcamps & Workshops */}
-          <div className="pt-6">
-            <h3 className="text-xs font-black uppercase tracking-widest bg-black text-white px-3 py-1.5 inline-block mb-4">
-              NATIONAL BOOTCAMPS & WORKSHOPS
+          {/* National Bootcamps */}
+          <div className="pt-4">
+            <h3 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-4">
+              National Bootcamps & Workshops
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {trainingWorkshops.map((ws, i) => (
-                <div
-                  key={i}
-                  className="bg-white border-4 border-black p-5 shadow-memphis-sm relative hover:bg-honey transition-colors"
-                >
-                  <div className="flex items-center justify-between gap-2 mb-1">
-                    <span className="text-xs font-black text-coral uppercase tracking-wider">
-                      {ws.year}
-                    </span>
-                    <span className="text-[10px] font-black bg-paper border border-black px-2 py-0.5">
-                      {ws.institution}
-                    </span>
+                <div key={i} className="bento-card p-4 space-y-1.5">
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="font-mono text-cyan-400">{ws.year}</span>
+                    <span className="text-zinc-500 font-mono">{ws.institution}</span>
                   </div>
-                  <h4 className="text-base font-black text-black leading-tight">
-                    {ws.title}
-                  </h4>
-                  <p className="text-xs font-bold text-gray-800 mt-2 leading-relaxed">
-                    {ws.description}
-                  </p>
+                  <h4 className="text-sm font-semibold text-white">{ws.title}</h4>
+                  <p className="text-xs text-zinc-400 leading-relaxed">{ws.description}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Right Column (6 cols): Verified Certifications */}
-        <div className="lg:col-span-6 space-y-6">
-          <h3 className="text-xs font-black uppercase tracking-widest bg-black text-white px-3 py-1.5 inline-block mb-2">
-            VERIFIED INDUSTRIAL CERTIFICATIONS
+        {/* Right Column (6 cols): Certifications */}
+        <div className="lg:col-span-6 space-y-5">
+          <h3 className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+            Verified Industrial Certifications
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {certifications.map((cert, idx) => (
-              <div
-                key={idx}
-                className="memphis-card bg-white p-4 relative flex flex-col justify-between group overflow-hidden"
-              >
+              <div key={idx} className="bento-card p-4 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b-2 border-black">
-                    <span className="text-[10px] font-black uppercase tracking-wider bg-honey px-1.5 py-0.5 border border-black">
-                      {cert.issuer}
-                    </span>
-                    <span className="text-[10px] font-bold text-gray-600">
-                      {cert.issueDate}
-                    </span>
+                  <div className="flex items-center justify-between text-[10px] mb-2 font-mono text-zinc-400">
+                    <span className="text-cyan-400">{cert.issuer}</span>
+                    <span>{cert.issueDate}</span>
                   </div>
 
-                  <h4 className="text-sm font-black text-black leading-tight mb-2">
+                  <h4 className="text-xs sm:text-sm font-semibold text-white mb-2 leading-snug">
                     {cert.title}
                   </h4>
 
-                  {/* Thumbnail if present */}
                   {cert.thumbnail && (
                     <div
                       onClick={() =>
@@ -163,28 +131,22 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
                           caption: `${cert.title} — ${cert.issuer}`
                         })
                       }
-                      className="mb-3 h-28 border-2 border-black overflow-hidden relative cursor-pointer group/thumb bg-paper"
+                      className="mb-3 h-24 rounded-lg overflow-hidden border border-white/10 relative cursor-pointer group/thumb bg-zinc-950"
                     >
                       <img
                         src={cert.thumbnail}
                         alt={cert.title}
-                        className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform"
+                        className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-200"
                       />
-                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/thumb:opacity-100 flex items-center justify-center transition-opacity">
-                        <span className="bg-white text-black px-2 py-0.5 text-[10px] font-black border border-black flex items-center gap-1">
-                          <ZoomIn className="w-3 h-3" /> View
-                        </span>
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 flex items-center justify-center transition-opacity">
+                        <ZoomIn className="w-4 h-4 text-white" />
                       </div>
                     </div>
                   )}
 
-                  {/* Skills tags */}
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {cert.skills.slice(0, 4).map((s) => (
-                      <span
-                        key={s}
-                        className="bg-paper text-black border border-black px-1.5 py-0.5 text-[9px] font-black"
-                      >
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    {cert.skills.slice(0, 3).map((s) => (
+                      <span key={s} className="px-1.5 py-0.5 rounded text-[9px] font-mono bg-white/5 text-zinc-400 border border-white/5">
                         {s}
                       </span>
                     ))}
@@ -199,9 +161,9 @@ export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
                         caption: `${cert.title} — ${cert.issuer}`
                       })
                     }
-                    className="memphis-btn-honey text-[11px] py-1.5 px-2 w-full text-center flex items-center justify-center gap-1 mt-2"
+                    className="bento-btn-secondary text-[11px] py-1 px-2.5 w-full mt-2"
                   >
-                    <ZoomIn className="w-3 h-3" /> Verify Certificate
+                    <span>View Credential</span>
                   </button>
                 )}
               </div>

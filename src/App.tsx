@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { SectorRibbon } from './components/SectorRibbon';
-import { AboutSection } from './components/AboutSection';
-import { InteractiveSimLab } from './components/InteractiveSimLab';
 import { FlagshipCaseStudies } from './components/FlagshipCaseStudies';
+import { InteractiveSimLab } from './components/InteractiveSimLab';
 import { CareerJourneyTimeline } from './components/CareerJourneyTimeline';
 import { ProjectsSection } from './components/ProjectsSection';
 import { SkillsSection } from './components/SkillsSection';
@@ -14,10 +12,7 @@ import { Footer } from './components/Footer';
 import { TerminalModal } from './components/TerminalModal';
 import { ImageModal } from './components/ImageModal';
 import { ProjectInspectorModal } from './components/ProjectInspectorModal';
-import { CustomCursor } from './components/CustomCursor';
-import { VerticalGutterTracker } from './components/VerticalGutterTracker';
-import { MemphisZigzagDivider } from './components/MemphisOrnament';
-import { Terminal as TerminalIcon, Sparkles } from 'lucide-react';
+import { Terminal as TerminalIcon } from 'lucide-react';
 
 import {
   personalInfo,
@@ -53,52 +48,30 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#fdf6e3] text-black font-sans selection:bg-[#feca57] selection:text-black">
-      {/* Custom Memphis Geometric Pointer */}
-      <CustomCursor />
-
-      {/* Fixed Vertical Scroll Gutter HUD */}
-      <VerticalGutterTracker />
-
-      {/* Floating Memphis Header */}
+    <div className="relative min-h-screen bg-[#09090b] text-[#fafafa] font-sans antialiased selection:bg-cyan-500/25 selection:text-cyan-200">
+      {/* Floating Glass Pill Navbar */}
       <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
 
-      {/* SECTION 01: Hero Asymmetrical Bento Grid */}
-      <Hero
-        personalInfo={personalInfo}
-        onOpenTerminal={() => setTerminalOpen(true)}
-        onOpenImage={setSelectedImage}
-      />
+      {/* Main Bento Flow */}
+      <main className="relative z-10 space-y-12">
+        {/* SECTION 01: Hero Master Bento Grid */}
+        <Hero
+          personalInfo={personalInfo}
+          onOpenTerminal={() => setTerminalOpen(true)}
+          onOpenImage={setSelectedImage}
+        />
 
-      {/* High-Velocity Marquee Ribbon */}
-      <SectorRibbon
-        sectorNumber="01"
-        sectorName="SAVERA FLAGSHIP SYSTEMS & EDGE AI ACCELERATION"
-        color="coral"
-      />
-
-      {/* Main Structural Flow */}
-      <main className="relative z-10">
-        {/* SECTION 02: About, Philosophy & Polymath Pursuits */}
-        <AboutSection />
-
-        <MemphisZigzagDivider color="honey" />
-
-        {/* SECTION 03: Interactive Simulation Lab (OJASEWS & GeoChange AI) */}
-        <InteractiveSimLab />
-
-        <MemphisZigzagDivider color="coral" />
-
-        {/* SECTION 04: Flagship Case Studies Deep-Dive */}
+        {/* SECTION 02: Flagship Systems Bento (OJASEWS, GeoChange AI, NeuroView, SlipSense) */}
         <FlagshipCaseStudies
           projects={projects}
           onOpenImage={setSelectedImage}
           onOpenInspector={setSelectedProject}
         />
 
-        <MemphisZigzagDivider color="blue" />
+        {/* SECTION 03: Interactive Simulation Lab Bento (Slope Physics & Carbon Accounting) */}
+        <InteractiveSimLab />
 
-        {/* SECTION 05: Unified Career, Research Labs & Accolades Journey */}
+        {/* SECTION 04: Experience & Research Bento Timeline */}
         <CareerJourneyTimeline
           experiences={experiences}
           researchWork={researchWork}
@@ -106,23 +79,17 @@ export const App: React.FC = () => {
           onOpenImage={setSelectedImage}
         />
 
-        <MemphisZigzagDivider color="mint" />
-
-        {/* SECTION 06: Systems & Engineering Archive (Full 8+ Builds) */}
+        {/* SECTION 05: Complete Systems & Engineering Archive (8+ Builds) */}
         <ProjectsSection
           projects={projects}
           onOpenImage={setSelectedImage}
           onOpenInspector={setSelectedProject}
         />
 
-        <MemphisZigzagDivider color="honey" />
-
-        {/* SECTION 07: Technical Stack & Engineering Workbench */}
+        {/* SECTION 06: Technical Stack & Engineering Workbench */}
         <SkillsSection skillCategories={skillCategories} />
 
-        <MemphisZigzagDivider color="coral" />
-
-        {/* SECTION 08: Education, Verified Certifications & Bootcamps */}
+        {/* SECTION 07: Education, Verified Certifications & Bootcamps */}
         <EducationCertSection
           educationList={educationList}
           certifications={certifications}
@@ -130,13 +97,11 @@ export const App: React.FC = () => {
           onOpenImage={setSelectedImage}
         />
 
-        <MemphisZigzagDivider color="mint" />
-
-        {/* SECTION 09: Himalayan Field Communications Relay & Dispatch Form */}
+        {/* SECTION 08: Direct Field Communications Relay */}
         <ContactSection />
       </main>
 
-      {/* System Footer */}
+      {/* Footer */}
       <Footer />
 
       {/* Interactive Terminal Modal */}
@@ -145,14 +110,14 @@ export const App: React.FC = () => {
         onClose={() => setTerminalOpen(false)}
       />
 
-      {/* Project Inspector Blueprint Modal */}
+      {/* Full Architectural Blueprint Inspector Modal */}
       <ProjectInspectorModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
         onOpenImage={setSelectedImage}
       />
 
-      {/* Image Lightbox Modal */}
+      {/* High-Resolution Screenshot Lightbox Modal */}
       <ImageModal
         isOpen={!!selectedImage}
         onClose={() => setSelectedImage(null)}
@@ -161,16 +126,16 @@ export const App: React.FC = () => {
         caption={selectedImage?.caption}
       />
 
-      {/* Floating Bottom-Right Terminal Trigger Pill */}
+      {/* Floating Bottom-Right Terminal Launcher Pill */}
       <button
         onClick={() => setTerminalOpen(true)}
-        className="fixed bottom-6 right-6 z-40 memphis-btn-honey py-2.5 px-3.5 text-xs border-4 shadow-memphis active:translate-x-1 active:translate-y-1 group flex items-center gap-2"
-        title="Open Interactive Terminal Shell (Ctrl + K or `)"
-        aria-label="Open Interactive Terminal"
+        className="fixed bottom-6 right-6 z-40 bento-btn-secondary py-2 px-3 text-xs shadow-2xl backdrop-blur-xl border border-white/10 hover:border-cyan-400/40 group flex items-center gap-2"
+        title="Open Terminal (Ctrl + K or `)"
+        aria-label="Open Terminal"
       >
-        <TerminalIcon className="w-4 h-4 group-hover:rotate-12 transition-transform text-black" />
-        <span className="font-black text-black hidden sm:inline">TERMINAL [~]</span>
-        <span className="text-[10px] bg-black text-white px-1.5 py-0.5 font-mono font-bold hidden md:inline">
+        <TerminalIcon className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
+        <span className="font-mono text-zinc-300 hidden sm:inline">terminal</span>
+        <span className="text-[10px] bg-white/10 text-zinc-400 px-1.5 py-0.2 rounded font-mono hidden md:inline">
           ^K
         </span>
       </button>

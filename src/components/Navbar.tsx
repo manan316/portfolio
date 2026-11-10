@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Menu, X, Terminal, Activity, FileText } from 'lucide-react';
+import { Terminal, FileText, Menu, X, Sparkles, ChevronRight } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -8,19 +8,15 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const totalDocHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalDocHeight > 0) {
-        setScrollProgress((scrollY / totalDocHeight) * 100);
-      }
+      setScrolled(window.scrollY > 20);
 
-      const sections = ['hero', 'about', 'lab', 'case-studies', 'journey', 'work', 'skills', 'education', 'contact'];
-      const scrollPosition = scrollY + 200;
+      const sections = ['hero', 'flagships', 'lab', 'journey', 'work', 'skills', 'contact'];
+      const scrollPosition = window.scrollY + 200;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
@@ -36,145 +32,116 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
   }, []);
 
   const navLinks = [
-    { label: 'ABOUT', href: '#about', id: 'about' },
-    { label: '⚡ SIM LAB', href: '#lab', id: 'lab', highlight: true },
-    { label: 'CASE STUDIES', href: '#case-studies', id: 'case-studies' },
-    { label: 'JOURNEY', href: '#journey', id: 'journey' },
-    { label: 'ARCHIVE', href: '#work', id: 'work' },
-    { label: 'WORKBENCH', href: '#skills', id: 'skills' },
-    { label: 'CONTACT', href: '#contact', id: 'contact' },
+    { label: 'Overview', href: '#hero', id: 'hero' },
+    { label: 'Flagships', href: '#flagships', id: 'flagships' },
+    { label: 'Sim Lab', href: '#lab', id: 'lab', badge: 'Interactive' },
+    { label: 'Journey', href: '#journey', id: 'journey' },
+    { label: 'Archive', href: '#work', id: 'work' },
+    { label: 'Stack', href: '#skills', id: 'skills' },
+    { label: 'Contact', href: '#contact', id: 'contact' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#fdf6e3] border-b-4 border-black shadow-[0_4px_0_#000000]">
-      {/* Scroll Progress Bar */}
-      <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#feca57] border-b-2 border-black overflow-hidden">
-        <div 
-          className="h-full bg-[#ff6b6b] transition-all duration-150"
-          style={{ width: `${scrollProgress}%` }}
-        />
-      </div>
+    <header className="fixed top-0 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pt-4 pointer-events-none">
+      <div
+        className={`pointer-events-auto flex items-center justify-between w-full max-w-5xl rounded-full px-4 sm:px-6 py-2.5 transition-all duration-300 ${
+          scrolled
+            ? 'bg-zinc-900/85 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/60'
+            : 'bg-zinc-900/60 backdrop-blur-lg border border-white/5'
+        }`}
+      >
+        {/* Brand / Logo */}
+        <a href="#hero" className="flex items-center gap-2.5 group">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-600 p-[1px] flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-full h-full rounded-full bg-zinc-950 flex items-center justify-center">
+              <span className="text-xs font-black bg-gradient-to-tr from-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+                MS
+              </span>
+            </div>
+          </div>
+          <div className="hidden sm:flex flex-col">
+            <span className="text-xs font-semibold text-zinc-100 group-hover:text-white transition-colors">
+              Manan Sharma
+            </span>
+            <span className="text-[10px] text-zinc-400">
+              AI/ML & Systems Researcher
+            </span>
+          </div>
+        </a>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5">
-        <div className="flex items-center justify-between">
-          
-          {/* Logo / Brand badge */}
+        {/* Desktop Nav Links */}
+        <nav className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                className={`relative px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                  isActive
+                    ? 'text-white bg-white/10 shadow-sm'
+                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/5'
+                }`}
+              >
+                {link.label}
+                {link.badge && (
+                  <span className="ml-1.5 px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                    {link.badge}
+                  </span>
+                )}
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* Action Buttons */}
+        <div className="flex items-center gap-2">
+          {onOpenTerminal && (
+            <button
+              onClick={onOpenTerminal}
+              className="p-2 rounded-full text-zinc-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-xs flex items-center gap-1.5"
+              title="Launch Terminal (Ctrl + K)"
+            >
+              <Terminal className="w-3.5 h-3.5 text-cyan-400" />
+              <span className="hidden lg:inline text-[11px] font-mono text-zinc-400">~</span>
+            </button>
+          )}
+
           <a
-            href="#hero"
-            className="flex items-center gap-2.5 group select-none no-underline"
+            href={personalInfo.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bento-btn-primary py-1.5 px-3.5 text-xs font-medium"
           >
-            <div className="w-10 h-10 border-3 border-black bg-[#ff6b6b] flex items-center justify-center shadow-[3px_3px_0_#000000] group-hover:bg-[#feca57] transition-colors duration-150 relative">
-              <span className="font-sans font-black text-white group-hover:text-black text-lg">M</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-[#48dbfb] border-2 border-black absolute -top-1 -right-1 group-hover:rotate-45 transition-transform"></span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-sans font-black text-base tracking-tight text-black group-hover:text-[#ff6b6b] pop-swap leading-none">
-                MANAN SHARMA
-              </span>
-              <span className="font-mono font-bold text-[10px] tracking-wider text-[#5f27cd] uppercase mt-0.5">
-                AI & SYSTEMS // 1981 MILAN
-              </span>
-            </div>
+            <FileText className="w-3.5 h-3.5" />
+            <span>Resume</span>
           </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden xl:flex items-center gap-1.5" aria-label="Main navigation">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.id;
-              return (
-                <a
-                  key={link.id}
-                  href={link.href}
-                  className={`px-2.5 py-1 text-xs font-black tracking-wider uppercase transition-all duration-150 border-3 ${
-                    link.highlight
-                      ? isActive
-                        ? 'bg-[#ff6b6b] text-white border-black shadow-[3px_3px_0_#000000]'
-                        : 'bg-[#feca57] text-black border-black shadow-[2px_2px_0_#000000] hover:bg-[#ff6b6b] hover:text-white'
-                      : isActive
-                      ? 'bg-[#ff6b6b] text-white border-black shadow-[3px_3px_0_#000000]'
-                      : 'border-transparent text-black hover:border-black hover:bg-[#feca57] hover:shadow-[3px_3px_0_#000000]'
-                  }`}
-                >
-                  {link.label}
-                </a>
-              );
-            })}
-          </nav>
-
-          {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-2.5">
-            {onOpenTerminal && (
-              <button
-                onClick={onOpenTerminal}
-                className="memphis-btn-blue text-xs py-1.5 px-3 flex items-center gap-1.5 border-3"
-                title="Launch Interactive Memphis Terminal"
-              >
-                <Terminal className="w-3.5 h-3.5" />
-                <span>SHELL [~]</span>
-              </button>
-            )}
-
-            <a
-              href={personalInfo.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="memphis-btn text-xs py-1.5 px-3 flex items-center gap-1.5 border-3"
-            >
-              <FileText className="w-3.5 h-3.5" />
-              <span>RESUME</span>
-            </a>
-          </div>
-
-          {/* Mobile Menu Toggle Button */}
-          <div className="flex xl:hidden items-center gap-2">
-            {onOpenTerminal && (
-              <button
-                onClick={onOpenTerminal}
-                className="p-1.5 bg-[#48dbfb] border-3 border-black shadow-[2px_2px_0_#000000]"
-                title="Terminal"
-              >
-                <Terminal className="w-4 h-4 text-black" />
-              </button>
-            )}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 bg-[#feca57] border-3 border-black shadow-[2px_2px_0_#000000] text-black focus:outline-none"
-              aria-label="Toggle navigation menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-
+          {/* Mobile Menu Trigger */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-1.5 rounded-full text-zinc-400 hover:text-white hover:bg-white/5"
+            aria-label="Toggle Navigation"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#fdf6e3] border-b-4 border-black px-4 py-4 space-y-2 animate-fade-in shadow-memphis-lg">
+        <div className="md:hidden fixed top-20 inset-x-4 bg-zinc-900/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-4 space-y-2 shadow-2xl pointer-events-auto">
           {navLinks.map((link) => (
             <a
               key={link.id}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 text-sm font-black border-3 border-black uppercase transition-colors ${
-                link.highlight ? 'bg-[#feca57] text-black' : 'bg-white hover:bg-[#ff6b6b] hover:text-white'
-              }`}
+              className="flex items-center justify-between p-2.5 text-sm font-medium text-zinc-200 hover:text-white rounded-xl hover:bg-white/5 transition-colors"
             >
-              {link.label}
+              <span>{link.label}</span>
+              <ChevronRight className="w-4 h-4 text-zinc-500" />
             </a>
           ))}
-
-          <div className="pt-2 flex flex-col gap-2 border-t-2 border-black">
-            <a
-              href={personalInfo.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="memphis-btn text-xs py-2.5 text-center flex items-center justify-center gap-1.5"
-            >
-              <FileText className="w-4 h-4" />
-              <span>Download Resume [PDF]</span>
-            </a>
-          </div>
         </div>
       )}
     </header>

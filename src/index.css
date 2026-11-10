@@ -3,520 +3,204 @@
 @tailwind utilities;
 
 :root {
-  /* Memphis 1981 Milan Tokens */
-  --color-coral: #ff6b6b;
-  --color-honey: #feca57;
-  --color-electric-blue: #48dbfb;
-  --color-bubblegum: #ff9ff3;
-  --color-mint: #1dd1a1;
-  --color-grape: #5f27cd;
-
-  --surface-paper: #fdf6e3;
-  --surface-coral-block: #ff6b6b;
-  --surface-honey-block: #feca57;
-  --memphis-black: #000000;
-  --memphis-white: #ffffff;
-
-  /* Typography Scale */
-  --text-display: 60px;
-  --text-heading: 44px;
-  --text-subheading: 32px;
-  --text-body-lg: 18px;
-  --text-body: 14px;
-  --text-label: 14px;
-
-  /* Elevation */
-  --shadow-memphis: 6px 6px 0 #000000;
-  --shadow-memphis-lg: 10px 10px 0 #000000;
-  --shadow-memphis-sm: 4px 4px 0 #000000;
+  --bg-main: #09090b;
+  --card-bg: rgba(18, 18, 23, 0.7);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-border-hover: rgba(255, 255, 255, 0.18);
+  --accent-cyan: #22d3ee;
+  --accent-emerald: #10b981;
+  --accent-violet: #8b5cf6;
 }
 
-/* Universal Memphis Base */
 * {
-  border-color: #000000;
   box-sizing: border-box;
 }
 
 html {
-  background-color: #fdf6e3;
-  color: #000000;
-  font-family: 'Inter', 'Arial Black', Helvetica, sans-serif;
+  background-color: #09090b;
+  color: #fafafa;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  background-color: #fdf6e3;
-  color: #000000;
-  font-family: 'Inter', 'Arial Black', Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.5;
+  background-color: #09090b;
+  color: #fafafa;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(#000000 1.2px, transparent 1.2px),
-    linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
-  background-size: 32px 32px, 32px 32px, 32px 32px;
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 211, 238, 0.12), transparent);
+  background-size: 28px 28px, 100% 100%;
+  background-position: 0 0, 0 0;
 }
 
-/* Selection */
-::selection {
-  background: #feca57;
-  color: #000000;
-}
-
-/* Memphis Custom Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #fdf6e3;
-  border-left: 3px solid #000000;
+  background: #09090b;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ff6b6b;
-  border: 3px solid #000000;
-  border-radius: 0;
-  box-shadow: 2px 2px 0 #000000;
+  background: #27272a;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #feca57;
+  background: #3f3f46;
 }
 
-/* Typography Helpers - Headings at 1.0 leading */
-.memphis-display {
-  font-family: 'Inter', 'Arial Black', sans-serif;
-  font-weight: 900;
-  font-size: clamp(38px, 6vw, 64px);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: #000000;
-}
-
-.memphis-heading {
-  font-family: 'Inter', 'Arial Black', sans-serif;
-  font-weight: 900;
-  font-size: clamp(28px, 4vw, 44px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: #000000;
-}
-
-.memphis-subheading {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: clamp(22px, 2.5vw, 32px);
-  line-height: 1.1;
-  color: #000000;
-}
-
-.memphis-label {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.35;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-/* =========================================================
-   MEMPHIS COMPONENTS
-   ========================================================= */
-
-/* Pop Button (Primary Action) */
-.memphis-btn {
-  background: #ff6b6b;
-  color: #ffffff;
-  border: 4px solid #000000;
-  border-radius: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 12px 24px;
-  box-shadow: 6px 6px 0 #000000;
-  transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  text-decoration: none;
-  user-select: none;
-}
-
-.memphis-btn:hover {
-  background: #feca57;
-  color: #000000;
-  box-shadow: 10px 10px 0 #000000;
-}
-
-.memphis-btn:active {
-  transform: translate(6px, 6px);
-  box-shadow: none !important;
-}
-
-/* Pop Button - Blue Clash */
-.memphis-btn-blue {
-  background: #48dbfb;
-  color: #000000;
-  border: 4px solid #000000;
-  border-radius: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 12px 24px;
-  box-shadow: 6px 6px 0 #000000;
-  transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  text-decoration: none;
-  user-select: none;
-}
-
-.memphis-btn-blue:hover {
-  background: #ff6b6b;
-  color: #ffffff;
-  box-shadow: 10px 10px 0 #000000;
-}
-
-.memphis-btn-blue:active {
-  transform: translate(6px, 6px);
-  box-shadow: none !important;
-}
-
-/* Pop Button - Honey Clash */
-.memphis-btn-honey {
-  background: #feca57;
-  color: #000000;
-  border: 4px solid #000000;
-  border-radius: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 12px 24px;
-  box-shadow: 6px 6px 0 #000000;
-  transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  text-decoration: none;
-  user-select: none;
-}
-
-.memphis-btn-honey:hover {
-  background: #48dbfb;
-  color: #000000;
-  box-shadow: 10px 10px 0 #000000;
-}
-
-.memphis-btn-honey:active {
-  transform: translate(6px, 6px);
-  box-shadow: none !important;
-}
-
-/* Pop Button - Mint Clash */
-.memphis-btn-mint {
-  background: #1dd1a1;
-  color: #000000;
-  border: 4px solid #000000;
-  border-radius: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 12px 24px;
-  box-shadow: 6px 6px 0 #000000;
-  transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  text-decoration: none;
-  user-select: none;
-}
-
-.memphis-btn-mint:hover {
-  background: #ff6b6b;
-  color: #ffffff;
-  box-shadow: 10px 10px 0 #000000;
-}
-
-.memphis-btn-mint:active {
-  transform: translate(6px, 6px);
-  box-shadow: none !important;
-}
-
-/* Pop Button - Grape Clash */
-.memphis-btn-grape {
-  background: #5f27cd;
-  color: #ffffff;
-  border: 4px solid #000000;
-  border-radius: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 12px 24px;
-  box-shadow: 6px 6px 0 #000000;
-  transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  text-decoration: none;
-  user-select: none;
-}
-
-.memphis-btn-grape:hover {
-  background: #feca57;
-  color: #000000;
-  box-shadow: 10px 10px 0 #000000;
-}
-
-.memphis-btn-grape:active {
-  transform: translate(6px, 6px);
-  box-shadow: none !important;
-}
-
-/* Playground Card */
-.memphis-card {
-  background: #ffffff;
-  border: 4px solid #000000;
-  border-radius: 0;
-  padding: 28px;
-  box-shadow: 6px 6px 0 #000000;
+/* Bento Card Base */
+.bento-card {
   position: relative;
-  transition: box-shadow 150ms cubic-bezier(0, 0, 0.2, 1);
+  background: rgba(18, 18, 23, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
 }
 
-.memphis-card:hover {
-  box-shadow: 10px 10px 0 #000000;
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  pointer-events: none;
 }
 
-/* Memphis Input */
-.memphis-input {
-  background: #ffffff;
-  border: 4px solid #000000;
-  border-radius: 0;
-  padding: 10px 14px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: #000000;
-  width: 100%;
-  outline: none;
-  transition: border-color 150ms, box-shadow 150ms;
+.bento-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7), 0 0 30px -10px rgba(34, 211, 238, 0.15);
+  transform: translateY(-2px);
 }
 
-.memphis-input:focus {
-  border-color: #48dbfb;
-  box-shadow: 4px 4px 0 #feca57;
+/* Bento Card Inner Glows */
+.bento-glow-cyan:hover {
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7), 0 0 35px -5px rgba(34, 211, 238, 0.2);
+}
+.bento-glow-violet:hover {
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7), 0 0 35px -5px rgba(139, 92, 246, 0.2);
+}
+.bento-glow-emerald:hover {
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7), 0 0 35px -5px rgba(16, 185, 129, 0.2);
 }
 
-/* Memphis Badge / Pill */
-.memphis-badge {
-  border: 3px solid #000000;
-  border-radius: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  box-shadow: 3px 3px 0 #000000;
+/* Bento Buttons */
+.bento-btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  user-select: none;
-  white-space: nowrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  background: linear-gradient(135deg, #fafafa 0%, #d4d4d8 100%);
+  color: #09090b;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 20px -5px rgba(255, 255, 255, 0.4);
+  transition: all 0.2s ease;
+}
+.bento-btn-primary:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px -2px rgba(255, 255, 255, 0.5);
 }
 
-/* Pop Swap Classes (Hard 150ms Cut) */
-.pop-swap {
-  transition: color 150ms steps(1, end), background-color 150ms steps(1, end);
+.bento-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e4e4e7;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+.bento-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
-.group:hover .pop-swap-coral {
-  color: #ff6b6b !important;
-}
-.group:hover .pop-swap-honey {
-  color: #feca57 !important;
-}
-.group:hover .pop-swap-blue {
-  color: #48dbfb !important;
-}
-.group:hover .pop-swap-mint {
-  color: #1dd1a1 !important;
-}
-.group:hover .pop-swap-grape {
-  color: #5f27cd !important;
-}
-
-/* Playful Chaos Ornament Transitions */
-.ornament {
-  transition: transform 150ms cubic-bezier(0.34, 1.56, 0.64, 1);
-  pointer-events: none;
-  position: absolute;
+/* Bento Badges */
+.bento-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d4d4d8;
 }
 
-.group:hover .ornament-1 {
-  transform: translate(8px, -10px) rotate(18deg) scale(1.08);
-}
-.group:hover .ornament-2 {
-  transform: translate(-10px, 8px) rotate(-16deg) scale(1.08);
-}
-.group:hover .ornament-3 {
-  transform: translate(10px, 10px) rotate(22deg) scale(1.08);
-}
-.group:hover .ornament-4 {
-  transform: translate(-8px, -8px) rotate(-20deg) scale(1.08);
-}
-
-/* Zigzag Divider */
-.memphis-zigzag {
-  width: 100%;
-  height: 18px;
-  background-repeat: repeat-x;
-  background-size: 24px 18px;
-}
-
-.zigzag-coral {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 18'%3E%3Cpath d='M0 18 L12 0 L24 18 Z' fill='%23ff6b6b' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E");
-}
-
-.zigzag-honey {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 18'%3E%3Cpath d='M0 18 L12 0 L24 18 Z' fill='%23feca57' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E");
-}
-
-.zigzag-blue {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 18'%3E%3Cpath d='M0 18 L12 0 L24 18 Z' fill='%2348dbfb' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E");
-}
-
-.zigzag-mint {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 18'%3E%3Cpath d='M0 18 L12 0 L24 18 Z' fill='%231dd1a1' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E");
-}
-
-/* Polka Dots and Striped Memphis Blocks */
-.memphis-dots {
-  background-image: radial-gradient(#000000 2px, transparent 2px);
-  background-size: 14px 14px;
-}
-
-.memphis-stripes {
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    #000000 10px,
-    #000000 14px
-  );
-}
-
-.memphis-stripes-light {
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 8px,
-    rgba(0, 0, 0, 0.12) 8px,
-    rgba(0, 0, 0, 0.12) 11px
-  );
-}
-
-/* Subtle Random Tilts */
-.tilt-neg-1 {
-  transform: rotate(-1deg);
-}
-.tilt-pos-1 {
-  transform: rotate(1deg);
-}
-.tilt-neg-2 {
-  transform: rotate(-2deg);
-}
-.tilt-pos-2 {
-  transform: rotate(2deg);
-}
-
-
-/* Memphis Range Slider */
-.memphis-range-slider {
+/* Range Slider */
+.bento-slider {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 16px;
-  background: #ffffff;
-  border: 4px solid #000000;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
   outline: none;
-  box-shadow: 3px 3px 0 #000000;
-  border-radius: 0;
   cursor: pointer;
 }
-.memphis-range-slider::-webkit-slider-thumb {
+.bento-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 24px;
-  height: 24px;
-  background: #ff6b6b;
-  border: 3px solid #000000;
-  border-radius: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #22d3ee;
+  border: 2px solid #09090b;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
   cursor: grab;
-  box-shadow: 2px 2px 0 #000000;
-  transition: transform 0.1s ease, background-color 0.15s ease;
+  transition: transform 0.15s ease, background-color 0.15s ease;
 }
-.memphis-range-slider::-webkit-slider-thumb:hover {
-  background: #feca57;
-  transform: scale(1.15);
+.bento-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  background: #67e8f9;
 }
-.memphis-range-slider::-webkit-slider-thumb:active {
-  cursor: grabbing;
-  background: #1dd1a1;
-  transform: scale(0.95);
-}
-.memphis-range-slider::-moz-range-thumb {
-  width: 24px;
-  height: 24px;
-  background: #ff6b6b;
-  border: 3px solid #000000;
-  border-radius: 0;
+.bento-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #22d3ee;
+  border: 2px solid #09090b;
   cursor: grab;
-  box-shadow: 2px 2px 0 #000000;
 }
 
-/* Memphis Accordion / Tab Buttons */
-.memphis-tab-btn {
-  border: 4px solid #000000;
-  background-color: #ffffff;
-  color: #000000;
-  font-weight: 900;
-  padding: 10px 18px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 13px;
-  box-shadow: 4px 4px 0 #000000;
-  transition: all 0.15s ease;
-  border-radius: 0;
+/* Form Inputs */
+.bento-input {
+  background: rgba(24, 24, 27, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #fafafa;
+  outline: none;
+  transition: all 0.2s ease;
 }
-.memphis-tab-btn:hover {
-  background-color: #feca57;
-  box-shadow: 6px 6px 0 #000000;
-}
-.memphis-tab-btn.active {
-  background-color: #ff6b6b;
-  color: #ffffff;
-  box-shadow: 6px 6px 0 #000000;
+.bento-input:focus {
+  border-color: #22d3ee;
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.2);
+  background: rgba(24, 24, 27, 0.85);
 }
