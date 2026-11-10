@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
       <div className="pt-8 border-t border-[#0a0a0a]/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a]">
         <div className="space-y-1">
           <div className="text-[#0a0a0a] font-medium">
-            SOFTWARE ENGINEER & AI/ML SYSTEMS RESEARCHER
+            POLYMATH SYSTEMS DEVELOPER & ARCHITECT // SILICON TO SATELLITE
           </div>
           <div>
             © {new Date().getFullYear()} MANAN SHARMA. OVERSIZED TYPOGRAPHY ARCHITECTURE.

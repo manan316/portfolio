@@ -16,7 +16,7 @@ export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal, onOpen
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 bg-[#ff4d00] inline-block"></span>
           <span className="text-[#0a0a0a] font-medium">01 // MANAN SHARMA</span>
-          <span>· SOFTWARE ENGINEER & AI/ML RESEARCHER</span>
+          <span>· POLYMATH SYSTEMS DEVELOPER & ARCHITECT</span>
         </div>
         <div className="flex items-center gap-4">
           <span>JAMMU & KASHMIR, INDIA</span>
@@ -25,16 +25,55 @@ export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal, onOpen
       </div>
 
       {/* Extreme Fluid Headline — The Type IS the Layout */}
-      <div className="pt-10 sm:pt-16 pb-12 sm:pb-20">
+      <div className="pt-10 sm:pt-16 pb-8 sm:pb-12">
         <h1 className="fluid-display text-[#0a0a0a] uppercase tracking-[-0.05em] leading-[0.85] font-black break-words">
-          ARCHITECTING
+          POLYMATH DEVELOPER.
         </h1>
-        <div className="fluid-display text-[#0a0a0a] uppercase tracking-[-0.05em] leading-[0.85] font-black break-words mt-1 sm:mt-2">
-          SYSTEMS FROM
-        </div>
         <div className="fluid-display text-[#0a0a0a] uppercase tracking-[-0.05em] leading-[0.85] font-black break-words mt-1 sm:mt-2">
           <span className="text-[#ff4d00]">SILICON</span> TO{' '}
           <span className="text-stroke">SATELLITE.</span>
+        </div>
+        <div className="font-mono text-xs sm:text-sm tracking-[0.2em] uppercase text-[#71717a] mt-3">
+          AGENTIC AI · EMBEDDED LINUX · GEOSPATIAL & GEE · COMPUTATIONAL MATHEMATICS
+        </div>
+      </div>
+
+      {/* Polymath Domain Continuum Matrix (10 Core Competencies) */}
+      <div className="pt-6 pb-12 border-t border-[#0a0a0a]/15">
+        <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#ff4d00] mb-4">
+          DOMAINS OF MASTERY // FULL-STACK CONTINUUM
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 font-mono text-[11px] tracking-[0.12em] uppercase text-[#0a0a0a]">
+          <div className="p-2.5 border border-[#0a0a0a]/15 hover:border-[#ff4d00] transition-colors">
+            <span className="text-[#ff4d00] mr-1.5">[01]</span>COMP SCI & ALGORITHMS
+          </div>
+          <div className="p-2.5 border border-[#0a0a0a]/15 hover:border-[#ff4d00] transition-colors">
+            <span className="text-[#ff4d00] mr-1.5">[02]</span>NETWORKING & LORAWAN
+          </div>
+          <div className="p-2.5 border border-[#0a0a0a]/15 hover:border-[#ff4d00] transition-colors">
+            <span className="text-[#ff4d00] mr-1.5">[03]</span>EMBEDDED SYSTEMS & IOT
+          </div>
+          <div className="p-2.5 border border-[#0a0a0a]/15 hover:border-[#ff4d00] transition-colors">
+            <span className="text-[#ff4d00] mr-1.5">[04]</span>GEOSPATIAL & GEE
+          </div>
+          <div className="p-2.5 border border-[#0a0a0a]/15 hover:border-[#ff4d00] transition-colors">
+            <span className="text-[#ff4d00] mr-1.5">[05]</span>SATELLITE DATASETS
+          </div>
+          <div className="p-2.5 border border-[#0a0a0a]/15 hover:border-[#ff4d00] transition-colors">
+            <span className="text-[#ff4d00] mr-1.5">[06]</span>HARDWARE & PCBS
+          </div>
+          <div className="p-2.5 border border-[#0a0a0a]/15 hover:border-[#ff4d00] transition-colors">
+            <span className="text-[#ff4d00] mr-1.5">[07]</span>AGENTIC AI & MCP
+          </div>
+          <div className="p-2.5 border border-[#0a0a0a]/15 hover:border-[#ff4d00] transition-colors">
+            <span className="text-[#ff4d00] mr-1.5">[08]</span>DEEP LEARNING & CV
+          </div>
+          <div className="p-2.5 border border-[#0a0a0a]/15 hover:border-[#ff4d00] transition-colors">
+            <span className="text-[#ff4d00] mr-1.5">[09]</span>LINUX KERNEL & C/C++
+          </div>
+          <div className="p-2.5 border border-[#0a0a0a]/15 hover:border-[#ff4d00] transition-colors">
+            <span className="text-[#ff4d00] mr-1.5">[10]</span>MATH MODELING & STATS
+          </div>
         </div>
       </div>
 
@@ -43,26 +82,26 @@ export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal, onOpen
         {/* Left Column (8 cols): Body statement & provenance */}
         <div className="lg:col-span-8 space-y-8">
           <p className="text-xl sm:text-2xl text-[#0a0a0a] font-normal leading-[1.4] max-w-3xl">
-            I bridge low-level embedded Linux kernel firmware with deep learning to build production-grade edge AI inference pipelines, procedural 3D digital twins, and autonomous geotechnical early-warning platforms.
+            A full-blown polymath developer and systems architect operating without boundaries across computer science, networking protocols, embedded IoT hardware, geospatial satellite analysis (GEE & STAC), agentic AI workflows with Model Context Protocol (MCP), deep learning computer vision, and mathematical modeling. Capable of architecting, writing, and deploying entire platforms from bare-metal silicon registers to distributed cloud infrastructure.
           </p>
 
           {/* Monospace Provenance Roster */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 font-mono text-[11px] tracking-[0.18em] uppercase text-[#71717a]">
-            <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between">
+            <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between gap-2">
               <span className="text-[#0a0a0a] font-medium">[01] EX-RESEARCH INTERN</span>
-              <span>IIT ROORKEE</span>
+              <span className="shrink-0 text-right">IIT ROORKEE</span>
             </div>
-            <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between">
+            <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between gap-2">
               <span className="text-[#0a0a0a] font-medium">[02] EX-EMBEDDED & IOT INTERN</span>
-              <span>UNICONVERGE</span>
+              <span className="shrink-0 text-right">UNICONVERGE</span>
             </div>
-            <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between">
+            <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between gap-2">
               <span className="text-[#ff4d00] font-medium">[03] BEST PRESENTATION AWARD</span>
-              <span>INDU X 5.0 HACKATHON</span>
+              <span className="shrink-0 text-right">INDU X 5.0</span>
             </div>
-            <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between">
-              <span className="text-[#0a0a0a] font-medium">[04] B.TECH CANDIDATE</span>
-              <span>UNIVERSITY OF JAMMU</span>
+            <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between gap-2">
+              <span className="text-[#0a0a0a] font-medium">[04] B.TECH AI & MATH</span>
+              <span className="shrink-0 text-right">UNIVERSITY OF JAMMU</span>
             </div>
           </div>
 
@@ -100,7 +139,7 @@ export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal, onOpen
                 onOpenImage &&
                 onOpenImage({
                   url: personalInfo.profileImage || '/images/profile.png',
-                  caption: 'Manan Sharma — AI & Systems Researcher'
+                  caption: 'Manan Sharma — Polymath Systems Architect'
                 })
               }
               className="w-44 h-52 shrink-0 bg-[#e4e4e7] cursor-pointer overflow-hidden group"
@@ -123,12 +162,12 @@ export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal, onOpen
                 <span className="text-[#0a0a0a]">SAVERA OJASEWS</span>
               </div>
               <div className="flex justify-between">
-                <span>RADAR SENSOR</span>
-                <span className="text-[#0a0a0a]">868 MHZ LORAWAN</span>
+                <span>EARTH OBSERVATION</span>
+                <span className="text-[#0a0a0a]">GEE & SENTINEL-2</span>
               </div>
               <div className="flex justify-between">
-                <span>SATELLITE ACCURACY</span>
-                <span className="text-[#0a0a0a]">QA60 CLOUD GATING</span>
+                <span>AGENTIC WORKFLOWS</span>
+                <span className="text-[#0a0a0a]">MCP PROTOCOL</span>
               </div>
               <div className="flex justify-between">
                 <span>NPU ACCELERATION</span>
@@ -143,18 +182,18 @@ export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal, onOpen
       <div className="grid grid-cols-2 md:grid-cols-4 border-t border-[#0a0a0a]/15 divide-y md:divide-y-0 md:divide-x divide-[#0a0a0a]/15">
         <div className="py-8 pr-6">
           <div className="text-5xl sm:text-7xl lg:text-8xl font-black text-[#0a0a0a] tracking-tight leading-none">
-            8+
+            15+
           </div>
           <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a] mt-3">
-            PRODUCTION BUILDS
+            DOMAINS OF MASTERY
           </div>
         </div>
         <div className="py-8 sm:px-6">
           <div className="text-5xl sm:text-7xl lg:text-8xl font-black text-[#0a0a0a] tracking-tight leading-none">
-            02
+            8+
           </div>
           <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a] mt-3">
-            TIER-1 RESEARCH LABS
+            PRODUCTION BUILDS
           </div>
         </div>
         <div className="py-8 sm:px-6">
@@ -167,10 +206,10 @@ export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal, onOpen
         </div>
         <div className="py-8 pl-6">
           <div className="text-5xl sm:text-7xl lg:text-8xl font-black text-[#0a0a0a] tracking-tight leading-none">
-            14B
+            02
           </div>
           <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a] mt-3">
-            MULTISPECTRAL SENSING
+            TIER-1 RESEARCH LABS
           </div>
         </div>
       </div>

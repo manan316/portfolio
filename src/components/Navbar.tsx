@@ -48,7 +48,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
             {personalInfo.name}
           </span>
           <span className="hidden lg:inline font-mono text-[11px] text-[#71717a] tracking-[0.15em] uppercase">
-            / AI·ML SYSTEMS
+            / POLYMATH DEVELOPER · SILICON TO SATELLITE
           </span>
         </a>
 

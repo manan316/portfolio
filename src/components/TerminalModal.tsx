@@ -12,7 +12,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
   const [history, setHistory] = useState<Array<{ command: string; output: React.ReactNode }>>([
     {
       command: 'system --status',
-      output: 'MANAN SHARMA SHELL // SYSTEMS ONLINE. OVERSIZED TYPOGRAPHY ACTIVE.'
+      output: 'MANAN SHARMA SHELL // POLYMATH SYSTEMS ARCHITECT. CONTINUUM ONLINE.'
     },
     {
       command: 'help',

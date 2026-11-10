@@ -36,14 +36,14 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
       <div className="pb-12 sm:pb-16">
         <div className="flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a]">
           <span className="w-2 h-2 bg-[#ff4d00] inline-block"></span>
-          <span>05 // TECHNICAL WORKBENCH</span>
-          <span>· {totalSkillCount} VERIFIED PROFICIENCIES</span>
+          <span>05 // THE POLYMATH WORKBENCH</span>
+          <span>· {totalSkillCount} VERIFIED PROFICIENCIES ACROSS 6 LAYERS</span>
         </div>
         <h2 className="fluid-heading text-[#0a0a0a] uppercase tracking-[-0.04em] leading-[0.88] font-black break-words mt-4 mb-6">
-          STACK & TOOLCHAIN.
+          FULL-STACK CONTINUUM.
         </h2>
         <p className="text-lg sm:text-xl text-[#0a0a0a] font-normal leading-[1.5] max-w-3xl">
-          Comprehensive inventory of machine learning frameworks, embedded Linux environments, systems programming languages, and distributed cloud tools.
+          Complete polymath mastery spanning low-level Linux kernel systems, wireless networking (LoRaWAN), satellite Earth observation (GEE), autonomous agentic AI (MCP), deep learning computer vision, and mathematical modeling.
         </p>
       </div>
 
@@ -53,7 +53,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
           <Search className="w-4 h-4 text-[#ff4d00]" />
           <input
             type="text"
-            placeholder="SEARCH TOOL, FRAMEWORK, OR PROTOCOL (E.G. OPENVINO, C++, OPENWRT, THREE.JS)..."
+            placeholder="SEARCH ANY DOMAIN (E.G. GEE, MCP, AGENTIC AI, OPENVINO, KERNEL, LORAWAN, MATH)..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full bg-transparent font-mono text-xs tracking-[0.1em] text-[#0a0a0a] placeholder:text-[#71717a] outline-none uppercase"

@@ -12,8 +12,8 @@ import {
 export const personalInfo: PersonalInfo = {
   name: "Manan Sharma",
   pronouns: "He/Him",
-  role: "Software Engineer & AI/ML Systems Researcher",
-  headline: "Engineer, Researcher & Polymath | AI/ML, Embedded Systems & Geospatial AI | Ex-Intern IIT Roorkee & UniConverge",
+  role: "Polymath Developer & Systems Architect | AI/ML, Embedded Linux & Geospatial",
+  headline: "Polymath Systems Developer · Operating Across Silicon, Linux Kernel, Agentic AI, MCP & Satellite Earth Observation",
   subHeadline: "B.Tech Artificial Intelligence & Mathematics · University of Jammu",
   status: "ACTIVE // OPEN TO OPPORTUNITIES",
   location: "Jammu & Kashmir, India",
@@ -22,12 +22,13 @@ export const personalInfo: PersonalInfo = {
   linkedin: "https://www.linkedin.com/in/manan-sharma-3980b1324/",
   resumeUrl: "/Resume.pdf",
   profileImage: "/images/profile.png",
-  aboutBio: "Passionate Software Engineer with a strong foundation in scalable development and a versatile command of modern programming languages. Specializes in building robust applications within Linux environments and developing end-to-end IoT solutions that process complex, real-world data. Leverages a unique background in deep learning algorithms to build intelligent, high-performance systems and integrate edge AI across diverse domains. Dedicated to writing clean, maintainable code to drive impactful technical solutions.",
+  aboutBio: "A full-blown polymath developer and systems architect operating without boundaries across computer science, low-level Linux development, networking protocols, embedded IoT hardware, geospatial satellite analysis (GEE & STAC), agentic AI workflows with Model Context Protocol (MCP), deep learning computer vision, and mathematical modeling. Capable of architecting, coding, and deploying entire platforms from bare-metal silicon registers to distributed cloud infrastructure.",
   currentPursuits: [
     "Developing custom embedded Linux firmware & kernel driver optimizations for LoRaWAN gateway architectures",
     "Pioneering edge AI inference acceleration on NPUs with Intel OpenVINO",
-    "Researching digital signal processing (DSP) and deep neural architectures for multi-channel temporal telemetry",
-    "Exploring scalable agentic workflows with Model Context Protocol (MCP)"
+    "Architecting autonomous agentic AI workflows and tools using Model Context Protocol (MCP)",
+    "Processing planetary Earth observation datasets via Google Earth Engine (GEE) and STAC catalogs",
+    "Researching digital signal processing (DSP) and mathematical modeling for geotechnical early-warning systems"
   ],
   pastHighlights: [
     "Won Best Presentation Award at INDU X 5.0 International Hackathon (2026) for GeoChange AI (Satellite Remote Sensing)",
@@ -68,20 +69,19 @@ export const experiences: ExperienceItem[] = [
     id: "iit-roorkee",
     company: "Indian Institute of Technology, Roorkee",
     role: "Research Intern (Computer Vision & Edge AI)",
-    type: "Research Internship · On-site",
+    type: "Internship · On-site",
     location: "Roorkee, Uttarakhand, India",
     duration: "Jun 2025 – Jul 2025 · 2 mos",
     period: "Jun 2025 – Jul 2025",
-    description: "Worked on Computer Vision models and data annotation tools, and developed a custom YOLOv8-based Object Detection System optimized using Intel’s OpenVINO library for efficient real-time inference on NPU and accelerated performance.",
+    description: "Engineered a custom YOLOv8 object detection pipeline accelerated using the Intel OpenVINO toolkit for high-FPS, low-power inference on Neural Processing Units (NPUs). Fine-tuned models and converted weights to OpenVINO Intermediate Representation (IR), delivering significant latency reduction compared to standard CPU inference without thermal throttling.",
     keyContributions: [
-      "Engineered high-performance real-time Object Detection pipelines using custom-trained YOLOv8 architectures.",
-      "Accelerated deep learning inference on Intel Core Ultra Neural Processing Units (NPUs) using the Intel OpenVINO toolkit.",
-      "Built internal data annotation and model validation pipelines for sustained low-power computer vision tasks.",
-      "Demonstrated real-time high-throughput inference directly on AI PC edge hardware."
+      "Fine-tuned custom YOLOv8 architectures and converted models to OpenVINO Intermediate Representation (IR).",
+      "Benchmarked and accelerated continuous NPU-based inference on Intel Core Ultra architectures.",
+      "Eliminated pipeline bottlenecks using OpenCV and asynchronous video stream ingestion."
     ],
-    skills: ["Computer Vision", "YOLOv8", "Intel OpenVINO", "NPU Acceleration", "Deep Learning", "Python", "OpenCV"],
+    skills: ["Intel OpenVINO", "YOLOv8", "NPU Acceleration", "Computer Vision", "PyTorch", "Model Optimization", "OpenCV"],
     thumbnail: "/images/iitr_letter_thumb.png",
-    thumbnailLabel: "IIT Roorkee Research Letter"
+    thumbnailLabel: "IIT Roorkee Internship Letter"
   }
 ];
 
@@ -93,7 +93,7 @@ export const projects: ProjectItem[] = [
     category: "IoT & Digital Twins",
     featured: true,
     date: "Oct 2026 – Present",
-    description: "Architected OJASEWS under the SAVERA initiative — an advanced geotechnical simulation, digital twin visualization, and life-safety early-warning platform engineered to monitor landslide precursors across steep Himalayan terrain corridors (modeled after the critical Samroli sector on the Jammu–Srinagar NH-44 highway). The platform models the complete geotechnical warning lifecycle: ingesting continuous synthetic telemetry across 7 physics simulation scenarios alongside real-world ESP32 IoT sensor telemetry, validating data quality, and executing a dual-track AI risk assessment engine. Automatically dispatches urgent mobile push notifications via ntfy.sh to field subscribers and synchronizes real-time 3D terrain states.",
+    description: "Architected OJASEWS under the SAVERA initiative — an advanced geotechnical simulation, digital twin visualization, and life-safety early-warning platform engineered to monitor landslide precursors across steep Himalayan terrain corridors (modeled after the critical Samroli sector on the Jammu-Srinagar NH-44 highway). The platform models the complete geotechnical warning lifecycle: ingesting continuous synthetic telemetry across 7 physics simulation scenarios alongside real-world ESP32 IoT sensor telemetry, validating data quality, and executing a dual-track AI risk assessment engine. Automatically dispatches urgent mobile push notifications via ntfy.sh to field subscribers and synchronizes real-time 3D terrain states.",
     architectureDetails: [
       "Procedural Three.js 3D Himalayan digital twin featuring custom elevation and slope shaders, dynamic risk heatmap blending, live rainfall particle simulation, and downhill debris-flow animation during slope failure.",
       "Dual-track risk assessment arbiter combining an explainable geotechnical physics heuristic (moisture trend, tilt velocity, precipitation infiltration lag) with a 4-class Random Forest ML classifier.",
@@ -102,20 +102,27 @@ export const projects: ProjectItem[] = [
       "Full-stack telemetry workbench featuring real-time synchronized Recharts time-series, liquid slosh risk gauge, persistent SQLite audit trails, and RFC-4180 CSV / JSON research export."
     ],
     technologies: ["Python 3.11", "FastAPI", "React 19", "TypeScript", "Three.js", "WebGL / GLSL", "ESP32 / IoT", "Random Forest", "ntfy.sh", "Docker", "Tailwind CSS"],
-    githubUrl: "https://github.com/manan316/ojasews",
     badge: "SAVERA Flagship System",
     images: [
       {
-        url: "/images/ojasews_command_center.png",
+        url: "/images/ojasews_hero.png",
         caption: "Command Center, Liquid Slosh Risk Gauge & Real-Time Alert Feed"
       },
       {
-        url: "/images/ojasews_digital_twin.png",
-        caption: "Procedural 3D Himalayan Digital Twin with Slope Heatmap Blending"
+        url: "/images/ojasews_terrain.png",
+        caption: "Procedural 3D Terrain Digital Twin with Dynamic Slope Heatmap Shaders"
       },
       {
-        url: "/images/ojasews_simulation_lab.png",
-        caption: "Geotechnical Simulation Lab with 7 Geological Scenarios & Parameters"
+        url: "/images/ojasews_sensors.png",
+        caption: "Hardware & Physics Ingestion Matrix — Moisture, Tilt, Rain & Cohesion"
+      },
+      {
+        url: "/images/ojasews_telemetry.png",
+        caption: "Synchronized Environmental Telemetry Time-Series & Infiltration Analytics"
+      },
+      {
+        url: "/images/ojasews_mobile_alerts.png",
+        caption: "Sub-Second Mobile Push Alert Dispatch Console via ntfy.sh"
       }
     ]
   },
@@ -131,24 +138,31 @@ export const projects: ProjectItem[] = [
       "Rigorous Data Readiness Gate with multi-catalog STAC querying, sub-pixel registration, normalization, and cryptographic audit certification.",
       "Multi-class land cover transition detection (built-up expansion, vegetation loss/gain, water bodies) with confidence scoring and hectare measurements.",
       "Pixel-level annual change dating (Year of Change) tracking composites from 2021 to 2026 with 50m spatial smoothing and scrubbable timeline player.",
-      "NASA/ORNL Global Aboveground Biomass Carbon accounting calculating lost carbon storage in tonnes of CO2 equivalent (t CO2e) with 10th-to-90th percentile uncertainty bounds.",
-      "Landsat 8/9 daytime thermal infrared coupling quantifying urban surface temperature differentials (Δ°C), and automated publication-grade ReportLab PDF / GeoJSON report generation."
+      "NASA/ORNL Global Aboveground Biomass Carbon accounting calculating lost carbon storage in tonnes of CO2 equivalent (tCO2e) with 10th-to-90th percentile uncertainty bounds.",
+      "Landsat 8/9 daytime thermal infrared coupling quantifying urban surface temperature differentials (Δ°C), and automated publication-ready ReportLab PDF / GeoJSON report generation."
     ],
-    technologies: ["Python", "FastAPI", "Sentinel-2 (10m)", "Dynamic World", "Landsat 8/9 Thermal", "NASA/ORNL Carbon", "Leaflet", "ReportLab", "GeoJSON", "STAC APIs"],
-    githubUrl: "https://github.com/manan316/geochange",
-    badge: "🏆 Hackathon Winner (Best Presentation)",
+    technologies: ["Python", "FastAPI", "Sentinel-2 (10m)", "Google Earth Engine", "Dynamic World", "Landsat 8/9 Thermal", "NASA/ORNL Carbon", "Leaflet", "ReportLab", "GeoJSON", "STAC APIs"],
+    badge: "Best Presentation Award — INDU X 5.0",
     images: [
       {
-        url: "/images/geochange_dashboard.png",
+        url: "/images/geochange_hero.png",
         caption: "GeoChange AI Command Center & Multi-Catalog Data Readiness Hub"
       },
       {
-        url: "/images/geochange_map.png",
-        caption: "Sentinel-2 10m Land-Cover Transition & Patch Segmentation Map"
+        url: "/images/geochange_dating.png",
+        caption: "Pixel-Level Annual Change Dating (2021–2026) with Scrubbable Timeline Player"
       },
       {
-        url: "/images/geochange_indicators.png",
-        caption: "NASA/ORNL Biomass Carbon Accounting & Urban Heat Island Analytics"
+        url: "/images/geochange_carbon.png",
+        caption: "NASA/ORNL Biomass Carbon Accounting & CO2 Equivalent Loss Modeling"
+      },
+      {
+        url: "/images/geochange_thermal.png",
+        caption: "Landsat 8/9 Surface Temperature Anomaly Coupling & Heat Island Radiometry"
+      },
+      {
+        url: "/images/geochange_report.png",
+        caption: "Automated Publication-Ready PDF & GeoJSON Environmental Risk Dispatch"
       }
     ]
   },
@@ -167,16 +181,19 @@ export const projects: ProjectItem[] = [
       "Complete multi-stage Docker containerization with CI/CD optimization for microservice-based edge and cloud deployments."
     ],
     technologies: ["Python", "FastAPI", "Three.js", "WebGL / GLSL", "NumPy / MNE", "Groq API", "DeepSeek", "Docker"],
-    githubUrl: "https://github.com/manan316/neuroview",
-    badge: "Featured System Build",
+    badge: "3D Spatial Telemetry & Shaders",
     images: [
       {
-        url: "/images/neuroview_brain.png",
+        url: "/images/neuroview_hero.png",
         caption: "3D Spatial Telemetry & Scalar Heatmap Surface Rendering"
       },
       {
-        url: "/images/neuroview_data.png",
-        caption: "NeuroView Real-Time Signal Ingestion & Parser Pipeline"
+        url: "/images/neuroview_stream.png",
+        caption: "Synchronized High-Frequency Sensor Signal Ingestion & Spectral Decomp"
+      },
+      {
+        url: "/images/neuroview_agent.png",
+        caption: "Cascading LLM Diagnostic Generation & Automated Analysis Engine"
       }
     ]
   },
@@ -187,7 +204,6 @@ export const projects: ProjectItem[] = [
     category: "Edge AI & Vision",
     featured: true,
     date: "Sep 2025 – Dec 2025",
-    mentor: "Dr. Jatinder Manhas",
     description: "Developed an AI-powered landslide segmentation system using custom designed Residual U-Net (CRUNet) and DeepLabV3+ based on Atrous Spatial Pyramid Pooling (ASPP) on 14-band multispectral satellite imagery (HDF5), exposed via a Flask REST API for inference. Designed to handle severe topographical challenges and complex remote sensing data for disaster mitigation.",
     architectureDetails: [
       "Custom Residual U-Net (CRUNet) and DeepLabV3+ with ASPP for multi-scale feature capture.",
@@ -195,7 +211,7 @@ export const projects: ProjectItem[] = [
       "High-throughput Flask REST API inference backend for rapid deployment in geological hazard response."
     ],
     technologies: ["Python", "PyTorch", "DeepLabV3+", "Residual U-Net", "HDF5", "Multispectral Vision", "Flask", "QGIS"],
-    badge: "Satellite AI Innovation",
+    badge: "14-Band Multispectral Satellite AI",
     images: [
       {
         url: "/images/slipsense_banner.png",
@@ -299,12 +315,16 @@ export const projects: ProjectItem[] = [
       "Pretrained word embeddings with tokenization pipelines handling multi-label classification.",
       "Evaluated across 28 distinct emotion categories from Reddit conversations."
     ],
-    technologies: ["Python", "PyTorch / TensorFlow", "CNN", "LSTM", "NLP", "Word Embeddings", "GoEmotions Dataset"],
-    badge: "Hybrid Neural Architecture",
+    technologies: ["Python", "TensorFlow", "Keras", "LSTM", "CNN", "NLP", "Word2Vec", "GoEmotions Dataset"],
+    badge: "Sequential NLP & Deep Learning",
     images: [
       {
-        url: "/images/CNNLSTM.png",
-        caption: "Hybrid CNN-LSTM Deep Learning Pipeline Architecture"
+        url: "/images/sentiment_training.png",
+        caption: "Model Architecture & Accuracy Training Progression"
+      },
+      {
+        url: "/images/sentiment_confusion.png",
+        caption: "Multi-Class Emotion Confusion Matrix & Classification Report"
       }
     ]
   }
@@ -316,6 +336,7 @@ export const researchWork: ResearchItem[] = [
     title: "High-Dimensional Temporal Signal Classification via Deep Learning",
     domain: "Digital Signal Processing & Machine Learning",
     focus: "Decoding Multi-Channel Temporal Sensor Data & Feature Representation",
+    institutions: "Academic & Independent Research",
     description: "Developing an end-to-end machine learning system to classify complex multi-channel temporal signals across high-dimensional time-series datasets. Applies advanced temporal filtering, artifact rejection via Independent Component Analysis (ICA), wavelet decomposition, and feature extraction across multi-channel sensor arrays to train robust discriminative classifiers.",
     technologies: ["Python", "Digital Signal Processing", "Scikit-Learn", "PyTorch", "MNE-Python", "Time Series Analysis"],
     keyInnovations: [
@@ -329,6 +350,7 @@ export const researchWork: ResearchItem[] = [
     title: "Edge AI Acceleration & Low-Power NPU Inference",
     domain: "Computer Vision & Edge Computing",
     focus: "Intel OpenVINO & Neural Processing Unit Pipeline Optimization",
+    institutions: "Indian Institute of Technology (IIT), Roorkee",
     description: "Exploring hardware-aware deep learning deployment. Focused on quantization, graph optimization, and asynchronous inference scheduling to execute state-of-the-art vision models on constrained client hardware with minimal thermal footprint.",
     technologies: ["Intel OpenVINO", "YOLOv8", "NPU Architecture", "Model Quantization (INT8/FP16)", "Python"],
     keyInnovations: [
@@ -341,105 +363,109 @@ export const researchWork: ResearchItem[] = [
     id: "satellite-crunet",
     title: "Multispectral Satellite Remote Sensing for Hazard Mitigation",
     domain: "Geospatial Vision & Semantic Segmentation",
-    focus: "Custom Residual U-Net (CRUNet) on 14-Band HDF5 Satellite Data",
-    description: "Researched deep semantic segmentation architectures for complex geological terrain in the Himalayan region. Built CRUNet to combine high-resolution spatial details with broad multi-scale receptive fields from 14-band satellite sensors.",
-    technologies: ["CRUNet", "DeepLabV3+", "HDF5", "Multispectral Remote Sensing", "PyTorch", "QGIS"],
+    focus: "14-Band Satellite Data Ingestion, Google Earth Engine & Residual U-Net",
+    institutions: "SAVERA Geotechnical Initiative",
+    description: "Architected multi-spectral satellite remote sensing pipelines using Google Earth Engine (GEE), Sentinel-2 optical bands, and custom Residual U-Net architectures to segment terrain disturbance precursors and calculate biomass carbon changes.",
+    technologies: ["Google Earth Engine (GEE)", "Sentinel-2", "Residual U-Net", "DeepLabV3+", "QGIS", "Python"],
     keyInnovations: [
-      "Designed Residual connections inside U-Net encoder blocks to eliminate vanishing gradients on 14 spectral channels.",
-      "Integrated Atrous Spatial Pyramid Pooling (ASPP) to capture variable-scale landslide scars.",
-      "Facilitated rapid geospatial risk assessment for disaster management teams."
+      "Sub-pixel registration and QA60 cloud gating across multi-temporal satellite passes.",
+      "Atrous Spatial Pyramid Pooling (ASPP) for multi-scale landslide scar detection in rugged Himalayan topography.",
+      "Coupled biomass carbon accounting using NASA ORNL models."
     ]
   }
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "AI, Deep Learning & Vision",
-    description: "Neural architectures, computer vision, NLP, and signal processing",
+    category: "Agentic AI, Deep Learning & Vision",
+    description: "Autonomous agents, Model Context Protocol, neural architectures, and edge vision",
     icon: "Brain",
     skills: [
-      { name: "PyTorch" },
-      { name: "TensorFlow" },
-      { name: "Keras" },
-      { name: "Intel OpenVINO" },
-      { name: "Computer Vision (YOLOv8, OpenCV)" },
-      { name: "DeepLabV3+ / U-Net (CRUNet)" },
-      { name: "NLP & Transformers" },
-      { name: "CNN & LSTM Networks" },
-      { name: "Digital Signal Processing (DSP)" },
-      { name: "Scikit-learn" },
-      { name: "Model Context Protocol (MCP)" }
+      { name: "Agentic AI & Autonomous Workflows" },
+      { name: "Model Context Protocol (MCP)" },
+      { name: "PyTorch & PyTorch Lightning" },
+      { name: "Intel OpenVINO IR Acceleration" },
+      { name: "YOLOv8 Edge Object Detection" },
+      { name: "DeepLabV3+ with ASPP" },
+      { name: "Residual U-Net (CRUNet)" },
+      { name: "Cascading LLM Orchestration" },
+      { name: "OpenCV & Video Pipelines" },
+      { name: "Hugging Face Transformers" }
     ]
   },
   {
-    category: "Embedded Systems, IoT & Linux",
-    description: "Firmware engineering, kernel customization, and wireless protocols",
+    category: "Embedded Systems, IoT & Hardware",
+    description: "Firmware, microcontrollers, wireless basebands, and hardware protocols",
     icon: "Cpu",
     skills: [
-      { name: "OpenWrt Build Environments" },
-      { name: "Linux Firmware Development" },
-      { name: "Kernel Customization & SPI Drivers" },
+      { name: "Embedded Linux & OpenWrt Buildroot" },
       { name: "Device Tree Overlays (.dts)" },
-      { name: "LoRaWAN & SX1303 Baseband" },
-      { name: "ChirpStack IoT Stack" },
-      { name: "Raspberry Pi & Arduino" },
-      { name: "MIPS (MT7628) & ARM (NanoPi)" },
-      { name: "PCB Design & Hardware Prototyping" }
+      { name: "Kernel SPI / I2C / UART Drivers" },
+      { name: "LoRaWAN & Semtech SX1303" },
+      { name: "ChirpStack IoT Gateway Stack" },
+      { name: "ESP32 & Arduino C++" },
+      { name: "MIPS (MT7628) & ARM (Allwinner)" },
+      { name: "Hardware Prototyping & PCB Design" }
     ]
   },
   {
-    category: "Programming Languages",
-    description: "Systems, scientific, application, and scripting languages",
-    icon: "Code2",
-    skills: [
-      { name: "Python" },
-      { name: "C" },
-      { name: "C++" },
-      { name: "Rust" },
-      { name: "R" },
-      { name: "JavaScript" },
-      { name: "TypeScript" },
-      { name: "Kotlin" },
-      { name: "MATLAB" },
-      { name: "Bash / Shell Scripting" },
-      { name: "PowerShell" },
-      { name: "SQL" }
-    ]
-  },
-  {
-    category: "Systems, Cloud & DevOps",
-    description: "Infrastructure, networking, containerization, and cloud platforms",
+    category: "Networking & Linux Development",
+    description: "Operating systems, TCP/IP networking, kernel configuration, and low-level C",
     icon: "Server",
     skills: [
-      { name: "Linux/UNIX System Administration" },
-      { name: "TCP/IP Networking" },
-      { name: "Docker" },
-      { name: "Microsoft Azure" },
-      { name: "Google Cloud Platform (GCP)" },
-      { name: "Amazon Web Services (AWS)" },
-      { name: "Git / Version Control" },
-      { name: "Cryptography & Security" },
-      { name: "DevOps & CI/CD Pipelines" },
-      { name: "PostgreSQL & SQLite" },
-      { name: "Redis" }
+      { name: "Linux/UNIX Systems Programming" },
+      { name: "Kernel Customization & Syscalls" },
+      { name: "TCP/IP Protocol Stack Tuning" },
+      { name: "Network Hardening & iptables" },
+      { name: "POSIX Sockets & Packet Forwarding" },
+      { name: "C & Modern C++ (C++17/20)" },
+      { name: "Bash / Shell Script Automation" },
+      { name: "Network Security & Cryptography" }
     ]
   },
   {
-    category: "Full Stack, WebGL & Specialized Tools",
-    description: "Modern APIs, 3D graphics, data visualization, and spatial analytics",
+    category: "Geospatial, Satellite & GEE",
+    description: "Planetary computing, multi-spectral remote sensing, and Earth Engine",
     icon: "Layers",
     skills: [
-      { name: "FastAPI" },
-      { name: "Flask" },
+      { name: "Google Earth Engine (GEE)" },
+      { name: "Sentinel-2 Multi-Spectral (10m)" },
+      { name: "Landsat 8/9 Thermal Radiometry" },
+      { name: "NASA ORNL Biomass Carbon Models" },
+      { name: "STAC Catalog Querying (AWS/MSPC)" },
+      { name: "QGIS & Geospatial Analysis" },
+      { name: "Google Dynamic World ML" },
+      { name: "HDF5 & Raster GeoTIFF Processing" }
+    ]
+  },
+  {
+    category: "Mathematical Modeling, Stats & CS",
+    description: "Algorithmic theory, numerical methods, physical simulations, and statistics",
+    icon: "Code2",
+    skills: [
+      { name: "Computer Science & Algorithmic Theory" },
+      { name: "Mohr-Coulomb Geotechnical Modeling" },
+      { name: "Inverse Distance Weighting (IDW)" },
+      { name: "Time Series Forecasting (ETS Models)" },
+      { name: "Statistical Signal Filtering & DSP" },
+      { name: "Random Forest & Ensemble Methods" },
+      { name: "Linear Algebra & Vector Calculus" },
+      { name: "Discrete Derivative Computation" }
+    ]
+  },
+  {
+    category: "Cloud, Systems & Full-Stack Engine",
+    description: "Modern web, WebGL shaders, distributed APIs, and containerization",
+    icon: "Layers",
+    skills: [
+      { name: "Docker Multi-Stage Containerization" },
+      { name: "FastAPI Asynchronous Microservices" },
       { name: "Three.js (WebGL & GLSL Shaders)" },
-      { name: "React" },
-      { name: "Tailwind CSS" },
-      { name: "HTML5 / CSS3" },
-      { name: "NumPy & Pandas" },
-      { name: "QGIS (Geospatial Analysis)" },
-      { name: "PowerBI & Tableau" },
-      { name: "Figma" },
-      { name: "Unity 3D & AR/VR" }
+      { name: "Cloudflare Workers & Edge Runtime" },
+      { name: "React 19 & TypeScript" },
+      { name: "PostgreSQL & SQLite Database Engines" },
+      { name: "Redis Caching" },
+      { name: "CI/CD & Git Automation" }
     ]
   }
 ];
@@ -454,7 +480,7 @@ export const educationList: EducationItem[] = [
       "Core coursework: Artificial Intelligence, Applied Mathematics, Data Structures, Algorithms, Linear Algebra, Machine Learning, Operating Systems, Computer Networks.",
       "Performed dual lead role as Arjuna and Guru Kripacharya in 'Rashmirathi' at the 25th Bharat Rang Mahotsav (BRM) 2026 by National School of Drama (NSD).",
       "Organizing Team Member for Innovathon 1.0 — University of Jammu's premier National level Hackathon.",
-      "Undergraduate researcher in edge AI acceleration, embedded Linux firmware, and geospatial satellite vision."
+      "Undergraduate researcher in edge AI acceleration, embedded Linux firmware, agentic AI, and geospatial satellite vision."
     ],
     skills: ["Artificial Intelligence", "Mathematics", "Machine Learning", "Software Development", "Data Structures", "System Design"]
   }
@@ -462,46 +488,22 @@ export const educationList: EducationItem[] = [
 
 export const trainingsAndWorkshops: TrainingWorkshopItem[] = [
   {
-    title: "Best Presentation Award — INDU X 5.0 International Hackathon",
-    institution: "Vikrant University, Gwalior (with ARINA AI & GO KLOUD)",
-    year: "2026",
-    description: "Won the prestigious Best Presentation Award at INDU X 5.0 (AI for Real-World Impact 2026), an international 24-hour on-site hackathon, presenting GeoChange AI for satellite-driven environmental intelligence, data-readiness verification, and biomass carbon accounting.",
-    category: "INTERNATIONAL HACKATHON / AWARD"
-  },
-  {
     title: "Innovation, Design and Entrepreneurship (IDE) Bootcamp",
-    institution: "University of Ladakh (MoE & AICTE)",
-    year: "2026",
-    description: "Selected student participant at the residential IDE Bootcamp (Edition 3 - Phase 3) hosted at the University of Ladakh, organized by the Ministry of Education (Govt. of India), AICTE, Wadhwani Foundation, and SBI Foundation.",
-    category: "BOOTCAMP / INNOVATION"
-  },
-  {
-    title: "Innovathon 1.0 National Hackathon Management",
-    institution: "University of Jammu",
-    year: "2025",
-    description: "Core member of the event organizing team managing operations, technical logistics, and participant mentoring for the National-level Innovathon 1.0 hackathon.",
-    category: "LEADERSHIP / HACKATHON"
-  },
-  {
-    title: "Actor (Arjuna & Guru Kripacharya) — 25th Bharat Rang Mahotsav (BRM)",
-    institution: "National School of Drama (NSD) & University of Jammu",
-    year: "2026",
-    description: "Performed a dual role portraying Arjuna and Guru Kripacharya in the dramatic presentation of Ramdhari Singh Dinkar's epic 'Rashmirathi' at the 25th Bharat Rang Mahotsav International Theatre Festival, organized by NSD, New Delhi (Ministry of Culture) and University of Jammu.",
-    category: "THEATRE / BRM FESTIVAL"
-  },
-  {
-    title: "Junior Scientist — 26th National Children Science Congress (NCSC)",
-    institution: "Indian Institute of Technology (IIT), Kanpur",
-    year: "2018",
-    description: "Selected and participated as Junior Scientist at the prestigious 26th NCSC held at Kendriya Vidyalaya, Indian Institute of Technology, Kanpur, presenting scientific research.",
-    category: "SCIENCE CONGRESS / HONOR"
+    institution: "University of Ladakh",
+    year: "Edition 3 · 2026",
+    description: "Selected participant at the residential IDE Bootcamp hosted at University of Ladakh, supported by the Ministry of Education, AICTE, Wadhwani Foundation, and SBI Foundation. Focused on deep-tech venture prototyping and rapid validation of life-safety technologies."
   },
   {
     title: "Visual Attention Modeling & High-Speed Instrumentation Workshop",
     institution: "Indian Institute of Technology (IIT), Jammu",
     year: "2024",
-    description: "Participated in an intensive hands-on workshop focusing on high-speed eye-tracking instrumentation, visual attention trajectory modeling, spatial gaze calibration, and statistical research methodologies.",
-    category: "WORKSHOP / RESEARCH"
+    description: "Participated in an intensive hands-on instrumentation workshop focused on high-speed eye-tracking hardware, spatial gaze calibration, visual attention trajectory modeling, and statistical signal filtering."
+  },
+  {
+    title: "Junior Scientist Selection — 26th National Children Science Congress",
+    institution: "NCSTC · IIT Kanpur",
+    year: "2018",
+    description: "Selected as Junior Scientist to present original scientific research at IIT Kanpur after winning district and state level competitive evaluations."
   }
 ];
 
@@ -510,14 +512,16 @@ export const certifications: CertificationItem[] = [
     title: "AI Agents 101: Building AI Agents with MCP and Open-Source Inference",
     issuer: "AMD (Advanced Micro Devices)",
     issueDate: "Aug 2026",
-    skills: ["Artificial Intelligence (AI)", "Model Context Protocol (MCP)", "Open-Source Inference", "Agentic Workflows"],
-    thumbnail: "/images/amd_cert_thumb.png"
+    skills: ["Agentic AI", "Model Context Protocol (MCP)", "Open-Source Inference", "Async Workflows"],
+    thumbnail: "/images/amd_cert_thumb.png",
+    credentialUrl: "#"
   },
   {
     title: "Embedded & IoT Engineering Industrial Certification",
     issuer: "UniConverge Technologies (UCT)",
     issueDate: "Jul 2026",
-    skills: ["Embedded Linux", "OpenWrt", "LoRaWAN", "ChirpStack", "Kernel Drivers"],
-    thumbnail: "/images/uct_cert_thumb.png"
+    skills: ["Embedded Linux", "OpenWrt", "LoRaWAN", "ChirpStack", "Kernel Drivers", "Sensors"],
+    thumbnail: "/images/uct_cert_thumb.png",
+    credentialUrl: "#"
   }
 ];
