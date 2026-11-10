@@ -1,6 +1,7 @@
 import React from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Sparkles, Heart } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import { MemphisZigzagDivider } from './MemphisOrnament';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -8,59 +9,62 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#08090D] text-[#94A3B8] border-t border-[#1E263D] py-10 px-4 sm:px-6 lg:px-12 font-mono text-xs relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-[#00F0FF]/5 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto space-y-6 relative z-10">
+    <footer className="bg-[#feca57] text-black border-t-4 border-black py-12 px-4 sm:px-6 relative select-none">
+      
+      <div className="max-w-[1200px] mx-auto space-y-8">
         
-        {/* Top Status Strip */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#1E263D] text-[11px]">
+        {/* Top Strip */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b-4 border-black">
           <div className="flex items-center gap-3">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#00FF9D] beacon-pulse shadow-[0_0_10px_rgba(0,255,157,0.8)]"></div>
-            <span className="text-[#F1F5F9] font-bold tracking-wider">
-              PRTS_LINK ACTIVE // KERNEL DAEMON: OPTIMAL
+            <span className="w-3.5 h-3.5 rounded-full bg-[#ff6b6b] border-2 border-black animate-pulse"></span>
+            <span className="font-sans font-black text-sm tracking-wider uppercase">
+              1981 MILAN COLLECTIVE // INTERFACE EDITION
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-[#64748B]">
-            <span className="hover:text-white transition-colors">HOST: VITE + REACT + TYPESCRIPT</span>
-            <span>//</span>
-            <span className="hover:text-[#00F0FF] transition-colors">THEME: LINUX KERNEL CYBERNETIC</span>
-            <span>//</span>
-            <span className="hover:text-[#00FF9D] transition-colors">SEC_LEVEL: 01_ROOT</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="memphis-badge bg-white text-black text-[11px]">
+              REACT 19 + VITE 6
+            </span>
+            <span className="memphis-badge bg-[#48dbfb] text-black text-[11px]">
+              TAILWIND CSS
+            </span>
+            <span className="memphis-badge bg-[#1dd1a1] text-black text-[11px]">
+              CLOUDFLARE PAGES
+            </span>
           </div>
         </div>
 
         {/* Middle Main Content */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-1">
-            <div className="text-sm font-bold text-[#F1F5F9] font-sans">
-              {personalInfo.name} — Portfolio & Research System
+            <div className="font-sans font-black text-2xl text-black">
+              {personalInfo.name} — Technical Systems Portfolio
             </div>
-            <div className="text-[#64748B] text-[11px]">
-              Software Engineer · AI/ML Researcher · Embedded & Edge AI Specialist
+            <div className="font-sans font-bold text-xs sm:text-sm text-black/80">
+              Software Engineer · AI/ML & Embedded Systems Researcher · Polymath
             </div>
           </div>
 
-          {/* Quick Back to Top */}
+          {/* Return to Top Pop Button */}
           <button
             onClick={scrollToTop}
-            className="self-start md:self-auto inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0F121E] hover:bg-[#00F0FF] border border-[#1E263D] hover:border-[#00F0FF] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] text-[#F1F5F9] hover:text-[#08090D] transition-all text-xs group interactive-btn font-bold"
+            className="memphis-btn self-start md:self-auto py-2.5 px-4 text-xs"
           >
             <span>RETURN TO TOP</span>
-            <ArrowUp className="w-3.5 h-3.5 text-[#00F0FF] group-hover:text-[#08090D] group-hover:-translate-y-1 transition-transform duration-200" />
+            <ArrowUp className="w-4 h-4" />
           </button>
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-4 border-t border-[#1E263D] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[10px] text-[#64748B]">
+        <div className="pt-6 border-t-3 border-black flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-xs font-bold text-black">
           <div>
-            © {new Date().getFullYear()} {personalInfo.name}. All verified records and technical artifacts preserved.
+            © {new Date().getFullYear()} {personalInfo.name}. Pure geometric energy.
           </div>
-          <div className="flex items-center gap-1">
-            <span className="text-[#00F0FF]">⚡</span>
-            <span>Architected for High-Impact Technical Discovery</span>
+          <div className="flex items-center gap-2">
+            <span className="bg-black text-white px-2 py-0.5 text-[10px] uppercase">
+              NO RESTRAINT // ALL CLASH
+            </span>
           </div>
         </div>
 

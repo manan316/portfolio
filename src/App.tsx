@@ -34,20 +34,20 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#08090D] text-[#F1F5F9] font-sans selection:bg-[#00F0FF]/30 selection:text-[#00FF9D]">
-      {/* Custom Futuristic Cyber Reticle Cursor */}
+    <div className="relative min-h-screen bg-[#fdf6e3] text-black font-sans selection:bg-[#feca57] selection:text-black">
+      {/* Custom Memphis Cursor */}
       <CustomCursor />
 
-      {/* Fixed Tactical Gutter HUD */}
+      {/* Fixed Gutter HUD */}
       <VerticalGutterTracker />
 
-      {/* Floating Tactical Navbar */}
+      {/* Floating Memphis Navbar */}
       <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
 
-      {/* Hero Section with Decrypted Title Animation */}
+      {/* Hero Section */}
       <Hero triggerAnimation={true} />
 
-      {/* Main Content Blueprint Canvas */}
+      {/* Main Content */}
       <main className="relative z-10">
         {/* Sector 01: About Me */}
         <AboutSection />
@@ -71,22 +71,22 @@ export const App: React.FC = () => {
         <ContactSection />
       </main>
 
-      {/* System Terminal Footer */}
+      {/* System Footer */}
       <Footer />
 
-      {/* Interactive Micro-Terminal Easter Egg Modal */}
+      {/* Terminal Modal */}
       <TerminalModal isOpen={terminalOpen} onClose={() => setTerminalOpen(false)} />
 
-      {/* Floating Tactical Terminal Trigger Button on Bottom Right */}
+      {/* Floating Memphis Terminal Trigger Button on Bottom Right */}
       <button
         onClick={() => setTerminalOpen(true)}
-        className="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-[#0F121E]/90 hover:bg-[#00F0FF] text-[#00F0FF] hover:text-[#08090D] border border-[#00F0FF]/40 hover:border-[#00F0FF] backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.7),0_0_20px_rgba(0,240,255,0.3)] transition-all duration-300 interactive-btn font-mono text-xs group font-bold"
+        className="fixed bottom-6 right-6 z-40 memphis-btn-honey py-2 px-3 text-xs border-4 shadow-memphis active:translate-x-1 active:translate-y-1 group"
         title="Open Interactive Kernel Terminal (Ctrl + K)"
         aria-label="Open Interactive Terminal"
       >
         <TerminalIcon className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-        <span className="hidden sm:inline">TERMINAL</span>
-        <span className="text-[10px] opacity-70 bg-black/40 px-1.5 py-0.5 rounded border border-white/10 hidden md:inline">^K</span>
+        <span className="hidden sm:inline font-black">TERMINAL</span>
+        <span className="text-[10px] bg-black text-white px-1.5 py-0.5 font-mono font-bold hidden md:inline">^K</span>
       </button>
     </div>
   );

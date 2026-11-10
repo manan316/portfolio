@@ -2,272 +2,268 @@ import React from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { SectorRibbon } from './SectorRibbon';
 import { GithubIcon, LinkedinIcon } from './Icons';
-import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useAnimatedCounter } from '../hooks/useAnimatedCounter';
 import { 
   Mail, 
   Download, 
   Cpu, 
-  ArrowRight,
-  Terminal,
-  Zap,
-  History,
-  Award
+  ArrowRight, 
+  Terminal, 
+  Zap, 
+  Award,
+  CheckCircle2,
+  Sparkles
 } from 'lucide-react';
+import { 
+  MemphisCircle, 
+  MemphisTriangle, 
+  MemphisWave, 
+  MemphisZigzag, 
+  MemphisCardOrnaments,
+  MemphisZigzagDivider 
+} from './MemphisOrnament';
 
 export const AboutSection: React.FC = () => {
-  const containerRef = useScrollReveal<HTMLElement>();
   const internshipsCounter = useAnimatedCounter(2);
   const buildsCounter = useAnimatedCounter(8);
   const toolchainsCounter = useAnimatedCounter(12);
 
   const techLogos = [
-    { name: 'Python', color: 'bg-[#3776AB]', textCol: 'text-[#38BDF8]', desc: 'AI / Data / Scripting' },
-    { name: 'C / C++', color: 'bg-[#00599C]', textCol: 'text-[#60A5FA]', desc: 'Systems / Low-level' },
-    { name: 'PyTorch', color: 'bg-[#EE4C2C]', textCol: 'text-[#FB923C]', desc: 'Deep Learning' },
-    { name: 'OpenVINO', color: 'bg-[#0071C5]', textCol: 'text-[#00E5FF]', desc: 'Intel NPU Inference' },
-    { name: 'OpenWrt', color: 'bg-[#00A9E0]', textCol: 'text-[#38BDF8]', desc: 'Embedded Linux' },
-    { name: 'LoRaWAN', color: 'bg-[#F26522]', textCol: 'text-[#F97316]', desc: 'Wireless Protocols' },
-    { name: 'DSP / MNE', color: 'bg-[#6B46C1]', textCol: 'text-[#A855F7]', desc: 'Signal Processing' },
-    { name: 'Three.js', color: 'bg-[#00E5FF]', textCol: 'text-[#00E5FF]', desc: '3D WebGL Shaders' },
-    { name: 'Docker', color: 'bg-[#2496ED]', textCol: 'text-[#38BDF8]', desc: 'Containerization' },
-    { name: 'Linux / Bash', color: 'bg-[#FCC624]', textCol: 'text-[#FBBF24]', desc: 'Kernel & Admin' },
-    { name: 'Rust', color: 'bg-[#DEA584]', textCol: 'text-[#F97316]', desc: 'Safe Systems' },
-    { name: 'FastAPI', color: 'bg-[#009688]', textCol: 'text-[#34D399]', desc: 'High-speed APIs' }
+    { name: 'Python', color: 'bg-[#ff6b6b]', textCol: 'text-white', desc: 'AI / Data / Scripting' },
+    { name: 'C / C++', color: 'bg-[#48dbfb]', textCol: 'text-black', desc: 'Systems / Low-level' },
+    { name: 'PyTorch', color: 'bg-[#ff9ff3]', textCol: 'text-black', desc: 'Deep Learning' },
+    { name: 'OpenVINO', color: 'bg-[#feca57]', textCol: 'text-black', desc: 'Intel NPU Inference' },
+    { name: 'OpenWrt', color: 'bg-[#1dd1a1]', textCol: 'text-black', desc: 'Embedded Linux' },
+    { name: 'LoRaWAN', color: 'bg-[#ff6b6b]', textCol: 'text-white', desc: 'Wireless Protocols' },
+    { name: 'DSP / MNE', color: 'bg-[#5f27cd]', textCol: 'text-white', desc: 'Signal Processing' },
+    { name: 'Three.js', color: 'bg-[#48dbfb]', textCol: 'text-black', desc: '3D WebGL Shaders' },
+    { name: 'Docker', color: 'bg-[#1dd1a1]', textCol: 'text-black', desc: 'Containerization' },
+    { name: 'Linux / Bash', color: 'bg-[#feca57]', textCol: 'text-black', desc: 'Kernel & Admin' },
+    { name: 'Rust', color: 'bg-[#ff9ff3]', textCol: 'text-black', desc: 'Safe Systems' },
+    { name: 'FastAPI', color: 'bg-[#48dbfb]', textCol: 'text-black', desc: 'High-speed APIs' }
   ];
 
   return (
-    <section 
-      id="about" 
-      ref={containerRef} 
-      className="relative bg-cyber-canvas text-[#F1F5F9] border-t-2 border-[#1E263D]/80 overflow-hidden"
-    >
-      {/* Tactical Sector Ribbon */}
-      <SectorRibbon sectorNumber="01" sectorName="ABOUT ME // SYSTEM PROFILE & PHILOSOPHY" dark={true} />
+    <section id="about" className="relative bg-[#fdf6e3] text-black overflow-hidden pt-4 pb-24">
+      {/* Sector Ribbon */}
+      <SectorRibbon sectorNumber="01" sectorName="ABOUT ME // PHILOSOPHY & CAPABILITIES" color="honey" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16 sm:py-24">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-16">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        {/* Section Heading Block */}
+        <div className="mb-12">
+          <div className="inline-block bg-[#1dd1a1] text-black px-3.5 py-1 text-xs font-black uppercase tracking-wider border-3 border-black shadow-[3px_3px_0_#000000] tilt-neg-1 mb-2">
+            // OPERATOR PROFILE
+          </div>
+          <h2 className="memphis-heading text-black">
+            WHO IS MANAN SHARMA?
+          </h2>
+          <p className="font-sans font-bold text-base text-black/80 mt-1 max-w-xl">
+            Software Engineer, Researcher & Polymath with an obsession for high-speed systems and low-level control.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
-          {/* Left Column: Narrative Intro, Lists & Signature */}
+          {/* Left Column: Narrative Playground Card */}
           <div className="lg:col-span-7 space-y-6">
             
-            {/* Header intro line & Operator Profile Badge */}
-            <div className="tactical-glass-card rounded-3xl p-6 sm:p-8 reveal-on-scroll corner-brackets">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-white/[0.08]">
-                <div className="flex items-center gap-4">
-                  <div className="relative group shrink-0">
-                    <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden border-2 border-[#00F0FF] shadow-[0_0_25px_rgba(0,240,255,0.35)] bg-[#0F121E]/90 group-hover:shadow-[0_0_35px_rgba(0,240,255,0.65)] transition-all duration-300">
-                      <img
-                        src={personalInfo.profileImage || "/images/profile.png"}
-                        alt={personalInfo.name}
-                        className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="absolute -bottom-1 -right-1 bg-[#08090D] text-[#00FF9D] font-mono text-[9px] px-2 py-0.5 rounded-full border border-[#00FF9D]/40 font-bold tracking-wider shadow-md">
-                      OPERATOR
-                    </div>
+            {/* Main Bio Card with Chaos Ornaments */}
+            <div className="memphis-card group">
+              <MemphisCardOrnaments variant={1} />
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b-4 border-black">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-16 h-16 border-3 border-black overflow-hidden bg-[#ff9ff3] shadow-[3px_3px_0_#000000] shrink-0">
+                    <img
+                      src={personalInfo.profileImage || "/images/profile.png"}
+                      alt={personalInfo.name}
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                   <div>
-                    <span className="font-mono text-[11px] font-bold text-[#00F0FF] tracking-wider uppercase flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#00FF9D] beacon-pulse shadow-[0_0_8px_#00FF9D]"></span>
-                      // SYSTEM PROFILE & PHILOSOPHY
-                    </span>
-                    <h3 className="text-2xl sm:text-3xl font-bold font-sans text-[#F1F5F9] mt-0.5">
+                    <h3 className="font-sans font-black text-2xl text-black group-hover:text-[#ff6b6b] pop-swap">
                       {personalInfo.name}
                     </h3>
-                    <div className="font-mono text-xs text-[#38BDF8] font-semibold flex items-center gap-1.5 mt-0.5">
-                      <Terminal className="w-3.5 h-3.5 text-[#00F0FF]" />
-                      <span>{personalInfo.subHeadline}</span>
+                    <div className="font-mono text-xs font-bold text-[#5f27cd]">
+                      {personalInfo.subHeadline}
                     </div>
                   </div>
                 </div>
 
-                <div className="hidden sm:flex flex-col items-end text-right font-mono text-[10px] text-[#94A3B8] space-y-0.5">
-                  <span className="text-[#00F0FF] font-bold bg-[#00F0FF]/10 px-2 py-0.5 rounded border border-[#00F0FF]/30">SEC_LEVEL: ROOT_01</span>
-                  <span className="text-[#00FF9D] font-semibold">STATUS: ACTIVE</span>
-                  <span>LOC: JAMMU, IN</span>
-                </div>
+                <span className="memphis-badge bg-[#feca57] text-black">
+                  STATUS: SYS_READY
+                </span>
               </div>
 
-              {/* Terminal Quote Banner - Frosted Glass Inset */}
-              <div className="mt-4 p-4.5 rounded-2xl glass-inset border-l-4 border-l-[#00F0FF]">
-                <p className="text-base sm:text-lg font-mono text-[#CBD5E1] leading-relaxed">
-                  <span className="text-[#00FF9D] font-bold mr-1">$ echo "Hello, World!"</span> My name is <strong className="font-bold text-[#F1F5F9]">Manan Sharma</strong> and I'm a Software Engineer, Researcher & Polymath passionate about <strong className="font-semibold text-[#00F0FF]">Edge AI</strong>, <strong className="font-semibold text-[#00FF9D]">Embedded Linux firmware</strong>, and <strong className="font-semibold text-[#A855F7]">High-Performance Distributed Systems</strong>.
+              {/* Terminal Quote Block */}
+              <div className="mt-5 p-4 bg-[#fdf6e3] border-3 border-black shadow-[3px_3px_0_#000000]">
+                <p className="font-mono text-sm font-bold text-black leading-relaxed">
+                  <span className="text-[#ff6b6b] mr-1.5">$ echo "Hello, World!"</span>
+                  Passionate Software Engineer dedicated to writing clean, maintainable code across <span className="bg-[#48dbfb] px-1">Edge AI</span>, <span className="bg-[#feca57] px-1">Embedded Linux</span>, and <span className="bg-[#ff9ff3] px-1">3D Spatial Computing</span>.
                 </p>
               </div>
 
-              <p className="mt-4 text-xs sm:text-sm text-[#94A3B8] leading-relaxed font-sans">
+              <p className="mt-4 font-sans font-bold text-sm sm:text-base text-black/90 leading-relaxed">
                 {personalInfo.aboutBio}
               </p>
-            </div>
 
-            {/* What I'm Up To */}
-            <div className="tactical-glass-card rounded-3xl p-6 sm:p-7 shadow-sm space-y-3.5 reveal-on-scroll reveal-delay-150">
-              <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#F1F5F9] tracking-wide uppercase">
-                  <div className="p-1.5 rounded-xl bg-[#00F0FF]/10 text-[#00F0FF] border border-[#00F0FF]/30 shadow-xs">
-                    <Zap className="w-3.5 h-3.5" />
-                  </div>
-                  <span>WHAT I'M CURRENTLY BUILDING:</span>
+              {/* Current Pursuits Block */}
+              <div className="mt-6 p-4 bg-white border-3 border-black shadow-[3px_3px_0_#000000]">
+                <div className="font-sans font-black text-xs uppercase tracking-wider text-[#5f27cd] flex items-center gap-1.5 mb-2.5">
+                  <Sparkles className="w-4 h-4 text-[#ff6b6b]" />
+                  <span>CURRENT ACTIVE PURSUITS:</span>
                 </div>
-                <span className="font-mono text-[10px] text-[#00F0FF] font-bold bg-[#00F0FF]/10 px-2.5 py-0.5 rounded-full border border-[#00F0FF]/30">ACTIVE PURSUITS</span>
+                <ul className="space-y-2 text-xs sm:text-sm font-bold text-black">
+                  {personalInfo.currentPursuits.map((pursuit, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-[#ff6b6b] font-black select-none">▶</span>
+                      <span>{pursuit}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-2.5 text-xs sm:text-sm text-[#CBD5E1] font-sans">
-                {personalInfo.currentPursuits.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 group">
-                    <span className="font-mono text-[#00F0FF] font-bold select-none text-xs mt-0.5 group-hover:translate-x-1.5 transition-transform duration-200">▸</span>
-                    <span className="leading-relaxed group-hover:text-white transition-colors">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
 
-            {/* In the past, I have */}
-            <div className="tactical-glass-card rounded-3xl p-6 sm:p-7 shadow-sm space-y-3.5 reveal-on-scroll reveal-delay-200">
-              <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
-                <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#F1F5F9] tracking-wide uppercase">
-                  <div className="p-1.5 rounded-xl bg-[#00FF9D]/10 text-[#00FF9D] border border-[#00FF9D]/30 shadow-xs">
-                    <History className="w-3.5 h-3.5" />
-                  </div>
-                  <span>TRACK RECORD & KEY MILESTONES:</span>
+              {/* Past Highlights Accordion / List */}
+              <div className="mt-4 p-4 bg-white border-3 border-black shadow-[3px_3px_0_#000000]">
+                <div className="font-sans font-black text-xs uppercase tracking-wider text-[#ff6b6b] flex items-center gap-1.5 mb-2.5">
+                  <Award className="w-4 h-4 text-[#feca57]" />
+                  <span>KEY RESEARCH & LEADERSHIP HIGHLIGHTS:</span>
                 </div>
-                <span className="font-mono text-[10px] text-[#00FF9D] font-bold bg-[#00FF9D]/10 px-2.5 py-0.5 rounded-full border border-[#00FF9D]/30">VERIFIED HISTORY</span>
-              </div>
-              <ul className="space-y-2.5 text-xs sm:text-sm text-[#CBD5E1] font-sans">
-                {personalInfo.pastHighlights.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 group">
-                    <span className="font-mono text-[#00FF9D] font-bold select-none text-xs mt-0.5 group-hover:translate-x-1.5 transition-transform duration-200">▸</span>
-                    <span className="leading-relaxed group-hover:text-white transition-colors">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Cyber Identity & Direct Action CTAs */}
-            <div className="tactical-glass-card p-6 sm:p-7 rounded-3xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 reveal-on-scroll reveal-delay-250 shadow-sm">
-              <div>
-                <span className="handwritten-signature select-none cursor-default">
-                  Manan Sharma
-                </span>
-                <span className="font-mono text-[10px] text-[#64748B] tracking-wider uppercase block mt-0.5 font-semibold">
-                  Verified Identity // Researcher & Engineer
-                </span>
+                <ul className="space-y-1.5 text-xs font-bold text-black/90">
+                  {personalInfo.pastHighlights.slice(0, 5).map((hl, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-[#1dd1a1] font-black select-none">✦</span>
+                      <span>{hl}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="flex items-center gap-2">
-                <a
-                  href={personalInfo.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#131828]/80 text-[#F1F5F9] hover:text-[#00F0FF] hover:border-[#00F0FF] border border-white/[0.08] hover:scale-110 transition-all shadow-sm backdrop-blur-md"
-                  title="LinkedIn"
-                >
-                  <LinkedinIcon className="w-4 h-4" />
-                </a>
-                <a
-                  href={personalInfo.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#131828]/80 text-[#F1F5F9] hover:text-[#00FF9D] hover:border-[#00FF9D] border border-white/[0.08] hover:scale-110 transition-all shadow-sm backdrop-blur-md"
-                  title="GitHub"
-                >
-                  <GithubIcon className="w-4 h-4" />
-                </a>
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="p-2.5 rounded-xl bg-[#131828]/80 text-[#F1F5F9] hover:text-[#38BDF8] hover:border-[#38BDF8] border border-white/[0.08] hover:scale-110 transition-all shadow-sm backdrop-blur-md"
-                  title="Email"
-                >
-                  <Mail className="w-4 h-4" />
-                </a>
-                <a
-                  href={personalInfo.resumeUrl}
-                  download="Manan_Sharma_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#00F0FF] to-[#38BDF8] hover:from-[#38BDF8] hover:to-[#00FF9D] text-[#08090D] font-mono text-xs font-bold transition-all shadow-[0_0_20px_rgba(0,240,255,0.4)] interactive-btn border border-[#00F0FF]"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span>Resume</span>
-                </a>
+              {/* Signature & CTAs */}
+              <div className="mt-6 pt-5 border-t-4 border-black flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <span className="font-sans font-black text-xl italic tracking-tight text-black block">
+                    Manan Sharma
+                  </span>
+                  <span className="font-mono text-[10px] font-bold text-[#5f27cd] tracking-wider uppercase">
+                    VERIFIED // RESEARCHER & ENGINEER
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <a
+                    href={personalInfo.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2 bg-white border-3 border-black shadow-[2px_2px_0_#000000] hover:bg-[#48dbfb] transition-colors"
+                    title="LinkedIn"
+                  >
+                    <LinkedinIcon className="w-4 h-4" />
+                  </a>
+
+                  <a
+                    href={personalInfo.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2 bg-white border-3 border-black shadow-[2px_2px_0_#000000] hover:bg-[#ff6b6b] hover:text-white transition-colors"
+                    title="GitHub"
+                  >
+                    <GithubIcon className="w-4 h-4" />
+                  </a>
+
+                  <a
+                    href={`mailto:${personalInfo.email}`}
+                    className="p-2 bg-white border-3 border-black shadow-[2px_2px_0_#000000] hover:bg-[#feca57] transition-colors"
+                    title="Email"
+                  >
+                    <Mail className="w-4 h-4" />
+                  </a>
+
+                  <a
+                    href={personalInfo.resumeUrl}
+                    download="Manan_Sharma_Resume.pdf"
+                    className="memphis-btn text-xs py-2 px-3.5 border-3"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Resume</span>
+                  </a>
+                </div>
               </div>
+
             </div>
 
           </div>
 
           {/* Right Column: Tactical Tech Matrix Grid */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-5 space-y-6">
             
-            <div className="tactical-glass-card rounded-3xl p-6 sm:p-7 shadow-sm reveal-on-scroll reveal-delay-150 corner-brackets">
-              <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/[0.08]">
+            {/* Engineering Toolchain Card */}
+            <div className="memphis-card group tilt-pos-1">
+              <MemphisCardOrnaments variant={2} />
+
+              <div className="flex items-center justify-between pb-3 mb-4 border-b-4 border-black">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 rounded-xl bg-[#00F0FF]/10 text-[#00F0FF] border border-[#00F0FF]/30">
-                    <Cpu className="w-4 h-4" />
+                  <div className="p-1.5 bg-[#feca57] border-2 border-black">
+                    <Cpu className="w-4 h-4 text-black" />
                   </div>
-                  <span className="font-mono text-xs font-bold text-[#F1F5F9] tracking-wider uppercase">
+                  <span className="font-sans font-black text-sm uppercase tracking-wider text-black">
                     ENGINEERING TOOLCHAIN
                   </span>
                 </div>
-                <div ref={toolchainsCounter.elementRef} className="font-mono text-[10px] text-[#00FF9D] font-bold px-2.5 py-0.5 rounded-full bg-[#00FF9D]/10 border border-[#00FF9D]/30 shadow-xs">
-                  {toolchainsCounter.count} CORE ENGINES
-                </div>
+                <span ref={toolchainsCounter.elementRef} className="memphis-badge bg-[#1dd1a1] text-black">
+                  {toolchainsCounter.count} ENGINES
+                </span>
               </div>
 
-              {/* Tech Icon Matrix */}
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-2.5">
+              {/* Tech Tiles Matrix */}
+              <div className="grid grid-cols-2 gap-2.5">
                 {techLogos.map((tech) => (
                   <div
                     key={tech.name}
-                    className="p-3 rounded-2xl glass-pill flex flex-col justify-between group cursor-default"
+                    className="p-3 bg-white border-3 border-black shadow-[3px_3px_0_#000000] hover:bg-[#feca57] transition-colors duration-150 group/tile select-none cursor-default"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-mono font-bold text-xs text-[#F1F5F9] group-hover:text-[#00F0FF] transition-colors">
+                      <span className="font-sans font-black text-xs text-black group-hover/tile:text-black">
                         {tech.name}
                       </span>
-                      <span className={`w-2.5 h-2.5 rounded-full ${tech.color} group-hover:scale-130 transition-transform shadow-xs`}></span>
+                      <span className={`w-3 h-3 rounded-full ${tech.color} border-2 border-black`}></span>
                     </div>
-                    <span className="font-mono text-[10px] text-[#64748B] mt-1.5 group-hover:text-[#94A3B8] transition-colors">
+                    <span className="font-mono text-[10px] font-bold text-[#5f27cd] block mt-1">
                       {tech.desc}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-4 pt-3 border-t border-white/[0.08] text-center">
+              <div className="mt-5 pt-3 border-t-3 border-black text-center">
                 <a
                   href="#skills"
-                  className="inline-flex items-center gap-1.5 font-mono text-xs text-[#00F0FF] hover:text-[#38BDF8] font-bold group interactive-btn"
+                  className="inline-flex items-center gap-1.5 font-sans font-black text-xs text-[#5f27cd] hover:text-[#ff6b6b] uppercase tracking-wider"
                 >
-                  <span>Explore complete technical skill taxonomy</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform" />
+                  <span>Explore complete skills matrix</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
 
-            {/* Quick Metrics / Focus Badges with Animated Counters */}
-            <div className="grid grid-cols-2 gap-3.5 reveal-on-scroll reveal-delay-250">
-              <div className="tactical-glass-card p-5 rounded-3xl text-center group cursor-default shadow-sm border border-white/[0.08]">
-                <div className="flex items-center justify-center mb-1 text-[#00F0FF] group-hover:scale-115 transition-transform">
-                  <Award className="w-5 h-5" />
+            {/* Two Clashing Big Stat Counters */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-white border-4 border-black p-5 shadow-memphis tilt-neg-2 text-center group">
+                <div className="font-sans font-black text-3xl sm:text-4xl text-[#ff6b6b] group-hover:text-black pop-swap" ref={internshipsCounter.elementRef}>
+                  {internshipsCounter.count}
                 </div>
-                <div ref={internshipsCounter.elementRef} className="font-mono text-3xl sm:text-4xl font-black text-[#00F0FF] group-hover:scale-108 transition-transform">
-                  {internshipsCounter.count}+
-                </div>
-                <div className="font-mono text-[10px] text-[#94A3B8] uppercase tracking-wide mt-1 font-semibold">
-                  Industrial & Research Internships
+                <div className="font-sans font-black text-xs uppercase tracking-wider text-black mt-1">
+                  Research Internships (IIT / UCT)
                 </div>
               </div>
-              
-              <div className="tactical-glass-card p-5 rounded-3xl text-center group cursor-default shadow-sm border border-white/[0.08]">
-                <div className="flex items-center justify-center mb-1 text-[#00FF9D] group-hover:scale-115 transition-transform">
-                  <Zap className="w-5 h-5" />
-                </div>
-                <div ref={buildsCounter.elementRef} className="font-mono text-3xl sm:text-4xl font-black text-[#00FF9D] group-hover:scale-108 transition-transform">
+
+              <div className="bg-white border-4 border-black p-5 shadow-memphis tilt-pos-2 text-center group">
+                <div className="font-sans font-black text-3xl sm:text-4xl text-[#1dd1a1] group-hover:text-black pop-swap" ref={buildsCounter.elementRef}>
                   {buildsCounter.count}+
                 </div>
-                <div className="font-mono text-[10px] text-[#94A3B8] uppercase tracking-wide mt-1 font-semibold">
-                  Complex Production & AI Builds
+                <div className="font-sans font-black text-xs uppercase tracking-wider text-black mt-1">
+                  Major System Builds
                 </div>
               </div>
             </div>
@@ -275,6 +271,9 @@ export const AboutSection: React.FC = () => {
           </div>
 
         </div>
+
+        {/* Section Bottom Zigzag Divider */}
+        <MemphisZigzagDivider color="coral" className="mt-16" />
 
       </div>
     </section>

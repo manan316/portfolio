@@ -2,219 +2,244 @@ import React, { useState } from 'react';
 import { educationList, certifications, trainingsAndWorkshops } from '../data/portfolioData';
 import { SectorRibbon } from './SectorRibbon';
 import { ImageModal } from './ImageModal';
-import { useScrollReveal } from '../hooks/useScrollReveal';
 import { 
   GraduationCap, 
   Award, 
   MapPin, 
-  CheckCircle2, 
   Eye, 
   BookOpen,
-  ShieldCheck,
-  Sparkles
+  Sparkles,
+  Calendar
 } from 'lucide-react';
+import { 
+  MemphisCircle, 
+  MemphisTriangle, 
+  MemphisWave, 
+  MemphisZigzag, 
+  MemphisCardOrnaments,
+  MemphisZigzagDivider 
+} from './MemphisOrnament';
 
 export const EducationCertSection: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<{ url: string; title: string; caption?: string } | null>(null);
-  const containerRef = useScrollReveal<HTMLElement>();
 
   return (
-    <section 
-      id="education" 
-      ref={containerRef} 
-      className="relative bg-cyber-canvas text-[#F1F5F9] border-t-2 border-[#1E263D]/80 overflow-hidden"
-    >
+    <section id="education" className="relative bg-[#fdf6e3] text-black overflow-hidden pt-4 pb-24">
       {/* Sector Ribbon */}
-      <SectorRibbon sectorNumber="06" sectorName="ACADEMIC BACKGROUND & CERTIFICATIONS" dark={true} />
+      <SectorRibbon sectorNumber="06" sectorName="ACADEMIC BACKGROUND & CERTIFICATIONS" color="blue" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16 sm:py-24 space-y-16">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-16 space-y-16">
         
-        {/* Education & Academic Degrees */}
+        {/* Education Block */}
         <div>
-          <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#00F0FF] tracking-widest uppercase mb-2 reveal-on-scroll">
-            <div className="p-1.5 rounded-xl bg-[#00F0FF]/10 text-[#00F0FF] border border-[#00F0FF]/30">
-              <GraduationCap className="w-4 h-4" />
+          <div className="mb-10">
+            <div className="inline-block bg-[#feca57] text-black px-3.5 py-1 text-xs font-black uppercase tracking-wider border-3 border-black shadow-[3px_3px_0_#000000] tilt-neg-1 mb-2">
+              // FORMAL ACADEMIA
             </div>
-            <span>// FORMAL EDUCATION & ACADEMIA</span>
+            <h2 className="memphis-heading text-black">
+              ACADEMIC DEGREES & FOUNDATIONS
+            </h2>
           </div>
-          <h2 className="text-3xl font-bold font-sans text-[#F1F5F9] mb-8 reveal-on-scroll">
-            Academic Degrees & Institutions
-          </h2>
-
-          <div className={`grid grid-cols-1 ${educationList.length > 1 ? 'md:grid-cols-2' : ''} gap-8`}>
-            {educationList.map((edu, idx) => (
-              <div
-                key={idx}
-                className="tactical-glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-4 reveal-on-scroll reveal-delay-150 corner-brackets shadow-sm"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-start justify-between gap-3 pb-3 border-b border-white/[0.08]">
-                    <div>
-                      <h3 className="text-xl sm:text-2xl font-bold font-sans text-[#F1F5F9]">
-                        {edu.degree}
-                      </h3>
-                      <div className="text-sm font-bold text-[#00F0FF] mt-1 flex items-center gap-1.5">
-                        <span>🏛️</span>
-                        <span>{edu.institution}</span>
-                      </div>
-                    </div>
-                    <span className="font-mono text-xs px-3 py-1.5 rounded-xl bg-[#131828]/90 text-[#00FF9D] font-bold shrink-0 shadow-xs border border-white/[0.08]">
-                      {edu.duration}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 font-mono text-xs text-[#94A3B8] glass-inset px-3 py-1.5 rounded-xl w-fit">
-                    <MapPin className="w-3.5 h-3.5 text-[#00F0FF]" />
-                    <span>{edu.location}</span>
-                  </div>
-
-                  <ul className="space-y-2.5 text-xs sm:text-sm text-[#CBD5E1] pt-1">
-                    {edu.highlights.map((highlight, hIdx) => (
-                      <li key={hIdx} className="flex items-start gap-2.5 group">
-                        <CheckCircle2 className="w-4 h-4 text-[#00FF9D] shrink-0 mt-0.5 group-hover:text-[#00F0FF] transition-colors" />
-                        <span className="leading-relaxed group-hover:text-white transition-colors">{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-4 border-t border-white/[0.08] flex flex-wrap gap-1.5">
-                  {edu.skills.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="font-mono text-[10px] px-2.5 py-1 rounded-xl glass-pill text-[#CBD5E1] font-medium"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Certifications & Industry Credentials */}
-        <div>
-          <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#00FF9D] tracking-widest uppercase mb-2 reveal-on-scroll">
-            <div className="p-1.5 rounded-xl bg-[#00FF9D]/10 text-[#00FF9D] border border-[#00FF9D]/30">
-              <Award className="w-4 h-4" />
-            </div>
-            <span>// LICENSES & CERTIFICATIONS</span>
-          </div>
-          <h2 className="text-3xl font-bold font-sans text-[#F1F5F9] mb-8 reveal-on-scroll">
-            Industry Credentials & Licenses
-          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {certifications.map((cert, idx) => (
-              <div
-                key={idx}
-                className={`tactical-glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between space-y-4 reveal-on-scroll reveal-delay-${(idx % 2 + 1) * 150} corner-brackets shadow-sm`}
-              >
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between gap-3 pb-3 border-b border-white/[0.08]">
-                    <div>
-                      <div className="inline-flex items-center gap-1 font-mono text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#00F0FF]/10 text-[#00F0FF] uppercase mb-1.5 border border-[#00F0FF]/30 shadow-xs">
-                        <Sparkles className="w-3 h-3 text-[#00F0FF]" />
-                        <span>{cert.issuer}</span>
-                      </div>
-                      <h3 className="text-lg font-bold font-sans text-[#F1F5F9] leading-snug group-hover:text-[#00F0FF] transition-colors">
-                        {cert.title}
-                      </h3>
-                    </div>
-                    <span className="font-mono text-xs text-[#94A3B8] shrink-0 font-bold bg-[#131828]/90 px-3 py-1 rounded-xl border border-white/[0.08]">
-                      {cert.issueDate}
-                    </span>
-                  </div>
+            {educationList.map((edu, idx) => {
+              const tilt = idx % 2 === 0 ? 'tilt-neg-1' : 'tilt-pos-1';
+              const bannerBg = idx === 0 ? 'bg-[#ff6b6b] text-white' : 'bg-[#48dbfb] text-black';
 
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {cert.skills.map((skill, sIdx) => (
-                      <span
-                        key={sIdx}
-                        className="font-mono text-[10px] px-2.5 py-1 rounded-xl glass-pill text-[#CBD5E1] font-medium"
-                      >
-                        {skill}
+              return (
+                <div
+                  key={idx}
+                  className={`memphis-card group p-0 overflow-hidden ${tilt} hover:tilt-0 transition-transform duration-150 flex flex-col justify-between`}
+                >
+                  <MemphisCardOrnaments variant={(idx + 1) as 1 | 2} />
+
+                  <div>
+                    {/* Header Banner */}
+                    <div className={`${bannerBg} p-5 border-b-4 border-black`}>
+                      <span className="font-mono text-xs font-bold uppercase tracking-wider bg-black text-white px-2 py-0.5 inline-block mb-1.5">
+                        {edu.duration}
                       </span>
-                    ))}
-                  </div>
-                </div>
+                      <h3 className="font-sans font-black text-xl sm:text-2xl leading-snug">
+                        {edu.degree}
+                      </h3>
+                      <div className="font-sans font-black text-sm uppercase mt-1">
+                        🏛️ {edu.institution}
+                      </div>
+                    </div>
 
-                {cert.thumbnail && (
-                  <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between">
-                    <button
-                      onClick={() => setSelectedImage({
-                        url: cert.thumbnail!,
-                        title: cert.title,
-                        caption: `Official certificate issued by ${cert.issuer} (${cert.issueDate})`
-                      })}
-                      className="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl glass-pill text-xs font-mono text-[#F1F5F9] transition-all group/btn interactive-btn"
-                    >
-                      <img
-                        src={cert.thumbnail}
-                        alt={cert.title}
-                        className="w-10 h-6 object-cover rounded-lg border border-white/10 group-hover/btn:scale-110 transition-transform"
-                      />
-                      <span className="font-bold">View Certificate</span>
-                      <Eye className="w-3.5 h-3.5 text-[#00F0FF] group-hover/btn:scale-130 transition-transform" />
-                    </button>
-                    <span className="font-mono text-[10px] text-[#00FF9D] flex items-center gap-1.5 bg-[#00FF9D]/10 px-2.5 py-1 rounded-xl border border-[#00FF9D]/30 shadow-xs">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#00FF9D]" />
-                      <span>VERIFIED ASSET</span>
-                    </span>
+                    {/* Body */}
+                    <div className="p-6 space-y-4 bg-white">
+                      <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-[#5f27cd]">
+                        <MapPin className="w-3.5 h-3.5 text-[#ff6b6b]" />
+                        <span>{edu.location}</span>
+                      </div>
+
+                      <ul className="space-y-2 text-xs sm:text-sm font-bold text-black/90">
+                        {edu.highlights.map((hl, hIdx) => (
+                          <li key={hIdx} className="flex items-start gap-2">
+                            <span className="text-[#ff6b6b] font-black select-none text-sm">▶</span>
+                            <span>{hl}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                )}
-              </div>
-            ))}
+
+                  {/* Skills tags */}
+                  <div className="p-4 bg-[#fdf6e3] border-t-3 border-black">
+                    <div className="flex flex-wrap gap-1.5">
+                      {edu.skills.map((skill, sIdx) => (
+                        <span key={sIdx} className="memphis-badge bg-white text-black text-[10px] py-0.5">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Training, Workshops & Hackathons */}
+        {/* Certifications Block */}
         <div>
-          <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#FFB800] tracking-widest uppercase mb-2 reveal-on-scroll">
-            <div className="p-1.5 rounded-xl bg-[#FFB800]/10 text-[#FFB800] border border-[#FFB800]/30">
-              <BookOpen className="w-4 h-4" />
+          <div className="mb-10">
+            <div className="inline-block bg-[#1dd1a1] text-black px-3.5 py-1 text-xs font-black uppercase tracking-wider border-3 border-black shadow-[3px_3px_0_#000000] tilt-pos-1 mb-2">
+              // ACCREDITATIONS & LICENSES
             </div>
-            <span>// TRAINING, HONORS & CO-CURRICULAR MILESTONES</span>
+            <h2 className="memphis-heading text-black">
+              INDUSTRIAL CERTIFICATIONS
+            </h2>
           </div>
-          <h2 className="text-3xl font-bold font-sans text-[#F1F5F9] mb-8 reveal-on-scroll">
-            Workshops, Honors & Key Milestones
-          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {certifications.map((cert, idx) => {
+              const tilt = idx % 2 === 0 ? 'tilt-pos-1' : 'tilt-neg-1';
+
+              return (
+                <div
+                  key={idx}
+                  className={`memphis-card group p-0 overflow-hidden ${tilt} hover:tilt-0 transition-transform duration-150 flex flex-col justify-between`}
+                >
+                  <MemphisCardOrnaments variant={(idx % 4 + 1) as 1 | 2 | 3 | 4} />
+
+                  <div className="p-6 bg-white space-y-4">
+                    <div className="flex items-start justify-between gap-3 pb-3 border-b-3 border-black">
+                      <div>
+                        <span className="font-mono text-xs font-bold text-[#ff6b6b] uppercase block">
+                          ISSUER: {cert.issuer}
+                        </span>
+                        <h3 className="font-sans font-black text-xl text-black group-hover:text-[#ff6b6b] pop-swap leading-snug mt-0.5">
+                          {cert.title}
+                        </h3>
+                      </div>
+                      <span className="font-mono text-xs font-bold text-black bg-[#feca57] px-2.5 py-1 border-2 border-black whitespace-nowrap">
+                        {cert.issueDate}
+                      </span>
+                    </div>
+
+                    {/* Thumbnail preview */}
+                    {cert.thumbnail && (
+                      <div 
+                        onClick={() => setSelectedImage({
+                          url: cert.thumbnail!,
+                          title: cert.title,
+                          caption: `Official Certification issued by ${cert.issuer}`
+                        })}
+                        className="cursor-pointer border-3 border-black p-1.5 bg-[#fdf6e3] shadow-[3px_3px_0_#000000] hover:shadow-[5px_5px_0_#000000] hover:-translate-y-0.5 transition-all duration-150 relative select-none"
+                      >
+                        <div className="h-40 border-2 border-black overflow-hidden bg-white relative">
+                          <img
+                            src={cert.thumbnail}
+                            alt={cert.title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex items-center justify-center">
+                            <span className="bg-[#feca57] text-black font-black text-xs px-3 py-1.5 border-2 border-black flex items-center gap-1.5">
+                              <Eye className="w-3.5 h-3.5" />
+                              <span>VIEW CREDENTIAL</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Skills pills */}
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {cert.skills.map((skill, sIdx) => (
+                        <span key={sIdx} className="memphis-badge bg-[#fdf6e3] text-black text-[10px] py-0.5">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="p-3 bg-[#feca57] border-t-3 border-black text-right font-mono text-[10px] font-bold text-black uppercase">
+                    VERIFIED // {cert.issuer}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Workshops & Honors Block */}
+        <div>
+          <div className="mb-10">
+            <div className="inline-block bg-[#ff9ff3] text-black px-3.5 py-1 text-xs font-black uppercase tracking-wider border-3 border-black shadow-[3px_3px_0_#000000] tilt-neg-2 mb-2">
+              // HONORS & FELLOWSHIPS
+            </div>
+            <h2 className="memphis-heading text-black">
+              TRAININGS, AWARDS & LEADERSHIP
+            </h2>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {trainingsAndWorkshops.map((item, idx) => (
-              <div
-                key={idx}
-                className={`tactical-glass-card rounded-3xl p-6 flex flex-col justify-between space-y-3 reveal-on-scroll reveal-delay-${(idx % 3 + 1) * 100} shadow-sm`}
-              >
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
-                    <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded-lg bg-[#00F0FF]/10 text-[#00F0FF] border border-[#00F0FF]/30">
-                      YEAR: {item.year}
-                    </span>
-                    <span className="font-mono text-[10px] text-[#64748B] font-semibold">
-                      MILESTONE_0{idx + 1}
-                    </span>
-                  </div>
-                  <h3 className="text-base font-bold font-sans text-[#F1F5F9] leading-snug group-hover:text-[#00F0FF] transition-colors">
-                    {item.title}
-                  </h3>
-                  <div className="font-mono text-xs font-semibold text-[#38BDF8] flex items-center gap-1">
-                    <span>🏛️</span>
-                    <span>{item.institution}</span>
-                  </div>
-                  <p className="text-xs text-[#CBD5E1] leading-relaxed font-sans pt-1">
-                    {item.description}
-                  </p>
-                </div>
+            {trainingsAndWorkshops.map((train, idx) => {
+              const tilt = idx % 3 === 0 ? 'tilt-neg-1' : idx % 3 === 1 ? 'tilt-pos-1' : 'tilt-neg-2';
 
-                <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between text-[10px] font-mono text-[#64748B]">
-                  <span className="text-[#94A3B8] font-semibold">{item.category || "HONOR / WORKSHOP"}</span>
-                  <span className="text-[#00FF9D] font-bold">VERIFIED RECORD</span>
+              return (
+                <div
+                  key={idx}
+                  className={`memphis-card group ${tilt} hover:tilt-0 transition-transform duration-150 flex flex-col justify-between`}
+                >
+                  <MemphisCardOrnaments variant={(idx % 4 + 1) as 1 | 2 | 3 | 4} />
+
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between gap-2 pb-2.5 border-b-3 border-black">
+                      <span className="memphis-badge bg-[#1dd1a1] text-black text-[10px]">
+                        {train.category || "HONOR"}
+                      </span>
+                      <span className="font-mono text-xs font-bold text-black bg-[#fdf6e3] px-2 py-0.5 border-2 border-black">
+                        {train.year}
+                      </span>
+                    </div>
+
+                    <h3 className="font-sans font-black text-lg text-black group-hover:text-[#ff6b6b] pop-swap leading-snug">
+                      {train.title}
+                    </h3>
+
+                    <div className="font-sans font-black text-xs text-[#5f27cd]">
+                      🏛️ {train.institution}
+                    </div>
+
+                    <p className="font-sans font-bold text-xs text-black/80 leading-relaxed">
+                      {train.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t-2 border-black mt-3 font-mono text-[10px] font-bold text-black">
+                    HONOR_REF: 0{idx + 1}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
+
+        {/* Section Bottom Zigzag Divider */}
+        <MemphisZigzagDivider color="mint" className="mt-16" />
 
       </div>
 

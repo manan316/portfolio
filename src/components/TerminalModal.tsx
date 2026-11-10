@@ -11,25 +11,25 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
   const [input, setInput] = useState('');
   const [history, setHistory] = useState<Array<{ command: string; output: React.ReactNode }>>([
     {
-      command: 'uname -a',
-      output: 'Linux manan-kernel 6.8.0-RT #1 SMP PREEMPT_RT x86_64 GNU/Linux'
+      command: 'memphis --version',
+      output: 'Memphis 1981 Milan Collective // Engine v2.0 (No Restraint, All Clash)'
     },
     {
       command: 'help',
       output: (
-        <div className="space-y-1 text-[#CBD5E1]">
-          <div className="text-[#00F0FF] font-bold">AVAILABLE COMMANDS:</div>
-          <div><span className="text-[#00FF9D] font-bold">help</span> — Display this manual</div>
-          <div><span className="text-[#00FF9D] font-bold">about</span> — Navigate to Sector 01: About Me</div>
-          <div><span className="text-[#00FF9D] font-bold">experience</span> — Navigate to Sector 02: Experience</div>
-          <div><span className="text-[#00FF9D] font-bold">projects</span> — Navigate to Sector 03: Projects Showcase</div>
-          <div><span className="text-[#00FF9D] font-bold">research</span> — Navigate to Sector 04: Research Pipeline</div>
-          <div><span className="text-[#00FF9D] font-bold">skills</span> — Navigate to Sector 05: Skills Matrix</div>
-          <div><span className="text-[#00FF9D] font-bold">education</span> — Navigate to Sector 06: Education & Certs</div>
-          <div><span className="text-[#00FF9D] font-bold">contact</span> — Navigate to Sector 07: Direct Transmission</div>
-          <div><span className="text-[#00FF9D] font-bold">resume</span> — Open / download Resume.pdf</div>
-          <div><span className="text-[#00FF9D] font-bold">sudo hire</span> — Authorize interview dispatch protocol</div>
-          <div><span className="text-[#00FF9D] font-bold">clear</span> — Clear terminal output buffer</div>
+        <div className="space-y-1 text-black font-mono">
+          <div className="text-[#ff6b6b] font-black uppercase">AVAILABLE COMMANDS:</div>
+          <div><span className="text-[#5f27cd] font-black">help</span> — Display this manual</div>
+          <div><span className="text-[#5f27cd] font-black">about</span> — Jump to Sector 01: About Me</div>
+          <div><span className="text-[#5f27cd] font-black">experience</span> — Jump to Sector 02: Experience (UCT, IIT Roorkee)</div>
+          <div><span className="text-[#5f27cd] font-black">projects</span> — Jump to Sector 03: Projects Showcase</div>
+          <div><span className="text-[#5f27cd] font-black">research</span> — Jump to Sector 04: Research Pipeline</div>
+          <div><span className="text-[#5f27cd] font-black">skills</span> — Jump to Sector 05: Skills Matrix</div>
+          <div><span className="text-[#5f27cd] font-black">education</span> — Jump to Sector 06: Education & Certs</div>
+          <div><span className="text-[#5f27cd] font-black">contact</span> — Jump to Sector 07: Direct Transmission</div>
+          <div><span className="text-[#5f27cd] font-black">resume</span> — Open / download Resume.pdf</div>
+          <div><span className="text-[#5f27cd] font-black">sudo hire</span> — Authorize interview protocol</div>
+          <div><span className="text-[#5f27cd] font-black">clear</span> — Clear terminal output buffer</div>
         </div>
       )
     }
@@ -71,47 +71,56 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
         return;
       case 'help':
         response = (
-          <div className="space-y-1 text-[#CBD5E1]">
-            <div className="text-[#00F0FF] font-bold">AVAILABLE COMMANDS:</div>
-            <div><span className="text-[#00FF9D] font-bold">about</span>, <span className="text-[#00FF9D] font-bold">experience</span>, <span className="text-[#00FF9D] font-bold">projects</span>, <span className="text-[#00FF9D] font-bold">research</span>, <span className="text-[#00FF9D] font-bold">skills</span>, <span className="text-[#00FF9D] font-bold">education</span>, <span className="text-[#00FF9D] font-bold">contact</span></div>
-            <div><span className="text-[#00FF9D] font-bold">resume</span>, <span className="text-[#00FF9D] font-bold">sudo hire</span>, <span className="text-[#00FF9D] font-bold">uname -a</span>, <span className="text-[#00FF9D] font-bold">clear</span></div>
+          <div className="space-y-1 text-black font-mono">
+            <div className="text-[#ff6b6b] font-black uppercase">AVAILABLE COMMANDS:</div>
+            <div><span className="text-[#5f27cd] font-black">help</span> — Display this manual</div>
+            <div><span className="text-[#5f27cd] font-black">about</span> — Jump to Sector 01: About Me</div>
+            <div><span className="text-[#5f27cd] font-black">experience</span> — Jump to Sector 02: Experience (UCT, IIT Roorkee)</div>
+            <div><span className="text-[#5f27cd] font-black">projects</span> — Jump to Sector 03: Projects Showcase</div>
+            <div><span className="text-[#5f27cd] font-black">research</span> — Jump to Sector 04: Research Pipeline</div>
+            <div><span className="text-[#5f27cd] font-black">skills</span> — Jump to Sector 05: Skills Matrix</div>
+            <div><span className="text-[#5f27cd] font-black">education</span> — Jump to Sector 06: Education & Certs</div>
+            <div><span className="text-[#5f27cd] font-black">contact</span> — Jump to Sector 07: Direct Transmission</div>
+            <div><span className="text-[#5f27cd] font-black">resume</span> — Open / download Resume.pdf</div>
+            <div><span className="text-[#5f27cd] font-black">sudo hire</span> — Authorize interview protocol</div>
+            <div><span className="text-[#5f27cd] font-black">clear</span> — Clear terminal output buffer</div>
           </div>
         );
         break;
       case 'about':
-        response = <span className="text-[#00FF9D]">Jumping to Sector 01: About Me...</span>;
+        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 01: About Me...</span>;
         scrollToSection('about');
         break;
       case 'experience':
-        response = <span className="text-[#00FF9D]">Jumping to Sector 02: Experience (UniConverge, IIT Roorkee)...</span>;
+        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 02: Experience (UniConverge, IIT Roorkee)...</span>;
         scrollToSection('experience');
         break;
       case 'projects':
-        response = <span className="text-[#00FF9D]">Jumping to Sector 03: Projects (OJASEWS, GeoChange AI, NeuroView, SlipSense)...</span>;
+        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 03: Projects (OJASEWS, GeoChange AI, NeuroView, SlipSense)...</span>;
         scrollToSection('projects');
         break;
       case 'research':
-        response = <span className="text-[#00FF9D]">Jumping to Sector 04: Research Pipeline...</span>;
+        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 04: Research Pipeline...</span>;
         scrollToSection('research');
         break;
       case 'skills':
-        response = <span className="text-[#00FF9D]">Jumping to Sector 05: Skills Matrix...</span>;
+        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 05: Skills Matrix...</span>;
         scrollToSection('skills');
         break;
       case 'education':
       case 'certs':
-        response = <span className="text-[#00FF9D]">Jumping to Sector 06: Education & Certifications...</span>;
+        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 06: Education & Certifications...</span>;
         scrollToSection('education');
         break;
       case 'contact':
-        response = <span className="text-[#00FF9D]">Jumping to Sector 07: Direct Transmission...</span>;
+        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 07: Direct Transmission...</span>;
         scrollToSection('contact');
         break;
       case 'resume':
         response = (
-          <div className="space-y-1 text-[#00F0FF]">
+          <div className="space-y-1 text-black font-mono">
             <div>Downloading verified Resume.pdf...</div>
-            <a href={personalInfo.resumeUrl} download="Manan_Sharma_Resume.pdf" target="_blank" rel="noreferrer" className="underline text-[#00FF9D] font-bold">
+            <a href={personalInfo.resumeUrl} download="Manan_Sharma_Resume.pdf" target="_blank" rel="noreferrer" className="underline text-[#ff6b6b] font-black">
               [Click here if download does not begin]
             </a>
           </div>
@@ -121,29 +130,22 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
       case 'sudo hire':
       case 'hire':
         response = (
-          <div className="space-y-1 text-[#00FF9D] bg-[#00FF9D]/10 p-3 rounded-xl border border-[#00FF9D]/30">
-            <div className="font-bold text-[#F1F5F9] flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-[#00FF9D] animate-spin" />
+          <div className="space-y-1 bg-[#1dd1a1] p-3 border-2 border-black font-mono text-black">
+            <div className="font-black flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4 text-[#ff6b6b]" />
               <span>ACCESS GRANTED: HIRING PROTOCOL INITIATED!</span>
             </div>
-            <div>Routing transmission to Manan Sharma (manan31206@gmail.com)...</div>
+            <div>Routing transmission to Manan Sharma ({personalInfo.email})...</div>
           </div>
         );
-        setTimeout(() => scrollToSection('contact'), 1200);
-        break;
-      case 'uname -a':
-        response = 'Linux manan-kernel 6.8.0-RT #1 SMP PREEMPT_RT x86_64 GNU/Linux';
-        break;
-      case 'whoami':
-        response = 'root@manan-terminal — Guest Operator [Authenticated]';
+        setTimeout(() => scrollToSection('contact'), 1500);
         break;
       default:
         response = (
-          <span className="text-red-400">
-            zsh: command not found: {cmd}. Type <span className="text-[#00F0FF] font-bold">help</span> to view available system commands.
+          <span className="text-[#ff6b6b] font-bold">
+            Command not recognized: '{cmd}'. Type <span className="underline font-black">help</span> for available commands.
           </span>
         );
-        break;
     }
 
     setHistory(prev => [...prev, { command: cmd, output: response }]);
@@ -158,47 +160,45 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
 
   return (
     <div 
-      className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl animate-fadeIn"
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
       onClick={onClose}
     >
       <div 
-        className="relative max-w-2xl w-full bg-[#08090D]/95 border border-[#00F0FF]/40 rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.9),0_0_35px_rgba(0,240,255,0.25)] font-mono animate-modal-in"
+        className="relative max-w-2xl w-full bg-white border-4 border-black shadow-[10px_10px_0_#000000] font-mono select-none"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Terminal Header */}
-        <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.08] bg-[#0F121E]/90">
-          <div className="flex items-center gap-3">
+        <div className="flex items-center justify-between px-5 py-3 border-b-4 border-black bg-[#48dbfb]">
+          <div className="flex items-center gap-2.5">
             <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-[#EF4444] border border-red-900/60 inline-block"></span>
-              <span className="w-3 h-3 rounded-full bg-[#FFB800] border border-amber-900/60 inline-block"></span>
-              <span className="w-3 h-3 rounded-full bg-[#00FF9D] border border-emerald-900/60 inline-block"></span>
+              <span className="w-3.5 h-3.5 rounded-full bg-[#ff6b6b] border-2 border-black inline-block"></span>
+              <span className="w-3.5 h-3.5 rounded-full bg-[#feca57] border-2 border-black inline-block"></span>
+              <span className="w-3.5 h-3.5 rounded-full bg-[#1dd1a1] border-2 border-black inline-block"></span>
             </div>
-            <div className="text-xs text-[#CBD5E1] font-bold flex items-center gap-1.5 pl-2">
-              <TerminalIcon className="w-3.5 h-3.5 text-[#00F0FF]" />
-              <span>root@manan-kernel:~</span>
+            <div className="text-xs text-black font-black flex items-center gap-1.5 pl-2 uppercase">
+              <TerminalIcon className="w-3.5 h-3.5" />
+              <span>MANAN // MEMPHIS KERNEL SHELL</span>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] text-[#64748B] hidden sm:inline">Press ESC to exit</span>
-            <button
-              onClick={onClose}
-              className="p-1 rounded-lg text-[#94A3B8] hover:text-[#00F0FF] hover:bg-white/[0.08]"
-              aria-label="Close terminal"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
+
+          <button
+            onClick={onClose}
+            className="p-1 bg-white border-2 border-black shadow-[2px_2px_0_#000000] hover:bg-[#ff6b6b] hover:text-white transition-colors"
+            aria-label="Close terminal"
+          >
+            <X className="w-4 h-4" />
+          </button>
         </div>
 
         {/* Terminal Body */}
-        <div className="p-5 max-h-[55vh] overflow-y-auto space-y-4 text-xs">
+        <div className="p-5 max-h-[50vh] overflow-y-auto space-y-3.5 text-xs bg-[#fdf6e3]">
           {history.map((item, idx) => (
-            <div key={idx} className="space-y-1.5">
-              <div className="flex items-center gap-2 text-[#00F0FF]">
-                <span className="text-[#00FF9D] font-bold">manan@kernel:~$</span>
-                <span className="text-white font-semibold">{item.command}</span>
+            <div key={idx} className="space-y-1">
+              <div className="flex items-center gap-2 text-black">
+                <span className="text-[#ff6b6b] font-black">operator@memphis:~$</span>
+                <span className="font-bold underline">{item.command}</span>
               </div>
-              <div className="pl-4 text-[#CBD5E1] leading-relaxed">
+              <div className="pl-4 leading-relaxed font-bold">
                 {item.output}
               </div>
             </div>
@@ -207,24 +207,25 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
         </div>
 
         {/* Terminal Input Footer */}
-        <form onSubmit={handleSubmit} className="px-5 py-3.5 border-t border-white/[0.08] bg-[#0F121E]/90 flex items-center gap-2">
-          <span className="text-[#00FF9D] font-bold text-xs">manan@kernel:~$</span>
+        <form onSubmit={handleSubmit} className="p-3 border-t-4 border-black bg-white flex items-center gap-2">
+          <span className="text-[#ff6b6b] font-black text-xs">operator@memphis:~$</span>
           <input
             ref={inputRef}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type 'help', 'projects', 'sudo hire'..."
-            className="flex-1 bg-transparent text-xs text-white placeholder-[#64748B] focus:outline-none font-mono"
+            className="flex-1 bg-transparent text-xs text-black font-mono font-bold focus:outline-none"
           />
           <button
             type="submit"
-            className="p-1.5 rounded-lg bg-[#00F0FF]/15 text-[#00F0FF] hover:bg-[#00F0FF] hover:text-[#08090D] transition-colors"
+            className="p-1.5 bg-[#feca57] border-2 border-black shadow-[2px_2px_0_#000000] hover:bg-[#ff6b6b] hover:text-white transition-colors"
             title="Execute command"
           >
-            <CornerDownLeft className="w-3.5 h-3.5" />
+            <CornerDownLeft className="w-4 h-4" />
           </button>
         </form>
+
       </div>
     </div>
   );

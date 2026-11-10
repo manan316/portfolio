@@ -10,7 +10,6 @@ export const CustomCursor: React.FC = () => {
   const requestRef = useRef<number | null>(null);
 
   useEffect(() => {
-    // Only enable custom cursor on fine pointer devices (desktop/mouse)
     const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
     if (isTouchDevice) return;
 
@@ -18,11 +17,10 @@ export const CustomCursor: React.FC = () => {
       setMousePosition({ x: e.clientX, y: e.clientY });
       if (!isVisible) setIsVisible(true);
 
-      // Check if hovering over clickable / interactive elements
       const target = e.target as HTMLElement | null;
       if (target) {
         const isInteractive = !!target.closest(
-          'a, button, input, textarea, select, [role="button"], .interactive-btn, .tactical-glass-card, [tabindex="0"]'
+          'a, button, input, textarea, select, [role="button"], .memphis-btn, .memphis-card, [tabindex="0"]'
         );
         setIsHovered(isInteractive);
       }
@@ -39,12 +37,11 @@ export const CustomCursor: React.FC = () => {
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
 
-    // Smooth lerp animation for outer trailing reticle
     const animateRing = () => {
-      ringPosition.current.x += (mousePosition.x - ringPosition.current.x) * 0.18;
-      ringPosition.current.y += (mousePosition.y - ringPosition.current.y) * 0.18;
+      ringPosition.current.x += (mousePosition.x - ringPosition.current.x) * 0.22;
+      ringPosition.current.y += (mousePosition.y - ringPosition.current.y) * 0.22;
 
-      const ringEl = document.getElementById('cyber-cursor-ring');
+      const ringEl = document.getElementById('memphis-cursor-ring');
       if (ringEl) {
         ringEl.style.transform = `translate3d(${ringPosition.current.x}px, ${ringPosition.current.y}px, 0) translate(-50%, -50%)`;
       }
@@ -69,38 +66,22 @@ export const CustomCursor: React.FC = () => {
   return (
     <div className="pointer-events-none fixed inset-0 z-[99999] overflow-hidden select-none hidden md:block">
       
-      {/* Outer Trailing Cyber Reticle Ring */}
+      {/* Outer Trailing Memphis Geometric Ring */}
       <div
-        id="cyber-cursor-ring"
-        className={`fixed top-0 left-0 rounded-full pointer-events-none transition-[width,height,border-color,background-color] duration-200 ease-out flex items-center justify-center ${
+        id="memphis-cursor-ring"
+        className={`fixed top-0 left-0 pointer-events-none transition-[width,height,background-color,border-radius] duration-150 ease-out border-3 border-black ${
           isHovered
-            ? 'w-11 h-11 border-2 border-[#00FF9D] bg-[#00FF9D]/10 shadow-[0_0_20px_rgba(0,255,157,0.5),inset_0_0_10px_rgba(0,255,157,0.2)]'
+            ? 'w-10 h-10 bg-[#ff6b6b] rounded-none rotate-12 shadow-[3px_3px_0_#000000]'
             : isClicked
-            ? 'w-6 h-6 border-2 border-[#00F0FF] bg-[#00F0FF]/25 shadow-[0_0_25px_rgba(0,240,255,0.7)]'
-            : 'w-8 h-8 border border-[#00F0FF]/60 bg-transparent shadow-[0_0_12px_rgba(0,240,255,0.3)]'
+            ? 'w-5 h-5 bg-[#1dd1a1] rounded-full scale-90'
+            : 'w-7 h-7 bg-[#feca57] rounded-full shadow-[2px_2px_0_#000000]'
         }`}
         style={{ willChange: 'transform' }}
-      >
-        {/* Holographic Tactical Reticle Crosshairs when hovered */}
-        {isHovered && (
-          <>
-            <span className="absolute w-1.5 h-0.5 bg-[#00FF9D] -top-1 left-1/2 -translate-x-1/2"></span>
-            <span className="absolute w-1.5 h-0.5 bg-[#00FF9D] -bottom-1 left-1/2 -translate-x-1/2"></span>
-            <span className="absolute w-0.5 h-1.5 bg-[#00FF9D] -left-1 top-1/2 -translate-y-1/2"></span>
-            <span className="absolute w-0.5 h-1.5 bg-[#00FF9D] -right-1 top-1/2 -translate-y-1/2"></span>
-          </>
-        )}
-      </div>
+      />
 
-      {/* Center Precise Laser Dot */}
+      {/* Center Precise Black Dot */}
       <div
-        className={`fixed top-0 left-0 rounded-full pointer-events-none transition-transform duration-75 ${
-          isHovered
-            ? 'w-1.5 h-1.5 bg-[#00FF9D] shadow-[0_0_10px_#00FF9D]'
-            : isClicked
-            ? 'w-2 h-2 bg-[#00F0FF] scale-125 shadow-[0_0_15px_#00F0FF]'
-            : 'w-1.5 h-1.5 bg-[#00F0FF] shadow-[0_0_8px_#00F0FF]'
-        }`}
+        className="fixed top-0 left-0 w-2 h-2 bg-black rounded-full pointer-events-none"
         style={{
           transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0) translate(-50%, -50%)`,
           willChange: 'transform'

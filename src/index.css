@@ -3,425 +3,451 @@
 @tailwind utilities;
 
 :root {
-  --bg-cyber-base: #08090D;
-  --bg-cyber-canvas: #0B0D14;
-  --bg-cyber-surface: #0F121E;
-  --bg-cyber-card: #131828;
-  --bg-cyber-hover: #181F33;
-  --border-cyber: #1E263D;
-  --border-cyber-active: #00F0FF;
-  
-  --kernel-emerald: #00FF9D;
-  --kernel-green: #10B981;
-  --kernel-cyan: #00F0FF;
-  --kernel-sky: #38BDF8;
-  --kernel-amber: #FFB800;
-  --kernel-orange: #FF6B00;
-  --kernel-purple: #A855F7;
-  --kernel-red: #EF4444;
+  /* Memphis 1981 Milan Tokens */
+  --color-coral: #ff6b6b;
+  --color-honey: #feca57;
+  --color-electric-blue: #48dbfb;
+  --color-bubblegum: #ff9ff3;
+  --color-mint: #1dd1a1;
+  --color-grape: #5f27cd;
 
-  --text-primary: #F1F5F9;
-  --text-secondary: #CBD5E1;
-  --text-muted: #64748B;
-}
+  --surface-paper: #fdf6e3;
+  --surface-coral-block: #ff6b6b;
+  --surface-honey-block: #feca57;
+  --memphis-black: #000000;
+  --memphis-white: #ffffff;
 
-/* Custom Futuristic Cursor Setup on Desktop */
-@media (hover: hover) and (pointer: fine) {
-  body, a, button, [role="button"], .interactive-btn, .tactical-glass-card {
-    cursor: none !important;
-  }
-  input, textarea, select {
-    cursor: text !important;
-  }
+  /* Typography Scale */
+  --text-display: 60px;
+  --text-heading: 44px;
+  --text-subheading: 32px;
+  --text-body-lg: 18px;
+  --text-body: 14px;
+  --text-label: 14px;
+
+  /* Elevation */
+  --shadow-memphis: 6px 6px 0 #000000;
+  --shadow-memphis-lg: 10px 10px 0 #000000;
+  --shadow-memphis-sm: 4px 4px 0 #000000;
 }
 
-/* Custom Cyberpunk / Linux Terminal Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #08090D;
-}
-::-webkit-scrollbar-thumb {
-  background: #1E263D;
-  border-radius: 3px;
-  border: 1px solid rgba(0, 240, 255, 0.2);
-  transition: background 0.2s ease, box-shadow 0.2s ease;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #00F0FF;
-  box-shadow: 0 0 12px #00F0FF;
+/* Universal Memphis Base */
+* {
+  border-color: #000000;
+  box-sizing: border-box;
 }
 
-/* Dark Linux Kernel Grid Canvas */
-.bg-dark-grid {
-  background-color: #08090D;
+html {
+  background-color: #fdf6e3;
+  color: #000000;
+  font-family: 'Inter', 'Arial Black', Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fdf6e3;
+  color: #000000;
+  font-family: 'Inter', 'Arial Black', Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-x: hidden;
   background-image: 
-    radial-gradient(rgba(0, 240, 255, 0.12) 1px, transparent 1px),
-    linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    radial-gradient(#000000 1.2px, transparent 1.2px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
   background-size: 32px 32px, 32px 32px, 32px 32px;
 }
 
-/* Futuristic Cyber Canvas with Telemetry Coordinates & Hex Grid */
-.bg-parchment-canvas,
-.bg-cyber-canvas {
-  background-color: #08090D;
-  background-image: 
-    radial-gradient(circle at 85% 20%, rgba(0, 240, 255, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 15% 75%, rgba(0, 255, 157, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, transparent 0, transparent 80px, rgba(0, 240, 255, 0.035) 81px, rgba(0, 240, 255, 0.035) 82px, transparent 83px, transparent 180px, rgba(0, 255, 157, 0.03) 181px, rgba(0, 255, 157, 0.03) 182px, transparent 183px, transparent 290px, rgba(0, 240, 255, 0.025) 291px, rgba(0, 240, 255, 0.025) 292px, transparent 293px),
-    radial-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 800px 800px, 28px 28px, 28px 28px, 28px 28px;
+/* Selection */
+::selection {
+  background: #feca57;
+  color: #000000;
 }
 
-/* Secondary Cyber Mesh for Sections */
-.bg-cyber-mesh {
-  background-color: #08090D;
-  background-image: 
-    radial-gradient(circle at 90% 15%, rgba(0, 240, 255, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 10% 85%, rgba(0, 255, 157, 0.05) 0%, transparent 45%),
-    radial-gradient(rgba(0, 240, 255, 0.07) 1px, transparent 1px),
-    linear-gradient(to right, rgba(0, 240, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 240, 255, 0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 28px 28px, 28px 28px, 28px 28px;
+/* Memphis Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #fdf6e3;
+  border-left: 3px solid #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff6b6b;
+  border: 3px solid #000000;
+  border-radius: 0;
+  box-shadow: 2px 2px 0 #000000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #feca57;
 }
 
-/* Left Vertical Gutter Label */
-.vertical-gutter-text {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-}
-
-/* ULTRA-PREMIUM TACTICAL FROSTED GLASS CARD */
-.tactical-glass-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), rgba(11, 15, 26, 0.78);
-  backdrop-filter: blur(20px) saturate(190%);
-  -webkit-backdrop-filter: blur(20px) saturate(190%);
-  border: 1px solid rgba(30, 38, 61, 0.85);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.35s ease;
-  will-change: transform, box-shadow;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Specular Shimmer Ray across Glass Cards on Hover */
-.tactical-glass-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.04) 40%,
-    rgba(0, 240, 255, 0.09) 50%,
-    rgba(255, 255, 255, 0.04) 60%,
-    transparent 100%
-  );
-  transform: skewX(-22deg);
-  pointer-events: none;
-  transition: left 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 1;
-}
-
-.tactical-glass-card:hover::before {
-  left: 200%;
-}
-
-.tactical-glass-card:hover {
-  transform: translateY(-4px) scale(1.004);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%), rgba(16, 22, 38, 0.9);
-  border-color: rgba(0, 240, 255, 0.55);
-  box-shadow: 0 18px 45px -8px rgba(0, 0, 0, 0.8), 
-              0 0 30px -4px rgba(0, 240, 255, 0.25),
-              inset 0 0 20px rgba(0, 240, 255, 0.05),
-              inset 0 1px 2px rgba(255, 255, 255, 0.15);
-}
-
-/* Glass Sub-card & Inset Panels */
-.glass-inset {
-  background: rgba(19, 24, 40, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(30, 38, 61, 0.7);
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.2);
-  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.glass-inset:hover {
-  border-color: rgba(0, 240, 255, 0.35);
-  background: rgba(24, 31, 51, 0.8);
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 240, 255, 0.1);
-}
-
-/* Frosted Glass Pill Badges */
-.glass-pill {
-  background: rgba(15, 20, 35, 0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(30, 38, 61, 0.8);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-pill:hover {
-  transform: translateY(-2px) scale(1.04);
-  border-color: rgba(0, 240, 255, 0.6);
-  background: rgba(0, 240, 255, 0.12);
-  box-shadow: 0 4px 18px rgba(0, 240, 255, 0.25);
-}
-
-/* Futuristic Neon Corner Brackets */
-.corner-brackets {
-  position: relative;
-}
-
-.corner-brackets::before,
-.corner-brackets::after {
-  content: '';
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  pointer-events: none;
-  transition: border-color 0.3s ease, width 0.3s ease, height 0.3s ease, box-shadow 0.3s ease;
-  z-index: 2;
-}
-
-.corner-brackets::before {
-  top: -1px;
-  left: -1px;
-  border-top: 2px solid #00F0FF;
-  border-left: 2px solid #00F0FF;
-}
-
-.corner-brackets::after {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 2px solid #00FF9D;
-  border-right: 2px solid #00FF9D;
-}
-
-.corner-brackets:hover::before {
-  width: 16px;
-  height: 16px;
-  border-color: #00F0FF;
-  box-shadow: -2px -2px 10px rgba(0, 240, 255, 0.8);
-}
-
-.corner-brackets:hover::after {
-  width: 16px;
-  height: 16px;
-  border-color: #00FF9D;
-  box-shadow: 2px 2px 10px rgba(0, 255, 157, 0.8);
-}
-
-/* Glowing Beacon Pulse Animation */
-@keyframes beacon {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(1.4); }
-}
-
-.beacon-pulse {
-  animation: beacon 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Floating Bobbing Motion */
-@keyframes floatSlow {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-7px); }
-}
-
-.animate-float {
-  animation: floatSlow 5s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: floatSlow 6s ease-in-out 1.5s infinite;
-}
-
-/* Continuous Infinite Marquee */
-@keyframes marquee {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 28s linear infinite;
-  will-change: transform;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-/* Radar Rotating Sweep Animation */
-@keyframes radarSweep {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.animate-radar {
-  animation: radarSweep 4s linear infinite;
-}
-
-/* Breathing Glow Animation */
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 15px rgba(0, 240, 255, 0.25), inset 0 0 10px rgba(0, 240, 255, 0.05); }
-  50% { box-shadow: 0 0 35px rgba(0, 240, 255, 0.55), inset 0 0 20px rgba(0, 240, 255, 0.15); }
-}
-
-.animate-glow-pulse {
-  animation: pulseGlow 3s ease-in-out infinite;
-}
-
-/* Scroll Reveal System */
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.reveal-on-scroll.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-delay-100 { transition-delay: 100ms; }
-.reveal-delay-150 { transition-delay: 150ms; }
-.reveal-delay-200 { transition-delay: 200ms; }
-.reveal-delay-250 { transition-delay: 250ms; }
-.reveal-delay-300 { transition-delay: 300ms; }
-.reveal-delay-350 { transition-delay: 350ms; }
-.reveal-delay-400 { transition-delay: 400ms; }
-.reveal-delay-500 { transition-delay: 500ms; }
-
-/* Scale Reveal */
-.reveal-scale {
-  opacity: 0;
-  transform: scale(0.95) translateY(14px);
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.reveal-scale.is-revealed {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
-
-/* Modal animation */
-@keyframes modalIn {
-  from {
-    opacity: 0;
-    transform: scale(0.92) translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.animate-modal-in {
-  animation: modalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Fade In Keyframes */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-
-/* Signature text */
-.handwritten-signature {
-  font-family: 'Share Tech Mono', 'JetBrains Mono', monospace;
-  font-size: 2.3rem;
-  letter-spacing: -0.04em;
+/* Typography Helpers - Headings at 1.0 leading */
+.memphis-display {
+  font-family: 'Inter', 'Arial Black', sans-serif;
+  font-weight: 900;
+  font-size: clamp(38px, 6vw, 64px);
   line-height: 1;
-  color: #00F0FF;
-  text-shadow: 0 0 15px rgba(0, 240, 255, 0.6), 0 0 30px rgba(0, 240, 255, 0.2);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease, text-shadow 0.3s ease;
-  display: inline-block;
+  letter-spacing: -0.02em;
+  color: #000000;
 }
 
-.handwritten-signature:hover {
-  transform: scale(1.06) rotate(-0.5deg);
-  color: #00FF9D;
-  text-shadow: 0 0 20px rgba(0, 255, 157, 0.8), 0 0 40px rgba(0, 255, 157, 0.3);
+.memphis-heading {
+  font-family: 'Inter', 'Arial Black', sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #000000;
 }
 
-/* Interactive button micro-action */
-.interactive-btn {
-  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.22s ease,
-              background-color 0.22s ease,
-              border-color 0.22s ease;
+.memphis-subheading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 2.5vw, 32px);
+  line-height: 1.1;
+  color: #000000;
 }
 
-.interactive-btn:hover {
-  transform: translateY(-2px);
+.memphis-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.interactive-btn:active {
-  transform: scale(0.96) translateY(0);
+/* =========================================================
+   MEMPHIS COMPONENTS
+   ========================================================= */
+
+/* Pop Button (Primary Action) */
+.memphis-btn {
+  background: #ff6b6b;
+  color: #ffffff;
+  border: 4px solid #000000;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  box-shadow: 6px 6px 0 #000000;
+  transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
 }
 
-/* Cyber Terminal Spectrum Accent Stripe Bar */
-.retro-stripe-bar {
-  display: flex;
-  height: 4px;
+.memphis-btn:hover {
+  background: #feca57;
+  color: #000000;
+  box-shadow: 10px 10px 0 #000000;
+}
+
+.memphis-btn:active {
+  transform: translate(6px, 6px);
+  box-shadow: none !important;
+}
+
+/* Pop Button - Blue Clash */
+.memphis-btn-blue {
+  background: #48dbfb;
+  color: #000000;
+  border: 4px solid #000000;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  box-shadow: 6px 6px 0 #000000;
+  transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+}
+
+.memphis-btn-blue:hover {
+  background: #ff6b6b;
+  color: #ffffff;
+  box-shadow: 10px 10px 0 #000000;
+}
+
+.memphis-btn-blue:active {
+  transform: translate(6px, 6px);
+  box-shadow: none !important;
+}
+
+/* Pop Button - Honey Clash */
+.memphis-btn-honey {
+  background: #feca57;
+  color: #000000;
+  border: 4px solid #000000;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  box-shadow: 6px 6px 0 #000000;
+  transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+}
+
+.memphis-btn-honey:hover {
+  background: #48dbfb;
+  color: #000000;
+  box-shadow: 10px 10px 0 #000000;
+}
+
+.memphis-btn-honey:active {
+  transform: translate(6px, 6px);
+  box-shadow: none !important;
+}
+
+/* Pop Button - Mint Clash */
+.memphis-btn-mint {
+  background: #1dd1a1;
+  color: #000000;
+  border: 4px solid #000000;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  box-shadow: 6px 6px 0 #000000;
+  transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+}
+
+.memphis-btn-mint:hover {
+  background: #ff6b6b;
+  color: #ffffff;
+  box-shadow: 10px 10px 0 #000000;
+}
+
+.memphis-btn-mint:active {
+  transform: translate(6px, 6px);
+  box-shadow: none !important;
+}
+
+/* Pop Button - Grape Clash */
+.memphis-btn-grape {
+  background: #5f27cd;
+  color: #ffffff;
+  border: 4px solid #000000;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  box-shadow: 6px 6px 0 #000000;
+  transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+}
+
+.memphis-btn-grape:hover {
+  background: #feca57;
+  color: #000000;
+  box-shadow: 10px 10px 0 #000000;
+}
+
+.memphis-btn-grape:active {
+  transform: translate(6px, 6px);
+  box-shadow: none !important;
+}
+
+/* Playground Card */
+.memphis-card {
+  background: #ffffff;
+  border: 4px solid #000000;
+  border-radius: 0;
+  padding: 28px;
+  box-shadow: 6px 6px 0 #000000;
+  position: relative;
+  transition: box-shadow 150ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.memphis-card:hover {
+  box-shadow: 10px 10px 0 #000000;
+}
+
+/* Memphis Input */
+.memphis-input {
+  background: #ffffff;
+  border: 4px solid #000000;
+  border-radius: 0;
+  padding: 10px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000000;
   width: 100%;
-  border-radius: 9999px;
-  overflow: hidden;
-  box-shadow: 0 0 12px rgba(0, 240, 255, 0.6), 0 0 24px rgba(0, 255, 157, 0.3);
+  outline: none;
+  transition: border-color 150ms, box-shadow 150ms;
 }
 
-.retro-stripe-red { background-color: #00F0FF; }
-.retro-stripe-orange { background-color: #38BDF8; }
-.retro-stripe-amber { background-color: #00FF9D; }
-.retro-stripe-sage { background-color: #10B981; }
-.retro-stripe-brown { background-color: #8B5CF6; }
-
-/* Blinking Terminal Cursor */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.memphis-input:focus {
+  border-color: #48dbfb;
+  box-shadow: 4px 4px 0 #feca57;
 }
 
-.terminal-cursor {
-  animation: blink 1s step-start infinite;
+/* Memphis Badge / Pill */
+.memphis-badge {
+  border: 3px solid #000000;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  box-shadow: 3px 3px 0 #000000;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+  white-space: nowrap;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .reveal-on-scroll, .reveal-scale {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  .animate-marquee {
-    animation: none !important;
-  }
+/* Pop Swap Classes (Hard 150ms Cut) */
+.pop-swap {
+  transition: color 150ms steps(1, end), background-color 150ms steps(1, end);
+}
+
+.group:hover .pop-swap-coral {
+  color: #ff6b6b !important;
+}
+.group:hover .pop-swap-honey {
+  color: #feca57 !important;
+}
+.group:hover .pop-swap-blue {
+  color: #48dbfb !important;
+}
+.group:hover .pop-swap-mint {
+  color: #1dd1a1 !important;
+}
+.group:hover .pop-swap-grape {
+  color: #5f27cd !important;
+}
+
+/* Playful Chaos Ornament Transitions */
+.ornament {
+  transition: transform 150ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  position: absolute;
+}
+
+.group:hover .ornament-1 {
+  transform: translate(8px, -10px) rotate(18deg) scale(1.08);
+}
+.group:hover .ornament-2 {
+  transform: translate(-10px, 8px) rotate(-16deg) scale(1.08);
+}
+.group:hover .ornament-3 {
+  transform: translate(10px, 10px) rotate(22deg) scale(1.08);
+}
+.group:hover .ornament-4 {
+  transform: translate(-8px, -8px) rotate(-20deg) scale(1.08);
+}
+
+/* Zigzag Divider */
+.memphis-zigzag {
+  width: 100%;
+  height: 18px;
+  background-repeat: repeat-x;
+  background-size: 24px 18px;
+}
+
+.zigzag-coral {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 18'%3E%3Cpath d='M0 18 L12 0 L24 18 Z' fill='%23ff6b6b' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.zigzag-honey {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 18'%3E%3Cpath d='M0 18 L12 0 L24 18 Z' fill='%23feca57' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.zigzag-blue {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 18'%3E%3Cpath d='M0 18 L12 0 L24 18 Z' fill='%2348dbfb' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.zigzag-mint {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 18'%3E%3Cpath d='M0 18 L12 0 L24 18 Z' fill='%231dd1a1' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* Polka Dots and Striped Memphis Blocks */
+.memphis-dots {
+  background-image: radial-gradient(#000000 2px, transparent 2px);
+  background-size: 14px 14px;
+}
+
+.memphis-stripes {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #000000 10px,
+    #000000 14px
+  );
+}
+
+.memphis-stripes-light {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(0, 0, 0, 0.12) 8px,
+    rgba(0, 0, 0, 0.12) 11px
+  );
+}
+
+/* Subtle Random Tilts */
+.tilt-neg-1 {
+  transform: rotate(-1deg);
+}
+.tilt-pos-1 {
+  transform: rotate(1deg);
+}
+.tilt-neg-2 {
+  transform: rotate(-2deg);
+}
+.tilt-pos-2 {
+  transform: rotate(2deg);
 }

@@ -22,8 +22,8 @@ export const VerticalGutterTracker: React.FC = () => {
         { id: 'experience', name: 'Experience' },
         { id: 'projects', name: 'Projects' },
         { id: 'research', name: 'Research' },
-        { id: 'skills', name: 'Skills & Stack' },
-        { id: 'education', name: 'Education & Certs' },
+        { id: 'skills', name: 'Skills' },
+        { id: 'education', name: 'Education' },
         { id: 'contact', name: 'Contact' },
       ];
 
@@ -41,27 +41,24 @@ export const VerticalGutterTracker: React.FC = () => {
   }, []);
 
   return (
-    <aside className="hidden xl:flex fixed left-0 top-0 bottom-0 z-40 w-12 bg-[#08090D]/95 border-r border-[#1E263D] flex-col items-center justify-between py-8 pointer-events-none select-none transition-all duration-300 shadow-[4px_0_24px_rgba(0,0,0,0.8)] backdrop-blur-md">
+    <aside className="hidden 2xl:flex fixed left-0 top-0 bottom-0 z-40 w-11 bg-[#fdf6e3] border-r-4 border-black flex-col items-center justify-between py-10 pointer-events-none select-none">
       {/* Top Sector Indicator */}
-      <div className="w-1.5 h-16 bg-[#131828] rounded-full overflow-hidden border border-[#1E263D]">
+      <div className="w-3 h-20 bg-white border-2 border-black overflow-hidden shadow-[2px_2px_0_#000000]">
         <div 
-          className="w-full bg-gradient-to-b from-[#00F0FF] to-[#00FF9D] shadow-[0_0_10px_#00F0FF] transition-all duration-200"
+          className="w-full bg-[#ff6b6b] transition-all duration-150"
           style={{ height: `${scrollPercent}%` }}
         />
       </div>
       
-      {/* Vertical Active Text with Smooth Fade */}
-      <div className="vertical-gutter-text font-mono text-[11px] font-bold tracking-[0.25em] text-[#64748B] uppercase transition-all duration-300">
-        <span className="text-[#00F0FF] mr-2">KERNEL //</span>
-        <span className="text-[#F1F5F9]">{activeSection}</span>
+      {/* Vertical Active Text */}
+      <div className="vertical-gutter-text font-sans text-xs font-black tracking-widest text-black uppercase">
+        <span className="text-[#ff6b6b] mr-2">1981 //</span>
+        <span>{activeSection}</span>
       </div>
 
-      {/* Terminal Node Indicator */}
-      <div className="flex flex-col items-center gap-1.5">
-        <span className="w-2 h-2 rounded-full bg-[#00FF9D] beacon-pulse shadow-[0_0_10px_#00FF9D]"></span>
-        <div className="w-6 h-6 rounded bg-[#0F121E] border border-[#1E263D] flex items-center justify-center text-[9px] font-mono text-[#00F0FF] shadow-xs">
-          0x
-        </div>
+      {/* Percentage Pill */}
+      <div className="w-8 h-8 rounded-full bg-[#feca57] border-2 border-black flex items-center justify-center font-mono text-[10px] font-bold text-black shadow-[2px_2px_0_#000000]">
+        {scrollPercent}%
       </div>
     </aside>
   );
