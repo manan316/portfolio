@@ -49,15 +49,15 @@ export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal, onOpen
           {/* Monospace Provenance Roster */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 font-mono text-[11px] tracking-[0.18em] uppercase text-[#71717a]">
             <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between">
-              <span className="text-[#0a0a0a] font-medium">[01] RESEARCH INTERN</span>
+              <span className="text-[#0a0a0a] font-medium">[01] EX-RESEARCH INTERN</span>
               <span>IIT ROORKEE</span>
             </div>
             <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between">
-              <span className="text-[#0a0a0a] font-medium">[02] FIRMWARE ENGINEER</span>
+              <span className="text-[#0a0a0a] font-medium">[02] EX-EMBEDDED & IOT INTERN</span>
               <span>UNICONVERGE</span>
             </div>
             <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between">
-              <span className="text-[#ff4d00] font-medium">[03] 1ST PRIZE WINNER</span>
+              <span className="text-[#ff4d00] font-medium">[03] BEST PRESENTATION AWARD</span>
               <span>INDU X 5.0 HACKATHON</span>
             </div>
             <div className="p-3 border border-[#0a0a0a]/15 flex items-center justify-between">
@@ -159,10 +159,10 @@ export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal, onOpen
         </div>
         <div className="py-8 sm:px-6">
           <div className="text-5xl sm:text-7xl lg:text-8xl font-black text-[#ff4d00] tracking-tight leading-none">
-            1ST
+            BEST
           </div>
           <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#71717a] mt-3">
-            INDU X 5.0 HACKATHON
+            PRESENTATION AWARD (INDU X 5.0)
           </div>
         </div>
         <div className="py-8 pl-6">

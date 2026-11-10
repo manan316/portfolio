@@ -21,7 +21,7 @@ export const FlagshipCaseStudies: React.FC<FlagshipCaseStudiesProps> = ({
 
   const flagships = [
     { item: ojasews, idx: '01', badge: 'SAVERA FLAGSHIP SYSTEM' },
-    { item: geochange, idx: '02', badge: '1ST PRIZE / BEST PRESENTATION' },
+    { item: geochange, idx: '02', badge: 'BEST PRESENTATION AWARD' },
     { item: neuroview, idx: '03', badge: 'SPATIAL TELEMETRY ARCHITECTURE' },
     { item: slipsense, idx: '04', badge: '14-BAND MULTISPECTRAL' }
   ];

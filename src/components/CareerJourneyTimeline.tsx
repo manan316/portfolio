@@ -39,7 +39,7 @@ export const CareerJourneyTimeline: React.FC<CareerJourneyTimelineProps> = ({
       organization: 'Vikrant University (in partnership with ARINA AI & GO KLOUD)',
       period: 'Nov 2026',
       location: 'Gwalior, India',
-      badge: '1ST PRIZE / BEST DEFENSE',
+      badge: 'BEST PRESENTATION AWARD',
       description: 'Awarded Best Presentation for GeoChange AI — an end-to-end multi-sensor remote sensing and NASA ORNL biomass carbon accounting platform for terrestrial disturbance tracking.',
       highlights: [
         'Automated STAC catalog querying across AWS Earth Search and Microsoft Planetary Computer.',
