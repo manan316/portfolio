@@ -32,21 +32,21 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   });
 
   return (
-    <section id="work" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto scroll-mt-24">
+    <section id="work" className="py-20 px-4 sm:px-8 lg:px-12 2xl:px-16 w-full max-w-[1720px] mx-auto scroll-mt-24">
       {/* Section Header */}
       <div className="mb-12">
         <div className="flex items-center gap-2 mb-3">
-          <span className="bento-badge text-cyan-400 bg-cyan-500/10 border-cyan-500/20">
+          <span className="bento-badge text-cyan-800 bg-cyan-50 border-cyan-300 font-semibold">
             [04 // ENGINEERING ARCHIVE]
           </span>
-          <span className="text-xs text-zinc-400 font-mono">
+          <span className="text-xs text-slate-500 font-mono">
             {projects.length} PRODUCTION & RESEARCH BUILDS
           </span>
         </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
           Complete Systems & Engineering Archive
         </h2>
-        <p className="text-zinc-400 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+        <p className="text-slate-600 text-sm sm:text-base max-w-3xl font-normal leading-relaxed">
           Comprehensive inventory of edge firmware, low-level C pipelines, neural network models, and full-stack systems engineered across research and independent initiatives.
         </p>
       </div>
@@ -59,8 +59,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
             onClick={() => setSelectedFilter(cat)}
             className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
               selectedFilter === cat
-                ? 'bg-gradient-to-r from-cyan-400 to-blue-500 text-zinc-950 font-bold shadow-md shadow-cyan-500/20'
-                : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5'
+                ? 'bg-slate-900 text-white font-bold shadow-md'
+                : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-100 border border-slate-200'
             }`}
           >
             {cat} {cat === 'All' ? `(${projects.length})` : ''}
@@ -68,30 +68,30 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         ))}
       </div>
 
-      {/* Bento Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {/* Bento Grid - 4 Columns across widescreen displays */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="bento-card p-5 flex flex-col justify-between bento-glow-cyan group"
+            className="bento-card p-6 flex flex-col justify-between bento-glow-cyan group"
           >
             <div>
               {/* Category & Date */}
               <div className="flex items-center justify-between text-xs mb-3">
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-white/5 text-cyan-300 border border-cyan-500/20">
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-slate-100 text-cyan-800 border border-slate-200">
                   {project.category}
                 </span>
-                <span className="text-[11px] font-mono text-zinc-500">{project.date}</span>
+                <span className="text-[11px] font-mono text-slate-500 font-medium">{project.date}</span>
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-bold text-white mb-1 tracking-tight leading-snug group-hover:text-cyan-200 transition-colors">
+              <h3 className="text-lg font-bold text-slate-900 mb-1 tracking-tight leading-snug group-hover:text-cyan-700 transition-colors">
                 {project.title}
               </h3>
 
               {project.badge && (
                 <div className="mb-3">
-                  <span className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 inline-block">
+                  <span className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-cyan-50 text-cyan-800 border border-cyan-200 inline-block">
                     {project.badge}
                   </span>
                 </div>
@@ -101,24 +101,24 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
               {project.images && project.images[0] && (
                 <div
                   onClick={() => onOpenImage(project.images![0])}
-                  className="mb-3.5 h-36 rounded-xl overflow-hidden border border-white/10 relative cursor-pointer group/thumb bg-zinc-950 shadow-md"
+                  className="mb-3.5 h-40 rounded-xl overflow-hidden border border-slate-200 relative cursor-pointer group/thumb bg-slate-100 shadow-sm"
                 >
                   <img
                     src={project.images[0].url}
                     alt={project.images[0].caption}
                     className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-2.5">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-2.5">
                     <span className="text-[11px] text-white truncate font-medium flex items-center justify-between w-full">
                       <span className="truncate">{project.images[0].caption}</span>
-                      <ZoomIn className="w-3.5 h-3.5 text-cyan-400 ml-1 shrink-0" />
+                      <ZoomIn className="w-3.5 h-3.5 text-cyan-300 ml-1 shrink-0" />
                     </span>
                   </div>
                 </div>
               )}
 
               {/* Summary */}
-              <p className="text-xs text-zinc-300 font-normal leading-relaxed line-clamp-3 mb-4">
+              <p className="text-xs text-slate-600 font-normal leading-relaxed line-clamp-3 mb-4">
                 {project.description}
               </p>
 
@@ -127,37 +127,38 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                 {project.technologies.slice(0, 4).map((tech) => (
                   <span
                     key={tech}
-                    className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-white/5 text-zinc-400 border border-white/5"
+                    className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-slate-100 text-slate-700 border border-slate-200 font-medium"
                   >
                     {tech}
                   </span>
                 ))}
                 {project.technologies.length > 4 && (
-                  <span className="px-1.5 py-0.5 rounded-md text-[10px] font-mono text-zinc-500">
+                  <span className="px-1.5 py-0.5 rounded-md text-[10px] font-mono text-slate-500 font-medium">
                     +{project.technologies.length - 4}
                   </span>
                 )}
               </div>
             </div>
 
-            {/* Actions */}
-            <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-2">
+            {/* Action Row */}
+            <div className="pt-3 border-t border-slate-200 flex items-center justify-between gap-2">
               <button
                 onClick={() => onOpenInspector(project)}
-                className="bento-btn-primary py-1.5 px-3 text-xs flex-1 justify-center"
+                className="bento-btn-primary py-1.5 px-3 text-xs flex items-center gap-1.5"
               >
-                <Sparkles className="w-3 h-3 text-zinc-950" />
                 <span>Blueprint Spec</span>
+                <ArrowRight className="w-3 h-3" />
               </button>
+
               {project.githubUrl && (
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bento-btn-secondary p-1.5"
-                  title="GitHub Repository"
+                  className="bento-btn-secondary py-1.5 px-2.5 text-xs"
+                  title="View Repository"
                 >
-                  <GithubIcon className="w-3.5 h-3.5 text-cyan-400" />
+                  <GithubIcon className="w-3.5 h-3.5 text-slate-700" />
                 </a>
               )}
             </div>

@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --bg-main: #09090b;
-  --card-bg: rgba(18, 18, 23, 0.7);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --card-border-hover: rgba(255, 255, 255, 0.2);
+  --bg-main: #f8fafc;
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-border: rgba(226, 232, 240, 0.9);
+  --card-border-hover: rgba(203, 213, 225, 1);
 }
 
 * {
@@ -14,59 +14,59 @@
 }
 
 html {
-  background-color: #09090b;
-  color: #fafafa;
+  background-color: #f8fafc;
+  color: #0f172a;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  background-color: #09090b;
-  color: #fafafa;
+  background-color: #f8fafc;
+  color: #0f172a;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-    radial-gradient(ellipse 90% 60% at 50% -15%, rgba(99, 102, 241, 0.18), transparent 70%),
-    radial-gradient(ellipse 70% 50% at 85% 30%, rgba(34, 211, 238, 0.12), transparent 60%),
-    radial-gradient(ellipse 70% 50% at 15% 65%, rgba(139, 92, 246, 0.12), transparent 60%),
-    radial-gradient(ellipse 80% 50% at 50% 90%, rgba(16, 185, 129, 0.1), transparent 65%);
+    radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    radial-gradient(ellipse 90% 60% at 50% -15%, rgba(99, 102, 241, 0.08), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 85% 30%, rgba(14, 165, 233, 0.08), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 15% 65%, rgba(139, 92, 246, 0.07), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% 90%, rgba(16, 185, 129, 0.06), transparent 65%);
   background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
   background-attachment: scroll, fixed, fixed, fixed, fixed;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar (Light) */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #cbd5e1;
   border-radius: 9999px;
-  border: 2px solid #09090b;
+  border: 2px solid #f1f5f9;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #94a3b8;
 }
 
 /* Keyframe Animations */
 @keyframes float-slow {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(1deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
 }
 
 @keyframes float-reverse {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(12px) rotate(-1deg); }
+  50% { transform: translateY(10px) rotate(-1deg); }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.06); }
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.05); }
 }
 
 @keyframes gradient-flow {
@@ -97,15 +97,15 @@ body {
   animation: gradient-flow 6s ease infinite;
 }
 
-/* Bento Card Base */
+/* Bento Card Base (Light Glass) */
 .bento-card {
   position: relative;
-  background: rgba(18, 18, 24, 0.72);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.75rem;
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
 }
@@ -118,55 +118,55 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 1), transparent);
   pointer-events: none;
 }
 
 .bento-card:hover {
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(203, 213, 225, 1);
   transform: translateY(-3px);
-  box-shadow: 0 28px 56px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.05);
 }
 
-/* Bento Card Color Glow Variants */
+/* Bento Card Color Glow Variants (Light) */
 .bento-glow-cyan {
   position: relative;
 }
 .bento-glow-cyan:hover {
-  border-color: rgba(34, 211, 238, 0.4);
-  box-shadow: 0 28px 56px -12px rgba(0, 0, 0, 0.75), 0 0 35px -5px rgba(34, 211, 238, 0.25);
+  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow: 0 20px 35px -10px rgba(14, 165, 233, 0.15), 0 0 25px -4px rgba(14, 165, 233, 0.15);
 }
 
 .bento-glow-emerald {
   position: relative;
 }
 .bento-glow-emerald:hover {
-  border-color: rgba(16, 185, 129, 0.4);
-  box-shadow: 0 28px 56px -12px rgba(0, 0, 0, 0.75), 0 0 35px -5px rgba(16, 185, 129, 0.25);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 20px 35px -10px rgba(16, 185, 129, 0.15), 0 0 25px -4px rgba(16, 185, 129, 0.15);
 }
 
 .bento-glow-violet {
   position: relative;
 }
 .bento-glow-violet:hover {
-  border-color: rgba(139, 92, 246, 0.4);
-  box-shadow: 0 28px 56px -12px rgba(0, 0, 0, 0.75), 0 0 35px -5px rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 20px 35px -10px rgba(139, 92, 246, 0.15), 0 0 25px -4px rgba(139, 92, 246, 0.15);
 }
 
 .bento-glow-amber {
   position: relative;
 }
 .bento-glow-amber:hover {
-  border-color: rgba(245, 158, 11, 0.4);
-  box-shadow: 0 28px 56px -12px rgba(0, 0, 0, 0.75), 0 0 35px -5px rgba(245, 158, 11, 0.25);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 20px 35px -10px rgba(245, 158, 11, 0.15), 0 0 25px -4px rgba(245, 158, 11, 0.15);
 }
 
 .bento-glow-rose {
   position: relative;
 }
 .bento-glow-rose:hover {
-  border-color: rgba(244, 63, 94, 0.4);
-  box-shadow: 0 28px 56px -12px rgba(0, 0, 0, 0.75), 0 0 35px -5px rgba(244, 63, 94, 0.25);
+  border-color: rgba(244, 63, 94, 0.5);
+  box-shadow: 0 20px 35px -10px rgba(244, 63, 94, 0.15), 0 0 25px -4px rgba(244, 63, 94, 0.15);
 }
 
 /* Bento Buttons */
@@ -180,17 +180,17 @@ body {
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.01em;
-  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-  color: #09090b;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 25px -4px rgba(255, 255, 255, 0.5);
+  background: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 .bento-btn-primary:hover {
-  background: #ffffff;
+  background: #1e293b;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px -2px rgba(255, 255, 255, 0.6), 0 0 30px rgba(34, 211, 238, 0.4);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.22);
 }
 
 .bento-btn-secondary {
@@ -203,18 +203,19 @@ body {
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.01em;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #f4f4f5;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: #1e293b;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
   backdrop-filter: blur(12px);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .bento-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.28);
-  color: #ffffff;
+  background: #f8fafc;
+  border-color: rgba(203, 213, 225, 1);
+  color: #0f172a;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.07);
 }
 
 /* Bento Badges */
@@ -228,24 +229,32 @@ body {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #e4e4e7;
-  backdrop-filter: blur(8px);
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: #475569;
 }
 
-/* Form Inputs */
+/* Form Inputs (Light) */
 .bento-input {
-  background: rgba(24, 24, 27, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
   border-radius: 0.875rem;
   padding: 0.8rem 1.1rem;
-  color: #fafafa;
+  color: #0f172a;
   outline: none;
   transition: all 0.2s ease;
 }
 .bento-input:focus {
-  border-color: #22d3ee;
-  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2), 0 0 20px rgba(34, 211, 238, 0.15);
-  background: rgba(24, 24, 27, 0.9);
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+  background: #ffffff;
+}
+
+/* Modal Animations */
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fadeIn {
+  animation: modalFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

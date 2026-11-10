@@ -8,21 +8,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#09090b',
+        background: '#f8fafc',
         surface: {
-          DEFAULT: '#121217',
-          card: 'rgba(18, 18, 23, 0.65)',
-          muted: '#18181b',
-          border: 'rgba(255, 255, 255, 0.08)',
-          hover: 'rgba(255, 255, 255, 0.12)',
+          DEFAULT: '#ffffff',
+          card: 'rgba(255, 255, 255, 0.88)',
+          muted: '#f1f5f9',
+          border: 'rgba(226, 232, 240, 0.9)',
+          hover: 'rgba(241, 245, 249, 0.9)',
         },
         brand: {
-          cyan: '#22d3ee',
-          emerald: '#10b981',
-          violet: '#8b5cf6',
-          indigo: '#6366f1',
-          amber: '#f59e0b',
-          rose: '#f43f5e',
+          cyan: '#0284c7',
+          emerald: '#059669',
+          violet: '#7c3aed',
+          indigo: '#4f46e5',
+          amber: '#d97706',
+          rose: '#e11d48',
         }
       },
       fontFamily: {
@@ -30,11 +30,11 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
-        'bento': '0 0 0 1px rgba(255, 255, 255, 0.08), 0 20px 40px -15px rgba(0, 0, 0, 0.5)',
-        'bento-hover': '0 0 0 1px rgba(255, 255, 255, 0.18), 0 24px 48px -12px rgba(0, 0, 0, 0.65)',
-        'glow-cyan': '0 0 30px -5px rgba(34, 211, 238, 0.25)',
-        'glow-emerald': '0 0 30px -5px rgba(16, 185, 129, 0.25)',
-        'glow-violet': '0 0 30px -5px rgba(139, 92, 246, 0.25)',
+        'bento': '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 10px 25px -5px rgba(0, 0, 0, 0.04)',
+        'bento-hover': '0 20px 35px -10px rgba(15, 23, 42, 0.08), 0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+        'glow-cyan': '0 0 25px -3px rgba(14, 165, 233, 0.2)',
+        'glow-emerald': '0 0 25px -3px rgba(16, 185, 129, 0.2)',
+        'glow-violet': '0 0 25px -3px rgba(139, 92, 246, 0.2)',
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',

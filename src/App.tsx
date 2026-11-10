@@ -47,12 +47,12 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#09090b] text-[#fafafa] font-sans antialiased selection:bg-cyan-500/25 selection:text-cyan-200">
+    <div className="relative min-h-screen bg-[#f8fafc] text-[#0f172a] font-sans antialiased selection:bg-cyan-500/20 selection:text-cyan-900 w-full">
       {/* Floating Glass Pill Navbar */}
       <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
 
-      {/* Main Bento Flow */}
-      <main className="relative z-10 space-y-16">
+      {/* Main Bento Flow - Full Width Spanning */}
+      <main className="relative z-10 space-y-16 sm:space-y-24 w-full pb-16">
         {/* SECTION 01: Hero Master Bento Grid */}
         <Hero
           personalInfo={personalInfo}
@@ -125,13 +125,13 @@ export const App: React.FC = () => {
       {/* Floating Bottom-Right Terminal Launcher Pill */}
       <button
         onClick={() => setTerminalOpen(true)}
-        className="fixed bottom-6 right-6 z-40 bento-btn-secondary py-2.5 px-3.5 text-xs shadow-2xl backdrop-blur-2xl border border-white/15 hover:border-cyan-400/50 hover:bg-white/10 group flex items-center gap-2 transition-all duration-300"
+        className="fixed bottom-6 right-6 z-40 bento-btn-secondary py-2.5 px-3.5 text-xs shadow-xl backdrop-blur-2xl border border-slate-200/90 hover:border-cyan-500/50 hover:bg-white group flex items-center gap-2 transition-all duration-300 text-slate-800"
         title="Open Terminal (Ctrl + K or `)"
         aria-label="Open Terminal"
       >
-        <TerminalIcon className="w-4 h-4 text-cyan-400 group-hover:rotate-12 transition-transform" />
-        <span className="font-mono text-zinc-200 hidden sm:inline">terminal</span>
-        <span className="text-[10px] bg-white/10 text-zinc-400 px-1.5 py-0.2 rounded font-mono hidden md:inline">
+        <TerminalIcon className="w-4 h-4 text-cyan-600 group-hover:rotate-12 transition-transform" />
+        <span className="font-mono text-slate-800 font-semibold hidden sm:inline">terminal</span>
+        <span className="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.2 rounded font-mono hidden md:inline border border-slate-200">
           ^K
         </span>
       </button>

@@ -13,7 +13,7 @@ export const personalInfo: PersonalInfo = {
   name: "Manan Sharma",
   pronouns: "He/Him",
   role: "Software Engineer & AI/ML Systems Researcher",
-  headline: "Software Engineer & AI/ML Systems Researcher | Embedded Linux, Edge AI & Geospatial Systems | Ex-Intern IIT Roorkee & UniConverge",
+  headline: "Engineer, Researcher & Polymath | AI/ML, Embedded Systems & Geospatial AI | Ex-Intern IIT Roorkee & UniConverge",
   subHeadline: "B.Tech Artificial Intelligence & Mathematics · University of Jammu",
   status: "ACTIVE // OPEN TO OPPORTUNITIES",
   location: "Jammu & Kashmir, India",
@@ -37,6 +37,8 @@ export const personalInfo: PersonalInfo = {
     "Developed SlipSense: AI-powered landslide segmentation using custom CRUNet on 14-band multispectral satellite imagery",
     "Created NeuroView: High-throughput 3D spatial telemetry & signal visualization platform with WebGL shaders & cascading LLMs",
     "Organised Innovathon 1.0 National level Hackathon at University of Jammu",
+    "Performed dual lead role as Arjuna & Guru Kripacharya in 'Rashmirathi' at 25th Bharat Rang Mahotsav (BRM) International Theatre Festival (2026)",
+    "Selected as Junior Scientist at 26th National Children Science Congress (NCSC), IIT Kanpur (2018)",
     "Participated in Visual Attention Modeling & High-Speed Instrumentation Workshop at IIT Jammu (2024)",
     "Selected Participant at Innovation, Design and Entrepreneurship (IDE) Bootcamp (Edition 3) at University of Ladakh (2026)"
   ]
@@ -450,6 +452,7 @@ export const educationList: EducationItem[] = [
     location: "Jammu & Kashmir, India",
     highlights: [
       "Core coursework: Artificial Intelligence, Applied Mathematics, Data Structures, Algorithms, Linear Algebra, Machine Learning, Operating Systems, Computer Networks.",
+      "Performed dual lead role as Arjuna and Guru Kripacharya in 'Rashmirathi' at the 25th Bharat Rang Mahotsav (BRM) 2026 by National School of Drama (NSD).",
       "Organizing Team Member for Innovathon 1.0 — University of Jammu's premier National level Hackathon.",
       "Undergraduate researcher in edge AI acceleration, embedded Linux firmware, and geospatial satellite vision."
     ],
@@ -478,6 +481,20 @@ export const trainingsAndWorkshops: TrainingWorkshopItem[] = [
     year: "2025",
     description: "Core member of the event organizing team managing operations, technical logistics, and participant mentoring for the National-level Innovathon 1.0 hackathon.",
     category: "LEADERSHIP / HACKATHON"
+  },
+  {
+    title: "Actor (Arjuna & Guru Kripacharya) — 25th Bharat Rang Mahotsav (BRM)",
+    institution: "National School of Drama (NSD) & University of Jammu",
+    year: "2026",
+    description: "Performed a dual role portraying Arjuna and Guru Kripacharya in the dramatic presentation of Ramdhari Singh Dinkar's epic 'Rashmirathi' at the 25th Bharat Rang Mahotsav International Theatre Festival, organized by NSD, New Delhi (Ministry of Culture) and University of Jammu.",
+    category: "THEATRE / BRM FESTIVAL"
+  },
+  {
+    title: "Junior Scientist — 26th National Children Science Congress (NCSC)",
+    institution: "Indian Institute of Technology (IIT), Kanpur",
+    year: "2018",
+    description: "Selected and participated as Junior Scientist at the prestigious 26th NCSC held at Kendriya Vidyalaya, Indian Institute of Technology, Kanpur, presenting scientific research.",
+    category: "SCIENCE CONGRESS / HONOR"
   },
   {
     title: "Visual Attention Modeling & High-Speed Instrumentation Workshop",

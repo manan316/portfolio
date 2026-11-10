@@ -159,11 +159,11 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
 
   return (
     <div 
-      className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md"
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md"
       onClick={onClose}
     >
       <div 
-        className="relative max-w-2xl w-full bg-zinc-900 border border-white/15 rounded-2xl shadow-2xl font-mono overflow-hidden"
+        className="relative max-w-2xl w-full bg-slate-950 border border-slate-800 rounded-2xl shadow-2xl font-mono overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Terminal Header */}
