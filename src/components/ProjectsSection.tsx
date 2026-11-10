@@ -110,16 +110,19 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
               {project.images && project.images[0] && (
                 <div
                   onClick={() => onOpenImage(project.images![0])}
-                  className="w-16 h-12 bg-[#e4e4e7] overflow-hidden cursor-pointer shrink-0 hidden sm:block group/img relative"
+                  className="w-24 h-16 sm:w-28 sm:h-18 bg-[#e4e4e7] border border-[#0a0a0a]/15 group-hover/img:border-[#ff4d00] overflow-hidden cursor-pointer shrink-0 group/img relative transition-all"
                   title={project.images[0].caption}
                 >
                   <img
                     src={project.images[0].url}
                     alt={project.images[0].caption}
-                    className="w-full h-full object-cover grayscale contrast-125 group-hover/img:grayscale-0 transition-all"
+                    loading="lazy"
+                    className="w-full h-full object-cover grayscale contrast-110 group-hover/img:grayscale-0 transition-all duration-300"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity">
-                    <ZoomIn className="w-3 h-3 text-white" />
+                    <span className="text-[9px] text-white font-mono uppercase tracking-[0.15em] flex items-center gap-1">
+                      <ZoomIn className="w-3 h-3 text-[#ff4d00]" /> ZOOM
+                    </span>
                   </div>
                 </div>
               )}

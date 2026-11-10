@@ -105,24 +105,16 @@ export const projects: ProjectItem[] = [
     badge: "SAVERA Flagship System",
     images: [
       {
-        url: "/images/ojasews_hero.png",
+        url: "/images/ojasews_command_center.png",
         caption: "Command Center, Liquid Slosh Risk Gauge & Real-Time Alert Feed"
       },
       {
-        url: "/images/ojasews_terrain.png",
+        url: "/images/ojasews_digital_twin.png",
         caption: "Procedural 3D Terrain Digital Twin with Dynamic Slope Heatmap Shaders"
       },
       {
-        url: "/images/ojasews_sensors.png",
+        url: "/images/ojasews_simulation_lab.png",
         caption: "Hardware & Physics Ingestion Matrix — Moisture, Tilt, Rain & Cohesion"
-      },
-      {
-        url: "/images/ojasews_telemetry.png",
-        caption: "Synchronized Environmental Telemetry Time-Series & Infiltration Analytics"
-      },
-      {
-        url: "/images/ojasews_mobile_alerts.png",
-        caption: "Sub-Second Mobile Push Alert Dispatch Console via ntfy.sh"
       }
     ]
   },
@@ -145,24 +137,16 @@ export const projects: ProjectItem[] = [
     badge: "Best Presentation Award — INDU X 5.0",
     images: [
       {
-        url: "/images/geochange_hero.png",
+        url: "/images/geochange_dashboard.png",
         caption: "GeoChange AI Command Center & Multi-Catalog Data Readiness Hub"
       },
       {
-        url: "/images/geochange_dating.png",
+        url: "/images/geochange_map.png",
         caption: "Pixel-Level Annual Change Dating (2021–2026) with Scrubbable Timeline Player"
       },
       {
-        url: "/images/geochange_carbon.png",
+        url: "/images/geochange_indicators.png",
         caption: "NASA/ORNL Biomass Carbon Accounting & CO2 Equivalent Loss Modeling"
-      },
-      {
-        url: "/images/geochange_thermal.png",
-        caption: "Landsat 8/9 Surface Temperature Anomaly Coupling & Heat Island Radiometry"
-      },
-      {
-        url: "/images/geochange_report.png",
-        caption: "Automated Publication-Ready PDF & GeoJSON Environmental Risk Dispatch"
       }
     ]
   },
@@ -184,16 +168,12 @@ export const projects: ProjectItem[] = [
     badge: "3D Spatial Telemetry & Shaders",
     images: [
       {
-        url: "/images/neuroview_hero.png",
+        url: "/images/neuroview_brain.png",
         caption: "3D Spatial Telemetry & Scalar Heatmap Surface Rendering"
       },
       {
-        url: "/images/neuroview_stream.png",
+        url: "/images/neuroview_data.png",
         caption: "Synchronized High-Frequency Sensor Signal Ingestion & Spectral Decomp"
-      },
-      {
-        url: "/images/neuroview_agent.png",
-        caption: "Cascading LLM Diagnostic Generation & Automated Analysis Engine"
       }
     ]
   },
@@ -319,12 +299,8 @@ export const projects: ProjectItem[] = [
     badge: "Sequential NLP & Deep Learning",
     images: [
       {
-        url: "/images/sentiment_training.png",
-        caption: "Model Architecture & Accuracy Training Progression"
-      },
-      {
-        url: "/images/sentiment_confusion.png",
-        caption: "Multi-Class Emotion Confusion Matrix & Classification Report"
+        url: "/images/CNNLSTM.png",
+        caption: "Hybrid CNN-LSTM Multi-Class Emotion Classification Architecture & Accuracy Progression"
       }
     ]
   }
