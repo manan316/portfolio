@@ -1,273 +1,216 @@
-import React, { useState, useEffect } from 'react';
-import { GithubIcon, LinkedinIcon } from './Icons';
-import { Mail, Download, ArrowRight, Sparkles, Terminal, Layers, Star, Code2, Cpu } from 'lucide-react';
-import { personalInfo } from '../data/portfolioData';
-import { MemphisCircle, MemphisTriangle, MemphisWave, MemphisZigzag } from './MemphisOrnament';
+import React from 'react';
+import { PersonalInfo } from '../types/portfolio';
+import { Terminal, FileText, ArrowDown, Activity, Sparkles, MapPin, ExternalLink, ShieldCheck, Flame, Radio } from 'lucide-react';
+import { MemphisCardOrnaments } from './MemphisOrnament';
 
 interface HeroProps {
-  triggerAnimation?: boolean;
+  personalInfo: PersonalInfo;
+  onOpenTerminal: () => void;
+  onOpenImage?: (image: { url: string; caption: string }) => void;
 }
 
-export const Hero: React.FC<HeroProps> = () => {
-  const [timeString, setTimeString] = useState<string>('');
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setTimeString(now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' }));
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
+export const Hero: React.FC<HeroProps> = ({ personalInfo, onOpenTerminal, onOpenImage }) => {
   return (
-    <section 
-      id="hero"
-      className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 overflow-hidden bg-[#fdf6e3] border-b-4 border-black"
-    >
-      {/* Background Floating Memphis Geometric Ornaments (Playful Chaos) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
-        {/* Top Left Floating Triangle */}
-        <div className="absolute top-16 left-6 lg:left-16 rotate-12 transition-transform duration-300 hover:rotate-45 hover:scale-125">
-          <MemphisTriangle color="honey" size={54} />
+    <section id="hero" className="relative pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Decorative Floating Geometry in Background */}
+      <div className="absolute top-16 left-6 w-12 h-12 rounded-full bg-honey border-4 border-black -z-10 animate-bounce-short pointer-events-none" />
+      <div className="absolute top-36 right-8 w-14 h-14 bg-electric-blue border-4 border-black rotate-12 -z-10 pointer-events-none" />
+
+      {/* Top Banner Tag */}
+      <div className="flex flex-wrap items-center gap-3 mb-6">
+        <span className="memphis-badge bg-coral text-white border-4 border-black px-4 py-1.5 text-xs font-black tracking-widest uppercase">
+          [01 // MASTER IDENTITY MATRIX]
+        </span>
+        <span className="bg-mint text-black border-3 border-black px-3 py-1 text-xs font-black tracking-wider uppercase flex items-center gap-1.5">
+          <Radio className="w-3.5 h-3.5 animate-pulse" /> PRTS_LINK ACTIVE // SYS_READY
+        </span>
+        <span className="bg-white text-black border-2 border-black px-2.5 py-0.5 text-xs font-bold hidden sm:inline-block">
+          📍 {personalInfo.location}
+        </span>
+      </div>
+
+      {/* Bento Grid Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        {/* Bento Cell 1: Master Identity & Mission (Col 1 to 8, 8 cols) */}
+        <div className="lg:col-span-8 memphis-card bg-paper p-6 sm:p-10 relative overflow-hidden group flex flex-col justify-between">
+          <MemphisCardOrnaments variant={1} />
+
+          <div>
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              <span className="bg-honey text-black border-2 border-black px-2.5 py-0.5 text-xs font-black uppercase">
+                AI/ML Researcher
+              </span>
+              <span className="bg-electric-blue text-black border-2 border-black px-2.5 py-0.5 text-xs font-black uppercase">
+                Embedded Linux & IoT
+              </span>
+              <span className="bg-mint text-black border-2 border-black px-2.5 py-0.5 text-xs font-black uppercase">
+                Computer Vision
+              </span>
+            </div>
+
+            <h1 className="memphis-display text-black mb-4 pop-swap tracking-tight">
+              MANAN SHARMA
+            </h1>
+
+            <div className="text-xl sm:text-2xl font-black text-black leading-tight mb-4 flex items-center gap-2">
+              <span className="bg-black text-white px-3 py-1">ENGINEER</span>
+              <span className="bg-coral text-white px-3 py-1">RESEARCHER</span>
+              <span className="bg-honey text-black px-3 py-1">POLYMATH</span>
+            </div>
+
+            <p className="text-sm sm:text-base font-bold text-gray-900 leading-relaxed max-w-2xl mb-6">
+              Specializing in <strong className="underline decoration-coral decoration-4">Edge AI NPU acceleration</strong> (Intel OpenVINO, YOLOv8), <strong className="underline decoration-honey decoration-4">custom embedded Linux firmware</strong> (OpenWrt, LoRaWAN SX1303), and <strong className="underline decoration-electric-blue decoration-4">geotechnical 3D digital twins & satellite remote sensing</strong> (OJASEWS, GeoChange AI, Sentinel-2).
+            </p>
+
+            {/* Provenance Badges */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              <span className="bg-white border-3 border-black text-black px-3 py-1 text-xs font-black">
+                🏛️ Ex-Research Intern · IIT Roorkee
+              </span>
+              <span className="bg-white border-3 border-black text-black px-3 py-1 text-xs font-black">
+                📡 Ex-IoT Engineer Intern · UniConverge
+              </span>
+              <span className="bg-white border-3 border-black text-black px-3 py-1 text-xs font-black">
+                🏆 Winner · INDU X 5.0 Hackathon
+              </span>
+              <span className="bg-white border-3 border-black text-black px-3 py-1 text-xs font-black">
+                🎓 University of Jammu · B.Tech AI & Math
+              </span>
+            </div>
+          </div>
+
+          {/* Action Button Strip */}
+          <div className="flex flex-wrap items-center gap-3 pt-6 border-t-4 border-black">
+            <a
+              href="#lab"
+              className="memphis-btn flex items-center gap-2 text-xs sm:text-sm"
+            >
+              <Activity className="w-4 h-4" /> Try Live Sim Lab
+            </a>
+            <a
+              href="#case-studies"
+              className="memphis-btn-honey flex items-center gap-2 text-xs sm:text-sm"
+            >
+              <Sparkles className="w-4 h-4" /> Case Studies
+            </a>
+            <button
+              onClick={onOpenTerminal}
+              className="memphis-btn-blue flex items-center gap-2 text-xs sm:text-sm"
+            >
+              <Terminal className="w-4 h-4" /> Terminal [~]
+            </button>
+            <a
+              href={personalInfo.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="memphis-btn-mint flex items-center gap-2 text-xs sm:text-sm"
+            >
+              <FileText className="w-4 h-4" /> Resume [PDF]
+            </a>
+          </div>
         </div>
 
-        {/* Top Right Floating Circle */}
-        <div className="absolute top-24 right-8 sm:right-20 -rotate-6 transition-transform duration-300 hover:scale-125">
-          <MemphisCircle color="coral" size={48} />
-        </div>
+        {/* Bento Cell 2 & 3: Profile Photo + Telemetry Widget (4 cols) */}
+        <div className="lg:col-span-4 flex flex-col gap-6">
+          {/* Framed Profile Card */}
+          <div className="memphis-card bg-paper p-5 relative overflow-hidden group flex flex-col items-center text-center">
+            <MemphisCardOrnaments variant={2} />
 
-        {/* Mid Left Zigzag */}
-        <div className="absolute top-1/2 -left-6 sm:left-4 rotate-45 transition-transform duration-300 hover:scale-125">
-          <MemphisZigzag color="electric-blue" size={72} />
-        </div>
+            <div className="relative mb-4 mt-2">
+              {/* Offset Backdrop Stamp */}
+              <div className="absolute -inset-1.5 bg-honey border-4 border-black rotate-2" />
+              <div className="relative w-44 h-44 sm:w-48 sm:h-48 border-4 border-black overflow-hidden bg-white shadow-memphis-sm">
+                <img
+                  src={personalInfo.profileImage || '/images/profile.png'}
+                  alt={personalInfo.name}
+                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-200"
+                />
+              </div>
+            </div>
 
-        {/* Mid Right Wave */}
-        <div className="absolute top-2/3 right-4 sm:right-12 -rotate-12 transition-transform duration-300 hover:scale-125">
-          <MemphisWave color="mint" size={80} />
-        </div>
+            <div className="text-lg font-black text-black uppercase tracking-tight">
+              {personalInfo.name}
+            </div>
+            <div className="text-xs font-bold text-gray-700 mt-0.5">
+              {personalInfo.pronouns} · Jammu & Kashmir, India
+            </div>
 
-        {/* Bottom Left Big Circle */}
-        <div className="absolute -bottom-8 left-1/4 rotate-45">
-          <MemphisCircle color="bubblegum" size={68} />
-        </div>
+            <div className="mt-3 bg-white border-2 border-black px-3 py-1 text-xs font-black text-black flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-mint border border-black animate-pulse" />
+              Open for Research & High-Impact Roles
+            </div>
+          </div>
 
-        {/* Bottom Right Floating Star/Pluses */}
-        <div className="absolute bottom-16 right-1/3 rotate-12">
-          <MemphisTriangle color="coral" size={42} />
+          {/* Real-Time Telemetry Ticker Card */}
+          <div className="bg-white border-4 border-black p-5 shadow-memphis space-y-3">
+            <div className="flex items-center justify-between pb-2 border-b-2 border-black">
+              <span className="text-xs font-black uppercase tracking-widest text-black flex items-center gap-1.5">
+                <Activity className="w-4 h-4 text-coral animate-spin-slow" /> SYSTEM METRICS PULSE
+              </span>
+              <span className="text-[10px] font-black bg-honey px-1.5 py-0.5 border border-black">
+                LIVE TELEMETRY
+              </span>
+            </div>
+
+            <div className="space-y-2 text-xs font-bold">
+              <div className="flex justify-between items-center bg-paper p-2 border-2 border-black">
+                <span>Himalayan Samroli Sensor:</span>
+                <span className="font-black text-green-700">ONLINE // 100%</span>
+              </div>
+              <div className="flex justify-between items-center bg-paper p-2 border-2 border-black">
+                <span>STAC Satellite Cloud Mask:</span>
+                <span className="font-black text-blue-700">PASS (QA60 &lt; 5%)</span>
+              </div>
+              <div className="flex justify-between items-center bg-paper p-2 border-2 border-black">
+                <span>Intel OpenVINO NPU Latency:</span>
+                <span className="font-black text-purple-700">4.2ms / Frame</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
-        
-        {/* Top Pill / Status Ribbon */}
-        <div className="flex flex-wrap items-center gap-2.5 mb-6">
-          <div className="memphis-badge bg-[#feca57] text-black">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#1dd1a1] border-2 border-black inline-block animate-pulse"></span>
-            <span>SYSTEM ACTIVE // SYS_READY</span>
+      {/* Chunky Metric Clash Tiles (Full-width row) */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+        <div className="bg-coral text-white border-4 border-black p-5 shadow-memphis group hover:-translate-y-1 transition-transform">
+          <div className="text-4xl sm:text-5xl font-black leading-none mb-1">8+</div>
+          <div className="text-xs font-black uppercase tracking-wider">
+            Engineered Systems Built
           </div>
-
-          <div className="memphis-badge bg-[#48dbfb] text-black hidden sm:inline-flex">
-            <span>JAMMU & KASHMIR, INDIA</span>
-          </div>
-
-          <div className="memphis-badge bg-[#ff9ff3] text-black hidden md:inline-flex font-mono">
-            <span>CLOCK: {timeString || '12:00:00'}</span>
+          <div className="text-[11px] font-bold opacity-90 mt-1">
+            Edge AI, IoT, WebGL & Remote Sensing
           </div>
         </div>
 
-        {/* Main Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          {/* Left Column: Big Bold Typography */}
-          <div className="lg:col-span-8 space-y-6">
-            
-            {/* Clashing Title Block (Leading 1.0) */}
-            <div className="space-y-3">
-              <div className="inline-block bg-[#ff6b6b] text-white px-3.5 py-1 text-xs sm:text-sm font-black uppercase tracking-wider border-3 border-black shadow-[3px_3px_0_#000000] tilt-neg-1">
-                ✦ 1981 MILAN REBUTTAL // NO RESTRAINT
-              </div>
-
-              <h1 className="memphis-display text-black">
-                MANAN SHARMA
-              </h1>
-
-              <div className="flex flex-wrap items-center gap-2 pt-1">
-                <span className="bg-[#48dbfb] text-black px-3 py-1 font-sans font-black text-sm sm:text-lg uppercase border-3 border-black shadow-[3px_3px_0_#000000] tilt-pos-1 hover:bg-[#ff6b6b] hover:text-white pop-swap">
-                  EDGE AI & VISION
-                </span>
-                <span className="bg-[#feca57] text-black px-3 py-1 font-sans font-black text-sm sm:text-lg uppercase border-3 border-black shadow-[3px_3px_0_#000000] tilt-neg-2 hover:bg-[#1dd1a1] pop-swap">
-                  EMBEDDED LINUX
-                </span>
-                <span className="bg-[#1dd1a1] text-black px-3 py-1 font-sans font-black text-sm sm:text-lg uppercase border-3 border-black shadow-[3px_3px_0_#000000] hover:bg-[#feca57] pop-swap">
-                  3D DIGITAL TWINS
-                </span>
-              </div>
-            </div>
-
-            {/* Subheading / Identity Narrative */}
-            <p className="font-sans font-bold text-base sm:text-lg text-black leading-snug max-w-2xl bg-white p-5 border-4 border-black shadow-memphis">
-              Engineer, Researcher & Polymath exploring <strong className="bg-[#feca57] px-1 text-black">Edge AI Acceleration</strong>, <strong className="bg-[#48dbfb] px-1 text-black">Linux Kernel Firmware</strong> (OpenWrt/LoRaWAN), and <strong className="bg-[#ff9ff3] px-1 text-black">High-Performance DSP</strong>.
-              <span className="block mt-2 font-mono text-xs sm:text-sm text-[#5f27cd] font-bold">
-                B.Tech Artificial Intelligence & Mathematics · University of Jammu · Ex-Intern IIT Roorkee, UCT
-              </span>
-            </p>
-
-            {/* Pop Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              <a href="#projects" className="memphis-btn">
-                <span>EXPLORE WORK</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-
-              <a href="#contact" className="memphis-btn-blue">
-                <Mail className="w-4 h-4" />
-                <span>GET IN TOUCH</span>
-              </a>
-
-              <a
-                href={personalInfo.resumeUrl}
-                download="Manan_Sharma_Resume.pdf"
-                className="memphis-btn-honey"
-              >
-                <Download className="w-4 h-4" />
-                <span>RESUME (PDF)</span>
-              </a>
-            </div>
-
-            {/* Social Link Badges */}
-            <div className="flex items-center gap-3 pt-2">
-              <a
-                href={personalInfo.github}
-                target="_blank"
-                rel="noreferrer"
-                className="p-2.5 bg-white border-3 border-black shadow-[3px_3px_0_#000000] hover:bg-[#ff6b6b] hover:text-white transition-colors duration-150"
-                title="GitHub"
-              >
-                <GithubIcon className="w-5 h-5" />
-              </a>
-
-              <a
-                href={personalInfo.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="p-2.5 bg-white border-3 border-black shadow-[3px_3px_0_#000000] hover:bg-[#48dbfb] hover:text-black transition-colors duration-150"
-                title="LinkedIn"
-              >
-                <LinkedinIcon className="w-5 h-5" />
-              </a>
-
-              <a
-                href={`mailto:${personalInfo.email}`}
-                className="p-2.5 bg-white border-3 border-black shadow-[3px_3px_0_#000000] hover:bg-[#feca57] hover:text-black transition-colors duration-150"
-                title="Email"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
-
-              <span className="font-mono text-xs font-bold text-black bg-[#ff9ff3] px-2.5 py-1 border-2 border-black ml-2 hidden sm:inline-block">
-                SYS_VER: 2.0 (MEMPHIS)
-              </span>
-            </div>
-
+        <div className="bg-honey text-black border-4 border-black p-5 shadow-memphis group hover:-translate-y-1 transition-transform">
+          <div className="text-4xl sm:text-5xl font-black leading-none mb-1">2</div>
+          <div className="text-xs font-black uppercase tracking-wider">
+            Tier-1 Labs & Internships
           </div>
-
-          {/* Right Column: Memphis Framed Portrait Card with Chaos Ornaments */}
-          <div className="lg:col-span-4 flex justify-center lg:justify-end">
-            <div className="relative group select-none">
-              
-              {/* Clashing Offset Backdrop Block */}
-              <div className="absolute inset-0 bg-[#feca57] border-4 border-black translate-x-3 translate-y-3 -rotate-2"></div>
-              
-              {/* Card Container */}
-              <div className="relative bg-white border-4 border-black p-4 shadow-memphis rotate-1 group-hover:rotate-0 transition-transform duration-150">
-                
-                {/* Photo Frame */}
-                <div className="w-56 sm:w-64 h-64 sm:h-72 border-3 border-black overflow-hidden bg-[#ff9ff3] relative">
-                  <img
-                    src={personalInfo.profileImage || "/images/profile.png"}
-                    alt={personalInfo.name}
-                    className="w-full h-full object-cover object-top filter contrast-105"
-                  />
-                  {/* Badge pinned on image */}
-                  <div className="absolute bottom-2 left-2 right-2 bg-black text-white text-center font-mono text-[11px] font-bold py-1 border-2 border-white uppercase">
-                    OPERATOR // VERIFIED
-                  </div>
-                </div>
-
-                {/* Corner Geometric Ornaments */}
-                <MemphisCircle
-                  color="coral"
-                  size={38}
-                  className="ornament ornament-1 -top-4 -right-4"
-                />
-                <MemphisTriangle
-                  color="electric-blue"
-                  size={42}
-                  className="ornament ornament-2 -bottom-4 -left-4"
-                />
-                <MemphisWave
-                  color="mint"
-                  size={48}
-                  className="ornament ornament-3 -top-3 -left-4"
-                />
-
-                {/* Footer of photo card */}
-                <div className="pt-3 flex items-center justify-between border-t-3 border-black mt-3">
-                  <span className="font-black text-xs uppercase tracking-wider text-black">
-                    MANAN SHARMA
-                  </span>
-                  <span className="bg-[#1dd1a1] text-black text-[10px] font-black px-1.5 py-0.5 border-2 border-black">
-                    IIT ROORKEE / UCT
-                  </span>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* 4 Chunky Metric Clash Blocks */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 sm:mt-16">
-          <div className="bg-white border-4 border-black p-4 shadow-memphis tilt-neg-1 hover:tilt-0 transition-transform duration-150 group">
-            <div className="font-sans font-black text-3xl sm:text-4xl text-[#ff6b6b] group-hover:text-black pop-swap">
-              08+
-            </div>
-            <div className="font-sans font-black text-xs uppercase tracking-wider text-black mt-1">
-              Production & AI Systems
-            </div>
-          </div>
-
-          <div className="bg-white border-4 border-black p-4 shadow-memphis tilt-pos-1 hover:tilt-0 transition-transform duration-150 group">
-            <div className="font-sans font-black text-3xl sm:text-4xl text-[#48dbfb] group-hover:text-black pop-swap">
-              02
-            </div>
-            <div className="font-sans font-black text-xs uppercase tracking-wider text-black mt-1">
-              Research Internships (IIT/UCT)
-            </div>
-          </div>
-
-          <div className="bg-white border-4 border-black p-4 shadow-memphis tilt-neg-2 hover:tilt-0 transition-transform duration-150 group">
-            <div className="font-sans font-black text-3xl sm:text-4xl text-[#1dd1a1] group-hover:text-black pop-swap">
-              🏆 #1
-            </div>
-            <div className="font-sans font-black text-xs uppercase tracking-wider text-black mt-1">
-              INDU X 5.0 Presentation Award
-            </div>
-          </div>
-
-          <div className="bg-white border-4 border-black p-4 shadow-memphis tilt-pos-2 hover:tilt-0 transition-transform duration-150 group">
-            <div className="font-sans font-black text-3xl sm:text-4xl text-[#feca57] group-hover:text-black pop-swap">
-              12+
-            </div>
-            <div className="font-sans font-black text-xs uppercase tracking-wider text-black mt-1">
-              Core Engineering Engines
-            </div>
+          <div className="text-[11px] font-bold text-gray-800 mt-1">
+            IIT Roorkee & UniConverge Technologies
           </div>
         </div>
 
+        <div className="bg-mint text-black border-4 border-black p-5 shadow-memphis group hover:-translate-y-1 transition-transform">
+          <div className="text-4xl sm:text-5xl font-black leading-none mb-1">1st</div>
+          <div className="text-xs font-black uppercase tracking-wider">
+            Best Presentation Prize
+          </div>
+          <div className="text-[11px] font-bold text-gray-800 mt-1">
+            INDU X 5.0 International Hackathon
+          </div>
+        </div>
+
+        <div className="bg-electric-blue text-black border-4 border-black p-5 shadow-memphis group hover:-translate-y-1 transition-transform">
+          <div className="text-4xl sm:text-5xl font-black leading-none mb-1">14</div>
+          <div className="text-xs font-black uppercase tracking-wider">
+            Multispectral Bands
+          </div>
+          <div className="text-[11px] font-bold text-gray-800 mt-1">
+            CRUNet Deep Satellite Segmentation
+          </div>
+        </div>
       </div>
     </section>
   );

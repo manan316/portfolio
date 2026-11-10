@@ -451,3 +451,72 @@ body {
 .tilt-pos-2 {
   transform: rotate(2deg);
 }
+
+
+/* Memphis Range Slider */
+.memphis-range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 16px;
+  background: #ffffff;
+  border: 4px solid #000000;
+  outline: none;
+  box-shadow: 3px 3px 0 #000000;
+  border-radius: 0;
+  cursor: pointer;
+}
+.memphis-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #ff6b6b;
+  border: 3px solid #000000;
+  border-radius: 0;
+  cursor: grab;
+  box-shadow: 2px 2px 0 #000000;
+  transition: transform 0.1s ease, background-color 0.15s ease;
+}
+.memphis-range-slider::-webkit-slider-thumb:hover {
+  background: #feca57;
+  transform: scale(1.15);
+}
+.memphis-range-slider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  background: #1dd1a1;
+  transform: scale(0.95);
+}
+.memphis-range-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  background: #ff6b6b;
+  border: 3px solid #000000;
+  border-radius: 0;
+  cursor: grab;
+  box-shadow: 2px 2px 0 #000000;
+}
+
+/* Memphis Accordion / Tab Buttons */
+.memphis-tab-btn {
+  border: 4px solid #000000;
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: 900;
+  padding: 10px 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 13px;
+  box-shadow: 4px 4px 0 #000000;
+  transition: all 0.15s ease;
+  border-radius: 0;
+}
+.memphis-tab-btn:hover {
+  background-color: #feca57;
+  box-shadow: 6px 6px 0 #000000;
+}
+.memphis-tab-btn.active {
+  background-color: #ff6b6b;
+  color: #ffffff;
+  box-shadow: 6px 6px 0 #000000;
+}

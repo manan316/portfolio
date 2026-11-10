@@ -1,258 +1,214 @@
-import React, { useState } from 'react';
-import { educationList, certifications, trainingsAndWorkshops } from '../data/portfolioData';
-import { SectorRibbon } from './SectorRibbon';
-import { ImageModal } from './ImageModal';
-import { 
-  GraduationCap, 
-  Award, 
-  MapPin, 
-  Eye, 
-  BookOpen,
-  Sparkles,
-  Calendar
-} from 'lucide-react';
-import { 
-  MemphisCircle, 
-  MemphisTriangle, 
-  MemphisWave, 
-  MemphisZigzag, 
-  MemphisCardOrnaments,
-  MemphisZigzagDivider 
-} from './MemphisOrnament';
+import React from 'react';
+import { EducationItem, CertificationItem, TrainingWorkshopItem } from '../types/portfolio';
+import { GraduationCap, Award, ExternalLink, Calendar, MapPin, ZoomIn, CheckCircle2, Bookmark } from 'lucide-react';
+import { MemphisCardOrnaments } from './MemphisOrnament';
 
-export const EducationCertSection: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState<{ url: string; title: string; caption?: string } | null>(null);
+interface EducationCertSectionProps {
+  educationList: EducationItem[];
+  certifications: CertificationItem[];
+  trainingWorkshops: TrainingWorkshopItem[];
+  onOpenImage: (image: { url: string; caption: string }) => void;
+}
 
+export const EducationCertSection: React.FC<EducationCertSectionProps> = ({
+  educationList,
+  certifications,
+  trainingWorkshops,
+  onOpenImage,
+}) => {
   return (
-    <section id="education" className="relative bg-[#fdf6e3] text-black overflow-hidden pt-4 pb-24">
-      {/* Sector Ribbon */}
-      <SectorRibbon sectorNumber="06" sectorName="ACADEMIC BACKGROUND & CERTIFICATIONS" color="blue" />
-
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-16 space-y-16">
-        
-        {/* Education Block */}
-        <div>
-          <div className="mb-10">
-            <div className="inline-block bg-[#feca57] text-black px-3.5 py-1 text-xs font-black uppercase tracking-wider border-3 border-black shadow-[3px_3px_0_#000000] tilt-neg-1 mb-2">
-              // FORMAL ACADEMIA
-            </div>
-            <h2 className="memphis-heading text-black">
-              ACADEMIC DEGREES & FOUNDATIONS
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {educationList.map((edu, idx) => {
-              const tilt = idx % 2 === 0 ? 'tilt-neg-1' : 'tilt-pos-1';
-              const bannerBg = idx === 0 ? 'bg-[#ff6b6b] text-white' : 'bg-[#48dbfb] text-black';
-
-              return (
-                <div
-                  key={idx}
-                  className={`memphis-card group p-0 overflow-hidden ${tilt} hover:tilt-0 transition-transform duration-150 flex flex-col justify-between`}
-                >
-                  <MemphisCardOrnaments variant={(idx + 1) as 1 | 2} />
-
-                  <div>
-                    {/* Header Banner */}
-                    <div className={`${bannerBg} p-5 border-b-4 border-black`}>
-                      <span className="font-mono text-xs font-bold uppercase tracking-wider bg-black text-white px-2 py-0.5 inline-block mb-1.5">
-                        {edu.duration}
-                      </span>
-                      <h3 className="font-sans font-black text-xl sm:text-2xl leading-snug">
-                        {edu.degree}
-                      </h3>
-                      <div className="font-sans font-black text-sm uppercase mt-1">
-                        🏛️ {edu.institution}
-                      </div>
-                    </div>
-
-                    {/* Body */}
-                    <div className="p-6 space-y-4 bg-white">
-                      <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-[#5f27cd]">
-                        <MapPin className="w-3.5 h-3.5 text-[#ff6b6b]" />
-                        <span>{edu.location}</span>
-                      </div>
-
-                      <ul className="space-y-2 text-xs sm:text-sm font-bold text-black/90">
-                        {edu.highlights.map((hl, hIdx) => (
-                          <li key={hIdx} className="flex items-start gap-2">
-                            <span className="text-[#ff6b6b] font-black select-none text-sm">▶</span>
-                            <span>{hl}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  {/* Skills tags */}
-                  <div className="p-4 bg-[#fdf6e3] border-t-3 border-black">
-                    <div className="flex flex-wrap gap-1.5">
-                      {edu.skills.map((skill, sIdx) => (
-                        <span key={sIdx} className="memphis-badge bg-white text-black text-[10px] py-0.5">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                </div>
-              );
-            })}
-          </div>
+    <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-24">
+      {/* Section Header */}
+      <div className="mb-12">
+        <div className="flex flex-wrap items-center gap-3 mb-4">
+          <span className="memphis-badge bg-honey text-black border-4 border-black px-4 py-1.5 text-xs font-black tracking-widest uppercase">
+            [07 // CREDENTIALS & HONORS]
+          </span>
+          <span className="bg-coral text-white border-3 border-black px-3 py-1 text-xs font-black tracking-wider uppercase">
+            DEGREES · CERTIFICATIONS · BOOTCAMPS
+          </span>
         </div>
-
-        {/* Certifications Block */}
-        <div>
-          <div className="mb-10">
-            <div className="inline-block bg-[#1dd1a1] text-black px-3.5 py-1 text-xs font-black uppercase tracking-wider border-3 border-black shadow-[3px_3px_0_#000000] tilt-pos-1 mb-2">
-              // ACCREDITATIONS & LICENSES
-            </div>
-            <h2 className="memphis-heading text-black">
-              INDUSTRIAL CERTIFICATIONS
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {certifications.map((cert, idx) => {
-              const tilt = idx % 2 === 0 ? 'tilt-pos-1' : 'tilt-neg-1';
-
-              return (
-                <div
-                  key={idx}
-                  className={`memphis-card group p-0 overflow-hidden ${tilt} hover:tilt-0 transition-transform duration-150 flex flex-col justify-between`}
-                >
-                  <MemphisCardOrnaments variant={(idx % 4 + 1) as 1 | 2 | 3 | 4} />
-
-                  <div className="p-6 bg-white space-y-4">
-                    <div className="flex items-start justify-between gap-3 pb-3 border-b-3 border-black">
-                      <div>
-                        <span className="font-mono text-xs font-bold text-[#ff6b6b] uppercase block">
-                          ISSUER: {cert.issuer}
-                        </span>
-                        <h3 className="font-sans font-black text-xl text-black group-hover:text-[#ff6b6b] pop-swap leading-snug mt-0.5">
-                          {cert.title}
-                        </h3>
-                      </div>
-                      <span className="font-mono text-xs font-bold text-black bg-[#feca57] px-2.5 py-1 border-2 border-black whitespace-nowrap">
-                        {cert.issueDate}
-                      </span>
-                    </div>
-
-                    {/* Thumbnail preview */}
-                    {cert.thumbnail && (
-                      <div 
-                        onClick={() => setSelectedImage({
-                          url: cert.thumbnail!,
-                          title: cert.title,
-                          caption: `Official Certification issued by ${cert.issuer}`
-                        })}
-                        className="cursor-pointer border-3 border-black p-1.5 bg-[#fdf6e3] shadow-[3px_3px_0_#000000] hover:shadow-[5px_5px_0_#000000] hover:-translate-y-0.5 transition-all duration-150 relative select-none"
-                      >
-                        <div className="h-40 border-2 border-black overflow-hidden bg-white relative">
-                          <img
-                            src={cert.thumbnail}
-                            alt={cert.title}
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex items-center justify-center">
-                            <span className="bg-[#feca57] text-black font-black text-xs px-3 py-1.5 border-2 border-black flex items-center gap-1.5">
-                              <Eye className="w-3.5 h-3.5" />
-                              <span>VIEW CREDENTIAL</span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Skills pills */}
-                    <div className="flex flex-wrap gap-1.5 pt-2">
-                      {cert.skills.map((skill, sIdx) => (
-                        <span key={sIdx} className="memphis-badge bg-[#fdf6e3] text-black text-[10px] py-0.5">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="p-3 bg-[#feca57] border-t-3 border-black text-right font-mono text-[10px] font-bold text-black uppercase">
-                    VERIFIED // {cert.issuer}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Workshops & Honors Block */}
-        <div>
-          <div className="mb-10">
-            <div className="inline-block bg-[#ff9ff3] text-black px-3.5 py-1 text-xs font-black uppercase tracking-wider border-3 border-black shadow-[3px_3px_0_#000000] tilt-neg-2 mb-2">
-              // HONORS & FELLOWSHIPS
-            </div>
-            <h2 className="memphis-heading text-black">
-              TRAININGS, AWARDS & LEADERSHIP
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {trainingsAndWorkshops.map((train, idx) => {
-              const tilt = idx % 3 === 0 ? 'tilt-neg-1' : idx % 3 === 1 ? 'tilt-pos-1' : 'tilt-neg-2';
-
-              return (
-                <div
-                  key={idx}
-                  className={`memphis-card group ${tilt} hover:tilt-0 transition-transform duration-150 flex flex-col justify-between`}
-                >
-                  <MemphisCardOrnaments variant={(idx % 4 + 1) as 1 | 2 | 3 | 4} />
-
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between gap-2 pb-2.5 border-b-3 border-black">
-                      <span className="memphis-badge bg-[#1dd1a1] text-black text-[10px]">
-                        {train.category || "HONOR"}
-                      </span>
-                      <span className="font-mono text-xs font-bold text-black bg-[#fdf6e3] px-2 py-0.5 border-2 border-black">
-                        {train.year}
-                      </span>
-                    </div>
-
-                    <h3 className="font-sans font-black text-lg text-black group-hover:text-[#ff6b6b] pop-swap leading-snug">
-                      {train.title}
-                    </h3>
-
-                    <div className="font-sans font-black text-xs text-[#5f27cd]">
-                      🏛️ {train.institution}
-                    </div>
-
-                    <p className="font-sans font-bold text-xs text-black/80 leading-relaxed">
-                      {train.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t-2 border-black mt-3 font-mono text-[10px] font-bold text-black">
-                    HONOR_REF: 0{idx + 1}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Section Bottom Zigzag Divider */}
-        <MemphisZigzagDivider color="mint" className="mt-16" />
-
+        <h2 className="memphis-heading text-black pop-swap mb-4">
+          EDUCATION & VERIFIED CREDENTIALS
+        </h2>
+        <p className="text-black text-base sm:text-lg font-bold max-w-3xl leading-relaxed">
+          Rigorous academic foundation in Artificial Intelligence and Mathematics, reinforced by tier-1 institutional workshops and verified industrial credentials.
+        </p>
       </div>
 
-      {/* Lightbox Modal */}
-      {selectedImage && (
-        <ImageModal
-          isOpen={!!selectedImage}
-          onClose={() => setSelectedImage(null)}
-          imageUrl={selectedImage.url}
-          title={selectedImage.title}
-          caption={selectedImage.caption}
-        />
-      )}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left Column (6 cols): Education Degrees */}
+        <div className="lg:col-span-6 space-y-6">
+          <h3 className="text-xs font-black uppercase tracking-widest bg-black text-white px-3 py-1.5 inline-block mb-2">
+            ACADEMIC DEGREES & FOUNDATION
+          </h3>
+
+          <div className="space-y-6">
+            {educationList.map((edu, idx) => (
+              <div
+                key={idx}
+                className="memphis-card bg-paper p-6 relative overflow-hidden group"
+              >
+                <MemphisCardOrnaments variant={(((idx % 4) + 1) as 1 | 2 | 3 | 4)} />
+
+                <div className="flex items-start gap-4 pb-4 mb-4 border-b-3 border-black">
+                  <div className="w-12 h-12 bg-honey border-3 border-black flex items-center justify-center shrink-0 shadow-[2px_2px_0_#000]">
+                    <GraduationCap className="w-6 h-6 text-black" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold bg-white border-2 border-black px-2 py-0.5 inline-block mb-1">
+                      {edu.duration}
+                    </span>
+                    <h4 className="text-lg sm:text-xl font-black text-black leading-tight">
+                      {edu.degree}
+                    </h4>
+                    <div className="text-xs font-bold text-gray-800 mt-0.5">
+                      {edu.institution} · {edu.location}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Highlights */}
+                {edu.highlights && edu.highlights.length > 0 && (
+                  <div className="space-y-2 mb-4 bg-white border-3 border-black p-4 shadow-memphis-sm">
+                    {edu.highlights.map((h, i) => (
+                      <div key={i} className="flex items-start gap-2.5 text-xs font-bold text-black">
+                        <CheckCircle2 className="w-4 h-4 text-mint shrink-0 mt-0.5" />
+                        <span className="leading-snug">{h}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Skills */}
+                {edu.skills && (
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {edu.skills.map((s) => (
+                      <span
+                        key={s}
+                        className="bg-white text-black border-2 border-black px-2 py-0.5 text-[11px] font-black"
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* National Bootcamps & Workshops */}
+          <div className="pt-6">
+            <h3 className="text-xs font-black uppercase tracking-widest bg-black text-white px-3 py-1.5 inline-block mb-4">
+              NATIONAL BOOTCAMPS & WORKSHOPS
+            </h3>
+            <div className="space-y-4">
+              {trainingWorkshops.map((ws, i) => (
+                <div
+                  key={i}
+                  className="bg-white border-4 border-black p-5 shadow-memphis-sm relative hover:bg-honey transition-colors"
+                >
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <span className="text-xs font-black text-coral uppercase tracking-wider">
+                      {ws.year}
+                    </span>
+                    <span className="text-[10px] font-black bg-paper border border-black px-2 py-0.5">
+                      {ws.institution}
+                    </span>
+                  </div>
+                  <h4 className="text-base font-black text-black leading-tight">
+                    {ws.title}
+                  </h4>
+                  <p className="text-xs font-bold text-gray-800 mt-2 leading-relaxed">
+                    {ws.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column (6 cols): Verified Certifications */}
+        <div className="lg:col-span-6 space-y-6">
+          <h3 className="text-xs font-black uppercase tracking-widest bg-black text-white px-3 py-1.5 inline-block mb-2">
+            VERIFIED INDUSTRIAL CERTIFICATIONS
+          </h3>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {certifications.map((cert, idx) => (
+              <div
+                key={idx}
+                className="memphis-card bg-white p-4 relative flex flex-col justify-between group overflow-hidden"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b-2 border-black">
+                    <span className="text-[10px] font-black uppercase tracking-wider bg-honey px-1.5 py-0.5 border border-black">
+                      {cert.issuer}
+                    </span>
+                    <span className="text-[10px] font-bold text-gray-600">
+                      {cert.issueDate}
+                    </span>
+                  </div>
+
+                  <h4 className="text-sm font-black text-black leading-tight mb-2">
+                    {cert.title}
+                  </h4>
+
+                  {/* Thumbnail if present */}
+                  {cert.thumbnail && (
+                    <div
+                      onClick={() =>
+                        onOpenImage({
+                          url: cert.thumbnail!,
+                          caption: `${cert.title} — ${cert.issuer}`
+                        })
+                      }
+                      className="mb-3 h-28 border-2 border-black overflow-hidden relative cursor-pointer group/thumb bg-paper"
+                    >
+                      <img
+                        src={cert.thumbnail}
+                        alt={cert.title}
+                        className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform"
+                      />
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/thumb:opacity-100 flex items-center justify-center transition-opacity">
+                        <span className="bg-white text-black px-2 py-0.5 text-[10px] font-black border border-black flex items-center gap-1">
+                          <ZoomIn className="w-3 h-3" /> View
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Skills tags */}
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {cert.skills.slice(0, 4).map((s) => (
+                      <span
+                        key={s}
+                        className="bg-paper text-black border border-black px-1.5 py-0.5 text-[9px] font-black"
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {cert.thumbnail && (
+                  <button
+                    onClick={() =>
+                      onOpenImage({
+                        url: cert.thumbnail!,
+                        caption: `${cert.title} — ${cert.issuer}`
+                      })
+                    }
+                    className="memphis-btn-honey text-[11px] py-1.5 px-2 w-full text-center flex items-center justify-center gap-1 mt-2"
+                  >
+                    <ZoomIn className="w-3 h-3" /> Verify Certificate
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

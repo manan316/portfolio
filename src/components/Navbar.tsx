@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Menu, X, Terminal } from 'lucide-react';
+import { Download, Menu, X, Terminal, Activity, FileText } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -19,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
         setScrollProgress((scrollY / totalDocHeight) * 100);
       }
 
-      const sections = ['hero', 'about', 'experience', 'projects', 'research', 'skills', 'education', 'contact'];
+      const sections = ['hero', 'about', 'lab', 'case-studies', 'journey', 'work', 'skills', 'education', 'contact'];
       const scrollPosition = scrollY + 200;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -37,17 +37,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
 
   const navLinks = [
     { label: 'ABOUT', href: '#about', id: 'about' },
-    { label: 'EXPERIENCE', href: '#experience', id: 'experience' },
-    { label: 'PROJECTS', href: '#projects', id: 'projects' },
-    { label: 'RESEARCH', href: '#research', id: 'research' },
-    { label: 'SKILLS', href: '#skills', id: 'skills' },
-    { label: 'EDUCATION', href: '#education', id: 'education' },
+    { label: '⚡ SIM LAB', href: '#lab', id: 'lab', highlight: true },
+    { label: 'CASE STUDIES', href: '#case-studies', id: 'case-studies' },
+    { label: 'JOURNEY', href: '#journey', id: 'journey' },
+    { label: 'ARCHIVE', href: '#work', id: 'work' },
+    { label: 'WORKBENCH', href: '#skills', id: 'skills' },
     { label: 'CONTACT', href: '#contact', id: 'contact' },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#fdf6e3] border-b-4 border-black shadow-[0_4px_0_#000000]">
-      {/* Scroll Progress Bar - Coral with hard border */}
+      {/* Scroll Progress Bar */}
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#feca57] border-b-2 border-black overflow-hidden">
         <div 
           className="h-full bg-[#ff6b6b] transition-all duration-150"
@@ -55,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
         />
       </div>
 
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 py-2.5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5">
         <div className="flex items-center justify-between">
           
           {/* Logo / Brand badge */}
@@ -72,21 +72,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
                 MANAN SHARMA
               </span>
               <span className="font-mono font-bold text-[10px] tracking-wider text-[#5f27cd] uppercase mt-0.5">
-                ENGINEER // 1981 MILAN
+                AI & SYSTEMS // 1981 MILAN
               </span>
             </div>
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-1.5" aria-label="Main navigation">
+          <nav className="hidden xl:flex items-center gap-1.5" aria-label="Main navigation">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
                 <a
                   key={link.id}
                   href={link.href}
-                  className={`px-3 py-1.5 text-xs font-black tracking-wider uppercase transition-all duration-150 border-3 ${
-                    isActive
+                  className={`px-2.5 py-1 text-xs font-black tracking-wider uppercase transition-all duration-150 border-3 ${
+                    link.highlight
+                      ? isActive
+                        ? 'bg-[#ff6b6b] text-white border-black shadow-[3px_3px_0_#000000]'
+                        : 'bg-[#feca57] text-black border-black shadow-[2px_2px_0_#000000] hover:bg-[#ff6b6b] hover:text-white'
+                      : isActive
                       ? 'bg-[#ff6b6b] text-white border-black shadow-[3px_3px_0_#000000]'
                       : 'border-transparent text-black hover:border-black hover:bg-[#feca57] hover:shadow-[3px_3px_0_#000000]'
                   }`}
@@ -98,76 +102,77 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
           </nav>
 
           {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-2.5">
             {onOpenTerminal && (
               <button
                 onClick={onOpenTerminal}
-                className="memphis-btn-blue text-xs py-2 px-3.5 border-3 shadow-[3px_3px_0_#000000] active:translate-x-1 active:translate-y-1"
-                title="Open Terminal (Ctrl + K)"
+                className="memphis-btn-blue text-xs py-1.5 px-3 flex items-center gap-1.5 border-3"
+                title="Launch Interactive Memphis Terminal"
               >
                 <Terminal className="w-3.5 h-3.5" />
-                <span className="font-black">TERMINAL</span>
-                <span className="text-[10px] bg-black text-white px-1 font-mono font-bold">^K</span>
+                <span>SHELL [~]</span>
               </button>
             )}
 
             <a
               href={personalInfo.resumeUrl}
-              download="Manan_Sharma_Resume.pdf"
-              className="memphis-btn text-xs py-2 px-4 border-3 shadow-[3px_3px_0_#000000] active:translate-x-1 active:translate-y-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="memphis-btn text-xs py-1.5 px-3 flex items-center gap-1.5 border-3"
             >
-              <Download className="w-3.5 h-3.5" />
-              <span className="font-black">RESUME</span>
+              <FileText className="w-3.5 h-3.5" />
+              <span>RESUME</span>
             </a>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <button
-            onClick={() => setMobileMenuOpen(prev => !prev)}
-            className="lg:hidden p-2 bg-[#feca57] border-3 border-black shadow-[3px_3px_0_#000000] active:translate-x-1 active:translate-y-1"
-            aria-label="Toggle Navigation Menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6 text-black" /> : <Menu className="w-6 h-6 text-black" />}
-          </button>
+          {/* Mobile Menu Toggle Button */}
+          <div className="flex xl:hidden items-center gap-2">
+            {onOpenTerminal && (
+              <button
+                onClick={onOpenTerminal}
+                className="p-1.5 bg-[#48dbfb] border-3 border-black shadow-[2px_2px_0_#000000]"
+                title="Terminal"
+              >
+                <Terminal className="w-4 h-4 text-black" />
+              </button>
+            )}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-1.5 bg-[#feca57] border-3 border-black shadow-[2px_2px_0_#000000] text-black focus:outline-none"
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#fdf6e3] border-t-4 border-black p-5 shadow-[0_8px_0_#000000] animate-fadeIn">
-          <div className="grid grid-cols-2 gap-2 mb-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.id}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-3 text-center text-xs font-black uppercase border-3 border-black bg-white shadow-[3px_3px_0_#000000] hover:bg-[#48dbfb] transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-          <div className="flex gap-2">
-            {onOpenTerminal && (
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenTerminal();
-                }}
-                className="memphis-btn-blue text-xs flex-1 py-2.5 border-3"
-              >
-                <Terminal className="w-4 h-4" />
-                <span>TERMINAL</span>
-              </button>
-            )}
+        <div className="xl:hidden bg-[#fdf6e3] border-b-4 border-black px-4 py-4 space-y-2 animate-fade-in shadow-memphis-lg">
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block px-3 py-2 text-sm font-black border-3 border-black uppercase transition-colors ${
+                link.highlight ? 'bg-[#feca57] text-black' : 'bg-white hover:bg-[#ff6b6b] hover:text-white'
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+
+          <div className="pt-2 flex flex-col gap-2 border-t-2 border-black">
             <a
               href={personalInfo.resumeUrl}
-              download="Manan_Sharma_Resume.pdf"
-              onClick={() => setMobileMenuOpen(false)}
-              className="memphis-btn text-xs flex-1 py-2.5 border-3"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="memphis-btn text-xs py-2.5 text-center flex items-center justify-center gap-1.5"
             >
-              <Download className="w-4 h-4" />
-              <span>RESUME</span>
+              <FileText className="w-4 h-4" />
+              <span>Download Resume [PDF]</span>
             </a>
           </div>
         </div>

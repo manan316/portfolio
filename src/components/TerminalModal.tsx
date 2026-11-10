@@ -11,24 +11,24 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
   const [input, setInput] = useState('');
   const [history, setHistory] = useState<Array<{ command: string; output: React.ReactNode }>>([
     {
-      command: 'memphis --version',
-      output: 'Memphis 1981 Milan Collective // Engine v2.0 (No Restraint, All Clash)'
+      command: 'memphis --status',
+      output: 'Memphis 1981 Milan Architecture // Systems Ready. SAVERA Flagships Online.'
     },
     {
       command: 'help',
       output: (
-        <div className="space-y-1 text-black font-mono">
+        <div className="space-y-1 text-black font-mono text-xs">
           <div className="text-[#ff6b6b] font-black uppercase">AVAILABLE COMMANDS:</div>
-          <div><span className="text-[#5f27cd] font-black">help</span> — Display this manual</div>
-          <div><span className="text-[#5f27cd] font-black">about</span> — Jump to Sector 01: About Me</div>
-          <div><span className="text-[#5f27cd] font-black">experience</span> — Jump to Sector 02: Experience (UCT, IIT Roorkee)</div>
-          <div><span className="text-[#5f27cd] font-black">projects</span> — Jump to Sector 03: Projects Showcase</div>
-          <div><span className="text-[#5f27cd] font-black">research</span> — Jump to Sector 04: Research Pipeline</div>
-          <div><span className="text-[#5f27cd] font-black">skills</span> — Jump to Sector 05: Skills Matrix</div>
-          <div><span className="text-[#5f27cd] font-black">education</span> — Jump to Sector 06: Education & Certs</div>
-          <div><span className="text-[#5f27cd] font-black">contact</span> — Jump to Sector 07: Direct Transmission</div>
-          <div><span className="text-[#5f27cd] font-black">resume</span> — Open / download Resume.pdf</div>
-          <div><span className="text-[#5f27cd] font-black">sudo hire</span> — Authorize interview protocol</div>
+          <div><span className="text-[#5f27cd] font-black">help</span> — Display this command manual</div>
+          <div><span className="text-[#5f27cd] font-black">sim</span> / <span className="text-[#5f27cd] font-black">lab</span> — Jump to Interactive Simulation Lab</div>
+          <div><span className="text-[#5f27cd] font-black">case-studies</span> — Jump to Flagship Architectural Blueprints</div>
+          <div><span className="text-[#5f27cd] font-black">journey</span> — Jump to Career, Internships & Research Timeline</div>
+          <div><span className="text-[#5f27cd] font-black">archive</span> / <span className="text-[#5f27cd] font-black">work</span> — Jump to 8+ Systems Archive</div>
+          <div><span className="text-[#5f27cd] font-black">skills</span> — Jump to Technical Stack & Workbench</div>
+          <div><span className="text-[#5f27cd] font-black">about</span> — Jump to Philosophy & Pursuits</div>
+          <div><span className="text-[#5f27cd] font-black">contact</span> — Jump to Field Communications Relay</div>
+          <div><span className="text-[#5f27cd] font-black">resume</span> — Open verified Resume.pdf</div>
+          <div><span className="text-[#5f27cd] font-black">sudo hire</span> — Authorize high-impact hiring relay</div>
           <div><span className="text-[#5f27cd] font-black">clear</span> — Clear terminal output buffer</div>
         </div>
       )
@@ -71,55 +71,66 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
         return;
       case 'help':
         response = (
-          <div className="space-y-1 text-black font-mono">
+          <div className="space-y-1 text-black font-mono text-xs">
             <div className="text-[#ff6b6b] font-black uppercase">AVAILABLE COMMANDS:</div>
             <div><span className="text-[#5f27cd] font-black">help</span> — Display this manual</div>
-            <div><span className="text-[#5f27cd] font-black">about</span> — Jump to Sector 01: About Me</div>
-            <div><span className="text-[#5f27cd] font-black">experience</span> — Jump to Sector 02: Experience (UCT, IIT Roorkee)</div>
-            <div><span className="text-[#5f27cd] font-black">projects</span> — Jump to Sector 03: Projects Showcase</div>
-            <div><span className="text-[#5f27cd] font-black">research</span> — Jump to Sector 04: Research Pipeline</div>
-            <div><span className="text-[#5f27cd] font-black">skills</span> — Jump to Sector 05: Skills Matrix</div>
-            <div><span className="text-[#5f27cd] font-black">education</span> — Jump to Sector 06: Education & Certs</div>
-            <div><span className="text-[#5f27cd] font-black">contact</span> — Jump to Sector 07: Direct Transmission</div>
-            <div><span className="text-[#5f27cd] font-black">resume</span> — Open / download Resume.pdf</div>
+            <div><span className="text-[#5f27cd] font-black">sim</span> / <span className="text-[#5f27cd] font-black">lab</span> — Jump to Interactive Simulation Lab</div>
+            <div><span className="text-[#5f27cd] font-black">case-studies</span> — Jump to Flagship Architectural Blueprints</div>
+            <div><span className="text-[#5f27cd] font-black">journey</span> — Jump to Career, Internships & Research Timeline</div>
+            <div><span className="text-[#5f27cd] font-black">archive</span> / <span className="text-[#5f27cd] font-black">work</span> — Jump to 8+ Systems Archive</div>
+            <div><span className="text-[#5f27cd] font-black">skills</span> — Jump to Technical Stack & Workbench</div>
+            <div><span className="text-[#5f27cd] font-black">about</span> — Jump to Philosophy & Pursuits</div>
+            <div><span className="text-[#5f27cd] font-black">contact</span> — Jump to Field Communications Relay</div>
+            <div><span className="text-[#5f27cd] font-black">resume</span> — Open verified Resume.pdf</div>
             <div><span className="text-[#5f27cd] font-black">sudo hire</span> — Authorize interview protocol</div>
             <div><span className="text-[#5f27cd] font-black">clear</span> — Clear terminal output buffer</div>
           </div>
         );
         break;
-      case 'about':
-        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 01: About Me...</span>;
-        scrollToSection('about');
+      case 'sim':
+      case 'lab':
+        response = <span className="text-[#1dd1a1] font-bold">Navigating to [02 // IN-BROWSER SIMULATION LAB]...</span>;
+        scrollToSection('lab');
         break;
+      case 'case-studies':
+      case 'flagships':
+        response = <span className="text-[#1dd1a1] font-bold">Navigating to [03 // FLAGSHIP CASE STUDIES] (OJASEWS, GeoChange AI)...</span>;
+        scrollToSection('case-studies');
+        break;
+      case 'journey':
+      case 'timeline':
       case 'experience':
-        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 02: Experience (UniConverge, IIT Roorkee)...</span>;
-        scrollToSection('experience');
+        response = <span className="text-[#1dd1a1] font-bold">Navigating to [04 // CAREER & RESEARCH CHRONICLE]...</span>;
+        scrollToSection('journey');
         break;
+      case 'archive':
+      case 'work':
       case 'projects':
-        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 03: Projects (OJASEWS, GeoChange AI, NeuroView, SlipSense)...</span>;
-        scrollToSection('projects');
-        break;
-      case 'research':
-        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 04: Research Pipeline...</span>;
-        scrollToSection('research');
+        response = <span className="text-[#1dd1a1] font-bold">Navigating to [05 // SYSTEMS & ENGINEERING ARCHIVE]...</span>;
+        scrollToSection('work');
         break;
       case 'skills':
-        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 05: Skills Matrix...</span>;
+      case 'workbench':
+        response = <span className="text-[#1dd1a1] font-bold">Navigating to [06 // ENGINEERING WORKBENCH]...</span>;
         scrollToSection('skills');
+        break;
+      case 'about':
+        response = <span className="text-[#1dd1a1] font-bold">Navigating to About Me & Philosophy...</span>;
+        scrollToSection('about');
         break;
       case 'education':
       case 'certs':
-        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 06: Education & Certifications...</span>;
+        response = <span className="text-[#1dd1a1] font-bold">Navigating to [07 // CREDENTIALS & HONORS]...</span>;
         scrollToSection('education');
         break;
       case 'contact':
-        response = <span className="text-[#1dd1a1] font-bold">Jumping to Sector 07: Direct Transmission...</span>;
+        response = <span className="text-[#1dd1a1] font-bold">Navigating to [08 // FIELD DISPATCH RELAY]...</span>;
         scrollToSection('contact');
         break;
       case 'resume':
         response = (
           <div className="space-y-1 text-black font-mono">
-            <div>Downloading verified Resume.pdf...</div>
+            <div>Opening verified Resume.pdf...</div>
             <a href={personalInfo.resumeUrl} download="Manan_Sharma_Resume.pdf" target="_blank" rel="noreferrer" className="underline text-[#ff6b6b] font-black">
               [Click here if download does not begin]
             </a>
@@ -133,12 +144,12 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
           <div className="space-y-1 bg-[#1dd1a1] p-3 border-2 border-black font-mono text-black">
             <div className="font-black flex items-center gap-1.5">
               <Sparkles className="w-4 h-4 text-[#ff6b6b]" />
-              <span>ACCESS GRANTED: HIRING PROTOCOL INITIATED!</span>
+              <span>ACCESS GRANTED: HIRING TRANSMISSION RELAY READY!</span>
             </div>
             <div>Routing transmission to Manan Sharma ({personalInfo.email})...</div>
           </div>
         );
-        setTimeout(() => scrollToSection('contact'), 1500);
+        setTimeout(() => scrollToSection('contact'), 1200);
         break;
       default:
         response = (
@@ -183,7 +194,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
 
           <button
             onClick={onClose}
-            className="p-1 bg-white border-2 border-black shadow-[2px_2px_0_#000000] hover:bg-[#ff6b6b] hover:text-white transition-colors"
+            className="p-1 bg-white border-2 border-black shadow-[2px_2px_0_#000000] hover:bg-[#ff6b6b] hover:text-white transition-colors duration-150"
             aria-label="Close terminal"
           >
             <X className="w-4 h-4" />
@@ -191,14 +202,14 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
         </div>
 
         {/* Terminal Body */}
-        <div className="p-5 max-h-[50vh] overflow-y-auto space-y-3.5 text-xs bg-[#fdf6e3]">
+        <div className="p-5 max-h-[60vh] overflow-y-auto space-y-3.5 text-xs bg-[#fdf6e3]">
           {history.map((item, idx) => (
             <div key={idx} className="space-y-1">
-              <div className="flex items-center gap-2 text-black">
-                <span className="text-[#ff6b6b] font-black">operator@memphis:~$</span>
-                <span className="font-bold underline">{item.command}</span>
+              <div className="flex items-center gap-2 text-black font-bold">
+                <span className="text-[#ff6b6b] font-black">guest@memphis:~$</span>
+                <span>{item.command}</span>
               </div>
-              <div className="pl-4 leading-relaxed font-bold">
+              <div className="pl-4 border-l-2 border-[#5f27cd]/40">
                 {item.output}
               </div>
             </div>
@@ -206,26 +217,25 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose })
           <div ref={bottomRef} />
         </div>
 
-        {/* Terminal Input Footer */}
-        <form onSubmit={handleSubmit} className="p-3 border-t-4 border-black bg-white flex items-center gap-2">
-          <span className="text-[#ff6b6b] font-black text-xs">operator@memphis:~$</span>
+        {/* Command Input Form */}
+        <form onSubmit={handleSubmit} className="p-3.5 border-t-4 border-black bg-white flex items-center gap-2">
+          <span className="text-[#ff6b6b] font-black text-xs pl-2">guest@memphis:~$</span>
           <input
             ref={inputRef}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Type 'help', 'projects', 'sudo hire'..."
-            className="flex-1 bg-transparent text-xs text-black font-mono font-bold focus:outline-none"
+            placeholder="Type 'help' or command (e.g. sim, case-studies, journey, resume)..."
+            className="flex-1 bg-transparent text-black text-xs font-mono font-bold focus:outline-none"
+            spellCheck={false}
           />
           <button
             type="submit"
             className="p-1.5 bg-[#feca57] border-2 border-black shadow-[2px_2px_0_#000000] hover:bg-[#ff6b6b] hover:text-white transition-colors"
-            title="Execute command"
           >
-            <CornerDownLeft className="w-4 h-4" />
+            <CornerDownLeft className="w-3.5 h-3.5" />
           </button>
         </form>
-
       </div>
     </div>
   );

@@ -1,180 +1,199 @@
 import React, { useState } from 'react';
-import { skillCategories } from '../data/portfolioData';
-import { SectorRibbon } from './SectorRibbon';
-import { Brain, Cpu, Code2, Server, Layers, Search, X, Sparkles } from 'lucide-react';
-import { 
-  MemphisCircle, 
-  MemphisTriangle, 
-  MemphisWave, 
-  MemphisZigzag, 
-  MemphisCardOrnaments,
-  MemphisZigzagDivider 
-} from './MemphisOrnament';
+import { SkillCategory } from '../types/portfolio';
+import { Search, Brain, Cpu, Code2, Server, Layers, Terminal, CheckCircle2, Sparkles } from 'lucide-react';
+import { MemphisCardOrnaments } from './MemphisOrnament';
 
-export const SkillsSection: React.FC = () => {
+interface SkillsSectionProps {
+  skillCategories: SkillCategory[];
+}
+
+export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedGroup, setSelectedGroup] = useState<string>('All');
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Brain': return <Brain className="w-4 h-4 text-black" />;
-      case 'Cpu': return <Cpu className="w-4 h-4 text-black" />;
-      case 'Code2': return <Code2 className="w-4 h-4 text-black" />;
-      case 'Server': return <Server className="w-4 h-4 text-black" />;
-      default: return <Layers className="w-4 h-4 text-black" />;
+      case 'Brain':
+        return <Brain className="w-5 h-5 text-coral" />;
+      case 'Cpu':
+        return <Cpu className="w-5 h-5 text-honey" />;
+      case 'Code2':
+        return <Code2 className="w-5 h-5 text-electric-blue" />;
+      case 'Server':
+        return <Server className="w-5 h-5 text-mint" />;
+      case 'Layers':
+        return <Layers className="w-5 h-5 text-grape" />;
+      default:
+        return <Code2 className="w-5 h-5 text-black" />;
     }
   };
 
-  const categoryColors = [
-    'bg-[#ff6b6b]',
-    'bg-[#48dbfb]',
-    'bg-[#feca57]',
-    'bg-[#1dd1a1]',
-    'bg-[#ff9ff3]',
-  ];
+  // Filter skills based on search and category
+  const filteredCategories = skillCategories
+    .map((cat) => {
+      const matchesCategory = selectedCategory === 'All' || cat.category === selectedCategory;
+      if (!matchesCategory) return null;
 
-  const allCategories = ['All', ...skillCategories.map(c => c.category)];
+      const matchedSkills = cat.skills.filter((s) =>
+        s.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
 
-  const displayedGroups = skillCategories.filter(group => {
-    if (selectedGroup !== 'All' && group.category !== selectedGroup) return false;
-    return true;
-  });
+      if (searchTerm && matchedSkills.length === 0) return null;
+
+      return {
+        ...cat,
+        skills: matchedSkills
+      };
+    })
+    .filter(Boolean) as SkillCategory[];
+
+  const totalSkillCount = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0);
 
   return (
-    <section id="skills" className="relative bg-[#fdf6e3] text-black overflow-hidden pt-4 pb-24">
-      {/* Sector Ribbon */}
-      <SectorRibbon sectorNumber="05" sectorName="TECHNICAL SKILL TAXONOMY & TOOLCHAINS" color="honey" />
+    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-24">
+      {/* Section Header */}
+      <div className="mb-12">
+        <div className="flex flex-wrap items-center gap-3 mb-4">
+          <span className="memphis-badge bg-electric-blue text-black border-4 border-black px-4 py-1.5 text-xs font-black tracking-widest uppercase">
+            [06 // ENGINEERING WORKBENCH]
+          </span>
+          <span className="bg-honey text-black border-3 border-black px-3 py-1 text-xs font-black tracking-wider uppercase">
+            {totalSkillCount} VERIFIED PROFICIENCIES
+          </span>
+        </div>
+        <h2 className="memphis-heading text-black pop-swap mb-4">
+          TECHNICAL STACK & WORKBENCH
+        </h2>
+        <p className="text-black text-base sm:text-lg font-bold max-w-3xl leading-relaxed">
+          Comprehensive matrix of frameworks, systems programming tools, AI accelerators, and cloud platforms actively used across research and commercial systems.
+        </p>
+      </div>
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-16">
-        
-        {/* Section Heading & Search */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b-4 border-black">
-          <div>
-            <div className="inline-block bg-[#ff6b6b] text-white px-3.5 py-1 text-xs font-black uppercase tracking-wider border-3 border-black shadow-[3px_3px_0_#000000] tilt-neg-1 mb-2">
-              // VERIFIED ARSENAL
-            </div>
-            <h2 className="memphis-heading text-black">
-              SKILLS & TOOLCHAIN TAXONOMY
-            </h2>
-            <p className="font-sans font-bold text-base text-black/80 mt-1 max-w-xl">
-              Systems programming, deep neural modeling, edge NPU acceleration, and embedded Linux.
-            </p>
+      {/* Core Engineering Trifecta Spotlight */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="bg-coral text-white border-4 border-black p-6 shadow-memphis group hover:-translate-y-1 transition-transform">
+          <div className="flex items-center justify-between mb-3 pb-2 border-b-2 border-black">
+            <span className="text-xs font-black uppercase tracking-wider bg-black text-white px-2 py-0.5">
+              PILLAR 01
+            </span>
+            <Brain className="w-6 h-6 text-white" />
           </div>
+          <h3 className="text-xl font-black uppercase tracking-tight">AI, NPU & Vision</h3>
+          <p className="text-xs font-bold mt-2 opacity-95 leading-relaxed">
+            PyTorch, Intel OpenVINO, YOLOv8, Custom CRUNet, DeepLabV3+, DSP, Multispectral Remote Sensing.
+          </p>
+        </div>
 
-          {/* Memphis Search Input */}
-          <div className="relative w-full md:w-80">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-black" />
+        <div className="bg-honey text-black border-4 border-black p-6 shadow-memphis group hover:-translate-y-1 transition-transform">
+          <div className="flex items-center justify-between mb-3 pb-2 border-b-2 border-black">
+            <span className="text-xs font-black uppercase tracking-wider bg-black text-white px-2 py-0.5">
+              PILLAR 02
+            </span>
+            <Cpu className="w-6 h-6 text-black" />
+          </div>
+          <h3 className="text-xl font-black uppercase tracking-tight">Embedded & Linux</h3>
+          <p className="text-xs font-bold mt-2 text-gray-900 leading-relaxed">
+            OpenWrt, LoRaWAN SX1303, MIPS/ARM Toolchains, Linux Kernel SPI Drivers, Device Tree Overlays (.dts).
+          </p>
+        </div>
+
+        <div className="bg-mint text-black border-4 border-black p-6 shadow-memphis group hover:-translate-y-1 transition-transform">
+          <div className="flex items-center justify-between mb-3 pb-2 border-b-2 border-black">
+            <span className="text-xs font-black uppercase tracking-wider bg-black text-white px-2 py-0.5">
+              PILLAR 03
+            </span>
+            <Layers className="w-6 h-6 text-black" />
+          </div>
+          <h3 className="text-xl font-black uppercase tracking-tight">Systems & Graphics</h3>
+          <p className="text-xs font-bold mt-2 text-gray-900 leading-relaxed">
+            C/C++, Python, FastAPI, Three.js (WebGL/GLSL Shaders), Docker Containers, TCP/IP Networking.
+          </p>
+        </div>
+      </div>
+
+      {/* Search & Filter Toolbar */}
+      <div className="bg-white border-4 border-black p-4 sm:p-6 shadow-memphis mb-8 space-y-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <div className="relative flex-1">
+            <Search className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-black" />
             <input
               type="text"
-              placeholder="Search skills (C++, PyTorch, Docker)..."
+              placeholder="Search specific tool, library or protocol (e.g. OpenVINO, C++, Three.js, LoRa)..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="memphis-input pl-10 pr-9 text-xs sm:text-sm"
+              className="memphis-input pl-11 w-full text-xs sm:text-sm font-bold"
             />
-            {searchTerm && (
-              <button
-                onClick={() => setSearchTerm('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-black hover:bg-[#ff6b6b] hover:text-white"
-              >
-                <X className="w-3.5 h-3.5" />
-              </button>
-            )}
           </div>
+          {searchTerm && (
+            <button
+              onClick={() => setSearchTerm('')}
+              className="memphis-btn-honey px-4 py-2.5 text-xs font-black"
+            >
+              Clear
+            </button>
+          )}
         </div>
 
-        {/* Category Filters (Pop Buttons) */}
-        <div className="flex flex-wrap gap-2.5 mb-10 select-none">
-          {allCategories.map((cat, idx) => {
-            const isSelected = selectedGroup === cat;
-            return (
-              <button
-                key={cat}
-                onClick={() => setSelectedGroup(cat)}
-                className={`px-3.5 py-2 font-sans font-black text-xs uppercase tracking-wider border-3 border-black transition-all duration-150 ${
-                  isSelected
-                    ? 'bg-[#ff6b6b] text-white shadow-[4px_4px_0_#000000] -translate-y-0.5'
-                    : 'bg-white text-black shadow-[2px_2px_0_#000000] hover:bg-[#feca57] hover:shadow-[4px_4px_0_#000000]'
-                }`}
-              >
-                {cat}
-              </button>
-            );
-          })}
+        {/* Category Pills */}
+        <div className="flex flex-wrap gap-2 pt-2 border-t-2 border-black">
+          {['All', ...skillCategories.map((c) => c.category)].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-3 py-1.5 text-xs font-black border-2 border-black uppercase transition-colors ${
+                selectedCategory === cat
+                  ? 'bg-black text-white'
+                  : 'bg-paper text-black hover:bg-honey'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
+      </div>
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayedGroups.map((group, gIdx) => {
-            const headerBg = categoryColors[gIdx % categoryColors.length];
-            const filteredSkills = group.skills.filter(s =>
-              s.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-              (s.level && s.level.toLowerCase().includes(searchTerm.toLowerCase()))
-            );
+      {/* Filtered Skill Categories Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
+        {filteredCategories.map((cat, idx) => (
+          <div
+            key={cat.category}
+            className="memphis-card bg-paper p-6 relative group overflow-hidden"
+          >
+            <MemphisCardOrnaments variant={(((idx % 4) + 1) as 1 | 2 | 3 | 4)} />
 
-            if (searchTerm && filteredSkills.length === 0) return null;
-
-            const tilt = gIdx % 2 === 0 ? 'tilt-neg-1' : 'tilt-pos-1';
-
-            return (
-              <div
-                key={group.category}
-                className={`memphis-card group p-0 overflow-hidden ${tilt} hover:tilt-0 transition-transform duration-150 flex flex-col justify-between`}
-              >
-                {/* Chaos Ornaments */}
-                <MemphisCardOrnaments variant={(gIdx % 4 + 1) as 1 | 2 | 3 | 4} />
-
-                <div>
-                  {/* Category Header */}
-                  <div className={`${headerBg} p-4 sm:p-5 border-b-4 border-black flex items-center justify-between`}>
-                    <div className="flex items-center gap-2.5">
-                      <div className="p-1.5 bg-white border-2 border-black shadow-[2px_2px_0_#000000]">
-                        {getCategoryIcon(group.icon)}
-                      </div>
-                      <h3 className="font-sans font-black text-base sm:text-lg text-black uppercase tracking-tight">
-                        {group.category}
-                      </h3>
-                    </div>
-                    <span className="font-mono text-xs font-bold text-black bg-white px-2 py-0.5 border-2 border-black">
-                      {filteredSkills.length}
-                    </span>
-                  </div>
-
-                  {/* Skills Grid */}
-                  <div className="p-5 sm:p-6 space-y-2.5 bg-white">
-                    <p className="font-sans font-bold text-xs text-black/70 mb-3">
-                      {group.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2">
-                      {filteredSkills.map((skill, sIdx) => (
-                        <div
-                          key={sIdx}
-                          className="memphis-badge bg-[#fdf6e3] text-black hover:bg-[#48dbfb] transition-colors duration-150 select-none py-1 px-2.5"
-                        >
-                          <span>{skill.name}</span>
-                          {skill.level && (
-                            <span className="text-[9px] bg-black text-white px-1 font-mono uppercase ml-1">
-                              {skill.level}
-                            </span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-3 bg-[#fdf6e3] border-t-3 border-black text-right font-mono text-[10px] font-bold text-[#5f27cd]">
-                  TAXONOMY // DOMAIN_{gIdx + 1}
-                </div>
-
+            {/* Header */}
+            <div className="flex items-center gap-3 pb-3 mb-3 border-b-3 border-black">
+              <div className="w-10 h-10 bg-white border-3 border-black flex items-center justify-center shrink-0 shadow-[2px_2px_0_#000]">
+                {getCategoryIcon(cat.icon)}
               </div>
-            );
-          })}
-        </div>
+              <div>
+                <h3 className="text-base sm:text-lg font-black text-black leading-tight">
+                  {cat.category}
+                </h3>
+                <p className="text-[11px] font-bold text-gray-700 leading-snug">
+                  {cat.description}
+                </p>
+              </div>
+            </div>
 
-        {/* Section Bottom Zigzag Divider */}
-        <MemphisZigzagDivider color="coral" className="mt-16" />
+            {/* Skills Pills */}
+            <div className="flex flex-wrap gap-2 pt-2">
+              {cat.skills.map((skill) => (
+                <span
+                  key={skill.name}
+                  className="bg-white hover:bg-honey text-black border-2 border-black px-3 py-1.5 text-xs font-black transition-colors shadow-[1px_1px_0_#000]"
+                >
+                  {skill.name}
+                </span>
+              ))}
+            </div>
 
+            <div className="mt-4 pt-3 border-t-2 border-black flex items-center justify-between text-[11px] font-bold text-gray-600">
+              <span>{cat.skills.length} specialized tools</span>
+              <span className="text-black font-black uppercase">Verified</span>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

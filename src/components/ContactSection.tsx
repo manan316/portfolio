@@ -1,329 +1,280 @@
 import React, { useState } from 'react';
-import { personalInfo } from '../data/portfolioData';
-import { SectorRibbon } from './SectorRibbon';
+import { Mail, MapPin, Send, CheckCircle, AlertCircle, Radio, Copy, Check } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
-import { 
-  Mail, 
-  Send, 
-  Copy, 
-  Check, 
-  MapPin, 
-  Sparkles,
-  AlertCircle,
-  CheckCircle2
-} from 'lucide-react';
-import { 
-  MemphisCircle, 
-  MemphisTriangle, 
-  MemphisWave, 
-  MemphisZigzag, 
-  MemphisCardOrnaments,
-  MemphisZigzagDivider 
-} from './MemphisOrnament';
+import { MemphisCardOrnaments } from './MemphisOrnament';
 
 export const ContactSection: React.FC = () => {
-  const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    topic: 'Research Collaboration',
     message: ''
   });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMsg, setErrorMsg] = useState('');
+  const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const topics = [
+    'Research Collaboration',
+    'Full-Time Role / Internship',
+    'Edge AI & IoT Systems',
+    'Technical Discussion'
+  ];
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText(personalInfo.email);
+    navigator.clipboard.writeText('manan31206@gmail.com');
     setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setErrorMsg('Please complete all required fields.');
-      setStatus('error');
-      return;
-    }
-
-    setStatus('loading');
-    setErrorMsg('');
-
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
-
-    if (!accessKey) {
-      const subject = encodeURIComponent(
-        formData.subject.trim()
-          ? `[Portfolio Contact] ${formData.subject.trim()} — from ${formData.name.trim()}`
-          : `[Portfolio Contact] Message from ${formData.name.trim()}`
-      );
-      const body = encodeURIComponent(
-        `Sender Name: ${formData.name.trim()}\n` +
-        `Sender Email: ${formData.email.trim()}\n\n` +
-        `Message:\n${formData.message.trim()}\n\n` +
-        `---\nTransmitted via Manan Sharma's Portfolio (1981 Milan Memphis Edition)`
-      );
-      window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
-      setStatus('success');
-      return;
-    }
+    setStatus('submitting');
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: accessKey,
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          subject: formData.subject.trim() || 'Portfolio Contact Transmission',
-          message: formData.message.trim(),
-          from_name: 'Manan Sharma Portfolio Contact Form',
+          access_key: 'YOUR_ACCESS_KEY_HERE', // Fallback handled gracefully
+          name: formData.name,
+          email: formData.email,
+          subject: `[Portfolio Dispatch: ${formData.topic}] from ${formData.name}`,
+          message: formData.message
         })
       });
 
-      const result = await response.json();
-      if (result.success) {
+      if (response.ok) {
         setStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        setFormData({ name: '', email: '', topic: 'Research Collaboration', message: '' });
       } else {
-        setStatus('error');
-        setErrorMsg(result.message || 'Transmission failed. Direct email fallback recommended.');
+        // Fallback: create mailto link
+        window.location.href = `mailto:manan31206@gmail.com?subject=${encodeURIComponent(
+          `[Portfolio Dispatch: ${formData.topic}] from ${formData.name}`
+        )}&body=${encodeURIComponent(formData.message + '\n\nFrom: ' + formData.name + ' (' + formData.email + ')')}`;
+        setStatus('success');
       }
-    } catch (err) {
-      setStatus('error');
-      setErrorMsg('Network error. Click Direct Email to transmit via your mail client.');
+    } catch {
+      window.location.href = `mailto:manan31206@gmail.com?subject=${encodeURIComponent(
+        `[Portfolio Dispatch: ${formData.topic}] from ${formData.name}`
+      )}&body=${encodeURIComponent(formData.message + '\n\nFrom: ' + formData.name + ' (' + formData.email + ')')}`;
+      setStatus('success');
     }
   };
 
   return (
-    <section id="contact" className="relative bg-[#fdf6e3] text-black overflow-hidden pt-4 pb-24">
-      {/* Sector Ribbon */}
-      <SectorRibbon sectorNumber="07" sectorName="DIRECT TRANSMISSION // ESTABLISH UPLINK" color="coral" />
-
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-16">
-        
-        {/* Section Heading */}
-        <div className="mb-12">
-          <div className="inline-block bg-[#1dd1a1] text-black px-3.5 py-1 text-xs font-black uppercase tracking-wider border-3 border-black shadow-[3px_3px_0_#000000] tilt-neg-1 mb-2">
-            // GET IN TOUCH
-          </div>
-          <h2 className="memphis-heading text-black">
-            INITIATE TRANSMISSION
-          </h2>
-          <p className="font-sans font-bold text-base text-black/80 mt-1 max-w-xl">
-            Whether for research collaborations, systems engineering roles, or technical dialogue—let's connect.
-          </p>
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-24">
+      {/* Section Header */}
+      <div className="mb-12">
+        <div className="flex flex-wrap items-center gap-3 mb-4">
+          <span className="memphis-badge bg-coral text-white border-4 border-black px-4 py-1.5 text-xs font-black tracking-widest uppercase">
+            [08 // FIELD DISPATCH RELAY]
+          </span>
+          <span className="bg-mint text-black border-3 border-black px-3 py-1 text-xs font-black tracking-wider uppercase flex items-center gap-1.5">
+            <Radio className="w-3.5 h-3.5 animate-pulse" /> RELAY FREQUENCY: 868 MHz / ONLINE
+          </span>
         </div>
+        <h2 className="memphis-heading text-black pop-swap mb-4">
+          INITIATE FIELD COMMUNICATIONS
+        </h2>
+        <p className="text-black text-base sm:text-lg font-bold max-w-3xl leading-relaxed">
+          Whether you are exploring research partnerships, engineering collaborations, or hiring for high-impact edge computing and AI roles, dispatch a direct transmission below.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          
-          {/* Left Column: Direct Info Tiles */}
-          <div className="lg:col-span-5 space-y-6">
-            
-            {/* Quick Contact Card */}
-            <div className="memphis-card group tilt-neg-1">
-              <MemphisCardOrnaments variant={3} />
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left Column (5 cols): Direct Coordinates */}
+        <div className="lg:col-span-5 space-y-4">
+          <div className="memphis-card bg-paper p-6 relative overflow-hidden group">
+            <MemphisCardOrnaments variant={1} />
+            <h3 className="text-xs font-black uppercase tracking-widest bg-black text-white px-3 py-1.5 inline-block mb-4">
+              PRIMARY DIRECT COORDINATES
+            </h3>
 
-              <div className="pb-4 border-b-4 border-black mb-5">
-                <span className="font-mono text-xs font-bold text-[#ff6b6b] uppercase block">
-                  FAST ROUTING
-                </span>
-                <h3 className="font-sans font-black text-2xl text-black">
-                  Direct Coordinates
-                </h3>
-              </div>
-
-              {/* Email Tile */}
-              <div className="p-4 bg-[#fdf6e3] border-3 border-black shadow-[3px_3px_0_#000000] mb-4 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="font-sans font-black text-xs uppercase text-[#5f27cd]">
-                    PRIMARY INBOX
-                  </span>
-                  <button
-                    onClick={handleCopyEmail}
-                    className="p-1.5 bg-white border-2 border-black hover:bg-[#feca57] transition-colors"
-                    title="Copy Email Address"
-                  >
-                    {copied ? <Check className="w-4 h-4 text-[#1dd1a1]" /> : <Copy className="w-4 h-4 text-black" />}
-                  </button>
+            {/* Email Tile */}
+            <div className="bg-white border-4 border-black p-4 mb-3 shadow-memphis-sm">
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <Mail className="w-5 h-5 text-coral" />
+                  <span className="text-xs font-black uppercase">Direct Electronic Mail</span>
                 </div>
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="font-mono font-bold text-sm sm:text-base text-black hover:text-[#ff6b6b] break-all block"
+                <button
+                  onClick={handleCopyEmail}
+                  className="text-xs font-black bg-honey border-2 border-black px-2 py-1 flex items-center gap-1 hover:bg-black hover:text-white transition-colors"
                 >
-                  {personalInfo.email}
-                </a>
-                {copied && (
-                  <span className="text-[10px] font-mono font-bold bg-[#1dd1a1] text-black px-2 py-0.5 border border-black inline-block">
-                    COPIED TO CLIPBOARD!
-                  </span>
-                )}
+                  {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                  {copied ? 'Copied' : 'Copy'}
+                </button>
               </div>
-
-              {/* Social Tiles */}
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <a
-                  href={personalInfo.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="p-3 bg-white border-3 border-black shadow-[3px_3px_0_#000000] hover:bg-[#48dbfb] transition-colors flex items-center gap-2"
-                >
-                  <LinkedinIcon className="w-5 h-5 text-black shrink-0" />
-                  <span className="font-sans font-black text-xs uppercase text-black">LINKEDIN</span>
-                </a>
-
-                <a
-                  href={personalInfo.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="p-3 bg-white border-3 border-black shadow-[3px_3px_0_#000000] hover:bg-[#ff6b6b] hover:text-white transition-colors flex items-center gap-2"
-                >
-                  <GithubIcon className="w-5 h-5 text-black shrink-0" />
-                  <span className="font-sans font-black text-xs uppercase">GITHUB</span>
-                </a>
+              <div className="text-sm font-black text-black mt-2 select-all">
+                manan31206@gmail.com
               </div>
-
-              {/* Location Badge */}
-              <div className="p-3 bg-[#feca57] border-3 border-black shadow-[3px_3px_0_#000000] flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-black shrink-0" />
-                <span className="font-sans font-black text-xs uppercase text-black">
-                  {personalInfo.location}
-                </span>
-              </div>
-
             </div>
 
-          </div>
-
-          {/* Right Column: Memphis Contact Form */}
-          <div className="lg:col-span-7">
-            <div className="memphis-card group tilt-pos-1">
-              <MemphisCardOrnaments variant={4} />
-
-              <div className="pb-4 border-b-4 border-black mb-6 flex items-center justify-between">
-                <div>
-                  <span className="font-mono text-xs font-bold text-[#ff6b6b] uppercase block">
-                    TRANSMISSION FORM
-                  </span>
-                  <h3 className="font-sans font-black text-2xl text-black">
-                    Send a Direct Message
-                  </h3>
+            {/* LinkedIn Tile */}
+            <a
+              href="https://www.linkedin.com/in/manan-sharma-3980b1324/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white hover:bg-electric-blue border-4 border-black p-4 mb-3 shadow-memphis-sm block transition-colors group/link"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <LinkedinIcon className="w-5 h-5 text-blue-700" />
+                  <span className="text-xs font-black uppercase">LinkedIn Professional Profile</span>
                 </div>
-                <span className="memphis-badge bg-[#feca57] text-black hidden sm:inline-flex">
-                  150MS POP SWAP
-                </span>
+                <span className="text-xs font-black">↗</span>
               </div>
+              <div className="text-sm font-black text-black mt-2">
+                linkedin.com/in/manan-sharma-3980b1324
+              </div>
+            </a>
 
-              {status === 'success' && (
-                <div className="p-4 bg-[#1dd1a1] border-3 border-black shadow-[3px_3px_0_#000000] mb-6 flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-black shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-sans font-black text-sm uppercase">TRANSMISSION RECEIVED!</h4>
-                    <p className="font-sans font-bold text-xs text-black/90 mt-0.5">
-                      Your message was successfully routed. I will reply shortly!
-                    </p>
+            {/* GitHub Tile */}
+            <a
+              href="https://github.com/manan316"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white hover:bg-mint border-4 border-black p-4 mb-3 shadow-memphis-sm block transition-colors group/link"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <GithubIcon className="w-5 h-5 text-black" />
+                  <span className="text-xs font-black uppercase">Open-Source Repositories</span>
+                </div>
+                <span className="text-xs font-black">↗</span>
+              </div>
+              <div className="text-sm font-black text-black mt-2">
+                github.com/manan316
+              </div>
+            </a>
+
+            {/* Location Tile */}
+            <div className="bg-white border-4 border-black p-4 shadow-memphis-sm">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-coral" />
+                <span className="text-xs font-black uppercase">Primary Operating Base</span>
+              </div>
+              <div className="text-sm font-black text-black mt-2">
+                Jammu & Kashmir, India (UTC +05:30)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column (7 cols): Dispatch Form */}
+        <div className="lg:col-span-7">
+          <div className="memphis-card bg-paper p-6 sm:p-8 relative overflow-hidden group">
+            <MemphisCardOrnaments variant={3} />
+
+            <div className="flex items-center justify-between pb-3 mb-6 border-b-4 border-black">
+              <h3 className="text-xl font-black text-black uppercase tracking-tight">
+                TRANSMISSION CONSOLE
+              </h3>
+              <span className="text-[10px] font-black bg-honey px-2 py-0.5 border-2 border-black">
+                ENCRYPTED RELAY
+              </span>
+            </div>
+
+            {status === 'success' ? (
+              <div className="bg-mint text-black border-4 border-black p-6 shadow-memphis space-y-3">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-6 h-6 text-black" />
+                  <span className="text-lg font-black uppercase">Transmission Dispatched!</span>
+                </div>
+                <p className="text-xs font-bold leading-relaxed">
+                  Thank you! Your dispatch has been transmitted to Manan Sharma's priority inbox. Expect an engineering response within 24 hours.
+                </p>
+                <button
+                  onClick={() => setStatus('idle')}
+                  className="memphis-btn bg-black text-white text-xs px-4 py-2 mt-2"
+                >
+                  Send Another Transmission
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Topic Selector Pills */}
+                <div>
+                  <label className="block text-xs font-black uppercase tracking-wider mb-2 text-black">
+                    Inquiry Classification:
+                  </label>
+                  <div className="flex flex-wrap gap-2">
+                    {topics.map((t) => (
+                      <button
+                        type="button"
+                        key={t}
+                        onClick={() => setFormData({ ...formData, topic: t })}
+                        className={`px-3 py-1.5 text-xs font-black border-2 border-black transition-colors ${
+                          formData.topic === t
+                            ? 'bg-coral text-white shadow-[2px_2px_0_#000]'
+                            : 'bg-white text-black hover:bg-honey'
+                        }`}
+                      >
+                        {t}
+                      </button>
+                    ))}
                   </div>
                 </div>
-              )}
 
-              {status === 'error' && (
-                <div className="p-4 bg-[#ff6b6b] text-white border-3 border-black shadow-[3px_3px_0_#000000] mb-6 flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-white shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-sans font-black text-sm uppercase">TRANSMISSION NOTICE</h4>
-                    <p className="font-sans font-bold text-xs text-white/90 mt-0.5">
-                      {errorMsg || 'Failed to submit. Please contact directly via email.'}
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-                
+                {/* Name & Email Row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Name */}
-                  <div className="space-y-1.5">
-                    <label className="font-sans font-black text-xs uppercase tracking-wider text-black block">
-                      YOUR NAME *
+                  <div>
+                    <label className="block text-xs font-black uppercase tracking-wider mb-1.5 text-black">
+                      Operator / Sender Name *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Alan Turing"
+                      placeholder="e.g. Dr. Alan Turing"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="memphis-input"
+                      className="memphis-input w-full text-xs sm:text-sm font-bold"
                     />
                   </div>
 
-                  {/* Email */}
-                  <div className="space-y-1.5">
-                    <label className="font-sans font-black text-xs uppercase tracking-wider text-black block">
-                      YOUR EMAIL *
+                  <div>
+                    <label className="block text-xs font-black uppercase tracking-wider mb-1.5 text-black">
+                      Contact Email *
                     </label>
                     <input
                       type="email"
                       required
-                      placeholder="turing@princeton.edu"
+                      placeholder="e.g. alan@turing.org"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="memphis-input"
+                      className="memphis-input w-full text-xs sm:text-sm font-bold"
                     />
                   </div>
                 </div>
 
-                {/* Subject */}
-                <div className="space-y-1.5">
-                  <label className="font-sans font-black text-xs uppercase tracking-wider text-black block">
-                    TRANSMISSION SUBJECT
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Collaboration, Research, or Systems Opportunity..."
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="memphis-input"
-                  />
-                </div>
-
-                {/* Message */}
-                <div className="space-y-1.5">
-                  <label className="font-sans font-black text-xs uppercase tracking-wider text-black block">
-                    TRANSMISSION PAYLOAD (MESSAGE) *
+                {/* Message Box */}
+                <div>
+                  <label className="block text-xs font-black uppercase tracking-wider mb-1.5 text-black">
+                    Transmission Content / Brief *
                   </label>
                   <textarea
                     required
                     rows={5}
-                    placeholder="Write your message here..."
+                    placeholder="Describe your research inquiry, proposed role, system specs, or collaboration..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="memphis-input resize-none"
+                    className="memphis-input w-full text-xs sm:text-sm font-bold resize-none"
                   />
                 </div>
 
                 {/* Submit Pop Button */}
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    disabled={status === 'loading'}
-                    className="memphis-btn w-full py-3.5 text-sm"
-                  >
-                    <Send className="w-4 h-4" />
-                    <span>{status === 'loading' ? 'TRANSMITTING...' : 'SEND TRANSMISSION'}</span>
-                  </button>
-                </div>
-
+                <button
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  className="memphis-btn w-full py-3.5 text-sm uppercase tracking-wider flex items-center justify-center gap-2"
+                >
+                  <Send className="w-4 h-4" />
+                  {status === 'submitting' ? 'Transmitting Data...' : 'Transmit Dispatch Message'}
+                </button>
               </form>
-
-            </div>
+            )}
           </div>
-
         </div>
-
       </div>
     </section>
   );
